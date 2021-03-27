@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>archlinux本地全局转发shadowsocks为http和https | lc4t&#39;s blog</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="一些随想和笔记">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="archlinux本地全局转发shadowsocks为http和https | lc4t&#39;s blog">
+    <meta name="twitter:description" content="一些随想和笔记">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="archlinux本地全局转发shadowsocks为http和https | lc4t&#39;s blog">
+    <meta property="og:description" content="一些随想和笔记">
+
+    
+    <meta name="author" content="lc4t">
+    
+    
+<link rel="stylesheet" href="/css/vno.css">
+
+    
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+
+    
+    <link rel="icon" href="/images/icon.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="lc4t&#39;s blog" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://example.com/2015/06/17/archlinux%E6%9C%AC%E5%9C%B0%E5%85%A8%E5%B1%80%E8%BD%AC%E5%8F%91shadowsocks%E4%B8%BAhttp%E5%92%8Chttps/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    
+<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+
+    
+<script src="/js/main.js"></script>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/rem-pa.png)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 lc4t&#39;s blog 的主页"><img src="/images/avatar.jpg" width="80" alt="lc4t&#39;s blog logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for lc4t&#39;s blog">lc4t&#39;s blog</a></h1>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">一些随想和笔记</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="/friends">Friends</a></li>
+            
+              <li class="navigation__item"><a href="/tags">Tags</a></li>
+            
+              <li class="navigation__item"><a href="/about">About</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/lc4t" title="GitHub" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-purple"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2015-06-16T16:45:04.000Z" class="post-list__meta--date date">2015-06-17</time> &#8226; <span class="post-meta__tags tags">于 
+  <a class="-none-link" href="/tags/ArchLinux/" rel="tag">ArchLinux</a>, <a class="-none-link" href="/tags/Linux/" rel="tag">Linux</a>, <a class="-none-link" href="/tags/Shadowsocks/" rel="tag">Shadowsocks</a>, <a class="-none-link" href="/tags/%E4%BB%A3%E7%90%86/" rel="tag">代理</a>
+ </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">archlinux本地全局转发shadowsocks为http和https</h1>
+  </header>
+
+  <section class="post">
+    <h3 id="ss客户端"><a href="#ss客户端" class="headerlink" title="ss客户端"></a>ss客户端</h3><p>首先,要有一个ss,这里使用的就是shadowsocks客户端(sslocal)<br><code>yaourt -S community/shadowsocks</code><br>或者<br><code>sudo pacman -S shadowsocks</code></p>
+<span id="more"></span>
+
+
+<h3 id="编辑配置文件"><a href="#编辑配置文件" class="headerlink" title="编辑配置文件"></a>编辑配置文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sudo touch /etc/shadowsocks/config.json</span><br><span class="line">sudo gedit /etc/shadowsocks/config.json</span><br><span class="line">&#123;</span><br><span class="line">	<span class="string">&quot;server&quot;</span>:<span class="string">&quot;remote-shadowsocks-server-ip-addr&quot;</span>,</span><br><span class="line">	<span class="string">&quot;server_port&quot;</span>:443,</span><br><span class="line">	<span class="string">&quot;local_address&quot;</span>:<span class="string">&quot;127.0.0.1&quot;</span>,</span><br><span class="line">	<span class="string">&quot;local_port&quot;</span>:1080,</span><br><span class="line">	<span class="string">&quot;password&quot;</span>:<span class="string">&quot;your-passwd&quot;</span>,</span><br><span class="line">	<span class="string">&quot;timeout&quot;</span>:300,</span><br><span class="line">	<span class="string">&quot;method&quot;</span>:<span class="string">&quot;aes-256-cfb&quot;</span>,</span><br><span class="line">	<span class="string">&quot;fast_open&quot;</span>:<span class="literal">false</span>,</span><br><span class="line">	<span class="string">&quot;workers&quot;</span>:1</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="测试ss启动-可忽略"><a href="#测试ss启动-可忽略" class="headerlink" title="测试ss启动(可忽略)"></a>测试ss启动(可忽略)</h3><p><code>sslocal -c /etc/shadowsocks/config.json</code></p>
+<h3 id="守护进程"><a href="#守护进程" class="headerlink" title="守护进程"></a>守护进程</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">systemctl start shadowsocks-server@config</span><br><span class="line">systemctl <span class="built_in">enable</span> shadowsocks-server@config</span><br><span class="line"><span class="comment">#这里@后面的内容配置文件名字一致(不含json)</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="使用delegate转发端口协议"><a href="#使用delegate转发端口协议" class="headerlink" title="使用delegate转发端口协议"></a>使用delegate转发端口协议</h3><p><code>yaourt -S community/delegate</code></p>
+<p>建立这个文件 /etc/systemd/system/delegate-shadowsocks.service</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#File: /etc/systemd/system/delegate-shadowsocks.service</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=Delegate daemon <span class="keyword">for</span> forwarding http requests to shadowsocks</span><br><span class="line">Requires=shadowsocks@config.service</span><br><span class="line">After=network.target shadowsocks@config.service</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">User=nobody</span><br><span class="line">ExecStart=/usr/bin/delegated -P10801 SERVER=http SOCKS=127.0.0.1:1080</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+<p>之后就是enable它了</p>
+<p><code>systemctl enable delegate-shadowsocks.service</code></p>
+<h3 id="再转发https"><a href="#再转发https" class="headerlink" title="再转发https"></a>再转发https</h3><p>再来一个文件咯..</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#File: /etc/systemd/system/delegate-shadowsocks-2.service</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=Delegate daemon <span class="keyword">for</span> forwarding http requests to shadowsocks</span><br><span class="line">Requires=shadowsocks@config.service</span><br><span class="line">After=network.target shadowsocks@config.service</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">User=nobody</span><br><span class="line">ExecStart=/usr/bin/delegated -P10802 SERVER=https SOCKS=127.0.0.1:1080</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p><code>systemctl enable delegate-shadowsocks-2.service</code></p>
+<p>这样本地的10801就是http,10802是https了～</p>
+<h3 id="附上delegated简单使用方法"><a href="#附上delegated简单使用方法" class="headerlink" title="附上delegated简单使用方法"></a>附上delegated简单使用方法</h3><p>开启服务：delegated -P&lt; 要使用的端口&gt; SERVER=http SOCKS=127.0.0.1:&lt;shadowsocks 端口&gt;</p>
+<p>停止服务：delegated -P&lt; 要使用的端口&gt; -Fkill</shadowsocks></p>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Newer Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2015/10/03/gctf2015-writeup/" title="gctf2015-writeup">gctf2015-writeup</a></h2>
+                <p class="excerpt">
+                
+                gctf writeup, by cnssWEB200先吐槽，第一天做的时候web100表里面居然flag字段为空，就以为是个坑，到处翻表，结果是被人搅了而已，那么卡的服务器居然出的是时间盲注真是醉了。
+当url中出现大写的PG_SLEEP的时候就会返回can’t use sleep，测试小写的时候
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2015-10-02T16:45:04.000Z" class="post-list__meta--date date">2015-10-03</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="-none-link" href="/tags/GCTF/" rel="tag">GCTF</a>, <a class="-none-link" href="/tags/writeup/" rel="tag">writeup</a>
+</span><a class="btn-border-small" href="/2015/10/03/gctf2015-writeup/"></a></div>
+                           
+            </div>
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2015/06/12/Nazo LEVEL 闯关游戏题解[更新至0+85+EX10关]/" title="Nazo LEVEL 闯关游戏题解[更新至0+85+EX10关]">Nazo LEVEL 闯关游戏题解[更新至0+85+EX10关]</a></h2>
+                <p class="excerpt">
+                
+                Basic网址 http://cafebabe.cc/nazo/ 手机hint: chrome浏览器在网页前加view-source: 可以查看源代码..现在没找到可以调试网页的工具,所以那个52是不能做的.. 页面和hint(右边是进入左边地址的hint)
+12345678910111213141
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2015-06-11T16:45:04.000Z" class="post-list__meta--date date">2015-06-12</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="-none-link" href="/tags/game/" rel="tag">game</a>, <a class="-none-link" href="/tags/nazo/" rel="tag">nazo</a>, <a class="-none-link" href="/tags/writeup/" rel="tag">writeup</a>
+</span><a class="btn-border-small" href="/2015/06/12/Nazo LEVEL 闯关游戏题解[更新至0+85+EX10关]/"></a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2021 lc4t
+       
+    </span>
+    <span class="footer__copyright">
+            
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-96200907-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?a9801aa00a5615a147c66e9f1f2893c6";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>

