@@ -3,34 +3,27 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-AstroPaper is a minimal, responsive and SEO-friendly Astro blog theme. I designed and crafted this based on [my personal blog](https://satnaing.dev/blog).
-
-This theme is aimed to be accessible out of the box. Light and dark mode are supported by
-default and additional color schemes can also be configured.
-
-This theme is self-documented \_ which means articles/posts in this theme can also be considered as documentations. So, see the documentation for more info.
+个人博客，随机掉落一些想法、文章、照片等。
 
 <div>
   <img src="/assets/dev.svg" class="sm:w-1/2 mx-auto" alt="coding dev illustration">
 </div>
 
-## Tech Stack
+---
 
-This theme is written in vanilla JavaScript (+ TypeScript for type checking) and a little bit of ReactJS for some interactions. TailwindCSS is used for styling; and Markdown is used for blog contents.
+#### Target
 
-## Features
-
-Here are certain features of this site.
-
-- fully responsive and accessible
-- SEO-friendly
-- light & dark mode
-- fuzzy search
-- super fast performance
-- draft posts
-- pagination
-- sitemap & rss feed
-- highly customizable
-
-If you like this theme, you can star/contribute to the [repo](https://github.com/satnaing/astro-paper).  
-Or you can even give any feedback via my [email](mailto:contact@satnaing.dev).
+0. [x] ~~赚钱买 iPhone~~ **比赛奖品** 2015-12-23
+1. [x] ~~大二暑假实习~~ **成都安恒, 九章算法** 2016-09-01
+2. [x] ~~赚钱买 rMBP~~ **兼职** 20016.11.13
+3. [x] ~~AT 实习~~ ~~实习留任~~ **腾讯 2017 实习+留任** 2017.3.29/2017.9.1
+4. [x] ~~买 iPad~~ **10.5iPad+ApplePencil+Airpods** 2017.6.14
+5. [x] cos Rem **CP22 已完成** 2018.5.19
+6. [ ] 日语 N2 **学习中** 2020.1.6
+7. [ ] 产出摄影作品 **学习中** 2020.1.6
+8. [ ] 量化项目游戏化 **策划数值中** 2020.1.6
+9. [ ] 部分考证:心理咨询师/法考/教师 **待定**
+10. [ ] 未来居住城市确定 **上海>成都** 2020.1.6
+11. [ ] 攒首付 **最早在 2021.7 后开始**
+12. [ ] 年薪过 200w **预计 2027 年**
+13. [ ] 解决单身问题 **这个应该放最后**
