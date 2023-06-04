@@ -1,5 +1,6 @@
 ---
 import { SITE } from "@config";
+
 import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
 import Header from "@components/Header.astro";
@@ -7,8 +8,10 @@ import Footer from "@components/Footer.astro";
 import Card from "@components/Card";
 import LinkButton from "@components/LinkButton.astro";
 import slugify from "@utils/slugify";
-import type { CollectionEntry } from "astro:content";
-
+// import type { CollectionEntry } from "astro:content";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { getPostDate, formatDate } from "@utils/getSortedPosts";
+import { getSortedPostsByYear } from "@utils/getSortedPosts";
 export interface Props {
   pageNum: number;
   totalPages: number;
@@ -19,18 +22,39 @@ const { pageNum, totalPages, posts } = Astro.props;
 
 const prev = pageNum > 1 ? "" : "disabled";
 const next = pageNum < totalPages ? "" : "disabled";
+const myposts = await getCollection("blog");
+const sortedPostsByYear = getSortedPostsByYear(myposts);
 ---
 
 <Layout title={`Posts | ${SITE.title}`}>
   <Header activeNav="posts" />
   <Main pageTitle="Posts" pageDesc="All the articles I've posted.">
-    <ul>
+    {
+      Object.keys(sortedPostsByYear)
+        .sort((a, b) => b.localeCompare(a))
+        .map(year => (
+          <div>
+            <h3>{year}</h3>
+            {sortedPostsByYear[year].map(item => (
+              <div class="hstack font-normal" m="y-1 x-0.5">
+                <div class="mr-2 h-6 w-14 leading-6" text="c-lighter sm">
+                  {formatDate(getPostDate(item.id), 1)}
+                </div>
+                <a class="!text-c flex-1" href={`/posts/${item.slug}`}>
+                  {item.data.title}
+                </a>
+              </div>
+            ))}
+          </div>
+        ))
+    }
+    <!-- <ul>
       {
         posts.map(({ data }) => (
           <Card href={`/posts/${slugify(data)}`} frontmatter={data} />
         ))
       }
-    </ul>
+    </ul> -->
   </Main>
 
   {
