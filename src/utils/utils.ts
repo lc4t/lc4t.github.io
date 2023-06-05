@@ -1,18 +1,15 @@
 import dayjs from "dayjs";
-import getSortedPosts from "@utils/getSortedPosts";
-import { Debug } from "astro/components";
-import type { CollectionEntry } from "astro:content";
 
-export const getSortedPostsByYear = (posts: CollectionEntry<"blog">[]) => {
-  const sortedPosts = getSortedPosts(posts);
-  const map: Record<string, CollectionEntry<"blog">[]> = {};
-
-  for (const p of sortedPosts) {
-    const y = dayjs(p.data.pubDatetime)
-      .format("YYYY-MM-DD HH:mm")
-      .substring(0, 4);
+export const getSortedPostsByYear = (
+  posts: MarkdownInstance<Record<string, any>>[]
+) => {
+  posts.sort((a, b) =>
+    b.frontmatter.pubDatetime.localeCompare(a.frontmatter.pubDatetime)
+  );
+  const map: Record<string, MarkdownInstance<Record<string, any>>[]> = {};
+  for (const p of posts) {
+    let y = dayjs(p.frontmatter.pubDatetime).format("YYYY");
     map[y] ? map[y].push(p) : (map[y] = [p]);
   }
-
   return map;
 };

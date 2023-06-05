@@ -5,13 +5,13 @@ import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
-import PostCard from "@components/PostCard";
 import LinkButton from "@components/LinkButton.astro";
 import slugify from "@utils/slugify";
 import type { CollectionEntry } from "astro:content";
 import type { BlogFrontmatter } from "@content/_schemas";
 import { getSortedPostsByYear } from "@utils/utils";
 import { getSortedPosts } from "@utils/getSortedPosts";
+import dayjs from "dayjs";
 export interface Props {
   pageNum: number;
   totalPages: number;
@@ -23,50 +23,50 @@ const { pageNum, totalPages, posts } = Astro.props;
 const prev = pageNum > 1 ? "" : "disabled";
 const next = pageNum < totalPages ? "" : "disabled";
 const archived = await Astro.glob("../content/blog/archive/*.md");
-
-const sortedPostsByYear = getSortedPostsByYear(posts);
+const sortedPostsByYear = getSortedPostsByYear(archived);
 ---
 
 <Layout title={`Posts | ${SITE.title}`}>
   <Header activeNav="posts" />
-  <Main pageTitle="Posts" pageDesc="All the articles I've posted.">
+  <Main pageTitle="Archive" pageDesc="Article Before 2023">
     <!-- <Debug answer={slugify(posts[0].data)} /> -->
     <!-- <Debug getSortedPosts={getSortedPosts(posts)} /> -->
-    <!-- <Debug getSortedPostsByYear={sortedPostsByYear} /> -->
-
+    <!-- <Debug p={} /> -->
     <div>
       {
         Object.keys(sortedPostsByYear)
           .sort((a, b) => b.localeCompare(a))
           .map(year => (
             <div>
-              <h3>{year}</h3>
+              <span class="font-normal">{year}</span>
               {sortedPostsByYear[year].map(post => (
-                // <Debug data={post.data} />
-                <PostCard
-                  href={`/posts/${slugify(post.data)}`}
-                  title={post.data.title}
-                  pubDatetime={post.data.pubDatetime}
-                />
+                <div class="flex items-center font-normal" m="y-4 x-0.8">
+                  <div class="w-18" text="sm">
+                    {dayjs(post.frontmatter.pubDatetime).format("MM-DD")}
+                  </div>
+                  <LinkButton
+                    className="hover:text-skin-primary text-skin-base"
+                    href={`/posts/${slugify(post.frontmatter)}`}
+                  >
+                    {post.frontmatter.title}
+                  </LinkButton>
+                </div>
               ))}
             </div>
           ))
-        // getSortedPostsByYear(posts).map(post => (
-        //   <PostCard href={`/posts/${slugify(post)}`} frontmatter={post} />
-        // ))
       }
     </div>
   </Main>
-</Layout>
 
-<style>
-  .pagination-wrapper {
-    @apply mb-8 mt-auto flex justify-center;
-  }
-  .disabled {
-    @apply pointer-events-none select-none opacity-50 hover:text-skin-base group-hover:fill-skin-base;
-  }
-  .disabled-svg {
-    @apply group-hover:!fill-skin-base;
-  }
-</style>
+  <style>
+    .pagination-wrapper {
+      @apply mb-8 mt-auto flex justify-center;
+    }
+    .disabled {
+      @apply pointer-events-none select-none opacity-50 hover:text-skin-base group-hover:fill-skin-base;
+    }
+    .disabled-svg {
+      @apply group-hover:!fill-skin-base;
+    }
+  </style>
+</Layout>
