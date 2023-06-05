@@ -6,6 +6,7 @@ import remarkCollapse from "remark-collapse";
 import sitemap from "@astrojs/sitemap";
 import { SITE } from "./src/config";
 import UnoCSS from "unocss/astro";
+import solid from "@astrojs/solid-js";
 
 // https://astro.build/config
 export default defineConfig({
@@ -16,9 +17,10 @@ export default defineConfig({
         applyBaseStyles: false,
       },
     }),
-    react(),
+    // react(),
+    UnoCSS({ injectReset: true }),
+    solid(),
     sitemap(),
-    UnoCSS(),
   ],
   markdown: {
     remarkPlugins: [
