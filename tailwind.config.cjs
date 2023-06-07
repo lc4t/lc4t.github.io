@@ -19,7 +19,17 @@ module.exports = {
 
     // Uncomment the following extend
     // if existing Tailwind color palette will be used
-
+    extent: {
+      colors: {
+        'moonlight-b': '#222436',
+        'moonlight-ll': '#c8d3f5',
+        'moonlight-bb': '#1e2030',
+        // moonlight_4: '#c8d3f5',
+        'moonlight-l': '#65bcff',
+        'moonlight-lll': '#191a2a',
+      },
+    },
+   
     // extend: {
     textColor: {
       skin: {

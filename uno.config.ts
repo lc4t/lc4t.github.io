@@ -11,7 +11,13 @@ import {
 const DEFAULT_FONTS = "-apple-system,system-ui,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,sans-serif";
 
 export default defineConfig({
-  shortcuts: [],
+  shortcuts: [
+    ["pbb", "flex-1 text-center text-2xl font-bold"],
+    ["ph1", "text-2xl font-semibold sm:text-3xl"],
+    ["ph3", "text-2xl font-semibold sm:text-2xl"],
+    ["ppi", "mb-6 mt-2 italic"],
+    ["ph3i", "ph3 italic"],
+  ],
   theme: {
     fontFamily: {
       sans: `Computer Modern Sans, ${DEFAULT_FONTS}`,
@@ -21,7 +27,7 @@ export default defineConfig({
       nav: "0 1px 8px 0 rgba(0, 51, 102, .1)"
     },
     colors: {
-      brand: "#1772d0"
+
     },
     maxWidth: {
       content: "90ch"

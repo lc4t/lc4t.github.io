@@ -1,54 +1,98 @@
 ---
 import { SITE } from "@config";
-import { Debug } from "astro/components";
+// import { Debug } from "astro/components";
 import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
 import Header from "@components/Header.astro";
-import Footer from "@components/Footer.astro";
+// import Footer from "@components/Footer.astro";
 import LinkButton from "@components/LinkButton.astro";
 import slugify from "@utils/slugify";
-import type { CollectionEntry } from "astro:content";
-import type { BlogFrontmatter } from "@content/_schemas";
+import { getCollection } from "astro:content";
 import { getSortedPostsByYear } from "@utils/utils";
-import { getSortedPosts } from "@utils/getSortedPosts";
 import dayjs from "dayjs";
-export interface Props {
-  pageNum: number;
-  totalPages: number;
-  posts: CollectionEntry<"blog">[];
-}
+// export interface Props {
+//   pageNum: number;
+//   totalPages: number;
+//   posts: CollectionEntry<"blog">[];
+// }
 
-const { pageNum, totalPages, posts } = Astro.props;
+// const { pageNum, totalPages, posts } = Astro.props;
 
-const prev = pageNum > 1 ? "" : "disabled";
-const next = pageNum < totalPages ? "" : "disabled";
-const archived = await Astro.glob("../content/blog/archive/*.md");
-const sortedPostsByYear = getSortedPostsByYear(archived);
+// const prev = pageNum > 1 ? "" : "disabled";
+// const next = pageNum < totalPages ? "" : "disabled";
+// const archived = await Astro.glob("../content/blog/archive/*.md");
+const archived = await getCollection("blog", a =>
+  a.slug.startsWith("archive/")
+);
+
+// const posted = (await Astro.glob("../content/blog/*.md"))
+//   ? await Astro.glob("../content/blog/*.md")
+//   : [];
+
+const posted = await getCollection("blog", a => a.slug.startsWith("article/"));
+
+// const archivedSortedPostsByYear = getSortedPostsByYear(archived);
+const archivedSortedPostsByYear = getSortedPostsByYear(archived);
+const postedSortedByYear = getSortedPostsByYear(posted);
 ---
 
 <Layout title={`Posts | ${SITE.title}`}>
   <Header activeNav="posts" />
-  <Main pageTitle="Archive" pageDesc="Article Before 2023">
-    <!-- <Debug answer={slugify(posts[0].data)} /> -->
-    <!-- <Debug getSortedPosts={getSortedPosts(posts)} /> -->
-    <!-- <Debug p={} /> -->
+  <Main pageTitle="Posts" pageDesc="My Articles">
+    <!-- <Debug getSortedPosts={postedSortedByYear["2023"]} /> -->
+    <!-- <Debug getSortedPosts={archivedSortedPostsByYear2} /> -->
+
     <div>
       {
-        Object.keys(sortedPostsByYear)
+        Object.keys(postedSortedByYear)
           .sort((a, b) => b.localeCompare(a))
           .map(year => (
             <div>
-              <span class="font-normal">{year}</span>
-              {sortedPostsByYear[year].map(post => (
-                <div class="flex items-center font-normal" m="y-4 x-0.8">
-                  <div class="w-18" text="sm">
-                    {dayjs(post.frontmatter.pubDatetime).format("MM-DD")}
+              <span class="year">{year}</span>
+              {postedSortedByYear[year].map(post => (
+                <div>
+                  <div class="flex items-center font-normal" m="y-4 x-0.8">
+                    <div class="w-18" text="sm gray-500">
+                      {dayjs(post.data.pubDatetime).format("MM/DD")}
+                    </div>
+                    <LinkButton
+                      className="hover:text-skin-primary text-skin-base"
+                      href={`/posts/${slugify(post.data)}`}
+                    >
+                      <p class="posted-title">{post.data.title}</p>
+                    </LinkButton>
+                  </div>
+                  <div class="posted-desc" text="gray-400">
+                    {post.data.description}
+                  </div>
+                </div>
+              ))}
+            </div>
+          ))
+      }
+    </div>
+    <hr class="archived-line" aria-hidden="true" />
+    <div>
+      <div class="flex:auto">
+        <span class="ph3i">Archived</span>
+      </div>
+
+      {
+        Object.keys(archivedSortedPostsByYear)
+          .sort((a, b) => b.localeCompare(a))
+          .map(year => (
+            <div>
+              <span class="year">{year}</span>
+              {archivedSortedPostsByYear[year].map(post => (
+                <div class="flex items-center font-normal" m="y-2 x-0.8">
+                  <div class="w-18" text="sm gray-500">
+                    {dayjs(post.data.pubDatetime).format("MM/DD")}
                   </div>
                   <LinkButton
                     className="hover:text-skin-primary text-skin-base"
-                    href={`/posts/${slugify(post.frontmatter)}`}
+                    href={`/posts/${slugify(post.data)}`}
                   >
-                    {post.frontmatter.title}
+                    <p class="archived-title">{post.data.title}</p>
                   </LinkButton>
                 </div>
               ))}

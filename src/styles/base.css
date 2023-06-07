@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+.from-moonlight {
+  --tw-gradient-from: #65bcff var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(101, 188, 255 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.to-moonlight {
+  --tw-gradient-from: #191a2a var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(25, 26, 42 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
 @layer base {
   :root,
   html[data-theme="light"] {
@@ -13,12 +25,16 @@
     --color-border: 236, 233, 233;
   }
   html[data-theme="dark"] {
-    --color-fill: 33, 39, 55;
+    --color-fill: 30, 42, 56;
     --color-text-base: 234, 237, 243;
     --color-accent: 255, 107, 1;
     --color-card: 52, 63, 96;
     --color-card-muted: 138, 51, 2;
     --color-border: 171, 75, 8;
+    --tw-gradient-from: #1e2a38 var(--tw-gradient-from-position);
+    --tw-gradient-to: rgb(30, 42, 56 / 0) var(--tw-gradient-to-position);
+    --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+    --tw-gradient-to: #1b2735 var(--tw-gradient-to-position);
   }
   #sun-svg,
   html[data-theme="dark"] #moon-svg {
@@ -28,10 +44,12 @@
   html[data-theme="dark"] #sun-svg {
     display: block;
   }
+
   body {
     @apply flex min-h-screen flex-col bg-skin-fill font-mono text-skin-base 
     selection:bg-skin-accent selection:bg-opacity-70 selection:text-skin-inverted;
   }
+
   section,
   footer {
     @apply mx-auto max-w-3xl px-4;

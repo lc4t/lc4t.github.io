@@ -1,0 +1,28 @@
+.archived-line {
+  border-top-width: 1px;
+  /* border: 0.5px dashed; */
+  color: #edeef3;
+  margin-bottom: 2em;
+  margin-top: 2em;
+}
+
+.year {
+  font-weight: 600;
+  line-height: 1.5;
+  font-size: 1.25rem;
+  margin: 2.5rem 0 0.5rem;
+}
+.posted-title {
+  font-size: 1.15rem;
+  line-height: 1.2;
+  margin: 0;
+}
+.posted-desc {
+  margin-left: 4.7rem;
+  font-style: italic;
+}
+.archived-title {
+  font-size: 1.15rem;
+  line-height: 0.4;
+  margin: 0;
+}
