@@ -17,7 +17,7 @@ export default defineConfig({
         applyBaseStyles: false,
       },
     }),
-    // react(),
+    react(),
     UnoCSS({ injectReset: true }),
     solid(),
     sitemap(),

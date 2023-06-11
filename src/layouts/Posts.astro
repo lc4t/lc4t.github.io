@@ -47,11 +47,11 @@ const postedSortedByYear = getSortedPostsByYear(posted);
         Object.keys(postedSortedByYear)
           .sort((a, b) => b.localeCompare(a))
           .map(year => (
-            <div>
+            <div class="pt-0.5">
               <span class="year">{year}</span>
               {postedSortedByYear[year].map(post => (
                 <div>
-                  <div class="flex items-center font-normal" m="y-4 x-0.8">
+                  <div class="flex items-center pt-3 font-normal" m="y-4 x-0.8">
                     <div class="w-18" text="sm gray-500">
                       {dayjs(post.data.pubDatetime).format("MM/DD")}
                     </div>
@@ -71,7 +71,9 @@ const postedSortedByYear = getSortedPostsByYear(posted);
           ))
       }
     </div>
-    <hr class="archived-line" aria-hidden="true" />
+    <div class="pt-6">
+      <hr class="split-line pt-6" aria-hidden="true" />
+    </div>
     <div>
       <div class="flex:auto">
         <span class="ph3i">Archived</span>
