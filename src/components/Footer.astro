@@ -1,5 +1,6 @@
 ---
 import Hr from "./Hr.astro";
+import LinkButton from "./LinkButton.astro";
 import Socials from "./Socials.astro";
 
 const currentYear = new Date().getFullYear();
@@ -20,6 +21,9 @@ const { noMarginTop = false } = Astro.props;
       <span class="separator">&nbsp;|&nbsp;</span>
       <span>All rights reserved.</span>
     </div>
+    <LinkButton href="https://icp.gov.moe/?keyword=20237773">
+      萌ICP备20237773号
+    </LinkButton>
   </div>
 </footer>
 

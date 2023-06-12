@@ -4,6 +4,7 @@ pubDatetime: 2015-10-8 00:45:04
 tags:
   - django
 description: Already Archive Before 20230604
+postSlug: archive_django_use_static
 ---
 
 除官方文档外，还有其他方法：

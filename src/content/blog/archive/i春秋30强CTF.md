@@ -4,6 +4,7 @@ pubDatetime: 2016-07-05 00:45:04
 tags:
   - ctf
 description: Already Archive Before 20230604
+postSlug: archive_ichunqiu_30_writeup
 ---
 
 ### web 狗的 writeup id:l4t0_0

@@ -4,6 +4,7 @@ pubDatetime: 2015-05-19 00:45:04
 tags:
   - linux
 description: Already Archive Before 20230604
+postSlug: archive_clean_wine
 ---
 
 正式卸载 wine 之后,

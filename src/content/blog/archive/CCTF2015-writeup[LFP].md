@@ -4,6 +4,7 @@ pubDatetime: 2015-04-27 00:45:04
 tags:
   - ctf
 description: Already Archive Before 20230604
+postSlug: archive_CCTF2015_writeup
 ---
 
 <!--more-->

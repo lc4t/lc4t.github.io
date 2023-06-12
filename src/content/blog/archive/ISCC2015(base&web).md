@@ -4,6 +4,7 @@ pubDatetime: 2015-05-12 00:45:04
 tags:
   - ctf
 description: Already Archive Before 20230604
+postSlug: archive_iscc2015_writeup
 ---
 
 <!--more-->
@@ -36,7 +37,7 @@ for i in code:
     BASE64-ENCODED SHA HASH：k+8N2CcQNoH87kU7eL4v8U4aJh0
     CLEARTEXT: The
 
-```pthon
+```pyhon
 #pHBP018DCCh/KTe6Psz1/g==     -->    The
 #Lo1tv5ESqHnUzrFUA9EKeA==     -->    death
 #pHV9dBn/O0jpLpBZbw51SA==     -->    god

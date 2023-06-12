@@ -4,7 +4,7 @@ pubDatetime: 2017-03-19 20:00:00
 tags:
   - ctf
 description: Already Archive Before 20230604
-postSlug: 0ctf2017_writeup
+postSlug: archive_0ctf2017_writeup
 ---
 
 结果高校第 9, 水啊

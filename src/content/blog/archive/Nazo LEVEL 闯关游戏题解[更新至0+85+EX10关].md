@@ -4,6 +4,7 @@ pubDatetime: 2015-06-12 00:45:04
 tags:
   - game
 description: Already Archive Before 20230604
+postSlug: archive_nazo_level_writeup
 ---
 
 #### Basic

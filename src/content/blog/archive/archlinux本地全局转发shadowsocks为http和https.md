@@ -4,6 +4,7 @@ pubDatetime: 2015-06-17 00:45:04
 tags:
   - linux
 description: Already Archive Before 20230604
+postSlug: archive_archlinux_local_global_forward_shadowsocks_to_http_and_https
 ---
 
 ### ss 客户端

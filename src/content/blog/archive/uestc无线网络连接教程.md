@@ -4,6 +4,7 @@ pubDatetime: 2015-06-09 00:45:04
 tags:
   - uestc
 description: Already Archive Before 20230604
+postSlug: archive_uestc_wifi
 ---
 
 我校 uestc 的账号是宿舍 电信宽带 账号密码..没有的。。右上角叉号

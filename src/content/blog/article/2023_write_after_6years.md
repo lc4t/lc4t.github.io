@@ -4,7 +4,7 @@ pubDatetime: 2023-06-06 20:00:00
 tags:
   - thinking
 description: 关于我终于想起来还有一个blog这件事
-postSlug: write_after_6years
+postSlug: 2023_write_after_6years
 badge:
   - draft
 ---

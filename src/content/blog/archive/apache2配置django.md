@@ -4,6 +4,7 @@ pubDatetime: 2015-11-28 00:45:04
 tags:
   - django
 description: Already Archive Before 20230604
+postSlug: archive_apache2_with_django
 ---
 
 apache2 需要安装扩展

@@ -5,6 +5,7 @@ tags:
   - interview
   - security
 description: Already Archive Before 20230604
+postSlug: archive_web_security_interview
 ---
 
 ### 说明
@@ -980,7 +981,7 @@ Acunetix Web Vulnerability Scanner：
 
 1.  Cookie 值
 2.  HTTP 响应头
-3.                  HTML特殊字符串
+3.                    HTML特殊字符串
 4.  特定 src 引用
 5.  404/200 页
 

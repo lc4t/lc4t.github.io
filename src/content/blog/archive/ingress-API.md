@@ -5,6 +5,7 @@ tags:
   - ingress
   - game
 description: Already Archive Before 20230604
+postSlug: archive_ingress_api
 ---
 
 # 说明

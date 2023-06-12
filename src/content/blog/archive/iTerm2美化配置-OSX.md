@@ -4,6 +4,7 @@ pubDatetime: 2017-04-11 17:43:31
 tags:
   - macos
 description: Already Archive Before 20230604
+postSlug: archive_iTerm2_beautify
 ---
 
 ### Target

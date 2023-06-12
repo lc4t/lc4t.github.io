@@ -4,6 +4,7 @@ pubDatetime: 2015-10-03 00:45:04
 tags:
   - ctf
 description: Already Archive Before 20230604
+postSlug: archive_gctf2015_writeup
 ---
 
 ## gctf writeup, by cnss

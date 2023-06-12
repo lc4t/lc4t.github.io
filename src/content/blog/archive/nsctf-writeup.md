@@ -4,6 +4,7 @@ pubDatetime: 2015-10-13 00:45:04
 tags:
   - ctf
 description: Already Archive Before 20230604
+postSlug: archive_nsctf2015_writeup
 ---
 
 ### re1

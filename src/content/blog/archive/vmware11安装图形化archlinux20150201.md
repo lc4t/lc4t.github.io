@@ -4,6 +4,7 @@ pubDatetime: 2015-02-09 00:45:04
 tags:
   - linux
 description: Already Archive Before 20230604
+postSlug: archive_vmware11_install_archlinux_with_gui
 ---
 
 <!--more-->

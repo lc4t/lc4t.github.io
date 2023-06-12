@@ -4,8 +4,8 @@ export const SITE: Site = {
   website: "https://blog.lc4t.me/",
   author: "lc4t",
   desc: "lc4t's blog, some articles, thinkings, and pics.",
-  title: "Blog",
-  ogImage: "astropaper-og.jpg",
+  title: "鱼の屋",
+  // ogImage: "astropaper-og.jpg",
   lightAndDarkMode: true,
   postPerPage: 10,
 };

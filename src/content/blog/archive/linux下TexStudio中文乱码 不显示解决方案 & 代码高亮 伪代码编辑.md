@@ -4,6 +4,7 @@ pubDatetime: 2015-10-05 00:45:04
 tags:
   - linux
 description: Already Archive Before 20230604
+postSlug: archive_texstudio_chinese_code_highlight
 ---
 
 ### 保证安装了最新版的

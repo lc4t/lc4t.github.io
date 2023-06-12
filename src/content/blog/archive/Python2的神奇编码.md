@@ -4,6 +4,7 @@ pubDatetime: 2017-07-12 10:00:00
 tags:
   - python
 description: Already Archive Before 20230604
+postSlug: archive_python2_encoding
 ---
 
 尝试解决 Python 编码问题
@@ -35,7 +36,7 @@ description: Already Archive Before 20230604
 
 在使用引号引住的情形，默认使用**str**类型，这是已经**编码过的字节序列**，即**bytes**
 
-```python2
+```python
 >>> type('a')
 <type 'str'>
 >>> type('哈哈')
@@ -46,7 +47,7 @@ description: Already Archive Before 20230604
 
 字节序列的特点是\x ，比如
 
-```python2
+```python
 >>> '哈哈'
 '\xe5\x93\x88\xe5\x93\x88'
 ```
@@ -57,14 +58,14 @@ description: Already Archive Before 20230604
 
 验证一下'哈哈'是什么编码
 
-```python2
+```python
 >>> chardet.detect('哈哈')
 {'confidence': 0.7525, 'language': '', 'encoding': 'utf-8'}
 ```
 
 在此要额外说一下
 
-```python2
+```python
 >>> '\xe5\x93\x88\xe5\x93\x88'.decode('utf-8')
 u'\u54c8\u54c8'
 >>> print(u'\u54c8\u54c8')
@@ -77,7 +78,7 @@ u'\u54c8\u54c8'
 
 另外我们在 Windows、Python2 下尝试一下
 
-```python2
+```python
 >>> '哈哈'
 '\xb9\xfe\xb9\xfe'
 ```
@@ -106,7 +107,7 @@ u'\u54c8\u54c8'
 
 在 MacOS、Windows 上，下面的返回是相同的
 
-```python2
+```python
 >>> u'哈哈'
 u'\u54c8\u54c8'
 >>> type(u'哈哈')
@@ -121,7 +122,7 @@ u'\u54c8\u54c8'
 
 在 Python3 中引入了 b''表示字节类型，且 type 使用了 bytes
 
-```python3
+```python
 >>> b'\xe5\x93\x88\xe5\x93\x88'
 b'\xe5\x93\x88\xe5\x93\x88'
 >>> type(b'\xe5\x93\x88\xe5\x93\x88')
@@ -132,7 +133,7 @@ b'\xe5\x93\x88\xe5\x93\x88'
 
 #### str 字符串类型
 
-```python3
+```python
 
 >>> '哈哈'
 '哈哈'
@@ -150,7 +151,7 @@ python3 使用了 str，即引号引住的方式表示这是一个字符串，�
 
 在 python2 中
 
-```python2
+```python
 >>> base64.b64encode(u'abc')
 'YWJj'
 >>> base64.b64encode('abc')
@@ -172,7 +173,7 @@ b'YWJj'
 
 这里是 python2 的 unicode 向 str 隐式转换，下面这个例子更好理解
 
-```Python2
+```python
 >>> 'abc' + u'abc'
 u'abcabc'
 >>> type('abc' + u'abc')
@@ -181,7 +182,7 @@ u'abcabc'
 
 而 python3 中这样是不允许的
 
-```python3
+```python
 >>> 'abc' + b'abc'
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
@@ -192,7 +193,7 @@ TypeError: must be str, not bytes
 
 在 python2 中，encode、decode 的参数为 ascii，这导致了只有寥寥字母数字可以顺利通关，其他的不指定编码必定报错
 
-```python2
+```python
 >>> u'abc'.encode()
 'abc'
 >>> u'我要报错'.encode()
@@ -207,7 +208,7 @@ UnicodeEncodeError: 'ascii' codec can't encode characters in position 0-3: ordin
 
 但是这里是中文，unicode->ascii 转换失败（越界）
 
-```python2
+```python
 >>> u'abc啊'.encode()
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>

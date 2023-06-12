@@ -4,6 +4,7 @@ pubDatetime: 2017-04-11 13:51:41
 tags:
   - docker
 description: Already Archive Before 20230604
+postSlug: archive_docker_simple_record
 ---
 
 OS X 上使用 Docker 的 APP 配置，做一下常用的命令记录

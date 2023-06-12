@@ -4,6 +4,7 @@ pubDatetime: 2016-06-03 00:45:04
 tags:
   - react
 description: Already Archive Before 20230604
+postSlug: archive_react_setstate
 ---
 
 ```js

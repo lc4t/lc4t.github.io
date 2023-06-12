@@ -4,6 +4,7 @@ pubDatetime: 2016-07-28 00:45:04
 tags:
   - python
 description: Already Archive Before 20230604
+postSlug: archive_scrapy_with_mongodb
 ---
 
 scrapy 用来处理数据(Item)的部分叫做 Pipeline

@@ -4,6 +4,7 @@ pubDatetime: 2016-03-8 00:45:04
 tags:
   - linux
 description: Already Archive Before 20230604
+postSlug: archive_centos7_firewall_config_shadowsocks
 ---
 
 ### shadowsocks

@@ -4,6 +4,7 @@ pubDatetime: 2015-05-10 00:45:04
 tags:
   - linux
 description: Already Archive Before 20230604
+postSlug: archive_gnome3_reopen_touchpad
 ---
 
 gnome3 在 菜单的设置选项中禁用了触摸板后无法启用,经过摸索找到了解决办法:

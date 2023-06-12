@@ -4,6 +4,7 @@ pubDatetime: 2015-01-21 00:45:04
 tags:
   - linux
 description: Already Archive Before 20230604
+postSlug: archive_ubuntu_bochs
 ---
 
 <!--more-->
