@@ -1,0 +1,177 @@
+<!DOCTYPE html><html lang="en"><head><style>:where(img){height:auto;width:auto}</style>
+    <meta charset="UTF-8">
+    <meta content="width=device-width" name="viewport">
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml">
+    <link href="https://blog.sakanano.moe/posts/archive_django_use_static/" rel="canonical">
+    <meta content="Astro v2.4.5" name="generator">
+
+    <!-- General Meta Tags -->
+    <title>Django引用外部css、js文件</title>
+    <meta content="Django引用外部css、js文件" name="title">
+    <meta content="Already Archive Before 20230604" name="description">
+    <meta content="lc4t" name="author">
+    <link href="/sitemap-index.xml" rel="sitemap">
+
+    <!-- Open Graph / Facebook -->
+    <meta content="Django引用外部css、js文件" property="og:title">
+    <meta content="Already Archive Before 20230604" property="og:description">
+    <meta content="https://blog.sakanano.moe/posts/archive_django_use_static/" property="og:url">
+    <meta content="https://blog.sakanano.moe/Django%E5%BC%95%E7%94%A8%E5%A4%96%E9%83%A8css%E3%80%81js%E6%96%87%E4%BB%B6.png" property="og:image">
+
+    <!-- Twitter -->
+    <meta content="summary_large_image" property="twitter:card">
+    <meta content="https://blog.sakanano.moe/posts/archive_django_use_static/" property="twitter:url">
+    <meta content="Django引用外部css、js文件" property="twitter:title">
+    <meta content="Already Archive Before 20230604" property="twitter:description">
+    <meta content="https://blog.sakanano.moe/Django%E5%BC%95%E7%94%A8%E5%A4%96%E9%83%A8css%E3%80%81js%E6%96%87%E4%BB%B6.png" property="twitter:image">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;display=swap" rel="stylesheet">
+
+    
+
+    <script src="/toggle-theme.js"></script>
+  <link href="/_astro/404.03f57927.css" rel="stylesheet">
+<link href="/_astro/about.ace74c2a.css" rel="stylesheet">
+<link href="/_astro/about.6e6daff0.css" rel="stylesheet">
+<link href="/_astro/_slug_.40cf44c5.css" rel="stylesheet">
+<link href="/_astro/_slug_.41a32359.css" rel="stylesheet">
+<link href="/_astro/about.18333935.css" rel="stylesheet">
+<link href="/_astro/about.34388b73.css" rel="stylesheet">
+<link href="/_astro/_slug_.3b14054e.css" rel="stylesheet">
+<link href="/_astro/_slug_.906d67ca.css" rel="stylesheet"><script type="module">const e=document.querySelector(".hamburger-menu"),n=document.querySelector(".menu-icon"),u=document.querySelector("#menu-items");e?.addEventListener("click",()=>{let t="true"===e.getAttribute("aria-expanded");n?.classList.toggle("is-active"),e.setAttribute("aria-expanded",t?"false":"true"),e.setAttribute("aria-label",t?"Open Menu":"Close Menu"),u?.classList.toggle("display-none")});</script></head>
+  <body>
+    
+  <header class="astro-3EF6KSR2">
+  <a class="astro-3EF6KSR2" href="#main-content" id="skip-to-content">Skip to content</a>
+  <div class="astro-3EF6KSR2 nav-container">
+    <div class="astro-3EF6KSR2 top-nav-wrap">
+      <a class="astro-3EF6KSR2 logo" href="/">
+        鱼の
+      </a>
+      <nav class="astro-3EF6KSR2" id="nav-menu">
+        <button class="astro-3EF6KSR2 focus-outline hamburger-menu" aria-label="Open Menu" aria-controls="menu-items" aria-expanded="false">
+          <svg class="astro-3EF6KSR2 menu-icon" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" fill="none" height="24" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+            <line class="astro-3EF6KSR2 line" x1="7" x2="21" y1="12" y2="12"></line>
+            <line class="astro-3EF6KSR2 line" x1="3" x2="21" y1="6" y2="6"></line>
+            <line class="astro-3EF6KSR2 line" x1="12" x2="21" y1="18" y2="18"></line>
+            <line class="astro-3EF6KSR2 close" x1="18" x2="6" y1="6" y2="18"></line>
+            <line class="astro-3EF6KSR2 close" x1="6" x2="18" y1="6" y2="18"></line>
+          </svg>
+        </button>
+        <ul class="astro-3EF6KSR2 display-none sm:flex" id="menu-items">
+          <li class="astro-3EF6KSR2">
+            <a class="astro-3EF6KSR2" href="/posts">
+              Posts
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a class="astro-3EF6KSR2" href="/tags">
+              Tags
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a class="astro-3EF6KSR2" href="/about">
+              About
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a class="astro-3EF6KSR2 focus-outline astro-5EUNQZKT group inline-block p-3 sm:p-1" href="/search" tabindex="0" title="Search" aria-label="search">
+  
+              <svg class="astro-3EF6KSR2 scale-125 sm:scale-100" xmlns="http://www.w3.org/2000/svg"><path d="M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z" class="astro-3EF6KSR2"></path>
+              </svg>
+            
+</a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <button class="astro-3EF6KSR2 focus-outline" aria-label="auto" aria-live="polite" id="theme-btn" title="Toggles light &amp; dark">
+                  <svg class="astro-3EF6KSR2" xmlns="http://www.w3.org/2000/svg" id="moon-svg">
+                    <path d="M20.742 13.045a8.088 8.088 0 0 1-2.077.271c-2.135 0-4.14-.83-5.646-2.336a8.025 8.025 0 0 1-2.064-7.723A1 1 0 0 0 9.73 2.034a10.014 10.014 0 0 0-4.489 2.582c-3.898 3.898-3.898 10.243 0 14.143a9.937 9.937 0 0 0 7.072 2.93 9.93 9.93 0 0 0 7.07-2.929 10.007 10.007 0 0 0 2.583-4.491 1.001 1.001 0 0 0-1.224-1.224zm-2.772 4.301a7.947 7.947 0 0 1-5.656 2.343 7.953 7.953 0 0 1-5.658-2.344c-3.118-3.119-3.118-8.195 0-11.314a7.923 7.923 0 0 1 2.06-1.483 10.027 10.027 0 0 0 2.89 7.848 9.972 9.972 0 0 0 7.848 2.891 8.036 8.036 0 0 1-1.484 2.059z" class="astro-3EF6KSR2"></path>
+                  </svg>
+                  <svg class="astro-3EF6KSR2" xmlns="http://www.w3.org/2000/svg" id="sun-svg">
+                    <path d="M6.993 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007S14.761 6.993 12 6.993 6.993 9.239 6.993 12zM12 8.993c1.658 0 3.007 1.349 3.007 3.007S13.658 15.007 12 15.007 8.993 13.658 8.993 12 10.342 8.993 12 8.993zM10.998 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2h-3zm17 0h3v2h-3zM4.219 18.363l2.12-2.122 1.415 1.414-2.12 2.122zM16.24 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.342 7.759 4.22 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z" class="astro-3EF6KSR2"></path>
+                  </svg>
+                </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="max-w-3xl mx-auto px-4">
+  <hr aria-hidden="true" class="border-skin-line">
+</div>
+</header>
+  <div class="astro-VJ4TPSPI flex justify-start max-w-3xl mx-auto px-2 w-full">
+    <button class="astro-VJ4TPSPI flex focus-outline hover:opacity-75 mb-2 mt-8" onclick="history.back()">
+      <svg class="astro-VJ4TPSPI" xmlns="http://www.w3.org/2000/svg"><path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z" class="astro-VJ4TPSPI"></path>
+      </svg><span class="astro-VJ4TPSPI">Go back</span>
+    </button>
+  </div>
+  <main class="astro-VJ4TPSPI" id="main-content">
+    <h1 class="astro-VJ4TPSPI post-title">Django引用外部css、js文件</h1>
+    <div class="astro-VJ4TPSPI flex items-center my-2 opacity-80 space-x-2" data-hk="0-0"><svg class="inline-block fill-skin-base h-6 scale-100 w-6" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path><path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"></path></svg><span class="sr-only">Posted on:</span><span class="italic text-base">2015年10月8日<span data-hk="0-1-0" aria-hidden="true"> | </span><span class="sr-only" data-hk="0-1-1">&nbsp;at&nbsp;</span>08:45</span></div>
+    <article class="astro-VJ4TPSPI max-w-3xl mx-auto mt-8 prose" id="article" role="article">
+      <p>除官方文档外，还有其他方法：</p>
+<p>目录结构，保证 static 目录与 urls.py settings.py 同目录</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">--/web_py</span></span>
+<span class="line"><span style="color:#abb2bf">------/school</span></span>
+<span class="line"><span style="color:#abb2bf">----------/grade</span></span>
+<span class="line"><span style="color:#abb2bf">----------/school</span></span>
+<span class="line"><span style="color:#abb2bf">--------------urls.py</span></span>
+<span class="line"><span style="color:#abb2bf">--------------settings.py</span></span>
+<span class="line"><span style="color:#abb2bf">--------------/static</span></span>
+<span class="line"><span style="color:#abb2bf">----------manager.py</span></span></code></pre>
+<p>grade 里，模板文件中引用注意目录位置</p>
+<p>settings.py 需要设置：</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#d19a66">STATIC_URL</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> </span><span style="color:#98c379">'/static/'</span></span>
+<span class="line"><span style="color:#d19a66">STATICFILES_URLS</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> (</span></span>
+<span class="line"><span style="color:#abb2bf">os.path.</span><span style="color:#61afef">join</span><span style="color:#abb2bf">(</span><span style="color:#d19a66">BASE_DIR</span><span style="color:#abb2bf">, </span><span style="color:#98c379">"static"</span><span style="color:#abb2bf">),</span></span>
+<span class="line"><span style="color:#abb2bf">)</span></span></code></pre>
+<p>这里注意 BASE_DIR 是哪个目录，是上级的 school 还是与 grade 同级的 school</p>
+<p>urls.py 添加
+import school.settings # 因为上面的目录是上级的 school，所以注意要 school.settings
+再添加一个 url 规则</p>
+<p><code>url(r'^static/(?P&lt;path&gt;.*)$', 'django.views.static.serve', {'document_root':school.settings.STATIC_URL}),</code></p>
+    </article>
+
+    <ul class="astro-VJ4TPSPI tags-container">
+      <li class="astro-BLWJYJPT inline-block my-1 underline-offset-4">
+  <a class="astro-BLWJYJPT group pr-2 text-sm" href="/tags/django">
+    <svg class="astro-BLWJYJPT scale-75" xmlns="http://www.w3.org/2000/svg"><path d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z" class="astro-BLWJYJPT"></path>
+    </svg>
+    &nbsp;<span class="astro-BLWJYJPT">django</span>
+  </a>
+</li>
+    </ul>
+  </main>
+  <footer class="astro-SZ7XMLTE mt-auto">
+  <div class="max-w-3xl mx-auto px-0">
+  <hr aria-hidden="true" class="border-skin-line">
+</div>
+  <div class="astro-SZ7XMLTE footer-wrapper">
+    <div class="flex astro-UPU6FZXR social-icons">
+  <a class="inline-block astro-5EUNQZKT group astro-UPU6FZXR link-button" href="https://github.com/lc4t" tabindex="0" title=" 鱼の on Github">
+  
+        <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path>
+  </svg>
+      
+</a>
+</div>
+    <div class="astro-SZ7XMLTE copyright-wrapper">
+      <span class="astro-SZ7XMLTE">lc4t © 2023</span>
+      <span class="astro-SZ7XMLTE separator">&nbsp;|&nbsp;</span>
+      <span class="astro-SZ7XMLTE">The Things Less Created.</span>
+    </div>
+    <a class="inline-block astro-5EUNQZKT group undefined" href="https://icp.gov.moe/?keyword=20237773" tabindex="0">
+  
+      萌ICP备20237773号
+    
+</a>
+  </div>
+</footer>
+
+  </body></html>

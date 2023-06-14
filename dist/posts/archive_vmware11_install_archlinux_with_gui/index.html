@@ -1,0 +1,267 @@
+<!DOCTYPE html><html lang="en"><head><style>:where(img){height:auto;width:auto}</style>
+    <meta charset="UTF-8">
+    <meta content="width=device-width" name="viewport">
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml">
+    <link href="https://blog.sakanano.moe/posts/archive_vmware11_install_archlinux_with_gui/" rel="canonical">
+    <meta content="Astro v2.4.5" name="generator">
+
+    <!-- General Meta Tags -->
+    <title>vmware11安装图形化archlinux20150201</title>
+    <meta content="vmware11安装图形化archlinux20150201" name="title">
+    <meta content="Already Archive Before 20230604" name="description">
+    <meta content="lc4t" name="author">
+    <link href="/sitemap-index.xml" rel="sitemap">
+
+    <!-- Open Graph / Facebook -->
+    <meta content="vmware11安装图形化archlinux20150201" property="og:title">
+    <meta content="Already Archive Before 20230604" property="og:description">
+    <meta content="https://blog.sakanano.moe/posts/archive_vmware11_install_archlinux_with_gui/" property="og:url">
+    <meta content="https://blog.sakanano.moe/vmware11%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96archlinux20150201.png" property="og:image">
+
+    <!-- Twitter -->
+    <meta content="summary_large_image" property="twitter:card">
+    <meta content="https://blog.sakanano.moe/posts/archive_vmware11_install_archlinux_with_gui/" property="twitter:url">
+    <meta content="vmware11安装图形化archlinux20150201" property="twitter:title">
+    <meta content="Already Archive Before 20230604" property="twitter:description">
+    <meta content="https://blog.sakanano.moe/vmware11%E5%AE%89%E8%A3%85%E5%9B%BE%E5%BD%A2%E5%8C%96archlinux20150201.png" property="twitter:image">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;display=swap" rel="stylesheet">
+
+    
+
+    <script src="/toggle-theme.js"></script>
+  <link href="/_astro/404.03f57927.css" rel="stylesheet">
+<link href="/_astro/about.ace74c2a.css" rel="stylesheet">
+<link href="/_astro/about.6e6daff0.css" rel="stylesheet">
+<link href="/_astro/_slug_.40cf44c5.css" rel="stylesheet">
+<link href="/_astro/_slug_.41a32359.css" rel="stylesheet">
+<link href="/_astro/about.18333935.css" rel="stylesheet">
+<link href="/_astro/about.34388b73.css" rel="stylesheet">
+<link href="/_astro/_slug_.3b14054e.css" rel="stylesheet">
+<link href="/_astro/_slug_.906d67ca.css" rel="stylesheet"><script type="module">const e=document.querySelector(".hamburger-menu"),n=document.querySelector(".menu-icon"),u=document.querySelector("#menu-items");e?.addEventListener("click",()=>{let t="true"===e.getAttribute("aria-expanded");n?.classList.toggle("is-active"),e.setAttribute("aria-expanded",t?"false":"true"),e.setAttribute("aria-label",t?"Open Menu":"Close Menu"),u?.classList.toggle("display-none")});</script></head>
+  <body>
+    
+  <header class="astro-3EF6KSR2">
+  <a href="#main-content" class="astro-3EF6KSR2" id="skip-to-content">Skip to content</a>
+  <div class="astro-3EF6KSR2 nav-container">
+    <div class="astro-3EF6KSR2 top-nav-wrap">
+      <a href="/" class="astro-3EF6KSR2 logo">
+        鱼の
+      </a>
+      <nav class="astro-3EF6KSR2" id="nav-menu">
+        <button class="astro-3EF6KSR2 focus-outline hamburger-menu" aria-label="Open Menu" aria-controls="menu-items" aria-expanded="false">
+          <svg class="astro-3EF6KSR2 menu-icon" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" fill="none" height="24" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+            <line class="line astro-3EF6KSR2" x1="7" x2="21" y1="12" y2="12"></line>
+            <line class="line astro-3EF6KSR2" x1="3" x2="21" y1="6" y2="6"></line>
+            <line class="line astro-3EF6KSR2" x1="12" x2="21" y1="18" y2="18"></line>
+            <line class="astro-3EF6KSR2 close" x1="18" x2="6" y1="6" y2="18"></line>
+            <line class="astro-3EF6KSR2 close" x1="6" x2="18" y1="6" y2="18"></line>
+          </svg>
+        </button>
+        <ul class="astro-3EF6KSR2 display-none sm:flex" id="menu-items">
+          <li class="astro-3EF6KSR2">
+            <a href="/posts" class="astro-3EF6KSR2">
+              Posts
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a href="/tags" class="astro-3EF6KSR2">
+              Tags
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a href="/about" class="astro-3EF6KSR2">
+              About
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a href="/search" class="astro-3EF6KSR2 focus-outline astro-5EUNQZKT group inline-block p-3 sm:p-1" tabindex="0" title="Search" aria-label="search">
+  
+              <svg class="astro-3EF6KSR2 scale-125 sm:scale-100" xmlns="http://www.w3.org/2000/svg"><path d="M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z" class="astro-3EF6KSR2"></path>
+              </svg>
+            
+</a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <button class="astro-3EF6KSR2 focus-outline" aria-label="auto" aria-live="polite" id="theme-btn" title="Toggles light &amp; dark">
+                  <svg class="astro-3EF6KSR2" xmlns="http://www.w3.org/2000/svg" id="moon-svg">
+                    <path d="M20.742 13.045a8.088 8.088 0 0 1-2.077.271c-2.135 0-4.14-.83-5.646-2.336a8.025 8.025 0 0 1-2.064-7.723A1 1 0 0 0 9.73 2.034a10.014 10.014 0 0 0-4.489 2.582c-3.898 3.898-3.898 10.243 0 14.143a9.937 9.937 0 0 0 7.072 2.93 9.93 9.93 0 0 0 7.07-2.929 10.007 10.007 0 0 0 2.583-4.491 1.001 1.001 0 0 0-1.224-1.224zm-2.772 4.301a7.947 7.947 0 0 1-5.656 2.343 7.953 7.953 0 0 1-5.658-2.344c-3.118-3.119-3.118-8.195 0-11.314a7.923 7.923 0 0 1 2.06-1.483 10.027 10.027 0 0 0 2.89 7.848 9.972 9.972 0 0 0 7.848 2.891 8.036 8.036 0 0 1-1.484 2.059z" class="astro-3EF6KSR2"></path>
+                  </svg>
+                  <svg class="astro-3EF6KSR2" xmlns="http://www.w3.org/2000/svg" id="sun-svg">
+                    <path d="M6.993 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007S14.761 6.993 12 6.993 6.993 9.239 6.993 12zM12 8.993c1.658 0 3.007 1.349 3.007 3.007S13.658 15.007 12 15.007 8.993 13.658 8.993 12 10.342 8.993 12 8.993zM10.998 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2h-3zm17 0h3v2h-3zM4.219 18.363l2.12-2.122 1.415 1.414-2.12 2.122zM16.24 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.342 7.759 4.22 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z" class="astro-3EF6KSR2"></path>
+                  </svg>
+                </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="max-w-3xl mx-auto px-4">
+  <hr aria-hidden="true" class="border-skin-line">
+</div>
+</header>
+  <div class="astro-VJ4TPSPI flex justify-start max-w-3xl mx-auto px-2 w-full">
+    <button class="astro-VJ4TPSPI flex focus-outline hover:opacity-75 mb-2 mt-8" onclick="history.back()">
+      <svg class="astro-VJ4TPSPI" xmlns="http://www.w3.org/2000/svg"><path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z" class="astro-VJ4TPSPI"></path>
+      </svg><span class="astro-VJ4TPSPI">Go back</span>
+    </button>
+  </div>
+  <main class="astro-VJ4TPSPI" id="main-content">
+    <h1 class="astro-VJ4TPSPI post-title">vmware11安装图形化archlinux20150201</h1>
+    <div class="astro-VJ4TPSPI flex items-center my-2 opacity-80 space-x-2" data-hk="0-0"><svg class="inline-block fill-skin-base h-6 scale-100 w-6" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path><path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"></path></svg><span class="sr-only">Posted on:</span><span class="italic text-base">2015年2月9日<span data-hk="0-1-0" aria-hidden="true"> | </span><span class="sr-only" data-hk="0-1-1">&nbsp;at&nbsp;</span>08:45</span></div>
+    <article class="astro-VJ4TPSPI max-w-3xl mx-auto mt-8 prose" id="article" role="article">
+      <!--more-->
+<h2 id="archwiki-指引">Archwiki 指引</h2>
+<p>-&gt;测试 vmware 的 dhcp 是否正常</p>
+<p><code>ping -c 1 t.cn</code></p>
+<p><img alt="" decoding="async" src="http://ac-HSNl7zbI.clouddn.com/dRwEuSwYGR1j6JwK102uUiiXwtvUYATtglfXjqVq.jpg" fetchpriority="high"></p>
+<p>测试正常</p>
+<p>-&gt;准备存储设备</p>
+<p>首先要确定系统安装的目标设备，下面命令会显示所有连接到系统的设备和分区状况</p>
+<p><code>lsblk</code></p>
+<p><img alt="" decoding="async" src="http://ac-HSNl7zbI.clouddn.com/g6J1Pq06plK4PvvOLlUdAfeoS2GGW9f8unjR3fEm.jpg" fetchpriority="high"></p>
+<p>用 parted 新建分区表 msdos 分区 给 / 10G 剩下的给/home</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#61afef">parted</span><span style="color:#abb2bf"> </span><span style="color:#98c379">/dev/sda</span></span>
+<span class="line"><span style="color:#abb2bf">(</span><span style="color:#61afef">parted</span><span style="color:#abb2bf">) mklabel msdos</span></span>
+<span class="line"><span style="color:#abb2bf">(</span><span style="color:#61afef">parted</span><span style="color:#abb2bf">) mkpart primary ext3 1M 10G</span></span>
+<span class="line"><span style="color:#abb2bf">(</span><span style="color:#61afef">parted</span><span style="color:#abb2bf">) set 1 boot on</span></span>
+<span class="line"><span style="color:#abb2bf">(</span><span style="color:#61afef">parted</span><span style="color:#abb2bf">) mkpart primary ext3 10G 100%</span></span></code></pre>
+<p>-&gt;创建文件系统</p>
+<p>先查看所有分区</p>
+<p><code>lsblk /dev/sda</code></p>
+<p><img alt="" decoding="async" src="http://ac-HSNl7zbI.clouddn.com/ntOFMr1tLpQAVzRJGNLRvVA1vgEYQKKFwCHko118.jpg" fetchpriority="high"></p>
+<p>ext4 格式化分区，注意分区名是在上一步查看的 sda1 和 sda2</p>
+<p><code>mkfs.ext4 /dev/sda*</code></p>
+<p><img alt="" decoding="async" src="http://ac-HSNl7zbI.clouddn.com/Vdzp4dolfAWWFoT9FJ0CjAStHlY9jzCT6J6ayUqJ.jpg" fetchpriority="high"></p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">&lt;若您分了一个 swap 区，也不要忘了格式化并启用它&gt;</span></span>
+<span class="line"><span style="color:#abb2bf"># mkswap /dev/sdaX</span></span>
+<span class="line"><span style="color:#abb2bf"># swapon /dev/sdaX</span></span></code></pre>
+<p>-&gt;挂载分区</p>
+<p>一共有 2 个分区,即/root（/）和/home</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#61afef">mount</span><span style="color:#abb2bf"> </span><span style="color:#98c379">/dev/sda1</span><span style="color:#abb2bf"> </span><span style="color:#98c379">/mnt</span></span>
+<span class="line"><span style="color:#61afef">mkdir</span><span style="color:#abb2bf"> </span><span style="color:#98c379">/mnt/home</span></span>
+<span class="line"><span style="color:#61afef">mount</span><span style="color:#abb2bf"> </span><span style="color:#98c379">/dev/sda2</span><span style="color:#abb2bf"> </span><span style="color:#98c379">/mnt/home</span></span></code></pre>
+<p><img alt="" decoding="async" src="http://ac-HSNl7zbI.clouddn.com/bA0TIkO3efWkWDStLLnmYuips339vMnnlUQHg6Vm.jpg" fetchpriority="high"></p>
+<p>-&gt;选择安装镜像</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">安装前需要编辑 /etc/pacman.d/mirrorlist, 将偏好的镜像放到最前面。mirrorlist 文件也会被 pacstrap 复制到新系统，所以最好现在就设置</span></span></code></pre>
+<p><a href="https://www.archlinux.org/mirrorlist/">镜像列表生成器</a></p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#61afef">nano</span><span style="color:#abb2bf"> </span><span style="color:#98c379">/etc/pacman.d/mirrorlist</span></span>
+<span class="line"><span style="color:#61afef">pacman</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">-Syy</span></span></code></pre>
+<p>-&gt;安装基本系统</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">使用 pacstrap 来安装基本系统。如果您不想手动选择安装哪个包，忽略 -i 即可。如果您想通过 AUR (简体中文) 或者 ABS (简体中文) 编译安装软件包,需要装上 base-devel</span></span></code></pre>
+<p><code>pacstrap -i /mnt base base-devel</code></p>
+<p><img alt="" decoding="async" src="http://ac-HSNl7zbI.clouddn.com/BKR8l3aBMR7hvLtoIGx8eQxSx9fpgiLyfhjsWEa6.jpg" loading="lazy"></p>
+<p>这时候按了两次回车(default=all)软件包也不知道什么没用，所以都安装上好了</p>
+<p><code>genfstab -U -p /mnt &gt;&gt; /mnt/etc/fstab</code></p>
+<p>-&gt;chroot 到新系统</p>
+<p><code>arch-chroot /mnt /bin/bash</code></p>
+<p>-&gt;Locale</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#61afef">nano</span><span style="color:#abb2bf"> </span><span style="color:#98c379">/etc/locale.gen</span></span>
+<span class="line"><span style="color:#61afef">en_US.UTF-8</span><span style="color:#abb2bf"> </span><span style="color:#98c379">UTF-8</span></span>
+<span class="line"><span style="color:#61afef">zh_CN.GBK</span><span style="color:#abb2bf"> </span><span style="color:#98c379">GBK</span></span>
+<span class="line"><span style="color:#61afef">zh_CN.UTF-8</span><span style="color:#abb2bf"> </span><span style="color:#98c379">UTF-8</span></span></code></pre>
+<p>接着执行<code>locale-gen</code>以生成 locale 讯息</p>
+<p><img alt="" decoding="async" src="http://ac-HSNl7zbI.clouddn.com/UDfGzDFNR9dfbVbE7lRzXYlOGbbESDqgwEja6YIV.jpg" loading="lazy"></p>
+<p>创建 locale.conf 并提交您的本地化选项：</p>
+<p><code>echo LANG=en_US.UTF-8 &gt; /etc/locale.conf</code></p>
+<p><img alt="" decoding="async" src="http://ac-HSNl7zbI.clouddn.com/iOBipfOYkyI4BOAFbJKypstWQtr83NcbIG5HdYX3.jpg" loading="lazy"></p>
+<p>-&gt;设置时区 上海 设置硬件时间</p>
+<p><code>ln -s /usr/share/zoneinfo/Zone/SubZone /etc/localtime</code></p>
+<p><code>hwclock --systohc --utc</code></p>
+<p><img alt="" decoding="async" src="http://ac-HSNl7zbI.clouddn.com/zUu2PfbDcEL4wMqM6uENY0c1GSfxPO9zmTESxHbT.jpg" loading="lazy"></p>
+<p>-&gt;配置</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#56b6c2">echo</span><span style="color:#abb2bf"> </span><span style="color:#98c379">lc4t-Arch</span><span style="color:#abb2bf"> &gt; </span><span style="color:#98c379">/etc/hostname</span></span>
+<span class="line"><span style="color:#61afef">systemctl</span><span style="color:#abb2bf"> </span><span style="color:#98c379">enable</span><span style="color:#abb2bf"> </span><span style="color:#98c379">dhcpcd@lc4t.service</span></span></code></pre>
+<p>-&gt;设置 root 密码</p>
+<p><code>passwd</code></p>
+<p>-&gt;安装并配置 bootloader，卸载分区并重启系统</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#61afef">pacman</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">-S</span><span style="color:#abb2bf"> </span><span style="color:#98c379">grub</span></span>
+<span class="line"><span style="color:#61afef">grub-install</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">--target=i386-pc</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">--recheck</span><span style="color:#abb2bf"> </span><span style="color:#98c379">/dev/sda</span></span>
+<span class="line"><span style="color:#61afef">grub-mkconfig</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">-o</span><span style="color:#abb2bf"> </span><span style="color:#98c379">/boot/grub/grub.cfg</span></span>
+<span class="line"><span style="color:#56b6c2">exit</span></span></code></pre>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">移除安装媒介，并还原 BIOS 中的启动选项。可以用 root 用户和设置的密码登录.</span></span></code></pre>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#61afef">useradd</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">-m</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">-g</span><span style="color:#abb2bf"> </span><span style="color:#98c379">users</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">-G</span><span style="color:#abb2bf"> </span><span style="color:#98c379">audio,video,floppy,network,rfkill,scanner,storage,optical,power,wheel,uucp</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">-s</span><span style="color:#abb2bf"> </span><span style="color:#98c379">/usr/bin/zsh</span><span style="color:#abb2bf"> </span><span style="color:#98c379">lc4t</span></span>
+<span class="line"><span style="color:#61afef">passwd</span><span style="color:#abb2bf"> </span><span style="color:#98c379">lc4t</span></span></code></pre>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#61afef">pacman</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">-S</span><span style="color:#abb2bf"> </span><span style="color:#98c379">sudo</span><span style="color:#abb2bf">            </span><span style="color:#7f848e;font-style:italic">#加载sudo</span></span>
+<span class="line"><span style="color:#e06c75">EDITOR</span><span style="color:#56b6c2">=</span><span style="color:#98c379">nano</span><span style="color:#abb2bf"> </span><span style="color:#61afef">visudo</span></span>
+<span class="line"><span style="color:#61afef">%wheel</span><span style="color:#abb2bf"> </span><span style="color:#98c379">ALL=</span><span style="color:#abb2bf">(</span><span style="color:#98c379">ALL</span><span style="color:#abb2bf">) ALL   </span><span style="color:#7f848e;font-style:italic">#反注释</span></span>
+<span class="line"><span style="color:#61afef">gpasswd</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">-a</span><span style="color:#abb2bf"> </span><span style="color:#98c379">lc4t</span><span style="color:#abb2bf"> </span><span style="color:#98c379">wheel</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#61afef">sudo</span><span style="color:#abb2bf"> </span><span style="color:#98c379">pacman</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">-S</span><span style="color:#abb2bf"> </span><span style="color:#98c379">bash-completion</span><span style="color:#abb2bf">  </span><span style="color:#7f848e;font-style:italic">#开启sudo的tab补全</span></span>
+<span class="line"><span style="color:#56b6c2">echo</span><span style="color:#abb2bf"> </span><span style="color:#98c379">complete</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">-cf</span><span style="color:#abb2bf"> </span><span style="color:#98c379">sudo</span><span style="color:#abb2bf"> &gt;&gt; </span><span style="color:#98c379">~/.bashrc</span></span>
+<span class="line"><span style="color:#61afef">pacman</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">-S</span><span style="color:#abb2bf"> </span><span style="color:#98c379">alsa-utils</span><span style="color:#abb2bf">  </span><span style="color:#7f848e;font-style:italic">#声音</span></span>
+<span class="line"><span style="color:#61afef">alsamixer</span><span style="color:#abb2bf"> </span><span style="color:#7f848e;font-style:italic">#Master PCM 按M取消静音</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7f848e;font-style:italic">#配置图形：</span></span>
+<span class="line"><span style="color:#61afef">lspci</span><span style="color:#abb2bf"> | </span><span style="color:#61afef">grep</span><span style="color:#abb2bf"> </span><span style="color:#98c379">VGA</span><span style="color:#abb2bf"> </span><span style="color:#7f848e;font-style:italic">#查看显卡型号</span></span>
+<span class="line"><span style="color:#61afef">pacman</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">-S</span><span style="color:#abb2bf"> </span><span style="color:#98c379">xf86-video-vesa</span></span>
+<span class="line"><span style="color:#7f848e;font-style:italic">#安装 X 窗口系统</span></span>
+<span class="line"><span style="color:#61afef">pacman</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">-S</span><span style="color:#abb2bf"> </span><span style="color:#98c379">xorg</span></span>
+<span class="line"><span style="color:#61afef">pacman</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">-S</span><span style="color:#abb2bf"> </span><span style="color:#98c379">xorg-server</span><span style="color:#abb2bf"> </span><span style="color:#98c379">xorg-server-utils</span><span style="color:#abb2bf"> </span><span style="color:#98c379">xorg-xinit</span></span>
+<span class="line"><span style="color:#7f848e;font-style:italic">#3D加速</span></span>
+<span class="line"><span style="color:#61afef">pacman</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">-S</span><span style="color:#abb2bf"> </span><span style="color:#98c379">mesa</span></span>
+<span class="line"><span style="color:#7f848e;font-style:italic">#触摸板</span></span>
+<span class="line"><span style="color:#61afef">pacman</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">-S</span><span style="color:#abb2bf"> </span><span style="color:#98c379">xf86-input-synaptics</span></span>
+<span class="line"><span style="color:#7f848e;font-style:italic">#安装字体</span></span>
+<span class="line"><span style="color:#7f848e;font-style:italic">#Dejavu和文泉驿-微米黑</span></span>
+<span class="line"><span style="color:#61afef">pacman</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">-S</span><span style="color:#abb2bf"> </span><span style="color:#98c379">ttf-dejavu</span><span style="color:#abb2bf"> </span><span style="color:#98c379">wqy-microhei</span></span>
+<span class="line"><span style="color:#7f848e;font-style:italic">#桌面</span></span>
+<span class="line"><span style="color:#61afef">pacman</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">-S</span><span style="color:#abb2bf"> </span><span style="color:#98c379">xfce4</span></span>
+<span class="line"><span style="color:#61afef">pacman</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">-S</span><span style="color:#abb2bf"> </span><span style="color:#98c379">xfce4-goodies</span></span></code></pre>
+<p>-&gt;配置 startx</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#61afef">cp</span><span style="color:#abb2bf"> </span><span style="color:#98c379">/etc/skel/.xinitrc</span><span style="color:#abb2bf"> </span><span style="color:#98c379">~</span></span>
+<span class="line"><span style="color:#61afef">nano</span><span style="color:#abb2bf"> </span><span style="color:#98c379">~/.xinitrc</span></span></code></pre>
+<p>反注释对应行：</p>
+<p><code>exec gnome-session</code></p>
+<p>安装输入法</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#61afef">pacman</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">-S</span><span style="color:#abb2bf"> </span><span style="color:#98c379">fcitx-im</span></span>
+<span class="line"><span style="color:#c678dd">export</span><span style="color:#abb2bf"> </span><span style="color:#e06c75">GTK_IM_MODULE</span><span style="color:#56b6c2">=</span><span style="color:#98c379">fcitx</span></span>
+<span class="line"><span style="color:#c678dd">export</span><span style="color:#abb2bf"> </span><span style="color:#e06c75">QT_IM_MODULE</span><span style="color:#56b6c2">=</span><span style="color:#98c379">fcitx</span></span>
+<span class="line"><span style="color:#c678dd">export</span><span style="color:#abb2bf"> </span><span style="color:#e06c75">XMODIFIERS</span><span style="color:#56b6c2">=</span><span style="color:#98c379">"@im=fcitx"</span></span></code></pre>
+<p>startxfce4 启动 发现鼠标无反应</p>
+<p><code>pacman -Rdd xf86-input-vmmouse</code></p>
+<p>ok</p>
+    </article>
+
+    <ul class="astro-VJ4TPSPI tags-container">
+      <li class="astro-BLWJYJPT inline-block my-1 underline-offset-4">
+  <a href="/tags/linux" class="astro-BLWJYJPT group pr-2 text-sm">
+    <svg class="astro-BLWJYJPT scale-75" xmlns="http://www.w3.org/2000/svg"><path d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z" class="astro-BLWJYJPT"></path>
+    </svg>
+    &nbsp;<span class="astro-BLWJYJPT">linux</span>
+  </a>
+</li>
+    </ul>
+  </main>
+  <footer class="astro-SZ7XMLTE mt-auto">
+  <div class="max-w-3xl mx-auto px-0">
+  <hr aria-hidden="true" class="border-skin-line">
+</div>
+  <div class="astro-SZ7XMLTE footer-wrapper">
+    <div class="flex astro-UPU6FZXR social-icons">
+  <a href="https://github.com/lc4t" class="inline-block astro-5EUNQZKT group astro-UPU6FZXR link-button" tabindex="0" title=" 鱼の on Github">
+  
+        <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path>
+  </svg>
+      
+</a>
+</div>
+    <div class="astro-SZ7XMLTE copyright-wrapper">
+      <span class="astro-SZ7XMLTE">lc4t © 2023</span>
+      <span class="astro-SZ7XMLTE separator">&nbsp;|&nbsp;</span>
+      <span class="astro-SZ7XMLTE">The Things Less Created.</span>
+    </div>
+    <a href="https://icp.gov.moe/?keyword=20237773" class="inline-block astro-5EUNQZKT group undefined" tabindex="0">
+  
+      萌ICP备20237773号
+    
+</a>
+  </div>
+</footer>
+
+  </body></html>

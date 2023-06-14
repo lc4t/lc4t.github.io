@@ -1,0 +1,308 @@
+<!DOCTYPE html><html lang="en"><head><style>:where(img){height:auto;width:auto}</style>
+    <meta charset="UTF-8">
+    <meta content="width=device-width" name="viewport">
+    <link href="/favicon.svg" rel="icon" type="image/svg+xml">
+    <link href="https://blog.sakanano.moe/posts/archive_sender_deploy/" rel="canonical">
+    <meta content="Astro v2.4.5" name="generator">
+
+    <!-- General Meta Tags -->
+    <title>Sender部署</title>
+    <meta content="Sender部署" name="title">
+    <meta content="Already Archive Before 20230604" name="description">
+    <meta content="lc4t" name="author">
+    <link href="/sitemap-index.xml" rel="sitemap">
+
+    <!-- Open Graph / Facebook -->
+    <meta content="Sender部署" property="og:title">
+    <meta content="Already Archive Before 20230604" property="og:description">
+    <meta content="https://blog.sakanano.moe/posts/archive_sender_deploy/" property="og:url">
+    <meta content="https://blog.sakanano.moe/Sender%E9%83%A8%E7%BD%B2.png" property="og:image">
+
+    <!-- Twitter -->
+    <meta content="summary_large_image" property="twitter:card">
+    <meta content="https://blog.sakanano.moe/posts/archive_sender_deploy/" property="twitter:url">
+    <meta content="Sender部署" property="twitter:title">
+    <meta content="Already Archive Before 20230604" property="twitter:description">
+    <meta content="https://blog.sakanano.moe/Sender%E9%83%A8%E7%BD%B2.png" property="twitter:image">
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com" rel="preconnect">
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&amp;display=swap" rel="stylesheet">
+
+    
+
+    <script src="/toggle-theme.js"></script>
+  <link href="/_astro/404.03f57927.css" rel="stylesheet">
+<link href="/_astro/about.ace74c2a.css" rel="stylesheet">
+<link href="/_astro/about.6e6daff0.css" rel="stylesheet">
+<link href="/_astro/_slug_.40cf44c5.css" rel="stylesheet">
+<link href="/_astro/_slug_.41a32359.css" rel="stylesheet">
+<link href="/_astro/about.18333935.css" rel="stylesheet">
+<link href="/_astro/about.34388b73.css" rel="stylesheet">
+<link href="/_astro/_slug_.3b14054e.css" rel="stylesheet">
+<link href="/_astro/_slug_.906d67ca.css" rel="stylesheet"><script type="module">const e=document.querySelector(".hamburger-menu"),n=document.querySelector(".menu-icon"),u=document.querySelector("#menu-items");e?.addEventListener("click",()=>{let t="true"===e.getAttribute("aria-expanded");n?.classList.toggle("is-active"),e.setAttribute("aria-expanded",t?"false":"true"),e.setAttribute("aria-label",t?"Open Menu":"Close Menu"),u?.classList.toggle("display-none")});</script></head>
+  <body>
+    
+  <header class="astro-3EF6KSR2">
+  <a class="astro-3EF6KSR2" href="#main-content" id="skip-to-content">Skip to content</a>
+  <div class="astro-3EF6KSR2 nav-container">
+    <div class="astro-3EF6KSR2 top-nav-wrap">
+      <a class="astro-3EF6KSR2 logo" href="/">
+        鱼の
+      </a>
+      <nav class="astro-3EF6KSR2" id="nav-menu">
+        <button class="astro-3EF6KSR2 focus-outline hamburger-menu" aria-label="Open Menu" aria-controls="menu-items" aria-expanded="false">
+          <svg class="astro-3EF6KSR2 menu-icon" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round" fill="none" height="24" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+            <line class="line astro-3EF6KSR2" x1="7" x2="21" y1="12" y2="12"></line>
+            <line class="line astro-3EF6KSR2" x1="3" x2="21" y1="6" y2="6"></line>
+            <line class="line astro-3EF6KSR2" x1="12" x2="21" y1="18" y2="18"></line>
+            <line class="astro-3EF6KSR2 close" x1="18" x2="6" y1="6" y2="18"></line>
+            <line class="astro-3EF6KSR2 close" x1="6" x2="18" y1="6" y2="18"></line>
+          </svg>
+        </button>
+        <ul class="astro-3EF6KSR2 display-none sm:flex" id="menu-items">
+          <li class="astro-3EF6KSR2">
+            <a class="astro-3EF6KSR2" href="/posts">
+              Posts
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a class="astro-3EF6KSR2" href="/tags">
+              Tags
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a class="astro-3EF6KSR2" href="/about">
+              About
+            </a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <a class="astro-3EF6KSR2 focus-outline astro-5EUNQZKT group inline-block p-3 sm:p-1" href="/search" tabindex="0" title="Search" aria-label="search">
+  
+              <svg class="astro-3EF6KSR2 scale-125 sm:scale-100" xmlns="http://www.w3.org/2000/svg"><path d="M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z" class="astro-3EF6KSR2"></path>
+              </svg>
+            
+</a>
+          </li>
+          <li class="astro-3EF6KSR2">
+            <button class="astro-3EF6KSR2 focus-outline" aria-label="auto" aria-live="polite" id="theme-btn" title="Toggles light &amp; dark">
+                  <svg class="astro-3EF6KSR2" xmlns="http://www.w3.org/2000/svg" id="moon-svg">
+                    <path d="M20.742 13.045a8.088 8.088 0 0 1-2.077.271c-2.135 0-4.14-.83-5.646-2.336a8.025 8.025 0 0 1-2.064-7.723A1 1 0 0 0 9.73 2.034a10.014 10.014 0 0 0-4.489 2.582c-3.898 3.898-3.898 10.243 0 14.143a9.937 9.937 0 0 0 7.072 2.93 9.93 9.93 0 0 0 7.07-2.929 10.007 10.007 0 0 0 2.583-4.491 1.001 1.001 0 0 0-1.224-1.224zm-2.772 4.301a7.947 7.947 0 0 1-5.656 2.343 7.953 7.953 0 0 1-5.658-2.344c-3.118-3.119-3.118-8.195 0-11.314a7.923 7.923 0 0 1 2.06-1.483 10.027 10.027 0 0 0 2.89 7.848 9.972 9.972 0 0 0 7.848 2.891 8.036 8.036 0 0 1-1.484 2.059z" class="astro-3EF6KSR2"></path>
+                  </svg>
+                  <svg class="astro-3EF6KSR2" xmlns="http://www.w3.org/2000/svg" id="sun-svg">
+                    <path d="M6.993 12c0 2.761 2.246 5.007 5.007 5.007s5.007-2.246 5.007-5.007S14.761 6.993 12 6.993 6.993 9.239 6.993 12zM12 8.993c1.658 0 3.007 1.349 3.007 3.007S13.658 15.007 12 15.007 8.993 13.658 8.993 12 10.342 8.993 12 8.993zM10.998 19h2v3h-2zm0-17h2v3h-2zm-9 9h3v2h-3zm17 0h3v2h-3zM4.219 18.363l2.12-2.122 1.415 1.414-2.12 2.122zM16.24 6.344l2.122-2.122 1.414 1.414-2.122 2.122zM6.342 7.759 4.22 5.637l1.415-1.414 2.12 2.122zm13.434 10.605-1.414 1.414-2.122-2.122 1.414-1.414z" class="astro-3EF6KSR2"></path>
+                  </svg>
+                </button>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </div>
+  <div class="max-w-3xl mx-auto px-4">
+  <hr aria-hidden="true" class="border-skin-line">
+</div>
+</header>
+  <div class="astro-VJ4TPSPI flex justify-start max-w-3xl mx-auto px-2 w-full">
+    <button class="astro-VJ4TPSPI flex focus-outline hover:opacity-75 mb-2 mt-8" onclick="history.back()">
+      <svg class="astro-VJ4TPSPI" xmlns="http://www.w3.org/2000/svg"><path d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z" class="astro-VJ4TPSPI"></path>
+      </svg><span class="astro-VJ4TPSPI">Go back</span>
+    </button>
+  </div>
+  <main class="astro-VJ4TPSPI" id="main-content">
+    <h1 class="astro-VJ4TPSPI post-title">Sender部署</h1>
+    <div class="astro-VJ4TPSPI flex items-center my-2 opacity-80 space-x-2" data-hk="0-0"><svg class="inline-block fill-skin-base h-6 scale-100 w-6" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M7 11h2v2H7zm0 4h2v2H7zm4-4h2v2h-2zm0 4h2v2h-2zm4-4h2v2h-2zm0 4h2v2h-2z"></path><path d="M5 22h14c1.103 0 2-.897 2-2V6c0-1.103-.897-2-2-2h-2V2h-2v2H9V2H7v2H5c-1.103 0-2 .897-2 2v14c0 1.103.897 2 2 2zM19 8l.001 12H5V8h14z"></path></svg><span class="sr-only">Posted on:</span><span class="italic text-base">2017年5月17日<span data-hk="0-1-0" aria-hidden="true"> | </span><span class="sr-only" data-hk="0-1-1">&nbsp;at&nbsp;</span>11:42</span></div>
+    <article class="astro-VJ4TPSPI max-w-3xl mx-auto mt-8 prose" id="article" role="article">
+      <!--more-->
+<h3 id="rabbitmq">RabbitMQ</h3>
+<p><code>rpm -Uvh http://www.rabbitmq.com/releases/erlang/erlang-18.1-1.el7.centos.x86_64.rpm</code></p>
+<p><code>rpm -Uvh http://www.rabbitmq.com/releases/rabbitmq-server/v3.5.6/rabbitmq-server-3.5.6-1.noarch.rpm</code></p>
+<p><code>systemctl start rabbitmq-server</code></p>
+<h3 id="数据库初始化">数据库初始化</h3>
+<p><code>mysql5.7</code></p>
+<p>修改编码为 utf-8, 在<code>/etc/my.cnf</code>追加</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#e06c75">default-storage-engine</span><span style="color:#56b6c2">=</span><span style="color:#98c379">INNODB</span></span>
+<span class="line"><span style="color:#e06c75">character_set_server</span><span style="color:#56b6c2">=</span><span style="color:#98c379">utf8</span></span>
+<span class="line"><span style="color:#e06c75">collation-server</span><span style="color:#56b6c2">=</span><span style="color:#98c379">utf8_general_ci</span></span></code></pre>
+<p>建立用户</p>
+<p><code>CREATE USER 'username'@'localhost' IDENTIFIED BY 'password';</code></p>
+<p>建立数据库</p>
+<p><code>CREATE DATABASE sender;</code></p>
+<p>授权</p>
+<p><code>GRANT ALL ON sender.* TO 'username'@'localhost';</code></p>
+<h3 id="sender_api">sender_API</h3>
+<p>使用<code>pip3 install -r requirements.txt</code>安装依赖</p>
+<p>如果中间出现错误请把错误和系统版本一起 Google</p>
+<p>修改<code>settings.py</code>的<code>SECRET_KEY</code>, <code>DEBUG=False</code>和数据库信息</p>
+<p><code>python3 manage.py collectstatic</code>部署 static 的静态文件</p>
+<p><code>python3 manage.py migrate</code>同步数据库</p>
+<p><code>python3 manage.py createsuperuser</code>创建管理员</p>
+<h3 id="systemctl-启动-uwsgi">systemctl 启动 uWSGI</h3>
+<p><code>cat /etc/systemd/system/sender.uwsgi.service</code></p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">[Unit]</span></span>
+<span class="line"><span style="color:#e06c75">Description</span><span style="color:#56b6c2">=</span><span style="color:#98c379">uWSGI</span><span style="color:#abb2bf"> </span><span style="color:#61afef">Sender</span></span>
+<span class="line"><span style="color:#e06c75">After</span><span style="color:#56b6c2">=</span><span style="color:#98c379">syslog.target</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#abb2bf">[Service]</span></span>
+<span class="line"><span style="color:#e06c75">ExecStart</span><span style="color:#56b6c2">=</span><span style="color:#98c379">/usr/bin/uwsgi</span><span style="color:#abb2bf"> </span><span style="color:#e06c75">--ini</span><span style="color:#56b6c2">=</span><span style="color:#98c379">/var/www/sender_API/uwsgi.ini</span><span style="color:#abb2bf"> </span><span style="color:#e06c75">--chown-socket</span><span style="color:#56b6c2">=</span><span style="color:#98c379">nginx:nginx</span></span>
+<span class="line"><span style="color:#7f848e;font-style:italic"># Requires systemd version 211 or newer</span></span>
+<span class="line"><span style="color:#e06c75">RuntimeDirectory</span><span style="color:#56b6c2">=</span><span style="color:#98c379">uwsgi</span></span>
+<span class="line"><span style="color:#e06c75">Restart</span><span style="color:#56b6c2">=</span><span style="color:#98c379">always</span></span>
+<span class="line"><span style="color:#e06c75">KillSignal</span><span style="color:#56b6c2">=</span><span style="color:#98c379">SIGQUIT</span></span>
+<span class="line"><span style="color:#e06c75">Type</span><span style="color:#56b6c2">=</span><span style="color:#98c379">notify</span></span>
+<span class="line"><span style="color:#e06c75">StandardError</span><span style="color:#56b6c2">=</span><span style="color:#98c379">syslog</span></span>
+<span class="line"><span style="color:#e06c75">NotifyAccess</span><span style="color:#56b6c2">=</span><span style="color:#98c379">all</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#abb2bf">[Install]</span></span>
+<span class="line"><span style="color:#e06c75">WantedBy</span><span style="color:#56b6c2">=</span><span style="color:#98c379">multi-user.target</span></span></code></pre>
+<p>启用服务 <code>systemctl enable sender.uwsgi</code></p>
+<p>启动服务 <code>systemctl start sender.uwsgi</code></p>
+<p>如果修改文件后要生效，需要<code>systemctl daemon-reload</code>重新加载 service 文件</p>
+<h3 id="celery-服务">Celery 服务</h3>
+<p>命令行启动的方式是<code>celery -A send_core worker --loglevel=info --beat</code></p>
+<p>为了方便，改用 systemd 启动它, 参考官方文档后,</p>
+<p><code>cat /etc/systemd/system/sender.celery.service</code></p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">[Unit]</span></span>
+<span class="line"><span style="color:#e06c75">Description</span><span style="color:#56b6c2">=</span><span style="color:#98c379">Celery</span><span style="color:#abb2bf"> </span><span style="color:#61afef">Service</span></span>
+<span class="line"><span style="color:#e06c75">After</span><span style="color:#56b6c2">=</span><span style="color:#98c379">network.target</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#abb2bf">[Service]</span></span>
+<span class="line"><span style="color:#e06c75">Type</span><span style="color:#56b6c2">=</span><span style="color:#98c379">forking</span></span>
+<span class="line"><span style="color:#e06c75">User</span><span style="color:#56b6c2">=</span><span style="color:#98c379">nginx</span></span>
+<span class="line"><span style="color:#e06c75">Group</span><span style="color:#56b6c2">=</span><span style="color:#98c379">nginx</span></span>
+<span class="line"><span style="color:#e06c75">EnvironmentFile</span><span style="color:#56b6c2">=</span><span style="color:#98c379">-/etc/conf.d/celery</span></span>
+<span class="line"><span style="color:#e06c75">WorkingDirectory</span><span style="color:#56b6c2">=</span><span style="color:#98c379">/var/www/sender_API</span></span>
+<span class="line"><span style="color:#e06c75">ExecStart</span><span style="color:#56b6c2">=</span><span style="color:#98c379">/bin/sh</span><span style="color:#abb2bf"> </span><span style="color:#61afef">-c</span><span style="color:#abb2bf"> </span><span style="color:#98c379">'${CELERY_BIN} multi start ${CELERYD_NODES} \</span></span>
+<span class="line"><span style="color:#98c379">  -A ${CELERY_APP} --pidfile=${CELERYD_PID_FILE} \</span></span>
+<span class="line"><span style="color:#98c379">  --logfile=${CELERYD_LOG_FILE} --loglevel=${CELERYD_LOG_LEVEL} ${CELERYD_OPTS}'</span></span>
+<span class="line"><span style="color:#e06c75">ExecStop</span><span style="color:#56b6c2">=</span><span style="color:#98c379">/bin/sh</span><span style="color:#abb2bf"> </span><span style="color:#61afef">-c</span><span style="color:#abb2bf"> </span><span style="color:#98c379">'${CELERY_BIN} multi stopwait ${CELERYD_NODES} \</span></span>
+<span class="line"><span style="color:#98c379">  --pidfile=${CELERYD_PID_FILE}'</span></span>
+<span class="line"><span style="color:#e06c75">ExecReload</span><span style="color:#56b6c2">=</span><span style="color:#98c379">/bin/sh</span><span style="color:#abb2bf"> </span><span style="color:#61afef">-c</span><span style="color:#abb2bf"> </span><span style="color:#98c379">'${CELERY_BIN} multi restart ${CELERYD_NODES} \</span></span>
+<span class="line"><span style="color:#98c379">  -A ${CELERY_APP} --pidfile=${CELERYD_PID_FILE} \</span></span>
+<span class="line"><span style="color:#98c379">  --logfile=${CELERYD_LOG_FILE} --loglevel=${CELERYD_LOG_LEVEL} ${CELERYD_OPTS}'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7f848e;font-style:italic">#Restart=always</span></span>
+<span class="line"><span style="color:#7f848e;font-style:italic">#KillSignal=SIGQUIT</span></span>
+<span class="line"><span style="color:#7f848e;font-style:italic">#Type=notify</span></span>
+<span class="line"><span style="color:#7f848e;font-style:italic">#StandardError=syslog</span></span>
+<span class="line"><span style="color:#7f848e;font-style:italic">#NotifyAccess=all</span></span>
+<span class="line"><span style="color:#abb2bf">[Install]</span></span>
+<span class="line"><span style="color:#e06c75">WantedBy</span><span style="color:#56b6c2">=</span><span style="color:#98c379">multi-user.target</span></span></code></pre>
+<p><code>cat /etc/conf.d/celery</code></p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#7f848e;font-style:italic"># Name of nodes to start</span></span>
+<span class="line"><span style="color:#7f848e;font-style:italic"># here we have a single node</span></span>
+<span class="line"><span style="color:#e06c75">CELERYD_NODES</span><span style="color:#56b6c2">=</span><span style="color:#98c379">"sender"</span></span>
+<span class="line"><span style="color:#7f848e;font-style:italic"># or we could have three nodes:</span></span>
+<span class="line"><span style="color:#7f848e;font-style:italic">#CELERYD_NODES="w1 w2 w3"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7f848e;font-style:italic"># Absolute or relative path to the 'celery' command:</span></span>
+<span class="line"><span style="color:#e06c75">CELERY_BIN</span><span style="color:#56b6c2">=</span><span style="color:#98c379">"/usr/bin/celery"</span></span>
+<span class="line"><span style="color:#7f848e;font-style:italic">#CELERY_BIN="/virtualenvs/def/bin/celery"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7f848e;font-style:italic"># App instance to use</span></span>
+<span class="line"><span style="color:#7f848e;font-style:italic"># comment out this line if you don't use an app</span></span>
+<span class="line"><span style="color:#e06c75">CELERY_APP</span><span style="color:#56b6c2">=</span><span style="color:#98c379">"send_core"</span></span>
+<span class="line"><span style="color:#7f848e;font-style:italic"># or fully qualified:</span></span>
+<span class="line"><span style="color:#7f848e;font-style:italic">#CELERY_APP="proj.tasks:app"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7f848e;font-style:italic"># How to call manage.py</span></span>
+<span class="line"><span style="color:#e06c75">CELERYD_MULTI</span><span style="color:#56b6c2">=</span><span style="color:#98c379">"multi"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7f848e;font-style:italic"># Extra command-line arguments to the worker</span></span>
+<span class="line"><span style="color:#e06c75">CELERYD_OPTS</span><span style="color:#56b6c2">=</span><span style="color:#98c379">"--beat --schedule=/var/www/celery/celerybeat-schedule --time-limit=300 --concurrency=8"</span></span>
+<span class="line"><span style="color:#7f848e;font-style:italic">#CELERYBEAT_OPTS="--schedule=/var/run/celery/celerybeat-schedule"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#7f848e;font-style:italic"># - %n will be replaced with the first part of the nodename.</span></span>
+<span class="line"><span style="color:#7f848e;font-style:italic"># - %I will be replaced with the current child process index</span></span>
+<span class="line"><span style="color:#7f848e;font-style:italic">#   and is important when using the prefork pool to avoid race conditions.</span></span>
+<span class="line"><span style="color:#e06c75">CELERYD_PID_FILE</span><span style="color:#56b6c2">=</span><span style="color:#98c379">"/var/www/celery/%n.pid"</span></span>
+<span class="line"><span style="color:#e06c75">CELERYD_LOG_FILE</span><span style="color:#56b6c2">=</span><span style="color:#98c379">"/var/log/celery/%n%I.log"</span></span>
+<span class="line"><span style="color:#e06c75">CELERYD_LOG_LEVEL</span><span style="color:#56b6c2">=</span><span style="color:#98c379">"INFO"</span></span></code></pre>
+<p>另外权限要设对</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#abb2bf">chmod -R 0755 /var/www/celery</span></span>
+<span class="line"><span style="color:#abb2bf">chown -R nginx:nginx /var/www/celery</span></span></code></pre>
+<p>我觉得实际上这里应该把<code>beat</code>部分改用<code>CELERYBEAT_OPTS</code>, 但是要连带修改, 偷懒直接写到<code>CELERYD_OPTS</code></p>
+<p>另外<code>--schedule=/var/www/celery/celerybeat-schedule</code>其实应该在<code>/var/run</code>, 但是它每次重启就没了, 且需要重新 chmod, 决定换个位置</p>
+<h3 id="nginx-配置">Nginx 配置</h3>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#61afef">server</span><span style="color:#abb2bf"> </span><span style="color:#98c379">{</span></span>
+<span class="line"><span style="color:#abb2bf">    </span><span style="color:#61afef">listen</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">80</span><span style="color:#abb2bf">;</span></span>
+<span class="line"><span style="color:#abb2bf">    </span><span style="color:#61afef">server_name</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">127.0</span><span style="color:#98c379">.0.1</span><span style="color:#abb2bf"> </span><span style="color:#d19a66">115.29</span><span style="color:#98c379">.110.218</span><span style="color:#abb2bf"> </span><span style="color:#98c379">sender.lc4t.cn</span><span style="color:#abb2bf">;</span></span>
+<span class="line"><span style="color:#abb2bf">    </span><span style="color:#61afef">access_log</span><span style="color:#abb2bf"> </span><span style="color:#98c379">/var/log/nginx/sender_FE.access.log</span><span style="color:#abb2bf">;</span></span>
+<span class="line"><span style="color:#abb2bf">    </span><span style="color:#61afef">error_log</span><span style="color:#abb2bf"> </span><span style="color:#98c379">/var/log/nginx/sender_FE.error.log</span><span style="color:#abb2bf">;</span></span>
+<span class="line"><span style="color:#abb2bf">    </span><span style="color:#61afef">root</span><span style="color:#abb2bf"> </span><span style="color:#98c379">/var/www/sender_FE/dist</span><span style="color:#abb2bf">;</span></span>
+<span class="line"><span style="color:#abb2bf">    </span><span style="color:#61afef">charset</span><span style="color:#abb2bf">     </span><span style="color:#98c379">utf-8</span><span style="color:#abb2bf">;</span></span>
+<span class="line"><span style="color:#abb2bf">    </span><span style="color:#61afef">location</span><span style="color:#abb2bf"> </span><span style="color:#98c379">/</span><span style="color:#abb2bf"> </span><span style="color:#98c379">{</span></span>
+<span class="line"><span style="color:#abb2bf">            </span><span style="color:#61afef">root</span><span style="color:#abb2bf"> </span><span style="color:#98c379">/var/www/sender_FE/dist</span><span style="color:#abb2bf">;</span></span>
+<span class="line"><span style="color:#abb2bf">            </span><span style="color:#61afef">index</span><span style="color:#abb2bf"> </span><span style="color:#98c379">index.html</span><span style="color:#abb2bf">;</span></span>
+<span class="line"><span style="color:#abb2bf">        }</span></span>
+<span class="line"><span style="color:#abb2bf">    </span><span style="color:#61afef">location</span><span style="color:#abb2bf"> </span><span style="color:#98c379">~.</span><span style="color:#e5c07b">*</span><span style="color:#56b6c2">\.</span><span style="color:#abb2bf">(</span><span style="color:#61afef">js</span><span style="color:#abb2bf">|</span><span style="color:#61afef">css</span><span style="color:#abb2bf">|</span><span style="color:#61afef">html</span><span style="color:#abb2bf">|</span><span style="color:#61afef">png</span><span style="color:#abb2bf">|</span><span style="color:#61afef">jpg</span><span style="color:#abb2bf">)$ </span><span style="color:#98c379">{</span></span>
+<span class="line"><span style="color:#abb2bf">        </span><span style="color:#61afef">expires</span><span style="color:#abb2bf">    </span><span style="color:#d19a66">7</span><span style="color:#98c379">d</span><span style="color:#abb2bf">;</span></span>
+<span class="line"><span style="color:#abb2bf">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#abb2bf">    </span><span style="color:#61afef">location</span><span style="color:#abb2bf"> </span><span style="color:#98c379">^~</span><span style="color:#abb2bf"> </span><span style="color:#98c379">/static/admin</span><span style="color:#abb2bf"> </span><span style="color:#98c379">{</span></span>
+<span class="line"><span style="color:#abb2bf">        </span><span style="color:#56b6c2">alias</span><span style="color:#abb2bf"> </span><span style="color:#98c379">/var/www/sender_API/static/admin/</span><span style="color:#abb2bf">;</span></span>
+<span class="line"><span style="color:#abb2bf">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#abb2bf">    </span><span style="color:#61afef">location</span><span style="color:#abb2bf"> </span><span style="color:#98c379">^~</span><span style="color:#abb2bf"> </span><span style="color:#98c379">/static/asyncmailer</span><span style="color:#abb2bf"> </span><span style="color:#98c379">{</span></span>
+<span class="line"><span style="color:#abb2bf">        </span><span style="color:#56b6c2">alias</span><span style="color:#abb2bf"> </span><span style="color:#98c379">/var/www/sender_API/static/asyncmailer/</span><span style="color:#abb2bf">;</span></span>
+<span class="line"><span style="color:#abb2bf">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#abb2bf">    </span><span style="color:#61afef">location</span><span style="color:#abb2bf"> </span><span style="color:#98c379">~</span><span style="color:#abb2bf"> </span><span style="color:#98c379">/</span><span style="color:#abb2bf"> (api|</span><span style="color:#61afef">admin</span><span style="color:#abb2bf">) {</span></span>
+<span class="line"><span style="color:#abb2bf">        </span><span style="color:#61afef">uwsgi_pass</span><span style="color:#abb2bf"> </span><span style="color:#98c379">unix:/var/www/sender_API/sender_API.sock</span><span style="color:#abb2bf">;</span></span>
+<span class="line"><span style="color:#abb2bf">        </span><span style="color:#61afef">include</span><span style="color:#abb2bf"> </span><span style="color:#98c379">uwsgi_params</span><span style="color:#abb2bf">;</span></span>
+<span class="line"><span style="color:#abb2bf">    }</span></span>
+<span class="line"><span style="color:#abb2bf">}</span></span></code></pre>
+<p>最后,将所有的服务 enable,<code>reboot</code>看效果</p>
+<pre class="astro-code one-dark-pro" is:raw="" style="white-space:pre-wrap;word-wrap:break-word;background-color:#282c34;overflow-x:auto" tabindex="0"><code><span class="line"><span style="color:#61afef">systemctl</span><span style="color:#abb2bf"> </span><span style="color:#98c379">status</span><span style="color:#abb2bf"> </span><span style="color:#98c379">rabbitmq-server</span></span>
+<span class="line"><span style="color:#61afef">systemctl</span><span style="color:#abb2bf"> </span><span style="color:#98c379">status</span><span style="color:#abb2bf"> </span><span style="color:#98c379">mysqld</span></span>
+<span class="line"><span style="color:#61afef">systemctl</span><span style="color:#abb2bf"> </span><span style="color:#98c379">status</span><span style="color:#abb2bf"> </span><span style="color:#98c379">sender.celery</span></span>
+<span class="line"><span style="color:#61afef">systemctl</span><span style="color:#abb2bf"> </span><span style="color:#98c379">status</span><span style="color:#abb2bf"> </span><span style="color:#98c379">sender.uwsgi</span></span>
+<span class="line"><span style="color:#61afef">systemctl</span><span style="color:#abb2bf"> </span><span style="color:#98c379">status</span><span style="color:#abb2bf"> </span><span style="color:#98c379">nginx</span></span></code></pre>
+<p>后面考虑部署<code>Sentry</code>来监控异常, 但是这个 vps 太太太弱了估计带不动了, 再说吧</p>
+    </article>
+
+    <ul class="astro-VJ4TPSPI tags-container">
+      <li class="astro-BLWJYJPT inline-block my-1 underline-offset-4">
+  <a class="astro-BLWJYJPT group pr-2 text-sm" href="/tags/python">
+    <svg class="astro-BLWJYJPT scale-75" xmlns="http://www.w3.org/2000/svg"><path d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z" class="astro-BLWJYJPT"></path>
+    </svg>
+    &nbsp;<span class="astro-BLWJYJPT">python</span>
+  </a>
+</li><li class="astro-BLWJYJPT inline-block my-1 underline-offset-4">
+  <a class="astro-BLWJYJPT group pr-2 text-sm" href="/tags/django">
+    <svg class="astro-BLWJYJPT scale-75" xmlns="http://www.w3.org/2000/svg"><path d="M16.018 3.815 15.232 8h-4.966l.716-3.815-1.964-.37L8.232 8H4v2h3.857l-.751 4H3v2h3.731l-.714 3.805 1.965.369L8.766 16h4.966l-.714 3.805 1.965.369.783-4.174H20v-2h-3.859l.751-4H21V8h-3.733l.716-3.815-1.965-.37zM14.106 14H9.141l.751-4h4.966l-.752 4z" class="astro-BLWJYJPT"></path>
+    </svg>
+    &nbsp;<span class="astro-BLWJYJPT">django</span>
+  </a>
+</li>
+    </ul>
+  </main>
+  <footer class="astro-SZ7XMLTE mt-auto">
+  <div class="max-w-3xl mx-auto px-0">
+  <hr aria-hidden="true" class="border-skin-line">
+</div>
+  <div class="astro-SZ7XMLTE footer-wrapper">
+    <div class="flex astro-UPU6FZXR social-icons">
+  <a class="inline-block astro-5EUNQZKT group astro-UPU6FZXR link-button" href="https://github.com/lc4t" tabindex="0" title=" 鱼の on Github">
+  
+        <svg class="icon-tabler" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M0 0h24v24H0z" fill="none" stroke="none"></path>
+    <path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5"></path>
+  </svg>
+      
+</a>
+</div>
+    <div class="astro-SZ7XMLTE copyright-wrapper">
+      <span class="astro-SZ7XMLTE">lc4t © 2023</span>
+      <span class="astro-SZ7XMLTE separator">&nbsp;|&nbsp;</span>
+      <span class="astro-SZ7XMLTE">The Things Less Created.</span>
+    </div>
+    <a class="inline-block astro-5EUNQZKT group undefined" href="https://icp.gov.moe/?keyword=20237773" tabindex="0">
+  
+      萌ICP备20237773号
+    
+</a>
+  </div>
+</footer>
+
+  </body></html>
