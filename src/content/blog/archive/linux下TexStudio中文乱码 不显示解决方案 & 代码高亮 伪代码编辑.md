@@ -1,5 +1,5 @@
 ---
-title: linux下TexStudio中文乱码/不显示解决方案 & 代码高亮/伪代码编辑
+title: linux下TexStudio中文乱码解决方案
 pubDatetime: 2015-10-05 00:45:04
 tags:
   - linux

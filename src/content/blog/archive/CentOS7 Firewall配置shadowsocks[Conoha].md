@@ -1,5 +1,5 @@
 ---
-title: CentOS7/Firewall配置shadowsocks[Conoha]
+title: CentOS7 Firewall配置shadowsocks[Conoha]
 pubDatetime: 2016-03-8 00:45:04
 tags:
   - linux

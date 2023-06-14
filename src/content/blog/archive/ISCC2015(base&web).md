@@ -37,7 +37,7 @@ for i in code:
     BASE64-ENCODED SHA HASH：k+8N2CcQNoH87kU7eL4v8U4aJh0
     CLEARTEXT: The
 
-```pyhon
+```python
 #pHBP018DCCh/KTe6Psz1/g==     -->    The
 #Lo1tv5ESqHnUzrFUA9EKeA==     -->    death
 #pHV9dBn/O0jpLpBZbw51SA==     -->    god

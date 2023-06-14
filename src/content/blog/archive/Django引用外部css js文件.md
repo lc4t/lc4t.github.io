@@ -1,5 +1,5 @@
 ---
-title: Django引用外部css/js文件
+title: Django引用外部css、js文件
 pubDatetime: 2015-10-8 00:45:04
 tags:
   - django
