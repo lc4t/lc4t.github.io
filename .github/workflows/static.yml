@@ -37,7 +37,8 @@ jobs:
         uses: actions/upload-pages-artifact@v1
         with:
           # Upload entire repository
-          path: './dist'
+          path: "dist"
+          # cname: ['blog.lc4t.me', 'blog.sakanano.moe']
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
