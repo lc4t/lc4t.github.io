@@ -1,5 +1,5 @@
 ---
-title: iTerm2美化配置 OSX
+title: iTerm2美化配置
 pubDatetime: 2017-04-11 17:43:31
 tags:
   - macos

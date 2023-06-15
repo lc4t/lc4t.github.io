@@ -1,5 +1,5 @@
 ---
-title: Nazo LEVEL 闯关游戏题解[更新至0+85+EX10关]
+title: Nazo LEVEL 闯关游戏题解
 pubDatetime: 2015-06-12 00:45:04
 tags:
   - game

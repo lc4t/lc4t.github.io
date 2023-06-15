@@ -1,5 +1,5 @@
 ---
-title: vmware11安装图形化archlinux20150201
+title: vmware安装图形化archlinux
 pubDatetime: 2015-02-09 00:45:04
 tags:
   - linux

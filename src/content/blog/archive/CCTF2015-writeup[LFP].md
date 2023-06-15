@@ -1,5 +1,5 @@
 ---
-title: CCTF2015-writeup[LFP]
+title: CCTF2015-writeup
 pubDatetime: 2015-04-27 00:45:04
 tags:
   - ctf

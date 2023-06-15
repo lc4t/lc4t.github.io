@@ -1,5 +1,5 @@
 ---
-title: 0ctf2017 writeup from cnss
+title: 0ctf2017 writeup
 pubDatetime: 2017-03-19 20:00:00
 tags:
   - ctf

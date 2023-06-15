@@ -1,9 +1,8 @@
 import Fuse from "fuse.js";
 import { useEffect, useRef, useState, useMemo } from "react";
-import Card from "@components/Card";
+import dayjs from "dayjs";
 import slugify from "@utils/slugify";
 import type { BlogFrontmatter } from "@content/_schemas";
-
 export type SearchItem = {
   title: string;
   description: string;
@@ -110,11 +109,19 @@ export default function SearchBar({ searchList }: Props) {
       <ul>
         {searchResults &&
           searchResults.map(({ item, refIndex }) => (
-            <Card
-              href={`/posts/${slugify(item.data)}`}
-              frontmatter={item.data}
-              key={`${refIndex}-${slugify(item.data)}`}
-            />
+            <li className="my-6">
+              <div class="w-18" text="sm gray-500">
+                {dayjs(item.data.pubDatetime).format("YYYY/MM/DD")}
+              </div>
+              <a
+                href={`/posts/${slugify(item.data)}`}
+                className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
+              >
+                <h2 className="text-lg font-medium decoration-dashed hover:underline">
+                  {item.data.title}
+                </h2>
+              </a>
+            </li>
           ))}
       </ul>
     </>

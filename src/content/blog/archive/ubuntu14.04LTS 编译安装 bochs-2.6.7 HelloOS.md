@@ -1,5 +1,5 @@
 ---
-title: ubuntu14.04LTS 编译安装 bochs-2.6.7 HelloOS
+title: ubuntu编译安装bochs
 pubDatetime: 2015-01-21 00:45:04
 tags:
   - linux

@@ -1,5 +1,5 @@
 ---
-title: React 应对setState后值不能立即更新
+title: React setState后值不能立即更新
 pubDatetime: 2016-06-03 00:45:04
 tags:
   - react

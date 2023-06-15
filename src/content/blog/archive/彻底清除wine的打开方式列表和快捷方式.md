@@ -1,5 +1,5 @@
 ---
-title: 彻底清除wine的打开方式列表和快捷方式
+title: 彻底清除wine的快捷方式
 pubDatetime: 2015-05-19 00:45:04
 tags:
   - linux
