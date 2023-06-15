@@ -1,5 +1,5 @@
 {
-  "name": "",
+  "name": "blog.sakanano.moe",
   "version": "2.3.0",
   "scripts": {
     "dev": "astro check --watch & astro dev",
