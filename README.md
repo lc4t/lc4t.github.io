@@ -9,8 +9,8 @@
 - [ ] 主页 Layout
 - [ ] About 页面 Layout
 - [ ] 全局使用 Linear.style
-- [ ] 调整归档草稿 typo
+- [x] 调整归档草稿 typo
 - [ ] 引入照片、清单到 Navbar
-- [ ] 域名和 moe 备案
-- [ ] 替换 hexo 版本
+- [x] 域名和 moe 备案
+- [x] 替换 hexo 版本
 - [ ] 新文章
