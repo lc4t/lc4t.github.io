@@ -7,7 +7,7 @@ export const SITE: Site = {
   title: "鱼の",
   ogImage: "favicon.jpg",
   lightAndDarkMode: true,
-  postPerPage: 10,
+  postPerPage: 99999,
 };
 
 export const LOCALE = ["zh-CN"]; // set to [] to use the environment default

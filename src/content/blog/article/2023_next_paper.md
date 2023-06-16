@@ -5,8 +5,7 @@ tags:
   - thinking
 description: 测试一下
 postSlug: 2023_next_paper
-badge:
-  - draft
+draft: true
 ---
 
 ## 目标

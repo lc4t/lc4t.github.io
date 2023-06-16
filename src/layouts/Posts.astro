@@ -29,7 +29,10 @@ const archived = await getCollection("blog", a =>
 //   ? await Astro.glob("../content/blog/*.md")
 //   : [];
 
-const posted = await getCollection("blog", a => a.slug.startsWith("article/"));
+const posted = await getCollection(
+  "blog",
+  a => a.slug.startsWith("article/") && !a.data.draft
+);
 
 // const archivedSortedPostsByYear = getSortedPostsByYear(archived);
 const archivedSortedPostsByYear = getSortedPostsByYear(archived);
@@ -39,10 +42,7 @@ const postedSortedByYear = getSortedPostsByYear(posted);
 <Layout title={`Posts | ${SITE.title}`}>
   <Header activeNav="posts" />
   <Main pageTitle="Posts" pageDesc="My Articles">
-    <!-- <Debug getSortedPosts={postedSortedByYear["2023"]} /> -->
-    <!-- <Debug getSortedPosts={archivedSortedPostsByYear2} /> -->
-
-    <!-- <div>
+    <div>
       {
         Object.keys(postedSortedByYear)
           .sort((a, b) => b.localeCompare(a))
@@ -70,7 +70,7 @@ const postedSortedByYear = getSortedPostsByYear(posted);
             </div>
           ))
       }
-    </div> -->
+    </div>
     <div class="pt-6">
       <hr class="split-line pt-6" aria-hidden="true" />
     </div>

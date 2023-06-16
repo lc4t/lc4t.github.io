@@ -11,7 +11,11 @@ export const blogSchema = z
     tags: z.array(z.string()).default(["others"]),
     ogImage: z.string().optional(),
     description: z.string(),
-    badge: z.array(z.string()).default(["others"]).optional(),
+    otherSource: z
+      .array(
+        z.object({ href: z.string(), plat: z.string(), badge: z.string() })
+      )
+      .optional(),
   })
   .strict();
 
