@@ -16,7 +16,9 @@ import type { CollectionEntry } from "astro:content";
 // };
 
 export const getSortedPostsByYear = (posts: CollectionEntry<"blog">[]) => {
-  posts.sort((a, b) => a.data.pubDatetime > b.data.pubDatetime);
+  posts.sort(
+    (a, b) => b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime()
+  );
   const map: Record<string, CollectionEntry<"blog">[]> = {};
   for (const p of posts) {
     let y = dayjs(p.data.pubDatetime).format("YYYY");
