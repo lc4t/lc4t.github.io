@@ -1,6 +1,6 @@
 ---
 import { CollectionEntry, getCollection } from "astro:content";
-import Posts from "@layouts/Posts.astro";
+import Records from "@layouts/Records.astro";
 import PostDetails from "@layouts/PostDetails.astro";
 // import getSortedPosts from "@utils/getSortedPosts";
 import getPageNumbers from "@utils/getPageNumbers";
@@ -14,8 +14,7 @@ export interface Props {
 export async function getStaticPaths() {
   const posts = await getCollection(
     "blog",
-    ({ data, id }) =>
-      !data.draft && (id.startsWith("article/") || id.startsWith("archive/"))
+    ({ data, id }) => !data.draft && id.startsWith("record/")
   );
 
   const postResult = posts.map(post => ({
@@ -39,15 +38,6 @@ const { post } = Astro.props;
 
 // const totalPages = getPageNumbers(sortedPosts.length);
 
-const archived = await getCollection("blog", a =>
-  a.slug.startsWith("archive/")
-);
-
-const posted = await getCollection(
-  "blog",
-  a => a.slug.startsWith("article/") && !a.data.draft
-);
-
 // const currentPage =
 //   slug && !isNaN(Number(slug)) && totalPages.includes(Number(slug))
 //     ? Number(slug)
@@ -56,12 +46,30 @@ const posted = await getCollection(
 // const startPost = lastPost - SITE.postPerPage;
 
 // const paginatedPosts = sortedPosts.slice(startPost, lastPost);
+
+const journals = await getCollection(
+  "blog",
+  a => a.slug.startsWith("record/journals/") && !a.data.draft
+);
+
+journals.sort(
+  (a, b) => b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime()
+);
+
+const lists = await getCollection(
+  "blog",
+  a => a.slug.startsWith("record/lists/") && !a.data.draft
+);
+
+lists.sort(
+  (a, b) => b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime()
+);
 ---
 
 {
   post ? (
     <PostDetails post={post} />
   ) : (
-    <Posts archived={archived} posted={posted} />
+    <Records journals={journals} lists={lists} />
   )
 }

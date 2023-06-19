@@ -4,37 +4,30 @@ import { SITE } from "@config";
 import Layout from "@layouts/Layout.astro";
 import Main from "@layouts/Main.astro";
 import Header from "@components/Header.astro";
-// import Footer from "@components/Footer.astro";
 import LinkButton from "@components/LinkButton.astro";
 import slugify from "@utils/slugify";
-import { getCollection } from "astro:content";
+import Footer from "@components/Footer.astro";
+// import { getCollection } from "astro:content";
 import { getSortedPostsByYear } from "@utils/utils";
+import type { CollectionEntry } from "astro:content";
 import dayjs from "dayjs";
-// export interface Props {
-//   pageNum: number;
-//   totalPages: number;
-//   posts: CollectionEntry<"blog">[];
-// }
 
-// const { pageNum, totalPages, posts } = Astro.props;
+export interface Props {
+  archived: CollectionEntry<"blog">[];
+  posted: CollectionEntry<"blog">[];
+}
 
-// const prev = pageNum > 1 ? "" : "disabled";
-// const next = pageNum < totalPages ? "" : "disabled";
-// const archived = await Astro.glob("../content/blog/archive/*.md");
-const archived = await getCollection("blog", a =>
-  a.slug.startsWith("archive/")
-);
+const { archived, posted } = Astro.props;
 
-// const posted = (await Astro.glob("../content/blog/*.md"))
-//   ? await Astro.glob("../content/blog/*.md")
-//   : [];
+// const archived = await getCollection("blog", a =>
+//   a.slug.startsWith("archive/")
+// );
 
-const posted = await getCollection(
-  "blog",
-  a => a.slug.startsWith("article/") && !a.data.draft
-);
+// const posted = await getCollection(
+//   "blog",
+//   a => a.slug.startsWith("article/") && !a.data.draft
+// );
 
-// const archivedSortedPostsByYear = getSortedPostsByYear(archived);
 const archivedSortedPostsByYear = getSortedPostsByYear(archived);
 const postedSortedByYear = getSortedPostsByYear(posted);
 ---
@@ -48,7 +41,7 @@ const postedSortedByYear = getSortedPostsByYear(posted);
           .sort((a, b) => b.localeCompare(a))
           .map(year => (
             <div class="pt-0.5">
-              <span class="year">{year}</span>
+              <span class="st">{year}</span>
               {postedSortedByYear[year].map(post => (
                 <div>
                   <div class="flex items-center pt-3 font-normal" m="y-4 x-0.8">
@@ -61,6 +54,11 @@ const postedSortedByYear = getSortedPostsByYear(posted);
                     >
                       <p class="posted-title">{post.data.title}</p>
                     </LinkButton>
+                    {post.data.badge?.map(badge => (
+                      <div class="ml-2">
+                        <img src={badge} />
+                      </div>
+                    ))}
                   </div>
                   <div class="posted-desc" text="gray-400">
                     {post.data.description}
@@ -77,6 +75,7 @@ const postedSortedByYear = getSortedPostsByYear(posted);
     <div>
       <div class="flex:auto">
         <span class="ph3i">Archived</span>
+        <span class="itatic text--10" text="gray-400"></span>
       </div>
 
       {
@@ -84,7 +83,7 @@ const postedSortedByYear = getSortedPostsByYear(posted);
           .sort((a, b) => b.localeCompare(a))
           .map(year => (
             <div>
-              <span class="year">{year}</span>
+              <span class="st">{year}</span>
               {archivedSortedPostsByYear[year].map(post => (
                 <div class="flex items-center font-normal" m="y-2 x-0.8">
                   <div class="w-18" text="sm gray-500">
@@ -103,6 +102,7 @@ const postedSortedByYear = getSortedPostsByYear(posted);
       }
     </div>
   </Main>
+  <Footer />
 
   <style>
     .pagination-wrapper {

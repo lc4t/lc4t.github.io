@@ -1,0 +1,25 @@
+---
+import Record from "@layouts/Records.astro";
+
+import { getCollection } from "astro:content";
+
+const journals = await getCollection(
+  "blog",
+  a => a.slug.startsWith("record/journals/") && !a.data.draft
+);
+
+journals.sort(
+  (a, b) => b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime()
+);
+
+const lists = await getCollection(
+  "blog",
+  a => a.slug.startsWith("record/lists/") && !a.data.draft
+);
+
+lists.sort(
+  (a, b) => b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime()
+);
+---
+
+<Record journals={journals} lists={lists} />

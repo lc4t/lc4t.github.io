@@ -1,0 +1,110 @@
+---
+import { SITE } from "@config";
+// import { Debug } from "astro/components";
+import Layout from "@layouts/Layout.astro";
+import Main from "@layouts/Main.astro";
+import Footer from "@components/Footer.astro";
+import Header from "@components/Header.astro";
+// import Footer from "@components/Footer.astro";
+import LinkButton from "@components/LinkButton.astro";
+import slugify from "@utils/slugify";
+// import { getCollection } from "astro:content";
+// import { getSortedPostsByYear } from "@utils/utils";
+import type { CollectionEntry } from "astro:content";
+import dayjs from "dayjs";
+
+export interface Props {
+  journals: CollectionEntry<"blog">[];
+  lists: CollectionEntry<"blog">[];
+}
+
+const { journals, lists } = Astro.props;
+---
+
+<Layout title={`Records | ${SITE.title}`}>
+  <Header activeNav="records" />
+  <Main pageTitle="Records" pageDesc="Life Records">
+    <div>
+      <div class="pt-0.5">
+        <span class="st">Journals</span>
+        <span class="itatic text--10" text="gray-400">learn & experience</span>
+      </div>
+
+      {
+        journals.map(post => (
+          <>
+            <div class="flex items-center pt-4 font-normal" m="y-4 x-0.8">
+              <div class="w-24" text="sm gray-500">
+                {dayjs(post.data.pubDatetime).format("YYYY/MM/DD")}
+              </div>
+
+              <LinkButton
+                className="hover:text-skin-primary flex:1 text-skin-base"
+                href={`/records/${slugify(post.data)}`}
+              >
+                <p class="posted-title">{post.data.title}</p>
+              </LinkButton>
+
+              {post.data.badge?.map(badge => (
+                <div class="ml-2">
+                  <img alt="#" src={badge} />
+                </div>
+              ))}
+            </div>
+            <div class="ml-24 italic " text="gray-400">
+              {post.data.description}
+            </div>
+          </>
+        ))
+      }
+      <div class="pt-6">
+        <hr class="split-line pt-6" aria-hidden="true" />
+      </div>
+
+      <div class="pt-0.5">
+        <span class="st">Lists</span>
+        <span class="itatic text--10" text="gray-400">wants & ...</span>
+      </div>
+
+      {
+        lists.map(post => (
+          <>
+            <div class="flex items-center pt-4 font-normal" m="y-4 x-0.8">
+              <div class="w-24" text="sm gray-500">
+                {dayjs(post.data.pubDatetime).format("YYYY/MM/DD")}
+              </div>
+
+              <LinkButton
+                className="hover:text-skin-primary flex:1 text-skin-base"
+                href={`/records/${slugify(post.data)}`}
+              >
+                <p class="posted-title">{post.data.title}</p>
+              </LinkButton>
+
+              {post.data.badge?.map(badge => (
+                <div class="ml-2">
+                  <img src={badge} />
+                </div>
+              ))}
+            </div>
+            <div class="ml-24 italic " text="gray-400">
+              {post.data.description}
+            </div>
+          </>
+        ))
+      }
+    </div>
+  </Main>
+  <Footer />
+  <style>
+    .pagination-wrapper {
+      @apply mb-8 mt-auto flex justify-center;
+    }
+    .disabled {
+      @apply pointer-events-none select-none opacity-50 hover:text-skin-base group-hover:fill-skin-base;
+    }
+    .disabled-svg {
+      @apply group-hover:!fill-skin-base;
+    }
+  </style>
+</Layout>

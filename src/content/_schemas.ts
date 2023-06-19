@@ -16,6 +16,7 @@ export const blogSchema = z
         z.object({ href: z.string(), plat: z.string(), badge: z.string() })
       )
       .optional(),
+    badge: z.array(z.string()).optional(),
   })
   .strict();
 
