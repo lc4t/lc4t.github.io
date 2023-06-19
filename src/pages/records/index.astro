@@ -5,7 +5,7 @@ import { getCollection } from "astro:content";
 
 const journals = await getCollection(
   "blog",
-  a => a.slug.startsWith("record/journals/") && !a.data.draft
+  a => a.slug.startsWith("record/journal/") && !a.data.draft
 );
 
 journals.sort(
@@ -14,7 +14,7 @@ journals.sort(
 
 const lists = await getCollection(
   "blog",
-  a => a.slug.startsWith("record/lists/") && !a.data.draft
+  a => a.slug.startsWith("record/list/") && !a.data.draft
 );
 
 lists.sort(

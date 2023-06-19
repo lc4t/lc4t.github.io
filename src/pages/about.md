@@ -3,7 +3,7 @@ layout: ../layouts/AboutLayout.astro
 title: "About"
 ---
 
-个人博客，随机掉落一些想法、文章、照片等。
+这里将会放一些自我介绍，不过现在还没想好，所以等等...
 
 <!--
 <div>
