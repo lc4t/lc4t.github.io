@@ -5,7 +5,6 @@ import PostDetails from "@layouts/PostDetails.astro";
 // import getSortedPosts from "@utils/getSortedPosts";
 import getPageNumbers from "@utils/getPageNumbers";
 import slugify from "@utils/slugify";
-// import { SITE } from "@config";
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -33,12 +32,6 @@ export async function getStaticPaths() {
 // const { slug } = Astro.params;
 const { post } = Astro.props;
 
-// const posts = await getCollection("blog");
-
-// const sortedPosts = getSortedPosts(posts);
-
-// const totalPages = getPageNumbers(sortedPosts.length);
-
 const archived = await getCollection("blog", a =>
   a.slug.startsWith("archive/")
 );
@@ -47,15 +40,6 @@ const posted = await getCollection(
   "blog",
   a => a.slug.startsWith("article/") && !a.data.draft
 );
-
-// const currentPage =
-//   slug && !isNaN(Number(slug)) && totalPages.includes(Number(slug))
-//     ? Number(slug)
-//     : 0;
-// const lastPost = currentPage * SITE.postPerPage;
-// const startPost = lastPost - SITE.postPerPage;
-
-// const paginatedPosts = sortedPosts.slice(startPost, lastPost);
 ---
 
 {
