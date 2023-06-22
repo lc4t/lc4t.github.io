@@ -6,6 +6,15 @@ title: "About"
 这里将会放一些自我介绍，不过现在还没想好，所以等等...
 
 <!--
+颜色说明:
+
+数字进度: #46A3FF
+表示进行时：#4EFEB3
+表示等待中：FF60AF
+归档信息: #7B7B7B
+时间范围：#BE77FF -->
+
+<!--
 <div>
   <img src="/assets/dev.svg" class="sm:w-1/2 mx-auto" alt="coding dev illustration">
 </div> -->

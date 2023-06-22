@@ -6,8 +6,12 @@ postSlug: reading_list
 tags:
   - list
 badge:
-  - https://img.shields.io/badge/ing-blue?style=flat-square&logo=
+  - https://img.shields.io/badge/reading-4EFEB3?style=flat-square&logo=
+  # - https://img.shields.io/badge/2022:10done-7B7B7B?style=flat-square&logo=
+  - https://img.shields.io/badge/2@2023-46A3FF?style=flat-square&logo=
 ---
+
+> 进度更新: 10 @2022
 
 2021 年底的时候就有打算把买过的书整理一下，毕竟各个平台都趁打折买了不少但是几乎没怎么看，甚至有些书会第二次买到-\_-||
 
