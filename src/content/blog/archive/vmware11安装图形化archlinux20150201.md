@@ -1,6 +1,6 @@
 ---
 title: vmware安装图形化archlinux
-pubDatetime: 2015-02-09 00:45:04
+pubDatetime: 2015-02-09 00:45:04 +08:00
 tags:
   - linux
 description: Already Archive Before 20230604

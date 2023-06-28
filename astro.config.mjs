@@ -8,6 +8,8 @@ import { SITE } from "./src/config";
 import UnoCSS from "unocss/astro";
 import solid from "@astrojs/solid-js";
 
+import image from "@astrojs/image";
+
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
@@ -18,9 +20,12 @@ export default defineConfig({
       },
     }),
     react(),
-    UnoCSS({ injectReset: true }),
+    UnoCSS({
+      injectReset: true,
+    }),
     solid(),
     sitemap(),
+    image(),
   ],
   markdown: {
     remarkPlugins: [

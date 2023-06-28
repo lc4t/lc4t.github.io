@@ -1,6 +1,6 @@
 ---
 title: web security interview
-pubDatetime: 2017-03-06 15:27:41
+pubDatetime: 2017-03-06 15:27:41 +08:00
 tags:
   - interview
   - security
@@ -981,7 +981,7 @@ Acunetix Web Vulnerability Scanner：
 
 1.  Cookie 值
 2.  HTTP 响应头
-3.                                  HTML特殊字符串
+3.                                    HTML特殊字符串
 4.  特定 src 引用
 5.  404/200 页
 

@@ -1,6 +1,6 @@
 ---
 title: Django引用外部css、js文件
-pubDatetime: 2015-10-8 00:45:04
+pubDatetime: 2015-10-8 00:45:04 +08:00
 tags:
   - django
 description: Already Archive Before 20230604

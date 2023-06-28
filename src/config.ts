@@ -4,7 +4,7 @@ export const SITE: Site = {
   website: "https://blog.sakanano.moe/",
   author: "lc4t",
   desc: "lc4t's blog, some articles, thinkings, and pics.",
-  title: "鱼の",
+  title: "魚の",
   ogImage: "favicon.jpg",
   lightAndDarkMode: true,
   postPerPage: 99999,

@@ -1,6 +1,6 @@
 ---
 title: ubuntu编译安装bochs
-pubDatetime: 2015-01-21 00:45:04
+pubDatetime: 2015-01-21 00:45:04 +08:00
 tags:
   - linux
 description: Already Archive Before 20230604

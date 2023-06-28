@@ -1,6 +1,6 @@
 ---
 title: 流行声乐课
-pubDatetime: 2023-06-22 17:00:00
+pubDatetime: 2023-06-22 17:00:00 +08:00
 postSlug: learn_how_to_sing
 description: 当一个五音不全的人开始学唱歌...
 tags:

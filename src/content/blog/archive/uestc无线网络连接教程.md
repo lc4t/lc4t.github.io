@@ -1,6 +1,6 @@
 ---
 title: uestc无线网络连接教程
-pubDatetime: 2015-06-09 00:45:04
+pubDatetime: 2015-06-09 00:45:04 +08:00
 tags:
   - uestc
 description: Already Archive Before 20230604

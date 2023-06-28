@@ -1,6 +1,6 @@
 ---
 title: iTerm2美化配置
-pubDatetime: 2017-04-11 17:43:31
+pubDatetime: 2017-04-11 17:43:31 +08:00
 tags:
   - macos
 description: Already Archive Before 20230604

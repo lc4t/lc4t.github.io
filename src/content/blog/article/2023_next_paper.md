@@ -1,6 +1,6 @@
 ---
 title: 第二篇测试
-pubDatetime: 2023-06-07 20:00:00
+pubDatetime: 2023-06-07 20:00:00 +08:00
 tags:
   - thinking
 description: 测试一下

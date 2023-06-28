@@ -1,6 +1,6 @@
 ---
 title: 彻底清除wine的快捷方式
-pubDatetime: 2015-05-19 00:45:04
+pubDatetime: 2015-05-19 00:45:04 +08:00
 tags:
   - linux
 description: Already Archive Before 20230604
