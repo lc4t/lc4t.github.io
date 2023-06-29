@@ -2,6 +2,7 @@
 import { SITE } from "@config";
 // import "@styles/base.css";
 import "@styles/main.css";
+import { GoogleAnalytics } from "astro-google-analytics";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
 
@@ -37,6 +38,7 @@ const socialImageURL = new URL(
     <meta name="generator" content={Astro.generator} />
 
     <!-- General Meta Tags -->
+    <GoogleAnalytics id="G-ZSTJ0GRLYQ" />
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
