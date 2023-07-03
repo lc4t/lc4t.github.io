@@ -1,5 +1,5 @@
 ---
-title: 读书记录
+title: 书
 pubDatetime: 2022-01-03 00:00:00 +08:00
 description: 一些想读和读过的书，偶尔会有一些奇怪的读后感
 postSlug: reading_list
