@@ -1,0 +1,25 @@
+---
+export interface Props {
+  src: string;
+  alt: string;
+  title: string;
+}
+
+const { src, alt, title } = Astro.props;
+---
+
+<figure>
+  <figcaption class="title">{title}</figcaption>
+  <picture>
+    <img src={src} alt={alt} />
+  </picture>
+</figure>
+
+<style>
+  .title {
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: 400;
+    margin-top: 1rem;
+  }
+</style>

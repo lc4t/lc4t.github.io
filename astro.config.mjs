@@ -7,8 +7,9 @@ import sitemap from "@astrojs/sitemap";
 import { SITE } from "./src/config";
 import UnoCSS from "unocss/astro";
 import solid from "@astrojs/solid-js";
+// import image from "@astrojs/image";
 
-import image from "@astrojs/image";
+import mdx from "@astrojs/mdx";
 
 // https://astro.build/config
 export default defineConfig({
@@ -25,9 +26,8 @@ export default defineConfig({
     }),
     solid(),
     sitemap(),
-    image({
-      serviceEntryPoint: "@astrojs/image/sharp",
-    }),
+    // image({serviceEntryPoint: "@astrojs/image/sharp"}),
+    mdx(),
   ],
   markdown: {
     remarkPlugins: [

@@ -2,6 +2,7 @@
 import { CollectionEntry, getCollection } from "astro:content";
 import Records from "@layouts/Records.astro";
 import PostDetails from "@layouts/PostDetails.astro";
+import ImageSky from "@layouts/ImageSky.astro";
 import getPageNumbers from "@utils/getPageNumbers";
 import slugify from "@utils/slugify";
 
@@ -47,12 +48,23 @@ const lists = await getCollection(
 lists.sort(
   (a, b) => b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime()
 );
+
+const images = await getCollection(
+  "blog",
+  a => a.slug.startsWith("record/image/") && !a.data.draft
+);
+
+images.sort(
+  (a, b) => b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime()
+);
 ---
 
 {
-  post ? (
+  post && post.slug.startsWith("record/image/2023_the_sky") ? (
+    <ImageSky post={post} />
+  ) : post ? (
     <PostDetails post={post} />
   ) : (
-    <Records journals={journals} lists={lists} />
+    <Records journals={journals} lists={lists} images={images} />
   )
 }

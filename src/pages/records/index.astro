@@ -20,6 +20,15 @@ const lists = await getCollection(
 lists.sort(
   (a, b) => b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime()
 );
+
+const images = await getCollection(
+  "blog",
+  a => a.slug.startsWith("record/image/") && !a.data.draft
+);
+
+images.sort(
+  (a, b) => b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime()
+);
 ---
 
-<Record journals={journals} lists={lists} />
+<Record journals={journals} lists={lists} images={images} />

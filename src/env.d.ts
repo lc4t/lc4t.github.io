@@ -1,5 +1,5 @@
 /// <reference path="../.astro/types.d.ts" />
-/// <reference types="@astro/image/client" />
+/// <reference types="@astro/client" />
 import type { AttributifyAttributes } from "@unocss/preset-attributify";
 
 interface Attributes extends AttributifyAttributes {}
