@@ -25,7 +25,9 @@ export default defineConfig({
     }),
     solid(),
     sitemap(),
-    image(),
+    image({
+      serviceEntryPoint: "@astrojs/image/sharp",
+    }),
   ],
   markdown: {
     remarkPlugins: [

@@ -12,6 +12,7 @@ title: "About"
 表示进行时：#4EFEB3
 表示等待中：FF60AF
 归档信息: #7B7B7B
+IMAGE: 87ceeb
 时间范围：#BE77FF -->
 
 <!--

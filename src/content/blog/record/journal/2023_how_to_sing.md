@@ -6,7 +6,7 @@ description: 当一个五音不全的人开始学唱歌...
 tags:
   - learning-record
 badge:
-  - https://img.shields.io/badge/FROM 2023.03.18-BE77FF?style=flat-square&logo=
+  - https://img.shields.io/badge/from 2023.03.18-BE77FF?style=flat-square&logo=
 ---
 
 # 序

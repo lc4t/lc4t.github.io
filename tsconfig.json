@@ -13,6 +13,7 @@
       "@styles/*": ["styles/*"],
       "@utils/*": ["utils/*"]
     },
-    "jsxImportSource": "solid-js"
+    "jsxImportSource": "solid-js",
+    "types": ["@astrojs/image/client"]
   }
 }

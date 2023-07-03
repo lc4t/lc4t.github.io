@@ -1,12 +1,10 @@
 ---
-import { LOGO_IMAGE, SITE } from "@config";
+import { SITE } from "@config";
 import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
 
-import logoPNG from "/public/assets/logo.png";
-
 export interface Props {
-  activeNav?: "posts" | "tags" | "records" | "images" | "about" | "search";
+  activeNav?: "posts" | "tags" | "records" | "about" | "search";
 }
 
 const { activeNav } = Astro.props;
@@ -17,18 +15,7 @@ const { activeNav } = Astro.props;
   <div class="nav-container">
     <div class="top-nav-wrap">
       <a href="/" class="logo">
-        {
-          LOGO_IMAGE.enable ? (
-            <img
-              src={logoPNG}
-              alt="Sakanano Logo"
-              width={LOGO_IMAGE.width}
-              height={LOGO_IMAGE.height}
-            />
-          ) : (
-            SITE.title
-          )
-        }
+        {SITE.title}
       </a>
       <nav id="nav-menu">
         <button
@@ -67,11 +54,6 @@ const { activeNav } = Astro.props;
               Records
             </a>
           </li>
-          <!-- <li>
-            <a href="/images" class={activeNav === "images" ? "active" : ""}>
-              Images
-            </a>
-          </li> -->
           <li>
             <a href="/about" class={activeNav === "about" ? "active" : ""}>
               About
