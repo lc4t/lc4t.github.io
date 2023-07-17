@@ -5,6 +5,12 @@ postSlug: 2023-add-backblaze-cloudflare
 description: 搞点新玩意之图床
 tags:
   - cloud
+otherSource: [
+	{
+		href: "https://mp.weixin.qq.com/s/J5cwXhgwPYEFX42uPRP0yQ", 
+		plat: "wechat", 
+		badge: "https://img.shields.io/badge/Other-WeChat-1AAD19?style=flat-square&logo=wechat"
+	}]
 ---
 
 ## 缘起
