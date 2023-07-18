@@ -7,10 +7,19 @@ tags:
   - app
 otherSource: [
 	{
-		href: "https://sspai.com", 
+		href: "https://sspai.com/post/81209", 
 		plat: "sspai", 
-		badge: "https://img.shields.io/badge/审核中-sspai-c83b34?style=flat-square&logo=sspai"
-	}]
+		badge: "https://img.shields.io/badge/First-sspai-c83b34?style=flat-square&logo=sspai"
+	},
+	{
+		href: "https://mp.weixin.qq.com/s/uMRPOmadMexmAfpzWHbZEA", 
+		plat: "wechat", 
+		badge: "https://img.shields.io/badge/Other-WeChat-1AAD19?style=flat-square&logo=wechat"
+	}	
+]
+
+
+
 ---
 
 经历了许多买断 APP 再也不维护、换皮发新 APP，越来越喜欢订阅制了。
@@ -50,10 +59,10 @@ otherSource: [
 
 #### 今天看啥：一个把微信文章转 RSS 的服务
 
-Reeder 中包含的最终要的一类服务就是来自「今天看啥」。
+Reeder 中包含的最重要的一类服务就是来自「今天看啥」。
 我认为「今天看啥」这种服务最核心的是优化了我们最宝贵的资源：时间。
 
-虽然，我们可以在微信里滑动在看到公众号的最新文章，但这之间充斥着无序和广告，这里不能按照自己的想法进行分类、无法筛选已读未读、无法快速查看全文并保持原来的阅读流等等。简单来说，在我的感官中，公众号的阅读界面更像是一群公众号在我的微信拉了个 TAB 当做群聊然后把我禁言，而我因为这里面确实有想要的内容不得不忍气吞声在里面翻翻找找。
+虽然，我们可以在微信里滑动看到公众号的最新文章，但这之间充斥着无序和广告，这里不能按照自己的想法进行分类、无法筛选已读未读、无法快速查看全文并保持原来的阅读流等等。简单来说，在我的感官中，公众号的阅读界面更像是一群公众号在我的微信拉了个 TAB 当做群聊然后把我禁言，而我因为这里面确实有想要的内容不得不忍气吞声在里面翻翻找找。
 
 那么「今天看啥」解决了我的核心问题：我想通过 Reeder 这种 RSS 阅读器获取文章的全文并且离线保存，通过公众号的性质给它分类，通过键盘的 ↑↓ 快速筛选我关注的内容——这样将我对信息的丢弃感降低以降低我的信息焦虑。
 
@@ -186,7 +195,7 @@ Reeder 中包含的最终要的一类服务就是来自「今天看啥」。
 
 因此最后用的是 「iPic」，场景可见[这里](https://blog.sakanano.moe/posts/2023-add-backblaze-cloudflare/)。
 ![「iPic」配置图床](https://img.sakanano.moe/file/sakanano/public/images/article/y4evqt.png)
-其次是用于集成推送的 「Server 酱」，主要是很多脚本都支持 「Server 酱」，通过一次 HTTP 请求就可以实现多渠道推送，而不再用针对每个渠道添加 API。
+其次是用于集成推送的 「Server 酱」，主要是很多脚本都支持 「Server 酱」，通过一次 HTTP 请求就可以实现多渠道推送，而不再针对每个渠道添加 API。
 ![「Server酱」聚合通知渠道](https://img.sakanano.moe/file/sakanano/public/images/article/3r8e6e.png)
 最后就是「百度云 SVIP」，迫于大部分素材、资源、媒体的传输都是百度云，早就达到了非 VIP 的上限，不得不开 SVIP（当然这里可能是我不去整理网盘空间才会不够用）。
 
