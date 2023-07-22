@@ -1,6 +1,6 @@
 #! /bin/bash
 brew install exiftool imagemagick jq exiv2
-for fname in `ls *.JPG`; do
+for fname in `ls *.HEIC`; do
   newname=`exiftool $fname -j| jq '.[0].CreateDate' | sed 's/\:/-/g' | sed 's/"//g'`
   mogrify -format jpg $fname
   mv ${fname%%.*}.jpg "$newname.jpg" && rm -f $fname
