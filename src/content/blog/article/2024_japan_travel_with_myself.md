@@ -1,6 +1,6 @@
 ---
-title: 日本自由行攻略(2023Final版)
-pubDatetime: 2024-02-24 20:00:00 +08:00
+title: 日本自由行攻略(2023Final)
+pubDatetime: 2024-02-25 00:00:00 +08:00
 tags:
   - 攻略
   - 日本
@@ -8,6 +8,13 @@ tags:
   - 自由行
 description: 日本一人自由行攻略，绝对有你不曾关注到的细节
 postSlug: 2024_japan_travel_with_myself
+otherSource: [
+	{
+		href: "https://mp.weixin.qq.com/s/YCuK9hT-TVrxW3zpg2EvYQ", 
+		plat: "wechat", 
+		badge: "https://img.shields.io/badge/Other-WeChat-1AAD19?style=flat-square&logo=wechat"
+	}	
+]
 ---
 
 # 0
@@ -593,7 +600,8 @@ Day3 是镰仓一日游然后去江之岛，中午到了之后竟然下雨——
 可以用一些能反映日落时间的 APP 来确定时间，注意，日落时间是到达时间，因为日落之后就拍不到阳光洒在海边的景色了，如果可以的话，尽量留 1 个小时上山。
 
 ![镰仓的下午](https://img.sakanano.moe/file/sakanano/public/images/article/kn7j5s.JPG)
-![镰仓的黄昏](https://img.sakanano.moe/file/sakanano/public/images/article/3gum0f.JPG)
+
+![镰仓的黄昏](https://img.sakanano.moe/file/sakanano/public/images/article/zhappx.jpg)
 
 我这次出发已经偏晚了，到岛上的时候还没打卡就日落了，所以一些需要白天拍照的场景完全没戏，尤其是日本的白天晚上景色差距很大，所以干脆逛了逛江之岛结束。
 
