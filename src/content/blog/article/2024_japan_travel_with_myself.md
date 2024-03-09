@@ -87,7 +87,7 @@ otherSource: [
 
 除此之外，也可以多问问有没有什么优惠活动，比如我这个最终就退款了 50r。
 
-![签证价格](https://img.sakanano.moe/file/sakanano/public/images/article/4rulpg.png)
+![签证价格](https://img.sakanano.moe/file/sakanano/public/images/article/c1t224.png)
 
 ### 机票
 
