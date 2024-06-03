@@ -1,0 +1,41 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+// import Posts from "@layouts/Posts.astro";
+import Journals from "@layouts/Journals.astro";
+import PostDetails from "@layouts/PostDetails.astro";
+// import getSortedPosts from "@utils/getSortedPosts";
+import getPageNumbers from "@utils/getPageNumbers";
+import slugify from "@utils/slugify";
+
+export interface Props {
+  journal: CollectionEntry<"blog">;
+}
+
+export async function getStaticPaths() {
+  const journals = await getCollection(
+    "blog",
+    ({ data, id }) => !data.draft && id.startsWith("journal/")
+  );
+
+  const journalResult = journals.map(journal => ({
+    params: { slug: slugify(journal.data) },
+    props: { journal },
+  }));
+
+  const pagePaths = getPageNumbers(journals.length).map(pageNum => ({
+    params: { slug: String(pageNum) },
+  }));
+
+  return [...journalResult, ...pagePaths];
+}
+
+// const { slug } = Astro.params;
+const { journal } = Astro.props;
+
+const journaled = await getCollection(
+  "blog",
+  a => a.slug.startsWith("journal/") && !a.data.draft
+);
+---
+
+{journal ? <PostDetails post={journal} /> : <Journals journaled={journaled} />}

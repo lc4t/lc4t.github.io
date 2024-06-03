@@ -3,12 +3,12 @@ import Record from "@layouts/Records.astro";
 
 import { getCollection } from "astro:content";
 
-const journals = await getCollection(
+const diaries = await getCollection(
   "blog",
-  a => a.slug.startsWith("record/journal/") && !a.data.draft
+  a => a.slug.startsWith("record/diary/") && !a.data.draft
 );
 
-journals.sort(
+diaries.sort(
   (a, b) => b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime()
 );
 
@@ -31,4 +31,4 @@ images.sort(
 );
 ---
 
-<Record journals={journals} lists={lists} images={images} />
+<Record diaries={diaries} lists={lists} images={images} />

@@ -1,0 +1,11 @@
+---
+import Journals from "@layouts/Journals.astro";
+
+import { getCollection } from "astro:content";
+
+const journaled = await getCollection("blog", a =>
+  a.slug.startsWith("journal/")
+);
+---
+
+<Journals journaled={journaled} />

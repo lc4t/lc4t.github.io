@@ -1,0 +1,89 @@
+---
+import { SITE } from "@config";
+// import { Debug } from "astro/components";
+import Layout from "@layouts/Layout.astro";
+import Main from "@layouts/Main.astro";
+import Header from "@components/Header.astro";
+import LinkButton from "@components/LinkButton.astro";
+import slugify from "@utils/slugify";
+import Footer from "@components/Footer.astro";
+// import { getCollection } from "astro:content";
+import { getSortedPostsByYear } from "@utils/utils";
+import type { CollectionEntry } from "astro:content";
+import dayjs from "dayjs";
+
+export interface Props {
+  // archived: CollectionEntry<"blog">[];
+  // posted: CollectionEntry<"blog">[];
+  journaled: CollectionEntry<"blog">[];
+}
+
+// const { archived, posted } = Astro.props;
+const { journaled } = Astro.props;
+
+// const archived = await getCollection("blog", a =>
+//   a.slug.startsWith("archive/")
+// );
+
+// const posted = await getCollection(
+//   "blog",
+//   a => a.slug.startsWith("article/") && !a.data.draft
+// );
+
+// const archivedSortedPostsByYear = getSortedPostsByYear(archived);
+// const postedSortedByYear = getSortedPostsByYear(posted);
+const journalSortedByYear = getSortedPostsByYear(journaled);
+---
+
+<Layout title={`Journals | ${SITE.title}`}>
+  <Header activeNav="journals" />
+  <Main pageTitle="Journals" pageDesc="短文, 一些想法和尝试">
+    <div>
+      {
+        Object.keys(journalSortedByYear)
+          .sort((a, b) => b.localeCompare(a))
+          .map(year => (
+            <div class="pt-0.5">
+              {/* <span class="st">{year}</span> */}
+              {journalSortedByYear[year].map(journal => (
+                <div>
+                  <div class="flex items-center pt-4 font-normal" m="y-4 x-0.8">
+                    <div class="w-24" text="sm gray-500">
+                      {dayjs(journal.data.pubDatetime).format("YYYY/MM/DD")}
+                    </div>
+                    <LinkButton
+                      className="hover:text-skin-primary text-skin-base"
+                      href={`/journals/${slugify(journal.data)}`}
+                    >
+                      <p class="journaled-title">{journal.data.title}</p>
+                    </LinkButton>
+                    {journal.data.badge?.map(badge => (
+                      <div class="ml-2">
+                        <img src={badge} />
+                      </div>
+                    ))}
+                  </div>
+                  {/* <div class="journaled-desc" text="gray-400">
+                    {journal.data.description}
+                  </div> */}
+                </div>
+              ))}
+            </div>
+          ))
+      }
+    </div>
+  </Main>
+  <Footer />
+
+  <style>
+    .pagination-wrapper {
+      @apply mb-8 mt-auto flex justify-center;
+    }
+    .disabled {
+      @apply pointer-events-none select-none opacity-50 hover:text-skin-base group-hover:fill-skin-base;
+    }
+    .disabled-svg {
+      @apply group-hover:!fill-skin-base;
+    }
+  </style>
+</Layout>

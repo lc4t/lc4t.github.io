@@ -14,25 +14,25 @@ import type { CollectionEntry } from "astro:content";
 import dayjs from "dayjs";
 
 export interface Props {
-  journals: CollectionEntry<"blog">[];
+  diaries: CollectionEntry<"blog">[];
   lists: CollectionEntry<"blog">[];
   images: CollectionEntry<"blog">[];
 }
 
-const { journals, lists, images } = Astro.props;
+const { diaries, lists, images } = Astro.props;
 ---
 
 <Layout title={`Records | ${SITE.title}`}>
   <Header activeNav="records" />
-  <Main pageTitle="Records" pageDesc="Life Records">
+  <Main pageTitle="Records" pageDesc="记录，关于在这个星球上的生活">
     <div>
       <div class="pt-0.5">
-        <span class="st">Journals</span>
+        <span class="st">Diaries</span>
         <span class="itatic text--10" text="gray-400">learn & experience</span>
       </div>
 
       {
-        journals.map(post => (
+        diaries.map(post => (
           <>
             <div class="flex items-center pt-4 font-normal" m="y-4 x-0.8">
               <div class="w-24" text="sm gray-500">

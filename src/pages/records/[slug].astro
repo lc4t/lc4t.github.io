@@ -31,12 +31,12 @@ export async function getStaticPaths() {
 // const { slug } = Astro.params;
 const { post } = Astro.props;
 
-const journals = await getCollection(
+const diaries = await getCollection(
   "blog",
-  a => a.slug.startsWith("record/journal/") && !a.data.draft
+  a => a.slug.startsWith("record/diary/") && !a.data.draft
 );
 
-journals.sort(
+diaries.sort(
   (a, b) => b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime()
 );
 
@@ -65,6 +65,6 @@ images.sort(
   ) : post ? (
     <PostDetails post={post} />
   ) : (
-    <Records journals={journals} lists={lists} images={images} />
+    <Records diaries={diaries} lists={lists} images={images} />
   )
 }
