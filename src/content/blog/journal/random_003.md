@@ -1,9 +1,9 @@
 ---
 title: 随机刊物 R#003
-pubDatetime: 2024-06-14 23:00:00 +08:00
+pubDatetime: 2024-06-24 23:00:00 +08:00
 tags:
   - 随机刊物
-description: "2024.06.18 ~ 2024.06.14"
+description: "2024.06.18 ~ 2024.06.24"
 postSlug: random_003
 ---
 
