@@ -914,7 +914,7 @@ ok，最后是我针对这次旅游的简单回顾，也就是如果重来或者
 
 ## 行前准备清单
 
-```python3
+```python
 # 家里处置
 1. 换水
 2. 补粮
@@ -940,29 +940,32 @@ ok，最后是我针对这次旅游的简单回顾，也就是如果重来或者
 
 ## 行李清单
 
-```python3
 # 包
+
 1. 挎包(零钱包)
 2. 背包
 3. 行李箱
 
 # 必要证件
+
 4. 护照
 5. 身份证
-6. 信用卡x2
+6. 信用卡 x2
 
 # 数码设备
-7. 充电Hub
-8. 充电线TypeC x2
+
+7. 充电 Hub
+8. 充电线 TypeC x2
 9. AppleWatch 充电线
 10. 电脑
 11. iPad
 12. iPad 支架
 13. 耳机
-14.  充电宝
-15.  转换头
+14. 充电宝
+15. 转换头
 
 # 生活用品
+
 17. 梳子
 18. 剃须刀
 19. 指甲剪
@@ -979,16 +982,18 @@ ok，最后是我针对这次旅游的简单回顾，也就是如果重来或者
 30. 其他（如果你是女生可能要加护肤品之类）
 
 # 衣服（记得算天数）
+
 31. 一次性毛巾
 32. 内衣
 33. 一次性袜子
 34. 外套
 35. 手套
-36. T恤
+36. T 恤
 37. 裤子
 38. 其他？
 
 ## 公共链接
+
 1. 日本签证类型：https://www.cn.emb-japan.go.jp/itpr_zh/visa_kanko.html
 2. 日本旅游签证要求说明：https://www.cn.emb-japan.go.jp/files/100411249.pdf
 3. 个税打印：https://etax.chinatax.gov.cn/
@@ -998,11 +1003,15 @@ ok，最后是我针对这次旅游的简单回顾，也就是如果重来或者
 7. 美波官方：https://www.373official.com/posts/48290202
 
 ## 参考链接
+
 1. 大佬整理的 Live 和吃谷注意事项：https://sspai.com/post/85310
 2. 签证相关：
-    - https://www.bilibili.com/video/BV1TC4y1Q7B6/
-    - https://www.bilibili.com/video/BV1Ve411v7L9/
+   - https://www.bilibili.com/video/BV1TC4y1Q7B6/
+   - https://www.bilibili.com/video/BV1Ve411v7L9/
 3. 旅游(关西)：https://www.bilibili.com/video/BV1TC4y1Q7B6/
 4. 镰仓一日游教程：https://www.bring-you.info/zh-hans/shichirigahama-bills
 5. 圣地巡礼 Google Map：https://www.google.com/maps/d/u/0/viewer?mid=1rC20VByyHf97YVfRvMSPsre-GGGnieM&ll=35.20130546618496%2C137.42368629999999&z=8
+
+```
+
 ```
