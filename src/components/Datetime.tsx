@@ -30,23 +30,30 @@ export default function Datetime({ datetime, size = "sm", className }: Props) {
 const FormattedDatetime = ({ datetime }: { datetime: string | Date }) => {
   const myDatetime = new Date(datetime);
 
-  const date = myDatetime.toLocaleDateString(LOCALE, {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  // const date = myDatetime.toLocaleDateString(LOCALE, {
+  //   year: "numeric",
+  //   month: "long",
+  //   day: "numeric",
+  // });
+  const beijingTime = new Date(myDatetime.getTime() + 8 * 60 * 60 * 1000);
 
-  const time = myDatetime.toLocaleTimeString(LOCALE, {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+  // const time = myDatetime.toLocaleTimeString(LOCALE, {
+  //   hour: "2-digit",
+  //   minute: "2-digit",
+  // });
 
-  return (
-    <>
-      {date}
-      <span aria-hidden="true"> | </span>
-      <span className="sr-only">&nbsp;at&nbsp;</span>
-      {time}
-    </>
-  );
+  const formattedTime = beijingTime
+    .toISOString()
+    .replace("T", " ")
+    .slice(0, 19);
+
+  // return (
+  //   <>
+  //     {date}
+  //     <span aria-hidden="true"> | </span>
+  //     <span className="sr-only">&nbsp;at&nbsp;</span>
+  //     {time}
+  //   </>
+  // );
+  return <>{formattedTime}</>;
 };
