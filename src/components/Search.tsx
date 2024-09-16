@@ -1,12 +1,16 @@
 import Fuse from "fuse.js";
-import { useEffect, useRef, useState, useMemo } from "react";
+import React, { useEffect, useRef, useState, useMemo } from "react";
 import dayjs from "dayjs";
 import slugify from "@utils/slugify";
 import type { BlogFrontmatter } from "@content/_schemas";
+
 export type SearchItem = {
   title: string;
   description: string;
   data: BlogFrontmatter;
+  slug: string;
+  type: "journal" | "article" | "archive" | "record";
+  content: string;
 };
 
 interface Props {
@@ -16,6 +20,7 @@ interface Props {
 interface SearchResult {
   item: SearchItem;
   refIndex: number;
+  matches: Fuse.FuseResultMatch[];
 }
 
 export default function SearchBar({ searchList }: Props) {
@@ -25,17 +30,19 @@ export default function SearchBar({ searchList }: Props) {
     null
   );
 
-  const handleChange = (e: React.FormEvent<HTMLInputElement>) => {
-    setInputVal(e.currentTarget.value);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInputVal(e.target.value);
   };
 
   const fuse = useMemo(
     () =>
       new Fuse(searchList, {
-        keys: ["title", "description"],
+        keys: ["title", "description", "content"],
         includeMatches: true,
         minMatchCharLength: 2,
-        threshold: 0.5,
+        threshold: 0.0, // 稍微提高阈值
+        ignoreLocation: true, // 忽略位置，搜索整个字段
+        useExtendedSearch: true,
       }),
     [searchList]
   );
@@ -55,10 +62,34 @@ export default function SearchBar({ searchList }: Props) {
   }, []);
 
   useEffect(() => {
-    // Add search result only if
-    // input value is more than one character
-    let inputResult = inputVal.length > 1 ? fuse.search(inputVal) : [];
+    let inputResult = inputVal.length > 1 ? fuse.search(`'${inputVal}`) : [];
     setSearchResults(inputResult);
+
+    // 只在有搜索输入时输出日志
+    if (inputVal.length > 1) {
+      console.log("Search input:", inputVal);
+      console.log("Number of results:", inputResult.length);
+
+      // 输出更详细的匹配信息
+      inputResult.forEach((result, index) => {
+        console.log(`Result ${index + 1}:`);
+        console.log(`  Title: ${result.item.title}`);
+        console.log(`  Type: ${result.item.type}`);
+        console.log(
+          `  Matched fields:`,
+          result.matches?.map(match => match.key)
+        );
+        // 如果匹配了内容，显示匹配的部分
+        const contentMatch = result.matches?.find(
+          match => match.key === "content"
+        );
+        if (contentMatch) {
+          console.log(
+            `  Matched content: "${contentMatch.value?.slice(0, 50)}..."`
+          );
+        }
+      });
+    }
 
     // Update search string in URL
     if (inputVal.length > 0) {
@@ -71,6 +102,36 @@ export default function SearchBar({ searchList }: Props) {
       history.replaceState(null, "", window.location.pathname);
     }
   }, [inputVal]);
+
+  const getHighlightedText = (
+    text: string,
+    indices: readonly [number, number][]
+  ) => {
+    let highlightedText = "";
+    let lastIndex = 0;
+    indices.forEach(([start, end]) => {
+      highlightedText += text.slice(lastIndex, start);
+      highlightedText += `<mark>${text.slice(start, end + 1)}</mark>`;
+      lastIndex = end + 1;
+    });
+    highlightedText += text.slice(lastIndex);
+    return highlightedText;
+  };
+
+  const getPostUrl = (item: SearchItem) => {
+    switch (item.type) {
+      case "journal":
+        return `/journals/${slugify(item.data)}`;
+      case "record":
+        return `/records/${slugify(item.data)}`;
+      case "article":
+        return `/posts/${slugify(item.data)}`;
+      case "archive":
+        return `/posts/${slugify(item.data)}`;
+      default:
+        return `/posts/${slugify(item.data)}`;
+    }
+  };
 
   return (
     <>
@@ -98,8 +159,8 @@ export default function SearchBar({ searchList }: Props) {
 
       {inputVal.length > 1 && (
         <div className="mt-8">
-          Found {searchResults?.length}
-          {searchResults?.length && searchResults?.length === 1
+          Found {searchResults ? searchResults.length : 0}
+          {searchResults && searchResults.length === 1
             ? " result"
             : " results"}{" "}
           for '{inputVal}'
@@ -107,22 +168,55 @@ export default function SearchBar({ searchList }: Props) {
       )}
 
       <ul>
-        {searchResults &&
-          searchResults.map(({ item, refIndex }) => (
-            <li className="my-6">
-              <div class="w-18" text="sm gray-500">
-                {dayjs(item.data.pubDatetime).format("YYYY/MM/DD")}
-              </div>
-              <a
-                href={`/posts/${slugify(item.data)}`}
-                className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
-              >
-                <h2 className="text-lg font-medium decoration-dashed hover:underline">
-                  {item.data.title}
-                </h2>
-              </a>
-            </li>
-          ))}
+        {searchResults && searchResults.length > 0
+          ? searchResults.map(({ item, refIndex, matches }) => {
+              const contentMatch = matches.find(
+                match => match.key === "content"
+              );
+              let highlightedContent = "";
+              if (contentMatch) {
+                const startIndex = Math.max(0, contentMatch.indices[0][0] - 50);
+                const endIndex = Math.min(
+                  item.content.length,
+                  contentMatch.indices[contentMatch.indices.length - 1][1] + 50
+                );
+                const contentSlice = item.content.slice(startIndex, endIndex);
+                highlightedContent = getHighlightedText(
+                  contentSlice,
+                  contentMatch.indices.map(([start, end]) => [
+                    start - startIndex,
+                    end - startIndex,
+                  ])
+                );
+              }
+
+              return (
+                <li key={refIndex} className="my-6">
+                  <div className="w-18 text-gray-500 text-sm">
+                    {dayjs(item.data.pubDatetime).format("YYYY/MM/DD")}
+                  </div>
+                  <a
+                    href={getPostUrl(item)}
+                    className="inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0"
+                  >
+                    <h2 className="text-lg font-medium decoration-dashed hover:underline">
+                      {item.title}
+                    </h2>
+                  </a>
+                  <p className="text-gray-600 mt-2 text-sm">
+                    {contentMatch ? (
+                      <span
+                        dangerouslySetInnerHTML={{ __html: highlightedContent }}
+                      />
+                    ) : (
+                      item.description || item.content.slice(0, 150)
+                    )}
+                    ...
+                  </p>
+                </li>
+              );
+            })
+          : inputVal.length > 1 && <li>No results found</li>}
       </ul>
     </>
   );

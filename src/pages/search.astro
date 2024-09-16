@@ -6,16 +6,29 @@ import Main from "@layouts/Main.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Search from "@components/Search";
+import type { SearchItem } from "@components/Search";
 
-// Retrieve all articles
-const posts = await getCollection("blog", ({ data }) => !data.draft);
+// 获取所有文章
+const allPosts = await getCollection("blog", ({ data }) => !data.draft);
 
-// List of items to search in
-const searchList = posts.map(({ data }) => ({
-  title: data.title,
-  description: data.description,
-  data,
-}));
+// 创建搜索列表，保留文章类型信息
+const searchList: SearchItem[] = allPosts.map(post => {
+  let type: "journal" | "article" | "archive" | "record";
+  if (post.id.startsWith("journal/")) type = "journal";
+  else if (post.id.startsWith("article/")) type = "article";
+  else if (post.id.startsWith("archive/")) type = "archive";
+  else if (post.id.startsWith("record/")) type = "record";
+  else type = "article"; // 默认类型
+
+  return {
+    title: post.data.title,
+    description: post.data.description,
+    data: post.data,
+    slug: post.slug,
+    type,
+    content: post.body, // 使用 post.body 作为内容
+  };
+});
 ---
 
 <Layout title={`Search | ${SITE.title}`}>
