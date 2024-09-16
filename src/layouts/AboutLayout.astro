@@ -21,8 +21,26 @@ const { frontmatter } = Astro.props;
   <main id="main-content">
     <section id="about" class="prose mb-28 max-w-3xl prose-img:border-0">
       <h1 class="text-2xl tracking-wider sm:text-3xl">{frontmatter.title}</h1>
-      <slot />
+      <div class="about-content">
+        <slot />
+      </div>
     </section>
   </main>
   <Footer />
 </Layout>
+
+<style>
+  .about-content :global(ul) {
+    @apply space-y-0;
+  }
+  .about-content :global(li) {
+    /* @apply mb-0.5 py-0.5 leading-none; */
+    line-height: 1;
+    margin-bottom: 0.1rem;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+  }
+  .about-content :global(p) {
+    @apply leading-normal;
+  }
+</style>
