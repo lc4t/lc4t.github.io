@@ -26,6 +26,8 @@ const socialImageURL = new URL(
   ogImage ? ogImage : SITE.ogImage,
   Astro.url.origin
 ).href;
+
+const isLocalhost = Astro.url.hostname === "localhost";
 ---
 
 <!DOCTYPE html>
@@ -38,7 +40,7 @@ const socialImageURL = new URL(
     <meta name="generator" content={Astro.generator} />
 
     <!-- General Meta Tags -->
-    <GoogleAnalytics id="G-ZSTJ0GRLYQ" />
+    {!isLocalhost && <GoogleAnalytics id="G-ZSTJ0GRLYQ" />}
     <title>{title}</title>
     <meta name="title" content={title} />
     <meta name="description" content={description} />
