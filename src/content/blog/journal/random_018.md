@@ -35,7 +35,8 @@ postSlug: random_018
 2. 之前有个旅行行李检查单，放在 obsidian、siyuan 什么的都非常麻烦，最终还是放在 iOS 的提醒事项中最合适。
 3. Cursor 的架构处理能力有点差，经常在修 bug 的时候顾头不顾尾，写需求 A 的时候也不会主动写成通用的，即使是有同类需求 B 的情况下。所以，Cursor 替代合格程序员还是有一段路要走的，不过有可能是因为提示词不够好，以及模型接受的长度还不能太大导致的。
 4. 本周 follow 还是没有公测，有一个邀请码藏在这里
-   ```yxux oa dz ozrojdjosz ksfx isu jyx isnnsp dtt: cdzsp1ndx9.
+   ```
+      yxux oa dz ozrojdjosz ksfx isu jyx isnnsp dtt: cdzsp1ndx9.
       pyxz csl axx jyoa gxaadvx, oj yda zsj bxxz xzksfxf oz dzc atxkoiok pdc; oj yda aogtnc lzfxuvszx udzfsg kdax apdttozv dgszv jyx nspxukdax nxjjxua.
       csl gdc lax d iuxelxzkc dzdncaoa jssn nowx elotelot js kudkw oj
       (dnjyslvy alky jssna jctokdnnc fsz'j kszaofxu kdax axzaojorojc, as o ponn fouxkjnc jxnn csl jydj jyx 2zf, 3uf, 5jy, dzf 7jy kydudkjxua si jyx ksfx dux lttxukdax).
