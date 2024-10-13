@@ -15,7 +15,7 @@ postSlug: random_019
 
 ## 阅读
 
-无
+1. 如果你因为这波热情进入了股市，一定要看看[这篇文章](https://mp.weixin.qq.com/s/92tiZMNcFAtLMr4LynAVmA)，它来自我多个 Newsletter 和圈子的推荐。
 
 ## 灵感
 
