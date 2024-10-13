@@ -37,6 +37,12 @@ const isLocalhost = Astro.url.hostname === "localhost";
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/jpg" href="/favicon.jpg" />
     <link rel="canonical" href={canonicalURL} />
+    <link
+      rel="alternate"
+      type="application/rss+xml"
+      title="魚の"
+      href={new URL("rss.xml", Astro.site)}
+    />
     <meta name="generator" content={Astro.generator} />
 
     <!-- General Meta Tags -->
