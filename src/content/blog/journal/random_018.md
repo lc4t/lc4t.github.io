@@ -7,8 +7,6 @@ description: "2024.10.01 ~ 2024.10.07"
 postSlug: random_018
 ---
 
-在江之岛海边写周刊
-
 ## 事件
 
 1. [以色列和伊朗](https://www.bilibili.com/video/BV1WA4PerEaK)开启战争的苗头，不过这里舆论影响最大的应该是「犹太民族」。

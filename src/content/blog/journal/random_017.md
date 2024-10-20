@@ -7,8 +7,6 @@ description: "2024.09.24 ~ 2024.09.30"
 postSlug: random_017
 ---
 
-两种情绪，两个世界
-
 ## 事件
 
 1. [9.24 政策拉动 A 股情绪](https://finance.sina.cn/2024-09-25/detail-incqksve8173565.d.html?vt=4&cid=76996&node_id=76996)大放水。目前看有这么几点想法：
