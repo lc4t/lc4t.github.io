@@ -1,0 +1,50 @@
+:root {
+  --bg-image: url("https://img.sakanano.moe/file/sakanano/public/images/vtuber/20241023.jpg");
+}
+
+body {
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  will-change: background-image;
+  transition: background-image 0.5s ease-in-out;
+}
+
+html[data-theme="light"] body {
+  background-image: var(--bg-image);
+}
+
+html[data-theme="dark"] body {
+  background-image: none;
+}
+
+.bg-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  position: relative;
+  z-index: 10;
+}
+
+html[data-theme="light"] header,
+html[data-theme="light"] header * {
+  background-color: transparent !important;
+}
+
+html[data-theme="light"] header a,
+html[data-theme="light"] header span,
+html[data-theme="light"] header div {
+  text-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+/* 暗色模式下移除文字阴影和透明背景 */
+html[data-theme="dark"] header a,
+html[data-theme="dark"] header span,
+html[data-theme="dark"] header div {
+  text-shadow: none;
+}

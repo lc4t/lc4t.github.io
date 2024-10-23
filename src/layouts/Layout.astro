@@ -2,6 +2,7 @@
 import { SITE } from "@config";
 // import "@styles/base.css";
 import "@styles/main.css";
+import "@styles/global.css";
 import { GoogleAnalytics } from "astro-google-analytics";
 
 const googleSiteVerification = import.meta.env.PUBLIC_GOOGLE_SITE_VERIFICATION;
@@ -86,9 +87,18 @@ const isLocalhost = Astro.url.hostname === "localhost";
       )
     }
 
+    <!-- 预加载背景图片 -->
+    <link
+      rel="preload"
+      href="https://img.sakanano.moe/file/sakanano/public/images/vtuber/20241023.jpg"
+      as="image"
+    />
+
     <script is:inline src="/toggle-theme.js"></script>
   </head>
   <body>
-    <slot />
+    <div class="bg-wrapper">
+      <slot />
+    </div>
   </body>
 </html>
