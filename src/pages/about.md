@@ -47,7 +47,7 @@ title: "About"
 
 ---
 
-![Wechat](/images/about/wechat.jpg)
+<!-- ![Wechat](/images/about/wechat.jpg) -->
 
 <!--
 颜色说明:
