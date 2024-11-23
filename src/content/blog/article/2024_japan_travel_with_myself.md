@@ -27,6 +27,8 @@ otherSource: [
 
 `注意，本文信息收集截止2024.01.31`
 
+## 目录
+
 # 准备期
 
 ## 入境前的相关内容
@@ -1011,7 +1013,3 @@ ok，最后是我针对这次旅游的简单回顾，也就是如果重来或者
 3. 旅游(关西)：https://www.bilibili.com/video/BV1TC4y1Q7B6/
 4. 镰仓一日游教程：https://www.bring-you.info/zh-hans/shichirigahama-bills
 5. 圣地巡礼 Google Map：https://www.google.com/maps/d/u/0/viewer?mid=1rC20VByyHf97YVfRvMSPsre-GGGnieM&ll=35.20130546618496%2C137.42368629999999&z=8
-
-```
-
-```
