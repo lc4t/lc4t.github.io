@@ -48,3 +48,56 @@ html[data-theme="dark"] header span,
 html[data-theme="dark"] header div {
   text-shadow: none;
 }
+
+/* 目录容器样式 */
+h2#目录 + ul {
+  color: #aaa;
+  font-size: 0.85em;
+  line-height: 1.1;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 1em;
+  margin: 1em 0;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* 目录标题样式 */
+h2#目录 {
+  color: #999;
+  font-size: 1.1em;
+  margin-bottom: 0.5em;
+}
+
+/* 目录列表样式 */
+h2#目录 + ul,
+h2#目录 + ul ul {
+  list-style-type: none;
+  padding-left: 1em;
+  margin: 0.3em 0;
+}
+
+/* 目录项样式 */
+h2#目录 + ul li {
+  margin: 0.2em 0;
+}
+
+/* 目录链接样式 */
+h2#目录 + ul a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h2#目录 + ul a:hover {
+  text-decoration: underline;
+}
+
+/* 暗色模式适配 */
+html[data-theme="dark"] h2#目录 + ul {
+  border-color: #444;
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #aaa;
+}
+
+html[data-theme="dark"] h2#目录 {
+  color: #999;
+}

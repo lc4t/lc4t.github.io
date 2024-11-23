@@ -8,6 +8,7 @@ import { SITE } from "./src/config";
 import UnoCSS from "unocss/astro";
 import solid from "@astrojs/solid-js";
 import mdx from "@astrojs/mdx";
+import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 
 // https://astro.build/config
 export default defineConfig({
@@ -28,7 +29,10 @@ export default defineConfig({
   ],
   markdown: {
     remarkPlugins: [
-      remarkToc,
+      [
+        remarkToc,
+        { heading: "目录", maxDepth: 5, tight: true, className: "remark-toc" },
+      ],
       [
         remarkCollapse,
         {
@@ -36,6 +40,7 @@ export default defineConfig({
         },
       ],
     ],
+    rehypePlugins: [rehypeAccessibleEmojis],
     shikiConfig: {
       theme: "one-dark-pro",
       wrap: true,
