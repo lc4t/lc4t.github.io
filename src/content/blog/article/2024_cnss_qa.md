@@ -9,6 +9,13 @@ tags:
   - 就业
 description: CNSS交流会萌新提问答疑
 postSlug: 2024_cnss_qa
+otherSource: [
+	{
+		href: "https://mp.weixin.qq.com/s?__biz=Mzg3Mjk3NDMxNw==&mid=2247483813&idx=1&sn=e059aa584fe9310aa0aedffb46123dea", 
+		plat: "wechat", 
+		badge: "https://img.shields.io/badge/Other-WeChat-1AAD19?style=flat-square&logo=wechat"
+	}	
+]
 ---
 
 > 本篇文章记录的是 2024.11.16 CNSS 返校交流会时学弟学妹们提出的问题，作为 6+年网络安全从业者，从我个人的角度对这些问题给出回答，希望有助于还在犹豫的同学决策。
