@@ -9,7 +9,7 @@ title: "About"
 
 善良但脾气不好。
 
-如果有任何问题可以去[这里](https://github.com/lc4t/lc4t.github.io/issues/new)提 issue，非常不喜欢被胁迫即时沟通，因此邮件、issue、留言相比微信、语音、电话更好一些。也不喜欢打哑谜和不确定性，因此如果是咨询或者寻求帮助要一次性把信息说清楚，请不要绑架我的时间。
+如果有任何问题可以去[这里](https://github.com/lc4t/lc4t.github.io/issues/new)提 issue，非常不喜欢被胁迫即时沟通，因此[**邮件**](mailto:lc4t0.0@gmail.com)、issue、留言相比微信、语音、电话更好一些。也不喜欢打哑谜和不确定性，因此如果是咨询或者寻求帮助要一次性把信息说清楚，请不要绑架我的时间。
 
 ### Targets
 
@@ -48,6 +48,8 @@ title: "About"
 ---
 
 <!-- ![Wechat](/images/about/wechat.jpg) -->
+
+![Buy me a coffee](/images/about/bonus.jpg)
 
 <!--
 颜色说明:
