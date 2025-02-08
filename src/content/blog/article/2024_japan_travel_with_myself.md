@@ -69,7 +69,7 @@ otherSource: [
 
 3 年多次就只能通过流水、存款方式证明了，从旅行社方面咨询后得知门槛是个税 3.2W 或存款/年工资流水 20W/半年余额 20W。
 
-5 年多次的门槛是个税 3.2W 或存款/年工资流水 50W/半年余额 50W。
+5 年多次的门槛是个税 7.8W 或存款/年工资流水 50W/半年余额 50W。
 
 ![5年多次2023](https://img.sakanano.moe/file/sakanano/public/images/article/4rulpg.png)
 
