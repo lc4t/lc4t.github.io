@@ -1,0 +1,243 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1717pt" height="632pt" viewBox="0.00 0.00 1717.35 631.80">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(36 595.8)">
+<title>ChinaInterestRateDetailedPathway</title>
+<polygon fill="#ffffff" stroke="none" points="-36,36 -36,-595.8 1681.35,-595.8 1681.35,36 -36,36"/>
+<text text-anchor="middle" x="822.67" y="-534.2" font-family="SimSun, Arial, sans-serif" font-size="24.00">中国降息政策传导路径 (从央行到个人)</text>
+<!-- MLF -->
+<g id="node1" class="node">
+<title>MLF</title>
+<path fill="#e3f2fd" stroke="#1976d2" stroke-width="2" d="M150.22,-523C150.22,-523 14.22,-523 14.22,-523 8.22,-523 2.22,-517 2.22,-511 2.22,-511 2.22,-469.4 2.22,-469.4 2.22,-463.4 8.22,-457.4 14.22,-457.4 14.22,-457.4 150.22,-457.4 150.22,-457.4 156.22,-457.4 162.22,-463.4 162.22,-469.4 162.22,-469.4 162.22,-511 162.22,-511 162.22,-517 156.22,-523 150.22,-523"/>
+<text text-anchor="middle" x="82.22" y="-504.6" font-family="SimSun, Arial, sans-serif" font-size="16.00">央行降低MLF利率</text>
+<text text-anchor="middle" x="82.22" y="-485.4" font-family="SimSun, Arial, sans-serif" font-size="16.00">(中期借贷便利利率)</text>
+<text text-anchor="middle" x="82.22" y="-466.2" font-family="SimSun, Arial, sans-serif" font-size="16.00">银行从央行借钱的成本降低</text>
+</g>
+<!-- interbank -->
+<g id="node5" class="node">
+<title>interbank</title>
+<path fill="#e8f5e9" stroke="#388e3c" stroke-width="2" d="M543.99,-398.4C543.99,-398.4 385.33,-398.4 385.33,-398.4 379.33,-398.4 373.33,-392.4 373.33,-386.4 373.33,-386.4 373.33,-364 373.33,-364 373.33,-358 379.33,-352 385.33,-352 385.33,-352 543.99,-352 543.99,-352 549.99,-352 555.99,-358 555.99,-364 555.99,-364 555.99,-386.4 555.99,-386.4 555.99,-392.4 549.99,-398.4 543.99,-398.4"/>
+<text text-anchor="middle" x="464.66" y="-380" font-family="SimSun, Arial, sans-serif" font-size="16.00">银行间市场利率下降</text>
+<text text-anchor="middle" x="464.66" y="-360.8" font-family="SimSun, Arial, sans-serif" font-size="16.00">(银行互相拆借资金的成本降低)</text>
+</g>
+<!-- MLF&#45;&gt;interbank -->
+<g id="edge1" class="edge">
+<title>MLF-&gt;interbank</title>
+<path fill="none" stroke="#1976d2" stroke-width="1.5" d="M163.03,-468.12C211.54,-454.49 274.67,-436.37 330.33,-419.2 346.7,-414.15 364.14,-408.56 380.81,-403.1"/>
+<polygon fill="#1976d2" stroke="#1976d2" stroke-width="1.5" points="381.65,-406.51 390.05,-400.06 379.46,-399.86 381.65,-406.51"/>
+<text text-anchor="middle" x="268.89" y="-476.08" font-family="SimSun, Arial, sans-serif" font-size="14.00">直接影响: 降低银行从央行</text>
+<text text-anchor="middle" x="268.89" y="-459.28" font-family="SimSun, Arial, sans-serif" font-size="14.00">借钱的利率</text>
+</g>
+<!-- OMO -->
+<g id="node2" class="node">
+<title>OMO</title>
+<path fill="#e3f2fd" stroke="#1976d2" stroke-width="2" d="M152.45,-399C152.45,-399 12,-399 12,-399 6,-399 0,-393 0,-387 0,-387 0,-345.4 0,-345.4 0,-339.4 6,-333.4 12,-333.4 12,-333.4 152.45,-333.4 152.45,-333.4 158.45,-333.4 164.45,-339.4 164.45,-345.4 164.45,-345.4 164.45,-387 164.45,-387 164.45,-393 158.45,-399 152.45,-399"/>
+<text text-anchor="middle" x="82.22" y="-380.6" font-family="SimSun, Arial, sans-serif" font-size="16.00">央行降低OMO利率</text>
+<text text-anchor="middle" x="82.22" y="-361.4" font-family="SimSun, Arial, sans-serif" font-size="16.00">(公开市场操作利率)</text>
+<text text-anchor="middle" x="82.22" y="-342.2" font-family="SimSun, Arial, sans-serif" font-size="16.00">回购/逆回购等操作利率降低</text>
+</g>
+<!-- OMO&#45;&gt;interbank -->
+<g id="edge2" class="edge">
+<title>OMO-&gt;interbank</title>
+<path fill="none" stroke="#1976d2" stroke-width="1.5" d="M165.3,-368.14C222.44,-369.49 299.06,-371.31 360.35,-372.76"/>
+<polygon fill="#1976d2" stroke="#1976d2" stroke-width="1.5" points="360.05,-376.25 370.13,-372.99 360.21,-369.25 360.05,-376.25"/>
+<text text-anchor="middle" x="268.89" y="-393.03" font-family="SimSun, Arial, sans-serif" font-size="14.00">直接影响: 通过回购交易</text>
+<text text-anchor="middle" x="268.89" y="-376.23" font-family="SimSun, Arial, sans-serif" font-size="14.00">降低市场利率</text>
+</g>
+<!-- RRR -->
+<g id="node3" class="node">
+<title>RRR</title>
+<path fill="#e3f2fd" stroke="#1976d2" stroke-width="2" d="M138.22,-119C138.22,-119 26.22,-119 26.22,-119 20.22,-119 14.22,-113 14.22,-107 14.22,-107 14.22,-65.4 14.22,-65.4 14.22,-59.4 20.22,-53.4 26.22,-53.4 26.22,-53.4 138.22,-53.4 138.22,-53.4 144.22,-53.4 150.22,-59.4 150.22,-65.4 150.22,-65.4 150.22,-107 150.22,-107 150.22,-113 144.22,-119 138.22,-119"/>
+<text text-anchor="middle" x="82.22" y="-100.6" font-family="SimSun, Arial, sans-serif" font-size="16.00">央行降低存款准备金率</text>
+<text text-anchor="middle" x="82.22" y="-81.4" font-family="SimSun, Arial, sans-serif" font-size="16.00">(RRR)</text>
+<text text-anchor="middle" x="82.22" y="-62.2" font-family="SimSun, Arial, sans-serif" font-size="16.00">银行可以投放更多资金</text>
+</g>
+<!-- liquidity -->
+<g id="node6" class="node">
+<title>liquidity</title>
+<path fill="#e8f5e9" stroke="#388e3c" stroke-width="2" d="M519.99,-109.4C519.99,-109.4 409.33,-109.4 409.33,-109.4 403.33,-109.4 397.33,-103.4 397.33,-97.4 397.33,-97.4 397.33,-75 397.33,-75 397.33,-69 403.33,-63 409.33,-63 409.33,-63 519.99,-63 519.99,-63 525.99,-63 531.99,-69 531.99,-75 531.99,-75 531.99,-97.4 531.99,-97.4 531.99,-103.4 525.99,-109.4 519.99,-109.4"/>
+<text text-anchor="middle" x="464.66" y="-91" font-family="SimSun, Arial, sans-serif" font-size="16.00">银行体系流动性增加</text>
+<text text-anchor="middle" x="464.66" y="-71.8" font-family="SimSun, Arial, sans-serif" font-size="16.00">(市场上可用资金增多)</text>
+</g>
+<!-- RRR&#45;&gt;liquidity -->
+<g id="edge3" class="edge">
+<title>RRR-&gt;liquidity</title>
+<path fill="none" stroke="#1976d2" stroke-width="1.5" d="M150.8,-86.2C216.16,-86.2 315.21,-86.2 384.29,-86.2"/>
+<polygon fill="#1976d2" stroke="#1976d2" stroke-width="1.5" points="384.13,-89.7 394.13,-86.2 384.13,-82.7 384.13,-89.7"/>
+<text text-anchor="middle" x="268.89" y="-107.2" font-family="SimSun, Arial, sans-serif" font-size="14.00">直接影响: 释放更多</text>
+<text text-anchor="middle" x="268.89" y="-90.4" font-family="SimSun, Arial, sans-serif" font-size="14.00">可贷资金</text>
+</g>
+<!-- LPR -->
+<g id="node4" class="node">
+<title>LPR</title>
+<path fill="#e3f2fd" stroke="#1976d2" stroke-width="2" d="M150.22,-258C150.22,-258 14.22,-258 14.22,-258 8.22,-258 2.22,-252 2.22,-246 2.22,-246 2.22,-204.4 2.22,-204.4 2.22,-198.4 8.22,-192.4 14.22,-192.4 14.22,-192.4 150.22,-192.4 150.22,-192.4 156.22,-192.4 162.22,-198.4 162.22,-204.4 162.22,-204.4 162.22,-246 162.22,-246 162.22,-252 156.22,-258 150.22,-258"/>
+<text text-anchor="middle" x="82.22" y="-239.6" font-family="SimSun, Arial, sans-serif" font-size="16.00">央行引导LPR下降</text>
+<text text-anchor="middle" x="82.22" y="-220.4" font-family="SimSun, Arial, sans-serif" font-size="16.00">(贷款市场报价利率)</text>
+<text text-anchor="middle" x="82.22" y="-201.2" font-family="SimSun, Arial, sans-serif" font-size="16.00">商业银行贷款基准利率降低</text>
+</g>
+<!-- loan_rate -->
+<g id="node7" class="node">
+<title>loan_rate</title>
+<path fill="#e8f5e9" stroke="#388e3c" stroke-width="2" d="M908.65,-248.4C908.65,-248.4 737.99,-248.4 737.99,-248.4 731.99,-248.4 725.99,-242.4 725.99,-236.4 725.99,-236.4 725.99,-214 725.99,-214 725.99,-208 731.99,-202 737.99,-202 737.99,-202 908.65,-202 908.65,-202 914.65,-202 920.65,-208 920.65,-214 920.65,-214 920.65,-236.4 920.65,-236.4 920.65,-242.4 914.65,-248.4 908.65,-248.4"/>
+<text text-anchor="middle" x="823.32" y="-230" font-family="SimSun, Arial, sans-serif" font-size="16.00">商业银行贷款利率下降</text>
+<text text-anchor="middle" x="823.32" y="-210.8" font-family="SimSun, Arial, sans-serif" font-size="16.00">(企业和个人从银行借钱成本降低)</text>
+</g>
+<!-- LPR&#45;&gt;loan_rate -->
+<g id="edge4" class="edge">
+<title>LPR-&gt;loan_rate</title>
+<path fill="none" stroke="#1976d2" stroke-width="1.5" d="M163.02,-225.2C295.94,-225.2 562.9,-225.2 713.14,-225.2"/>
+<polygon fill="#1976d2" stroke="#1976d2" stroke-width="1.5" points="712.82,-228.7 722.82,-225.2 712.82,-221.7 712.82,-228.7"/>
+<text text-anchor="middle" x="464.66" y="-246.2" font-family="SimSun, Arial, sans-serif" font-size="14.00">直接影响: 作为贷款</text>
+<text text-anchor="middle" x="464.66" y="-229.4" font-family="SimSun, Arial, sans-serif" font-size="14.00">定价基准</text>
+</g>
+<!-- interbank&#45;&gt;liquidity -->
+<g id="edge5" class="edge">
+<title>interbank-&gt;liquidity</title>
+<path fill="none" stroke="#388e3c" stroke-width="1.5" d="M372.51,-362.51C330.69,-351.64 284.98,-331.46 259.52,-294 210.53,-221.92 319.85,-152.94 396.95,-115.4"/>
+<polygon fill="#388e3c" stroke="#388e3c" stroke-width="1.5" points="398.03,-118.76 405.55,-111.29 395.01,-112.45 398.03,-118.76"/>
+<text text-anchor="middle" x="268.89" y="-281.4" font-family="SimSun, Arial, sans-serif" font-size="14.00">银行拆借成本降低</text>
+<text text-anchor="middle" x="268.89" y="-264.6" font-family="SimSun, Arial, sans-serif" font-size="14.00">资金流动更容易</text>
+</g>
+<!-- liquidity&#45;&gt;loan_rate -->
+<g id="edge6" class="edge">
+<title>liquidity-&gt;loan_rate</title>
+<path fill="none" stroke="#388e3c" stroke-width="1.5" d="M532.64,-100.84C576.31,-111.42 634.07,-127.39 682.99,-147.6 714.59,-160.65 748.12,-179.17 774.37,-194.84"/>
+<polygon fill="#388e3c" stroke="#388e3c" stroke-width="1.5" points="772.47,-197.78 782.84,-199.96 776.09,-191.79 772.47,-197.78"/>
+<text text-anchor="middle" x="640.99" y="-168.6" font-family="SimSun, Arial, sans-serif" font-size="14.00">资金充裕使银行</text>
+<text text-anchor="middle" x="640.99" y="-151.8" font-family="SimSun, Arial, sans-serif" font-size="14.00">降低贷款利率</text>
+</g>
+<!-- deposit_rate -->
+<g id="node8" class="node">
+<title>deposit_rate</title>
+<path fill="#e8f5e9" stroke="#388e3c" stroke-width="2" d="M884.65,-59.4C884.65,-59.4 761.99,-59.4 761.99,-59.4 755.99,-59.4 749.99,-53.4 749.99,-47.4 749.99,-47.4 749.99,-25 749.99,-25 749.99,-19 755.99,-13 761.99,-13 761.99,-13 884.65,-13 884.65,-13 890.65,-13 896.65,-19 896.65,-25 896.65,-25 896.65,-47.4 896.65,-47.4 896.65,-53.4 890.65,-59.4 884.65,-59.4"/>
+<text text-anchor="middle" x="823.32" y="-41" font-family="SimSun, Arial, sans-serif" font-size="16.00">商业银行存款利率下降</text>
+<text text-anchor="middle" x="823.32" y="-21.8" font-family="SimSun, Arial, sans-serif" font-size="16.00">(在银行存钱的收益降低)</text>
+</g>
+<!-- liquidity&#45;&gt;deposit_rate -->
+<g id="edge7" class="edge">
+<title>liquidity-&gt;deposit_rate</title>
+<path fill="none" stroke="#388e3c" stroke-width="1.5" d="M532.79,-63.49C553.76,-57.29 577.13,-51.27 598.99,-47.6 644.2,-40.01 695.23,-36.99 737.08,-35.95"/>
+<polygon fill="#388e3c" stroke="#388e3c" stroke-width="1.5" points="737,-39.45 746.92,-35.74 736.85,-32.45 737,-39.45"/>
+<text text-anchor="middle" x="640.99" y="-68.6" font-family="SimSun, Arial, sans-serif" font-size="14.00">资金充裕降低银行</text>
+<text text-anchor="middle" x="640.99" y="-51.8" font-family="SimSun, Arial, sans-serif" font-size="14.00">吸收存款意愿</text>
+</g>
+<!-- mortgage -->
+<g id="node9" class="node">
+<title>mortgage</title>
+<path fill="#fff3e0" stroke="#f57c00" stroke-width="2" d="M1250.69,-254.4C1250.69,-254.4 1128.04,-254.4 1128.04,-254.4 1122.04,-254.4 1116.04,-248.4 1116.04,-242.4 1116.04,-242.4 1116.04,-220 1116.04,-220 1116.04,-214 1122.04,-208 1128.04,-208 1128.04,-208 1250.69,-208 1250.69,-208 1256.69,-208 1262.69,-214 1262.69,-220 1262.69,-220 1262.69,-242.4 1262.69,-242.4 1262.69,-248.4 1256.69,-254.4 1250.69,-254.4"/>
+<text text-anchor="middle" x="1189.37" y="-236" font-family="SimSun, Arial, sans-serif" font-size="16.00">个人住房贷款利率下降</text>
+<text text-anchor="middle" x="1189.37" y="-216.8" font-family="SimSun, Arial, sans-serif" font-size="16.00">(每月还房贷的金额减少)</text>
+</g>
+<!-- loan_rate&#45;&gt;mortgage -->
+<g id="edge8" class="edge">
+<title>loan_rate-&gt;mortgage</title>
+<path fill="none" stroke="#388e3c" stroke-width="1.5" d="M921.43,-224.5C962.64,-224.43 1011.19,-224.64 1055.04,-225.6 1070.63,-225.94 1087.25,-226.49 1103.27,-227.11"/>
+<polygon fill="#388e3c" stroke="#388e3c" stroke-width="1.5" points="1102.98,-230.6 1113.11,-227.51 1103.26,-223.61 1102.98,-230.6"/>
+<text text-anchor="middle" x="1009.34" y="-246.6" font-family="SimSun, Arial, sans-serif" font-size="14.00">直接决定: 房贷利率</text>
+<text text-anchor="middle" x="1009.34" y="-229.8" font-family="SimSun, Arial, sans-serif" font-size="14.00">通常挂钩LPR</text>
+</g>
+<!-- consumer_loan -->
+<g id="node10" class="node">
+<title>consumer_loan</title>
+<path fill="#fff3e0" stroke="#f57c00" stroke-width="2" d="M1256.69,-150.4C1256.69,-150.4 1122.04,-150.4 1122.04,-150.4 1116.04,-150.4 1110.04,-144.4 1110.04,-138.4 1110.04,-138.4 1110.04,-116 1110.04,-116 1110.04,-110 1116.04,-104 1122.04,-104 1122.04,-104 1256.69,-104 1256.69,-104 1262.69,-104 1268.69,-110 1268.69,-116 1268.69,-116 1268.69,-138.4 1268.69,-138.4 1268.69,-144.4 1262.69,-150.4 1256.69,-150.4"/>
+<text text-anchor="middle" x="1189.37" y="-132" font-family="SimSun, Arial, sans-serif" font-size="16.00">个人消费贷款利率下降</text>
+<text text-anchor="middle" x="1189.37" y="-112.8" font-family="SimSun, Arial, sans-serif" font-size="16.00">(车贷、信用贷等成本降低)</text>
+</g>
+<!-- loan_rate&#45;&gt;consumer_loan -->
+<g id="edge9" class="edge">
+<title>loan_rate-&gt;consumer_loan</title>
+<path fill="none" stroke="#388e3c" stroke-width="1.5" d="M888.32,-201.08C911.81,-192.7 938.75,-183.65 963.65,-176.6 1007.2,-164.27 1056.22,-153.17 1097.34,-144.64"/>
+<polygon fill="#388e3c" stroke="#388e3c" stroke-width="1.5" points="1097.96,-148.08 1107.05,-142.64 1096.55,-141.23 1097.96,-148.08"/>
+<text text-anchor="middle" x="1009.34" y="-197.6" font-family="SimSun, Arial, sans-serif" font-size="14.00">直接决定: 消费贷款</text>
+<text text-anchor="middle" x="1009.34" y="-180.8" font-family="SimSun, Arial, sans-serif" font-size="14.00">利率水平</text>
+</g>
+<!-- business_loan -->
+<g id="node11" class="node">
+<title>business_loan</title>
+<path fill="#fff3e0" stroke="#f57c00" stroke-width="2" d="M1238.69,-358.4C1238.69,-358.4 1140.04,-358.4 1140.04,-358.4 1134.04,-358.4 1128.04,-352.4 1128.04,-346.4 1128.04,-346.4 1128.04,-324 1128.04,-324 1128.04,-318 1134.04,-312 1140.04,-312 1140.04,-312 1238.69,-312 1238.69,-312 1244.69,-312 1250.69,-318 1250.69,-324 1250.69,-324 1250.69,-346.4 1250.69,-346.4 1250.69,-352.4 1244.69,-358.4 1238.69,-358.4"/>
+<text text-anchor="middle" x="1189.37" y="-340" font-family="SimSun, Arial, sans-serif" font-size="16.00">企业贷款利率下降</text>
+<text text-anchor="middle" x="1189.37" y="-320.8" font-family="SimSun, Arial, sans-serif" font-size="16.00">(企业融资成本降低)</text>
+</g>
+<!-- loan_rate&#45;&gt;business_loan -->
+<g id="edge10" class="edge">
+<title>loan_rate-&gt;business_loan</title>
+<path fill="none" stroke="#388e3c" stroke-width="1.5" d="M899.8,-249.34C920.47,-255.87 942.9,-262.88 963.65,-269.2 1014.24,-284.62 1071.44,-301.41 1115.46,-314.19"/>
+<polygon fill="#388e3c" stroke="#388e3c" stroke-width="1.5" points="1114.47,-317.55 1125.04,-316.97 1116.42,-310.82 1114.47,-317.55"/>
+<text text-anchor="middle" x="1009.34" y="-316.04" font-family="SimSun, Arial, sans-serif" font-size="14.00">直接决定: 企业贷款</text>
+<text text-anchor="middle" x="1009.34" y="-299.24" font-family="SimSun, Arial, sans-serif" font-size="14.00">利率水平</text>
+</g>
+<!-- deposit_income -->
+<g id="node12" class="node">
+<title>deposit_income</title>
+<path fill="#fff3e0" stroke="#f57c00" stroke-width="2" d="M1268.69,-46.4C1268.69,-46.4 1110.04,-46.4 1110.04,-46.4 1104.04,-46.4 1098.04,-40.4 1098.04,-34.4 1098.04,-34.4 1098.04,-12 1098.04,-12 1098.04,-6 1104.04,0 1110.04,0 1110.04,0 1268.69,0 1268.69,0 1274.69,0 1280.69,-6 1280.69,-12 1280.69,-12 1280.69,-34.4 1280.69,-34.4 1280.69,-40.4 1274.69,-46.4 1268.69,-46.4"/>
+<text text-anchor="middle" x="1189.37" y="-28" font-family="SimSun, Arial, sans-serif" font-size="16.00">存款收益减少</text>
+<text text-anchor="middle" x="1189.37" y="-8.8" font-family="SimSun, Arial, sans-serif" font-size="16.00">(定期存款、活期存款利息减少)</text>
+</g>
+<!-- deposit_rate&#45;&gt;deposit_income -->
+<g id="edge11" class="edge">
+<title>deposit_rate-&gt;deposit_income</title>
+<path fill="none" stroke="#388e3c" stroke-width="1.5" d="M897.63,-28.35C918.9,-26.4 942.18,-24.59 963.65,-23.6 1003.3,-21.78 1046.92,-21.34 1085.11,-21.47"/>
+<polygon fill="#388e3c" stroke="#388e3c" stroke-width="1.5" points="1085.01,-24.97 1095.03,-21.52 1085.05,-17.97 1085.01,-24.97"/>
+<text text-anchor="middle" x="1009.34" y="-44.6" font-family="SimSun, Arial, sans-serif" font-size="14.00">直接决定: 个人存款</text>
+<text text-anchor="middle" x="1009.34" y="-27.8" font-family="SimSun, Arial, sans-serif" font-size="14.00">利息收入</text>
+</g>
+<!-- house_afford -->
+<g id="node13" class="node">
+<title>house_afford</title>
+<path fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" d="M1621.35,-254.4C1621.35,-254.4 1474.69,-254.4 1474.69,-254.4 1468.69,-254.4 1462.69,-248.4 1462.69,-242.4 1462.69,-242.4 1462.69,-220 1462.69,-220 1462.69,-214 1468.69,-208 1474.69,-208 1474.69,-208 1621.35,-208 1621.35,-208 1627.35,-208 1633.35,-214 1633.35,-220 1633.35,-220 1633.35,-242.4 1633.35,-242.4 1633.35,-248.4 1627.35,-254.4 1621.35,-254.4"/>
+<text text-anchor="middle" x="1548.02" y="-236" font-family="SimSun, Arial, sans-serif" font-size="16.00">购房负担减轻</text>
+<text text-anchor="middle" x="1548.02" y="-216.8" font-family="SimSun, Arial, sans-serif" font-size="16.00">(同等收入可以负担更高房价)</text>
+</g>
+<!-- mortgage&#45;&gt;house_afford -->
+<g id="edge12" class="edge">
+<title>mortgage-&gt;house_afford</title>
+<path fill="none" stroke="#f57c00" stroke-width="1.5" d="M1263.37,-230.17C1282.96,-229.93 1304.13,-229.72 1323.69,-229.6 1361.03,-229.38 1370.36,-229.39 1407.69,-229.6 1421.39,-229.68 1435.85,-229.8 1450.06,-229.94"/>
+<polygon fill="#f57c00" stroke="#f57c00" stroke-width="1.5" points="1449.61,-233.44 1459.65,-230.04 1449.69,-226.44 1449.61,-233.44"/>
+<text text-anchor="middle" x="1365.69" y="-250.6" font-family="SimSun, Arial, sans-serif" font-size="14.00">月供减少增强</text>
+<text text-anchor="middle" x="1365.69" y="-233.8" font-family="SimSun, Arial, sans-serif" font-size="14.00">购房能力</text>
+</g>
+<!-- consumption -->
+<g id="node14" class="node">
+<title>consumption</title>
+<path fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" d="M1633.35,-150.4C1633.35,-150.4 1462.69,-150.4 1462.69,-150.4 1456.69,-150.4 1450.69,-144.4 1450.69,-138.4 1450.69,-138.4 1450.69,-116 1450.69,-116 1450.69,-110 1456.69,-104 1462.69,-104 1462.69,-104 1633.35,-104 1633.35,-104 1639.35,-104 1645.35,-110 1645.35,-116 1645.35,-116 1645.35,-138.4 1645.35,-138.4 1645.35,-144.4 1639.35,-150.4 1633.35,-150.4"/>
+<text text-anchor="middle" x="1548.02" y="-132" font-family="SimSun, Arial, sans-serif" font-size="16.00">消费能力提升</text>
+<text text-anchor="middle" x="1548.02" y="-112.8" font-family="SimSun, Arial, sans-serif" font-size="16.00">(资金成本降低，更容易贷款消费)</text>
+</g>
+<!-- consumer_loan&#45;&gt;consumption -->
+<g id="edge13" class="edge">
+<title>consumer_loan-&gt;consumption</title>
+<path fill="none" stroke="#f57c00" stroke-width="1.5" d="M1269.52,-127.2C1319.03,-127.2 1383.49,-127.2 1437.83,-127.2"/>
+<polygon fill="#f57c00" stroke="#f57c00" stroke-width="1.5" points="1437.7,-130.7 1447.7,-127.2 1437.7,-123.7 1437.7,-130.7"/>
+<text text-anchor="middle" x="1365.69" y="-148.2" font-family="SimSun, Arial, sans-serif" font-size="14.00">贷款成本降低</text>
+<text text-anchor="middle" x="1365.69" y="-131.4" font-family="SimSun, Arial, sans-serif" font-size="14.00">促进消费</text>
+</g>
+<!-- employment -->
+<g id="node15" class="node">
+<title>employment</title>
+<path fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" d="M1615.35,-358.4C1615.35,-358.4 1480.69,-358.4 1480.69,-358.4 1474.69,-358.4 1468.69,-352.4 1468.69,-346.4 1468.69,-346.4 1468.69,-324 1468.69,-324 1468.69,-318 1474.69,-312 1480.69,-312 1480.69,-312 1615.35,-312 1615.35,-312 1621.35,-312 1627.35,-318 1627.35,-324 1627.35,-324 1627.35,-346.4 1627.35,-346.4 1627.35,-352.4 1621.35,-358.4 1615.35,-358.4"/>
+<text text-anchor="middle" x="1548.02" y="-340" font-family="SimSun, Arial, sans-serif" font-size="16.00">就业机会增加</text>
+<text text-anchor="middle" x="1548.02" y="-320.8" font-family="SimSun, Arial, sans-serif" font-size="16.00">(企业成本降低，扩大经营)</text>
+</g>
+<!-- business_loan&#45;&gt;employment -->
+<g id="edge14" class="edge">
+<title>business_loan-&gt;employment</title>
+<path fill="none" stroke="#f57c00" stroke-width="1.5" d="M1251.68,-335.2C1307.81,-335.2 1391.64,-335.2 1455.66,-335.2"/>
+<polygon fill="#f57c00" stroke="#f57c00" stroke-width="1.5" points="1455.51,-338.7 1465.51,-335.2 1455.51,-331.7 1455.51,-338.7"/>
+<text text-anchor="middle" x="1365.69" y="-356.2" font-family="SimSun, Arial, sans-serif" font-size="14.00">企业扩张增加</text>
+<text text-anchor="middle" x="1365.69" y="-339.4" font-family="SimSun, Arial, sans-serif" font-size="14.00">就业机会</text>
+</g>
+<!-- investment -->
+<g id="node16" class="node">
+<title>investment</title>
+<path fill="#f3e5f5" stroke="#7b1fa2" stroke-width="2" d="M1627.35,-46.4C1627.35,-46.4 1468.69,-46.4 1468.69,-46.4 1462.69,-46.4 1456.69,-40.4 1456.69,-34.4 1456.69,-34.4 1456.69,-12 1456.69,-12 1456.69,-6 1462.69,0 1468.69,0 1468.69,0 1627.35,0 1627.35,0 1633.35,0 1639.35,-6 1639.35,-12 1639.35,-12 1639.35,-34.4 1639.35,-34.4 1639.35,-40.4 1633.35,-46.4 1627.35,-46.4"/>
+<text text-anchor="middle" x="1548.02" y="-28" font-family="SimSun, Arial, sans-serif" font-size="16.00">理财需求增加</text>
+<text text-anchor="middle" x="1548.02" y="-8.8" font-family="SimSun, Arial, sans-serif" font-size="16.00">(存款收益下降，寻找更高回报)</text>
+</g>
+<!-- deposit_income&#45;&gt;investment -->
+<g id="edge15" class="edge">
+<title>deposit_income-&gt;investment</title>
+<path fill="none" stroke="#f57c00" stroke-width="1.5" d="M1281.29,-23.2C1330.87,-23.2 1392.43,-23.2 1443.81,-23.2"/>
+<polygon fill="#f57c00" stroke="#f57c00" stroke-width="1.5" points="1443.69,-26.7 1453.69,-23.2 1443.69,-19.7 1443.69,-26.7"/>
+<text text-anchor="middle" x="1365.69" y="-44.2" font-family="SimSun, Arial, sans-serif" font-size="14.00">存款收益降低</text>
+<text text-anchor="middle" x="1365.69" y="-27.4" font-family="SimSun, Arial, sans-serif" font-size="14.00">促使寻找替代投资</text>
+</g>
+</g>
+</svg>
