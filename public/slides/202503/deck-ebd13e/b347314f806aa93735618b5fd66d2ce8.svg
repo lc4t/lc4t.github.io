@@ -1,0 +1,373 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1026pt" height="439pt" viewBox="0.00 0.00 1026.25 439.20">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 435.2)">
+<title>MacroEconomics</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-435.2 1022.25,-435.2 1022.25,4 -4,4"/>
+<text text-anchor="middle" x="509.12" y="-412.8" font-family="SimSun" font-size="16.00">宏观经济学研究对象与理论框架关系图</text>
+<!-- GDP -->
+<g id="node1" class="node">
+<title>GDP</title>
+<path fill="lightblue" stroke="navy" d="M687.75,-133.6C687.75,-133.6 622.25,-133.6 622.25,-133.6 616.25,-133.6 610.25,-127.6 610.25,-121.6 610.25,-121.6 610.25,-104 610.25,-104 610.25,-98 616.25,-92 622.25,-92 622.25,-92 687.75,-92 687.75,-92 693.75,-92 699.75,-98 699.75,-104 699.75,-104 699.75,-121.6 699.75,-121.6 699.75,-127.6 693.75,-133.6 687.75,-133.6"/>
+<text text-anchor="middle" x="655" y="-117" font-family="SimSun" font-size="14.00">国民收入与产出</text>
+<text text-anchor="middle" x="655" y="-100.2" font-family="SimSun" font-size="14.00">(GDP)</text>
+</g>
+<!-- EconomicGrowth -->
+<g id="node4" class="node">
+<title>EconomicGrowth</title>
+<path fill="lightblue" stroke="navy" d="M782,-38.8C782,-38.8 748,-38.8 748,-38.8 742,-38.8 736,-32.8 736,-26.8 736,-26.8 736,-14.8 736,-14.8 736,-8.8 742,-2.8 748,-2.8 748,-2.8 782,-2.8 782,-2.8 788,-2.8 794,-8.8 794,-14.8 794,-14.8 794,-26.8 794,-26.8 794,-32.8 788,-38.8 782,-38.8"/>
+<text text-anchor="middle" x="765" y="-16.6" font-family="SimSun" font-size="14.00">经济增长</text>
+</g>
+<!-- GDP&#45;&gt;EconomicGrowth -->
+<g id="edge1" class="edge">
+<title>GDP-&gt;EconomicGrowth</title>
+<path fill="none" stroke="darkgreen" d="M679.69,-91.6C696.08,-78.19 717.71,-60.49 735.09,-46.28"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="737.04,-49.2 742.56,-40.16 732.61,-43.78 737.04,-49.2"/>
+<text text-anchor="middle" x="734.59" y="-63.2" font-family="SimSun" font-size="12.00">长期变化</text>
+</g>
+<!-- BusinessCycle -->
+<g id="node5" class="node">
+<title>BusinessCycle</title>
+<path fill="lightblue" stroke="navy" d="M324.66,-41.6C324.66,-41.6 281.34,-41.6 281.34,-41.6 275.34,-41.6 269.34,-35.6 269.34,-29.6 269.34,-29.6 269.34,-12 269.34,-12 269.34,-6 275.34,0 281.34,0 281.34,0 324.66,0 324.66,0 330.66,0 336.66,-6 336.66,-12 336.66,-12 336.66,-29.6 336.66,-29.6 336.66,-35.6 330.66,-41.6 324.66,-41.6"/>
+<text text-anchor="middle" x="303" y="-25" font-family="SimSun" font-size="14.00">经济波动</text>
+<text text-anchor="middle" x="303" y="-8.2" font-family="SimSun" font-size="14.00">(经济周期)</text>
+</g>
+<!-- GDP&#45;&gt;BusinessCycle -->
+<g id="edge2" class="edge">
+<title>GDP-&gt;BusinessCycle</title>
+<path fill="none" stroke="darkgreen" d="M610.06,-100.31C542.61,-83.06 415.9,-50.67 348.26,-33.37"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="349.16,-29.99 338.6,-30.9 347.42,-36.77 349.16,-29.99"/>
+<text text-anchor="middle" x="518.07" y="-63.2" font-family="SimSun" font-size="12.00">短期波动</text>
+</g>
+<!-- Employment -->
+<g id="node2" class="node">
+<title>Employment</title>
+<path fill="lightblue" stroke="navy" d="M493.25,-130.8C493.25,-130.8 448.75,-130.8 448.75,-130.8 442.75,-130.8 436.75,-124.8 436.75,-118.8 436.75,-118.8 436.75,-106.8 436.75,-106.8 436.75,-100.8 442.75,-94.8 448.75,-94.8 448.75,-94.8 493.25,-94.8 493.25,-94.8 499.25,-94.8 505.25,-100.8 505.25,-106.8 505.25,-106.8 505.25,-118.8 505.25,-118.8 505.25,-124.8 499.25,-130.8 493.25,-130.8"/>
+<text text-anchor="middle" x="471" y="-108.6" font-family="SimSun" font-size="14.00">就业与失业</text>
+</g>
+<!-- Employment&#45;&gt;GDP -->
+<g id="edge11" class="edge">
+<title>Employment-&gt;GDP</title>
+<path fill="none" stroke="darkgreen" d="M505.61,-112.8C531.73,-112.8 568.14,-112.8 598.47,-112.8"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="598.24,-116.3 608.24,-112.8 598.24,-109.3 598.24,-116.3"/>
+<text text-anchor="middle" x="557.75" y="-119.4" font-family="SimSun" font-size="12.00">劳动投入</text>
+</g>
+<!-- PriceLevel -->
+<g id="node3" class="node">
+<title>PriceLevel</title>
+<path fill="lightblue" stroke="navy" d="M320,-130.8C320,-130.8 286,-130.8 286,-130.8 280,-130.8 274,-124.8 274,-118.8 274,-118.8 274,-106.8 274,-106.8 274,-100.8 280,-94.8 286,-94.8 286,-94.8 320,-94.8 320,-94.8 326,-94.8 332,-100.8 332,-106.8 332,-106.8 332,-118.8 332,-118.8 332,-124.8 326,-130.8 320,-130.8"/>
+<text text-anchor="middle" x="303" y="-108.6" font-family="SimSun" font-size="14.00">物价水平</text>
+</g>
+<!-- PriceLevel&#45;&gt;Employment -->
+<g id="edge12" class="edge">
+<title>PriceLevel-&gt;Employment</title>
+<path fill="none" stroke="darkgreen" d="M332.26,-112.8C357.83,-112.8 395.37,-112.8 424.95,-112.8"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="424.75,-116.3 434.75,-112.8 424.75,-109.3 424.75,-116.3"/>
+<text text-anchor="middle" x="384.38" y="-119.4" font-family="SimSun" font-size="12.00">实际工资</text>
+</g>
+<!-- BusinessCycle&#45;&gt;Employment -->
+<g id="edge3" class="edge">
+<title>BusinessCycle-&gt;Employment</title>
+<path fill="none" stroke="darkgreen" d="M337.02,-40.03C363.45,-54.18 400.24,-73.89 428.58,-89.08"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="426.81,-92.1 437.27,-93.73 430.11,-85.92 426.81,-92.1"/>
+<text text-anchor="middle" x="406.06" y="-63.2" font-family="SimSun" font-size="12.00">影响</text>
+</g>
+<!-- BusinessCycle&#45;&gt;PriceLevel -->
+<g id="edge4" class="edge">
+<title>BusinessCycle-&gt;PriceLevel</title>
+<path fill="none" stroke="darkgreen" d="M303,-41.93C303,-54.01 303,-69.57 303,-82.95"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="299.5,-82.93 303,-92.93 306.5,-82.93 299.5,-82.93"/>
+<text text-anchor="middle" x="312" y="-63.2" font-family="SimSun" font-size="12.00">影响</text>
+</g>
+<!-- MoneySupply -->
+<g id="node6" class="node">
+<title>MoneySupply</title>
+<path fill="lightblue" stroke="navy" d="M857.25,-225.6C857.25,-225.6 812.75,-225.6 812.75,-225.6 806.75,-225.6 800.75,-219.6 800.75,-213.6 800.75,-213.6 800.75,-196 800.75,-196 800.75,-190 806.75,-184 812.75,-184 812.75,-184 857.25,-184 857.25,-184 863.25,-184 869.25,-190 869.25,-196 869.25,-196 869.25,-213.6 869.25,-213.6 869.25,-219.6 863.25,-225.6 857.25,-225.6"/>
+<text text-anchor="middle" x="835" y="-209" font-family="SimSun" font-size="14.00">货币供应</text>
+<text text-anchor="middle" x="835" y="-192.2" font-family="SimSun" font-size="14.00">与金融体系</text>
+</g>
+<!-- MoneySupply&#45;&gt;GDP -->
+<g id="edge6" class="edge">
+<title>MoneySupply-&gt;GDP</title>
+<path fill="none" stroke="darkgreen" d="M800.67,-184.32C782.51,-174.22 759.73,-161.88 739,-151.6 729.85,-147.06 720.03,-142.43 710.45,-138.04"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="712.12,-134.96 701.57,-134.01 709.23,-141.33 712.12,-134.96"/>
+<text text-anchor="middle" x="783.69" y="-155.2" font-family="SimSun" font-size="12.00">短期影响</text>
+</g>
+<!-- MoneySupply&#45;&gt;PriceLevel -->
+<g id="edge5" class="edge">
+<title>MoneySupply-&gt;PriceLevel</title>
+<path fill="none" stroke="darkgreen" d="M800.3,-193.54C786.61,-189.9 770.69,-186.18 756,-184 675.89,-172.1 468.11,-193.69 392,-166 382.04,-162.38 381.91,-157.33 373,-151.6 363.24,-145.32 352.35,-139.09 342.12,-133.56"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="343.99,-130.59 333.52,-128.99 340.71,-136.77 343.99,-130.59"/>
+<text text-anchor="middle" x="410" y="-155.2" font-family="SimSun" font-size="12.00">长期决定</text>
+</g>
+<!-- BOP -->
+<g id="node7" class="node">
+<title>BOP</title>
+<path fill="lightblue" stroke="navy" d="M735,-225.6C735,-225.6 701,-225.6 701,-225.6 695,-225.6 689,-219.6 689,-213.6 689,-213.6 689,-196 689,-196 689,-190 695,-184 701,-184 701,-184 735,-184 735,-184 741,-184 747,-190 747,-196 747,-196 747,-213.6 747,-213.6 747,-219.6 741,-225.6 735,-225.6"/>
+<text text-anchor="middle" x="718" y="-209" font-family="SimSun" font-size="14.00">国际收支</text>
+<text text-anchor="middle" x="718" y="-192.2" font-family="SimSun" font-size="14.00">与汇率</text>
+</g>
+<!-- BOP&#45;&gt;GDP -->
+<g id="edge8" class="edge">
+<title>BOP-&gt;GDP</title>
+<path fill="none" stroke="darkgreen" d="M704.02,-183.83C695.68,-171.91 684.93,-156.56 675.63,-143.26"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="678.63,-141.45 670.03,-135.27 672.9,-145.47 678.63,-141.45"/>
+<text text-anchor="middle" x="712.77" y="-155.2" font-family="SimSun" font-size="12.00">净出口贡献</text>
+</g>
+<!-- BOP&#45;&gt;MoneySupply -->
+<g id="edge7" class="edge">
+<title>BOP-&gt;MoneySupply</title>
+<path fill="none" stroke="darkgreen" d="M747.22,-204.8C759.81,-204.8 774.83,-204.8 788.86,-204.8"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="788.82,-208.3 798.82,-204.8 788.82,-201.3 788.82,-208.3"/>
+<text text-anchor="middle" x="773.88" y="-211.4" font-family="SimSun" font-size="12.00">外汇储备</text>
+</g>
+<!-- GovFiscal -->
+<g id="node8" class="node">
+<title>GovFiscal</title>
+<path fill="lightblue" stroke="navy" d="M587,-222.8C587,-222.8 553,-222.8 553,-222.8 547,-222.8 541,-216.8 541,-210.8 541,-210.8 541,-198.8 541,-198.8 541,-192.8 547,-186.8 553,-186.8 553,-186.8 587,-186.8 587,-186.8 593,-186.8 599,-192.8 599,-198.8 599,-198.8 599,-210.8 599,-210.8 599,-216.8 593,-222.8 587,-222.8"/>
+<text text-anchor="middle" x="570" y="-200.6" font-family="SimSun" font-size="14.00">政府财政</text>
+</g>
+<!-- GovFiscal&#45;&gt;GDP -->
+<g id="edge9" class="edge">
+<title>GovFiscal-&gt;GDP</title>
+<path fill="none" stroke="darkgreen" d="M579.43,-186.77C585.84,-176.03 594.96,-162.23 605,-151.6 608.41,-147.99 612.2,-144.46 616.12,-141.1"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="618.07,-144.03 623.64,-135.01 613.66,-138.59 618.07,-144.03"/>
+<text text-anchor="middle" x="623" y="-155.2" font-family="SimSun" font-size="12.00">政府支出</text>
+</g>
+<!-- GovFiscal&#45;&gt;BOP -->
+<g id="edge10" class="edge">
+<title>GovFiscal-&gt;BOP</title>
+<path fill="none" stroke="darkgreen" d="M583,-223C591.4,-233.13 603.31,-244.79 617,-250.33 639.25,-259.34 648.75,-259.34 671,-250.33 679.93,-246.72 688.1,-240.5 695.04,-233.8"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="697.2,-236.61 701.54,-226.94 692.12,-231.79 697.2,-236.61"/>
+<text text-anchor="middle" x="644" y="-247.2" font-family="SimSun" font-size="12.00">财政状况影响</text>
+</g>
+<!-- ADAS -->
+<g id="node9" class="node">
+<title>ADAS</title>
+<path fill="lightblue" stroke="navy" d="M438.55,-225.6C438.55,-225.6 373.45,-225.6 373.45,-225.6 367.45,-225.6 361.45,-219.6 361.45,-213.6 361.45,-213.6 361.45,-196 361.45,-196 361.45,-190 367.45,-184 373.45,-184 373.45,-184 438.55,-184 438.55,-184 444.55,-184 450.55,-190 450.55,-196 450.55,-196 450.55,-213.6 450.55,-213.6 450.55,-219.6 444.55,-225.6 438.55,-225.6"/>
+<text text-anchor="middle" x="406" y="-209" font-family="SimSun" font-size="14.00">总需求-总供给</text>
+<text text-anchor="middle" x="406" y="-192.2" font-family="SimSun" font-size="14.00">模型(AD-AS)</text>
+</g>
+<!-- ADAS&#45;&gt;GDP -->
+<g id="edge13" class="edge">
+<title>ADAS-&gt;GDP</title>
+<path fill="none" stroke="darkgreen" d="M450.8,-187.61C492.45,-172.55 554.64,-150.08 599.43,-133.88"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="600.5,-137.22 608.71,-130.53 598.12,-130.64 600.5,-137.22"/>
+<text text-anchor="middle" x="563.41" y="-155.2" font-family="SimSun" font-size="12.00">解释决定</text>
+</g>
+<!-- ADAS&#45;&gt;PriceLevel -->
+<g id="edge14" class="edge">
+<title>ADAS-&gt;PriceLevel</title>
+<path fill="none" stroke="darkgreen" d="M361.48,-183.65C352.83,-178.6 344.21,-172.68 337,-166 329.25,-158.81 322.46,-149.51 317.02,-140.74"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="320.1,-139.07 312.06,-132.18 314.05,-142.58 320.1,-139.07"/>
+<text text-anchor="middle" x="355" y="-155.2" font-family="SimSun" font-size="12.00">解释决定</text>
+</g>
+<!-- ISLM -->
+<g id="node10" class="node">
+<title>ISLM</title>
+<path fill="lightblue" stroke="navy" d="M903.56,-312C903.56,-312 852.44,-312 852.44,-312 846.44,-312 840.44,-306 840.44,-300 840.44,-300 840.44,-288 840.44,-288 840.44,-282 846.44,-276 852.44,-276 852.44,-276 903.56,-276 903.56,-276 909.56,-276 915.56,-282 915.56,-288 915.56,-288 915.56,-300 915.56,-300 915.56,-306 909.56,-312 903.56,-312"/>
+<text text-anchor="middle" x="878" y="-289.8" font-family="SimSun" font-size="14.00">IS-LM模型</text>
+</g>
+<!-- ISLM&#45;&gt;GDP -->
+<g id="edge15" class="edge">
+<title>ISLM-&gt;GDP</title>
+<path fill="none" stroke="darkgreen" d="M896.25,-275.82C918.09,-253.16 949.11,-212.8 927,-184 868.56,-107.86 809.9,-157.75 717,-133.6 715.03,-133.09 713.04,-132.55 711.03,-132"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="712.24,-128.7 701.66,-129.29 710.3,-135.43 712.24,-128.7"/>
+<text text-anchor="middle" x="943.6" y="-201.2" font-family="SimSun" font-size="12.00">解释</text>
+</g>
+<!-- ISLM&#45;&gt;MoneySupply -->
+<g id="edge16" class="edge">
+<title>ISLM-&gt;MoneySupply</title>
+<path fill="none" stroke="darkgreen" d="M869.5,-275.77C863.94,-264.49 856.52,-249.44 849.99,-236.19"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="853.22,-234.83 845.66,-227.41 846.94,-237.93 853.22,-234.83"/>
+<text text-anchor="middle" x="869.35" y="-247.2" font-family="SimSun" font-size="12.00">包含</text>
+</g>
+<!-- MundellFleming -->
+<g id="node11" class="node">
+<title>MundellFleming</title>
+<path fill="lightblue" stroke="navy" d="M849.83,-404C849.83,-404 790.17,-404 790.17,-404 784.17,-404 778.17,-398 778.17,-392 778.17,-392 778.17,-374.4 778.17,-374.4 778.17,-368.4 784.17,-362.4 790.17,-362.4 790.17,-362.4 849.83,-362.4 849.83,-362.4 855.83,-362.4 861.83,-368.4 861.83,-374.4 861.83,-374.4 861.83,-392 861.83,-392 861.83,-398 855.83,-404 849.83,-404"/>
+<text text-anchor="middle" x="820" y="-387.4" font-family="SimSun" font-size="14.00">蒙代尔-弗莱明</text>
+<text text-anchor="middle" x="820" y="-370.6" font-family="SimSun" font-size="14.00">模型</text>
+</g>
+<!-- MundellFleming&#45;&gt;BOP -->
+<g id="edge17" class="edge">
+<title>MundellFleming-&gt;BOP</title>
+<path fill="none" stroke="darkgreen" d="M815.95,-362.18C810.45,-339.2 798.72,-301.4 777,-276 766.89,-264.18 757.81,-269.18 747,-258 740.91,-251.7 735.67,-243.86 731.4,-236.2"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="734.54,-234.65 726.86,-227.35 728.31,-237.85 734.54,-234.65"/>
+<text text-anchor="middle" x="807.78" y="-290.4" font-family="SimSun" font-size="12.00">解释</text>
+</g>
+<!-- MundellFleming&#45;&gt;ISLM -->
+<g id="edge18" class="edge">
+<title>MundellFleming-&gt;ISLM</title>
+<path fill="none" stroke="darkgreen" d="M833.45,-361.98C841.4,-350.03 851.56,-334.76 860.17,-321.81"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="862.92,-323.99 865.55,-313.72 857.09,-320.11 862.92,-323.99"/>
+<text text-anchor="middle" x="881.19" y="-333.6" font-family="SimSun" font-size="12.00">开放经济扩展</text>
+</g>
+<!-- PhillipsCurve -->
+<g id="node12" class="node">
+<title>PhillipsCurve</title>
+<path fill="lightblue" stroke="navy" d="M276.5,-222.8C276.5,-222.8 221.5,-222.8 221.5,-222.8 215.5,-222.8 209.5,-216.8 209.5,-210.8 209.5,-210.8 209.5,-198.8 209.5,-198.8 209.5,-192.8 215.5,-186.8 221.5,-186.8 221.5,-186.8 276.5,-186.8 276.5,-186.8 282.5,-186.8 288.5,-192.8 288.5,-198.8 288.5,-198.8 288.5,-210.8 288.5,-210.8 288.5,-216.8 282.5,-222.8 276.5,-222.8"/>
+<text text-anchor="middle" x="249" y="-200.6" font-family="SimSun" font-size="14.00">菲利普斯曲线</text>
+</g>
+<!-- PhillipsCurve&#45;&gt;Employment -->
+<g id="edge19" class="edge">
+<title>PhillipsCurve-&gt;Employment</title>
+<path fill="none" stroke="darkgreen" d="M288.81,-188.13C293.55,-186.59 298.35,-185.16 303,-184 359.16,-169.96 382.17,-195.46 432,-166 442.12,-160.02 450.45,-150.29 456.77,-140.85"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="459.61,-142.92 461.84,-132.57 453.64,-139.27 459.61,-142.92"/>
+<text text-anchor="middle" x="457.03" y="-155.2" font-family="SimSun" font-size="12.00">关联</text>
+</g>
+<!-- PhillipsCurve&#45;&gt;PriceLevel -->
+<g id="edge20" class="edge">
+<title>PhillipsCurve-&gt;PriceLevel</title>
+<path fill="none" stroke="darkgreen" d="M254.7,-186.71C258.57,-176.2 264.21,-162.66 271,-151.6 273.48,-147.56 276.38,-143.51 279.39,-139.64"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="281.88,-142.12 285.55,-132.18 276.48,-137.66 281.88,-142.12"/>
+<text text-anchor="middle" x="280" y="-155.2" font-family="SimSun" font-size="12.00">关联</text>
+</g>
+<!-- GrowthTheory -->
+<g id="node13" class="node">
+<title>GrowthTheory</title>
+<path fill="lightblue" stroke="navy" d="M792.5,-130.8C792.5,-130.8 737.5,-130.8 737.5,-130.8 731.5,-130.8 725.5,-124.8 725.5,-118.8 725.5,-118.8 725.5,-106.8 725.5,-106.8 725.5,-100.8 731.5,-94.8 737.5,-94.8 737.5,-94.8 792.5,-94.8 792.5,-94.8 798.5,-94.8 804.5,-100.8 804.5,-106.8 804.5,-106.8 804.5,-118.8 804.5,-118.8 804.5,-124.8 798.5,-130.8 792.5,-130.8"/>
+<text text-anchor="middle" x="765" y="-108.6" font-family="SimSun" font-size="14.00">经济增长理论</text>
+</g>
+<!-- GrowthTheory&#45;&gt;EconomicGrowth -->
+<g id="edge21" class="edge">
+<title>GrowthTheory-&gt;EconomicGrowth</title>
+<path fill="none" stroke="darkgreen" d="M765,-94.45C765,-82 765,-64.94 765,-50.48"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="768.5,-50.61 765,-40.61 761.5,-50.61 768.5,-50.61"/>
+<text text-anchor="middle" x="774" y="-63.2" font-family="SimSun" font-size="12.00">解释</text>
+</g>
+<!-- RBC -->
+<g id="node14" class="node">
+<title>RBC</title>
+<path fill="lightblue" stroke="navy" d="M46,-133.6C46,-133.6 12,-133.6 12,-133.6 6,-133.6 0,-127.6 0,-121.6 0,-121.6 0,-104 0,-104 0,-98 6,-92 12,-92 12,-92 46,-92 46,-92 52,-92 58,-98 58,-104 58,-104 58,-121.6 58,-121.6 58,-127.6 52,-133.6 46,-133.6"/>
+<text text-anchor="middle" x="29" y="-117" font-family="SimSun" font-size="14.00">实际经济</text>
+<text text-anchor="middle" x="29" y="-100.2" font-family="SimSun" font-size="14.00">周期理论</text>
+</g>
+<!-- RBC&#45;&gt;BusinessCycle -->
+<g id="edge22" class="edge">
+<title>RBC-&gt;BusinessCycle</title>
+<path fill="none" stroke="darkgreen" d="M36.77,-91.61C42.15,-80.39 50.44,-67.19 62,-59.6 93.42,-38.95 197.19,-28.76 257.83,-24.46"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="257.74,-27.97 267.48,-23.8 257.27,-20.99 257.74,-27.97"/>
+<text text-anchor="middle" x="71" y="-63.2" font-family="SimSun" font-size="12.00">解释</text>
+</g>
+<!-- NewKeynesian -->
+<g id="node15" class="node">
+<title>NewKeynesian</title>
+<path fill="lightblue" stroke="navy" d="M120,-225.6C120,-225.6 86,-225.6 86,-225.6 80,-225.6 74,-219.6 74,-213.6 74,-213.6 74,-196 74,-196 74,-190 80,-184 86,-184 86,-184 120,-184 120,-184 126,-184 132,-190 132,-196 132,-196 132,-213.6 132,-213.6 132,-219.6 126,-225.6 120,-225.6"/>
+<text text-anchor="middle" x="103" y="-209" font-family="SimSun" font-size="14.00">新凯恩斯</text>
+<text text-anchor="middle" x="103" y="-192.2" font-family="SimSun" font-size="14.00">主义理论</text>
+</g>
+<!-- NewKeynesian&#45;&gt;PriceLevel -->
+<g id="edge24" class="edge">
+<title>NewKeynesian-&gt;PriceLevel</title>
+<path fill="none" stroke="darkgreen" d="M107.93,-183.68C111.66,-172.62 117.91,-159.57 128,-151.6 148.48,-135.43 217.36,-124.21 262.35,-118.4"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="262.52,-121.91 272.01,-117.2 261.65,-114.96 262.52,-121.91"/>
+<text text-anchor="middle" x="146" y="-155.2" font-family="SimSun" font-size="12.00">价格粘性</text>
+</g>
+<!-- NewKeynesian&#45;&gt;BusinessCycle -->
+<g id="edge23" class="edge">
+<title>NewKeynesian-&gt;BusinessCycle</title>
+<path fill="none" stroke="darkgreen" d="M102.82,-183.62C103.59,-173.33 105.92,-161.03 112,-151.6 147.18,-97 214.33,-59.52 258.89,-39.36"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="260.02,-42.69 267.76,-35.46 257.2,-36.28 260.02,-42.69"/>
+<text text-anchor="middle" x="175.66" y="-109.2" font-family="SimSun" font-size="12.00">解释</text>
+</g>
+<!-- Monetarism -->
+<g id="node16" class="node">
+<title>Monetarism</title>
+<path fill="lightblue" stroke="navy" d="M755.5,-312C755.5,-312 700.5,-312 700.5,-312 694.5,-312 688.5,-306 688.5,-300 688.5,-300 688.5,-288 688.5,-288 688.5,-282 694.5,-276 700.5,-276 700.5,-276 755.5,-276 755.5,-276 761.5,-276 767.5,-282 767.5,-288 767.5,-288 767.5,-300 767.5,-300 767.5,-306 761.5,-312 755.5,-312"/>
+<text text-anchor="middle" x="728" y="-289.8" font-family="SimSun" font-size="14.00">货币主义理论</text>
+</g>
+<!-- Monetarism&#45;&gt;PriceLevel -->
+<g id="edge26" class="edge">
+<title>Monetarism-&gt;PriceLevel</title>
+<path fill="none" stroke="darkgreen" d="M688.07,-278.46C685.02,-277.56 681.97,-276.73 679,-276 603.73,-257.62 392.11,-276.85 334,-225.6 310.52,-204.9 304.13,-168.14 302.72,-142.44"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="306.23,-142.57 302.43,-132.68 299.23,-142.78 306.23,-142.57"/>
+<text text-anchor="middle" x="343" y="-201.2" font-family="SimSun" font-size="12.00">解释</text>
+</g>
+<!-- Monetarism&#45;&gt;MoneySupply -->
+<g id="edge25" class="edge">
+<title>Monetarism-&gt;MoneySupply</title>
+<path fill="none" stroke="darkgreen" d="M759.44,-275.67C768.03,-270.42 777.14,-264.34 785,-258 793.77,-250.92 802.54,-242.39 810.23,-234.29"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="812.57,-236.92 816.78,-227.2 807.43,-232.17 812.57,-236.92"/>
+<text text-anchor="middle" x="822.3" y="-247.2" font-family="SimSun" font-size="12.00">强调重要性</text>
+</g>
+<!-- FiscalPolicy -->
+<g id="node17" class="node">
+<title>FiscalPolicy</title>
+<path fill="lightgreen" stroke="navy" d="M582,-312C582,-312 548,-312 548,-312 542,-312 536,-306 536,-300 536,-300 536,-288 536,-288 536,-282 542,-276 548,-276 548,-276 582,-276 582,-276 588,-276 594,-282 594,-288 594,-288 594,-300 594,-300 594,-306 588,-312 582,-312"/>
+<text text-anchor="middle" x="565" y="-289.8" font-family="SimSun" font-size="14.00">财政政策</text>
+</g>
+<!-- FiscalPolicy&#45;&gt;GDP -->
+<g id="edge28" class="edge">
+<title>FiscalPolicy-&gt;GDP</title>
+<path fill="none" stroke="darkgreen" d="M577.67,-275.83C594.49,-252.24 624.06,-207.93 641,-166 643.69,-159.34 646.02,-152 647.97,-144.98"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="651.31,-146.03 650.42,-135.47 644.54,-144.28 651.31,-146.03"/>
+<text text-anchor="middle" x="641.89" y="-201.2" font-family="SimSun" font-size="12.00">影响</text>
+</g>
+<!-- FiscalPolicy&#45;&gt;GovFiscal -->
+<g id="edge27" class="edge">
+<title>FiscalPolicy-&gt;GovFiscal</title>
+<path fill="none" stroke="darkgreen" d="M565.99,-275.77C566.66,-264.03 567.57,-248.19 568.35,-234.55"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="571.83,-234.99 568.91,-224.8 564.84,-234.58 571.83,-234.99"/>
+<text text-anchor="middle" x="576.8" y="-247.2" font-family="SimSun" font-size="12.00">操作</text>
+</g>
+<!-- MonetaryPolicy -->
+<g id="node18" class="node">
+<title>MonetaryPolicy</title>
+<path fill="lightgreen" stroke="navy" d="M504,-312C504,-312 470,-312 470,-312 464,-312 458,-306 458,-300 458,-300 458,-288 458,-288 458,-282 464,-276 470,-276 470,-276 504,-276 504,-276 510,-276 516,-282 516,-288 516,-288 516,-300 516,-300 516,-306 510,-312 504,-312"/>
+<text text-anchor="middle" x="487" y="-289.8" font-family="SimSun" font-size="14.00">货币政策</text>
+</g>
+<!-- MonetaryPolicy&#45;&gt;Employment -->
+<g id="edge31" class="edge">
+<title>MonetaryPolicy-&gt;Employment</title>
+<path fill="none" stroke="darkgreen" d="M485.47,-275.82C482.71,-244.99 476.91,-180 473.55,-142.37"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="477.06,-142.35 472.69,-132.7 470.09,-142.97 477.06,-142.35"/>
+<text text-anchor="middle" x="498.85" y="-201.2" font-family="SimSun" font-size="12.00">间接影响</text>
+</g>
+<!-- MonetaryPolicy&#45;&gt;PriceLevel -->
+<g id="edge30" class="edge">
+<title>MonetaryPolicy-&gt;PriceLevel</title>
+<path fill="none" stroke="darkgreen" d="M457.64,-291.1C388.11,-285.91 216.7,-268.9 183,-225.6 152.88,-186.91 217.57,-149.69 263.16,-129.46"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="264.5,-132.69 272.3,-125.53 261.73,-126.26 264.5,-132.69"/>
+<text text-anchor="middle" x="192" y="-201.2" font-family="SimSun" font-size="12.00">目标</text>
+</g>
+<!-- MonetaryPolicy&#45;&gt;MoneySupply -->
+<g id="edge29" class="edge">
+<title>MonetaryPolicy-&gt;MoneySupply</title>
+<path fill="none" stroke="darkgreen" d="M516.36,-279.35C519.89,-278.06 523.49,-276.9 527,-276 604.88,-256.05 628.97,-277.38 707,-258 735.51,-250.92 766.01,-238.68 790.09,-227.83"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="791.33,-231.11 798.95,-223.76 788.41,-224.75 791.33,-231.11"/>
+<text text-anchor="middle" x="759.38" y="-247.2" font-family="SimSun" font-size="12.00">控制</text>
+</g>
+<!-- TradePolicy -->
+<g id="node19" class="node">
+<title>TradePolicy</title>
+<path fill="lightgreen" stroke="navy" d="M658,-312C658,-312 624,-312 624,-312 618,-312 612,-306 612,-300 612,-300 612,-288 612,-288 612,-282 618,-276 624,-276 624,-276 658,-276 658,-276 664,-276 670,-282 670,-288 670,-288 670,-300 670,-300 670,-306 664,-312 658,-312"/>
+<text text-anchor="middle" x="641" y="-289.8" font-family="SimSun" font-size="14.00">贸易政策</text>
+</g>
+<!-- TradePolicy&#45;&gt;BOP -->
+<g id="edge32" class="edge">
+<title>TradePolicy-&gt;BOP</title>
+<path fill="none" stroke="darkgreen" d="M656.46,-275.56C661.43,-269.96 666.95,-263.72 672,-258 678.86,-250.24 686.28,-241.82 693.12,-234.06"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="695.55,-236.59 699.54,-226.78 690.3,-231.97 695.55,-236.59"/>
+<text text-anchor="middle" x="693.65" y="-247.2" font-family="SimSun" font-size="12.00">影响</text>
+</g>
+<!-- StructuralPolicy -->
+<g id="node20" class="node">
+<title>StructuralPolicy</title>
+<path fill="lightgreen" stroke="navy" d="M1006.25,-312C1006.25,-312 961.75,-312 961.75,-312 955.75,-312 949.75,-306 949.75,-300 949.75,-300 949.75,-288 949.75,-288 949.75,-282 955.75,-276 961.75,-276 961.75,-276 1006.25,-276 1006.25,-276 1012.25,-276 1018.25,-282 1018.25,-288 1018.25,-288 1018.25,-300 1018.25,-300 1018.25,-306 1012.25,-312 1006.25,-312"/>
+<text text-anchor="middle" x="984" y="-289.8" font-family="SimSun" font-size="14.00">结构性政策</text>
+</g>
+<!-- StructuralPolicy&#45;&gt;Employment -->
+<g id="edge34" class="edge">
+<title>StructuralPolicy-&gt;Employment</title>
+<path fill="none" stroke="darkgreen" d="M960.29,-275.71C943.71,-262.95 921.64,-244.57 905,-225.6 890.46,-209.03 897.09,-195.01 878,-184 810.15,-144.87 597.98,-196.87 526,-166 512.71,-160.3 500.7,-149.88 491.32,-139.85"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="494.01,-137.6 484.78,-132.39 488.74,-142.22 494.01,-137.6"/>
+<text text-anchor="middle" x="914" y="-201.2" font-family="SimSun" font-size="12.00">改善</text>
+</g>
+<!-- StructuralPolicy&#45;&gt;EconomicGrowth -->
+<g id="edge33" class="edge">
+<title>StructuralPolicy-&gt;EconomicGrowth</title>
+<path fill="none" stroke="darkgreen" d="M983.01,-275.87C981.01,-253.27 975.01,-212.98 957,-184 918.43,-121.94 848.17,-71.67 804.18,-44.32"/>
+<polygon fill="darkgreen" stroke="darkgreen" points="806.05,-41.36 795.69,-39.14 802.4,-47.33 806.05,-41.36"/>
+<text text-anchor="middle" x="952.76" y="-155.2" font-family="SimSun" font-size="12.00">促进</text>
+</g>
+</g>
+</svg>
