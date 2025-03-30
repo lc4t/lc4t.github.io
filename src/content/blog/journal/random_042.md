@@ -3,7 +3,7 @@ title: R#042 善良和聪明仍然是第一级指标
 pubDatetime: 2025-03-23 22:00:00 +08:00
 tags:
   - 随机刊物
-description: "2025.03.18 ~ 2025.03.14"
+description: "2025.03.18 ~ 2025.03.24"
 postSlug: random_042
 ---
 
