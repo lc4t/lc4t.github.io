@@ -9,7 +9,7 @@ postSlug: random_046
 
 ## 事件
 
-1. [山西大同强奸案]()。最近二审维持了原判，我个人角度看判 4-7 年都是比较合适的，这是一个引导公众把彩礼与婚姻切割的判例，不过这个故事在当下实在是精彩，充斥着各人不同立场的信息。就像上次唐山打人案一样，我认为背后还是有某种目的的。
+1. [山西大同强奸案](https://www.163.com/dy/article/JTDFJN9905565VV2.html)。最近二审维持了原判，我个人角度看判 4-7 年都是比较合适的，这是一个引导公众把彩礼与婚姻切割的判例，不过这个故事在当下实在是精彩，充斥着各人不同立场的信息。就像上次唐山打人案一样，我认为背后还是有某种目的的。
 
    推荐阅读：[婚房里的强奸案](https://mp.weixin.qq.com/s?__biz=MzIyMTY1MTYyNw==&mid=2247509348&idx=1&sn=9b91ade12f4645ca25687f6606757866&chksm=&mpshare=1&scene=1&srcid=0418ucVzGIo6KajWw1Ewn9OZ&sharer_shareinfo=10547f65464285951b1077de73583b40&sharer_shareinfo_first=#rd)
 
