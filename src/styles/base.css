@@ -83,8 +83,8 @@
     prose-ul:overflow-x-clip prose-ul:!text-skin-base prose-li:marker:!text-skin-accent
     prose-table:text-skin-base prose-th:border
     prose-th:border-skin-line prose-td:border 
-    prose-td:border-skin-line prose-img:mx-auto 
-    prose-img:!mt-2 prose-img:border-2 
+    prose-td:border-skin-line prose-img:mx-auto prose-img:!mt-2 prose-img:h-auto
+    prose-img:max-w-full prose-img:border-2
     prose-img:border-skin-line prose-hr:!border-skin-line;
   }
   .prose a {
@@ -106,6 +106,14 @@
   }
   .prose h2#table-of-contents + p {
     @apply hidden;
+  }
+
+  /* Limit image size for mobile screenshots */
+  .prose img {
+    max-width: min(100%, 500px);
+    height: auto;
+    max-height: 80vh;
+    object-fit: contain;
   }
 
   /* ===== scrollbar ===== */
