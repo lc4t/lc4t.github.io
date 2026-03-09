@@ -12,7 +12,7 @@ description: 本文从技术原理和人文反思两个维度拆解了"如何用
 postSlug: 2026_how_to_use_ai_v1
 otherSource: [
 	{
-		href: "", 
+		href: "https://mp.weixin.qq.com/s/fYbv1tGawgnSotOr8ClsTw", 
 		plat: "wechat", 
 		badge: "https://img.shields.io/badge/Other-WeChat-1AAD19?style=flat-square&logo=wechat"
 	}	
