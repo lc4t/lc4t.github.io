@@ -21,9 +21,9 @@ postSlug: random_011
 
 ## 系统：对系统的调整和输入，比如尝试某个新出来的工具、方法
 
-1. 上周错怪了 AutoBamgumi，是追番工具几乎都不支持历史老番下载。不过已经切成 BGmi 了，虽然下镜像和对接下载软件费了点功夫：主要是镜像源 6 月被 ban，只能走 dockerhub.icu 渠道了，然后也不知道为什么 [这个 docker 版本](https://github.com/codysk/bgmi-docker-all-in-one)总是无法提交 Transmission 任务，换了[Aria2](https://github.com/DDS-Derek/BGmi-All-In-One-Docker?tab=readme-ov-file)的版本好了。不过下载 torrent 时还是有墙的问题，暂时手动修改了 `/bgmi/conf/aria2/aria2.conf`，添加了`all-proxy` 项，观察一下。
+1. 上周错怪了 AutoBangumi，是追番工具几乎都不支持历史老番下载。不过已经切成 BGmi 了，虽然下镜像和对接下载软件费了点功夫：主要是镜像源 6 月被 ban，只能走 dockerhub.icu 渠道了，然后也不知道为什么 [这个 docker 版本](https://github.com/codysk/bgmi-docker-all-in-one)总是无法提交 Transmission 任务，换了[Aria2](https://github.com/DDS-Derek/BGmi-All-In-One-Docker?tab=readme-ov-file)的版本好了。不过下载 torrent 时还是有墙的问题，暂时手动修改了 `/bgmi/conf/aria2/aria2.conf`，添加了`all-proxy` 项，观察一下。
 
-2. 有许多统计提醒项，例如信用卡积分兑换里程的提醒，需要我在某个特定的地方记录当前值、提醒的边界值；或者某个 UID 需要添加到追定中；....有不少这样小的需求，我把它归类为：更新数据 -> 设置边界 -> 自动处理 -> 执行提醒。想了下要么自己做个 AllInOne 的 APP，要么只能用 Notion 这种记录方便又有 API 的工具糊一个。考虑到现在需求本身就比较零散，能用要远大于做得好，打算先基于 Notion 搞一下。
+2. 有许多统计提醒项，例如信用卡积分兑换里程的提醒，需要我在某个特定的地方记录当前值、提醒的边界值；或者某个 UID 需要添加到订阅中；....有不少这样小的需求，我把它归类为：更新数据 -> 设置边界 -> 自动处理 -> 执行提醒。想了下要么自己做个 AllInOne 的 APP，要么只能用 Notion 这种记录方便又有 API 的工具糊一个。考虑到现在需求本身就比较零散，能用要远大于做得好，打算先基于 Notion 搞一下。
 
 ## Other：不在以上分类
 

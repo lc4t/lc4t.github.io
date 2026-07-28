@@ -22,7 +22,7 @@ postSlug: random_096
 
 ## 系统
 
-1. 使用了 2 周，Moku 基本替代了我 Cubox，感觉可以筹备发布了
+1. 使用了 2 周，Moku 基本替代了我的 Cubox，感觉可以筹备发布了
 
 ## Other
 

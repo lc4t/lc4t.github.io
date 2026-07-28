@@ -22,7 +22,7 @@ postSlug: random_092
 
 ## 系统
 
-1. 构建了新版本的 Agent.template.md 文件，还写了[分享文章](https://blog.sakanano.moe/posts/2026_how_to_use_ai_v1/)，其实懒的同学可以直接把文章丢给 AI 形成一个 template 文件，指导后续开发，但我还是希望大家至少把第 0 节读了。
+1. 构建了新版本的 Agent.template.md 文件，还写了[分享文章](https://blog.sakanano.moe/posts/2026_how_to_use_ai_v1/)，其实懒得自己整理的同学可以直接把文章丢给 AI 形成一个 template 文件，指导后续开发，但我还是希望大家至少把第 0 节读了。
 
 ## Other
 

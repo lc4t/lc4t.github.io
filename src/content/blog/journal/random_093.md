@@ -22,7 +22,7 @@ postSlug: random_093
 
 ## 系统
 
-1. 我在同时用很多 Vibe Coding 工具，有时候不知道进度有时候也会串行，群友写了一个好玩的工具 Vibe Island，基于 hook 可以提示 Claude Code CLI 的状态，能解决
+1. 我在同时用很多 Vibe Coding 工具，有时候不知道进度有时候也会串行，群友写了一个好玩的工具 Vibe Island，基于 hook 可以提示 Claude Code CLI 的状态，能解决多任务并行时不知道哪个任务已经完成了需要介入的及时性问题
 2. 组里一起搞了写 PPT 的 skill，配合 opus 4.6 还挺好用的，只要能先想清楚呈现形式，跟着 AI 讨论最终版本就出来了，不过确实非常耗时间，但终于以后再也不用手写 PPT 了
 3. AnyType 在 AI 时代很难用，放弃了，回 Obsidian，把工作目录作为一个项目，让 AI 进来整理即可，单独划分了一个 tasks、skills 目录专门跑 AI 任务用
 

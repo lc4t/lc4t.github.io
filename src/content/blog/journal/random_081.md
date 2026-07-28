@@ -23,7 +23,7 @@ postSlug: random_081
 
 1. 参考了[这篇文章](https://blog.dejavu.moe/posts/my-2025-selfhosted-services-report/)，打算把自己离散的服务，特别是 NAS 和 Mac mini 的服务通过 Cloudflare Zero Trust 暴露出来，这样在哪里都能用。本来觉得要耗时很久没想到很快，在 Mac mini 的和 CVM 的已经搞定，接下来就是 NAS 的了
 2. 还记得之前 camlife ，一个很好看的照片分享框架，不过作者不维护了，fork 下来用 AI 做了本地开发版本，切换了 mapbox，感觉快能用了
-3. Mac mini 变卡了，测试了发现硬盘的 write 掉到了了 20-40 MB/s，太夸张了，跑了 S.M.A.R.T. 发现没问题，原厂的 256G 能跑到 1.4T，换了个线似乎表现好了些，如果后续还是有问题那就要考虑物理扩容了，这个 4T 的盘作为 Time Machine 可能也不错。
+3. Mac mini 变卡了，测试了发现硬盘的写入速度掉到了 20-40 MB/s，太夸张了，跑了 S.M.A.R.T. 发现没问题，原厂的 256G 能跑到 1.4T，换了个线似乎表现好了些，如果后续还是有问题那就要考虑物理扩容了，这个 4T 的盘作为 Time Machine 可能也不错。
 4. 直接用了硅基流动的免费模型，来对爬虫获取的页面信息提取，感觉以后爬虫更简单了
 
 ## Other

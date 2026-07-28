@@ -23,7 +23,7 @@ postSlug: random_013
 
 1. 用 caddy 搭了一些服务，顺便入了一些 status、homepage 页面，试了下 dify+ollama 几乎没办法跑在 VPS 上（太贵了），考虑入个新款 Mac mini 放家里当备机，比 NAS 还便宜，顺便还能搞些 iOS 开发。现在手里的初代 m1 rmbp 慢慢还是有些不够用的。
 2. 现在还是没有把消息源放到 RSS->AI 中，需要再想点办法通过 AI 降噪，提取可能有价值的信息，而不是那种时效新闻。时效新闻指的是今天看了没用、明天看了过期的消息。
-3. Omniplan 没办法保存，决定切了。[linear](linear.app)真好看，决定用它做项目管理，不过不支持甘特图、Timeline 模式，问题不大，直接用 Excel 糊一个就好。
+3. Omniplan 没办法保存，决定切了。[Linear](https://linear.app)真好看，决定用它做项目管理，不过不支持甘特图、Timeline 模式，问题不大，直接用 Excel 糊一个就好。
 
 ## Other：不在以上分类
 

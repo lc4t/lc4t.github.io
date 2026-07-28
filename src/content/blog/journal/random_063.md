@@ -23,7 +23,7 @@ postSlug: random_063
 
 1. 新增了一个[浏览器插件](https://github.com/hanydd/BilibiliSponsorBlock)，可以跳过 B 站恰饭内容，不过移动端上没有，可惜。
 2. 用 AI 写了一个当前状态的 Badge，有一个后端工具可以更新上面的文字、颜色、图标，相比 [badgen](https://flat.badgen.net/) 和[shields.io](https://shields.io/badges) 还是差了一筹，本来是想放到签名中表示最新状态的，但是腾讯文档和个性签名都不能自动渲染链接，可惜可惜。
-3. 写在了 Skyscanner，用 GoogleFlight 了，国内票还是需要自行比价，像[这个视频](https://www.bilibili.com/video/BV1tAYWz5EgA/)所说，有时候不同 APP 有不同的特价票，另外，海外携程除了 Trip，也经常有低价票。
+3. 卸载了 Skyscanner，改用 Google Flights 了，国内票还是需要自行比价，像[这个视频](https://www.bilibili.com/video/BV1tAYWz5EgA/)所说，有时候不同 APP 有不同的特价票，另外，海外携程除了 Trip，也经常有低价票。
 4. NAS 用了 4 年，感觉硬盘随时可能会挂，于是用 restic 把关键信息加密同步到了 COS，restic 确实好用，一个命令初始化，一个命令同步，让 Claude 写了个 shell 脚本更方便了
 5. 另外也把群晖的 Photos 切成了 immich ，还没跑完识别，观察看看
 

@@ -22,7 +22,7 @@ postSlug: random_107
 
 ## 系统
 
-1. 试用 Typora 团队的新终端工具 [https://otty.sh/](otty)，感觉理念挺好，把终端做大了，把 watch、alias、agent 这种都做到设置里面而不是 shell 的配置文件里，估计会降低很多新手门槛，又揉合了编辑器、CLI、项目管理的设计在里面，也不知道是否实现大一统？
+1. 试用 Typora 团队的新终端工具 [otty](https://otty.sh/)，感觉理念挺好，把终端做大了，把 watch、alias、agent 这种都做到设置里面而不是 shell 的配置文件里，估计会降低很多新手门槛，又糅合了编辑器、CLI、项目管理的设计，也不知道是否实现大一统？
 2. 弃用 beancount 来生成资产负债表等表单的方案，打算直接让 claude 基于 skill 生成就好，先试试看
 
 ## Other

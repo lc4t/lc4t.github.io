@@ -14,7 +14,7 @@ postSlug: random_029
 ## 信息
 
 1. 用户故事：某个角色通过「该产品」完成某种活动，达成某个价值。这里要确保描述的词语是精准而不通用的。
-2. 领域驱动设计(DDD)：这个概念主要是在[Thoughtworks 技术雷达 vol.31](https://www.thoughtworks.com/content/dam/thoughtworks/documents/radar/2024/10/tr_technology_radar_vol_31_cn.pdf)找到的，因为好奇，经过几个月的搜索、理解、研究，我判定这个方法论就是扯淡。思路看着很信，但是这个思路的核心是理解业务，它也没有方法告诉人们怎么理解业务怎么绘制模型。一言以蔽之，太高高在上的理论不足以指导现实。在后续描述的领域叙事对现实的价值更有用，尤其是给不懂具体业务的老板汇报的时候。
+2. 领域驱动设计(DDD)：这个概念主要是在[Thoughtworks 技术雷达 vol.31](https://www.thoughtworks.com/content/dam/thoughtworks/documents/radar/2024/10/tr_technology_radar_vol_31_cn.pdf)找到的，因为好奇，经过几个月的搜索、理解、研究，我判定这个方法论就是扯淡。思路看着很新，但是这个思路的核心是理解业务，它也没有方法告诉人们怎么理解业务怎么绘制模型。一言以蔽之，太高高在上的理论不足以指导现实。在后续描述的领域叙事对现实的价值更有用，尤其是给不懂具体业务的老板汇报的时候。
 3. [Azure 的结构图](https://techcommunity.microsoft.com/blog/azurearchitectureblog/azure-course-blueprints/4338972?WT.mc_id=DT-MVP-5001664)。好复杂，难以想象一个地方出问题要排查多少关联。
 
 ## 灵感

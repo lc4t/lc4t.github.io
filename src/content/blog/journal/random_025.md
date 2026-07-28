@@ -35,6 +35,6 @@ postSlug: random_025
 
 ## Other
 
-1. [建行大山白取消了贵宾厅](https://creditcard2.ccb.com/cn/creditcard/news/detail/20241113_1731465211.html)，安检前的贵宾厅体验非常好，有餐厅、不用排队、直接送到飞机上，感觉可能是
+1. [建行大山白取消了贵宾厅](https://creditcard2.ccb.com/cn/creditcard/news/detail/20241113_1731465211.html)，安检前的贵宾厅体验非常好，有餐厅、不用排队、直接送到飞机上，感觉深圳的贵宾楼可能是国内最好的一类机场贵宾厅了。
 2. 快速完成了[《网络安全行业入门答疑》](https://blog.sakanano.moe/posts/2024_cnss_qa/)，看了下好久没写长文了，接下来要准备答辩 PPT，又要没时间了。
 3. 本周工作事项并行巨多，而且年底大家都开始收集数据写各种汇报材料，这种汇总整理就很扯，不在规划的计划内又不得不写。
