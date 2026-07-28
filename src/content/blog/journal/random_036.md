@@ -13,7 +13,7 @@ postSlug: random_036
 
 ## 信息
 
-1. [小姨之前 23 年提到的管理经验](https://www.bilibili.com/video/BV13z4y1h7Eg/)，正好年终写职业经验，猫到这个视频，说的还是很对的。
+1. 正好年终在写职业经验，偶然翻到[小姨 23 年讲管理经验的这个视频](https://www.bilibili.com/video/BV13z4y1h7Eg/)，感觉里面说得还是很对。
 2. 发现《睡前消息》的内容质量似乎赶不上期待了，于是加了睡前消息编辑部知识星球一探究竟，于是有了下面「灵感 1」的部分。
 3. 一个[实时热搜汇总站点](https://newsnow.busiyi.world/c/realtime)
 4. 鉴于最近日本医疗热度上升，正好被[安利](https://www.youtube.com/watch?v=oay7F4jvsIY)了[这个旅行医疗险](https://tokiomarinenichido.jp/zh-hans/china1/)，好处是不需要垫付而是保险公司直接付款的。
