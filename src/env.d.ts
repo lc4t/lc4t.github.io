@@ -10,10 +10,3 @@ declare global {
     interface HTMLAttributes extends Attributes {}
   }
 }
-
-declare module "solid-js" {
-  namespace JSX {
-    /* eslint-disable-next-line */
-    interface HTMLAttributes<T> extends Attributes {}
-  }
-}

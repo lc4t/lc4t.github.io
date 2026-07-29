@@ -41,14 +41,14 @@ const { diaries, lists, images } = Astro.props;
 
               <LinkButton
                 className="hover:text-skin-primary flex:1 text-skin-base"
-                href={`/records/${slugify(post.data)}`}
+                href={`/records/${slugify(post.data)}/`}
               >
                 <p class="posted-title">{post.data.title}</p>
               </LinkButton>
 
               {post.data.badge?.map(badge => (
                 <div class="ml-2">
-                  <img alt="#" src={badge} />
+                  <img alt="" src={badge} loading="lazy" decoding="async" />
                 </div>
               ))}
             </div>
@@ -77,14 +77,14 @@ const { diaries, lists, images } = Astro.props;
 
               <LinkButton
                 className="hover:text-skin-primary flex:1 text-skin-base"
-                href={`/records/${slugify(post.data)}`}
+                href={`/records/${slugify(post.data)}/`}
               >
                 <p class="posted-title">{post.data.title}</p>
               </LinkButton>
 
               {post.data.badge?.map(badge => (
                 <div class="ml-2">
-                  <img alt="#" src={badge} />
+                  <img alt="" src={badge} loading="lazy" decoding="async" />
                 </div>
               ))}
             </div>
@@ -116,14 +116,14 @@ const { diaries, lists, images } = Astro.props;
 
               <LinkButton
                 className="hover:text-skin-primary flex:1 text-skin-base"
-                href={`/records/${slugify(post.data)}`}
+                href={`/records/${slugify(post.data)}/`}
               >
                 <p class="posted-title">{post.data.title}</p>
               </LinkButton>
 
               {post.data.badge?.map(badge => (
                 <div class="ml-2">
-                  <img alt="#" src={badge} />
+                  <img alt="" src={badge} loading="lazy" decoding="async" />
                 </div>
               ))}
             </div>

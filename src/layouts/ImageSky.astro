@@ -3,10 +3,11 @@ import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Tag from "@components/Tag.astro";
-import Datetime from "@components/Datetime";
+import Datetime from "@components/Datetime.astro";
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
 import Picture from "@components/Picture.astro";
+import skyImageNames from "../data/sky-images.json";
 
 export interface Props {
   post: CollectionEntry<"blog">;
@@ -22,12 +23,8 @@ const { Content } = await post.render();
 const ogUrl = new URL(ogImage ? ogImage : `${title}.png`, Astro.url.origin)
   .href;
 
-const images = await Astro.glob("../assets/images/sky/*.jpg");
-images.sort((b, a) => {
-  const aName = a.default.split("/").reverse()[0].split(".")[0];
-  const bName = b.default.split("/").reverse()[0].split(".")[0];
-  return aName.localeCompare(bName);
-});
+const skyCdnBase = "https://img.sakanano.moe/file/sakanano/public/images/sky";
+const images = [...skyImageNames].sort((a, b) => b.localeCompare(a));
 ---
 
 <Layout title={title} author={author} description={description} ogImage={ogUrl}>
@@ -56,7 +53,12 @@ images.sort((b, a) => {
         otherSource.map(source => (
           <div>
             <a href={source.href} target="_blank">
-              <img alt={source.plat} src={source.badge} />
+              <img
+                alt={source.plat}
+                src={source.badge}
+                loading="lazy"
+                decoding="async"
+              />
             </a>
           </div>
         ))
@@ -67,12 +69,12 @@ images.sort((b, a) => {
     </article>
 
     {
-      images.map(image => (
+      images.map(fileName => (
         <div>
           <Picture
-            src={image.default}
-            alt={image.default.split("/").reverse()[0].split(".")[0]}
-            title={image.default.split("/").reverse()[0].split(".")[0]}
+            src={`${skyCdnBase}/${fileName}`}
+            alt={fileName.replace(/\.[^.]+$/, "")}
+            title={fileName.replace(/\.[^.]+$/, "")}
           />
         </div>
       ))

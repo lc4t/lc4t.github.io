@@ -1,0 +1,79 @@
+<section id="comments" class="mt-8 w-full" aria-labelledby="comments-title">
+  <h2 id="comments-title" class="mb-3 text-xl font-semibold">Comments</h2>
+  <button
+    id="load-comments"
+    class="focus-outline rounded border border-skin-accent px-4 py-2 text-skin-accent hover:opacity-75"
+    type="button"
+  >
+    Load comments
+  </button>
+  <p id="comments-status" class="mt-2 text-sm opacity-75">
+    Comments are loaded on demand to keep the article fast.
+  </p>
+  <div id="giscus-container" class="mt-4"></div>
+</section>
+
+<script>
+  const button = document.querySelector<HTMLButtonElement>("#load-comments");
+  const status = document.querySelector<HTMLElement>("#comments-status");
+  const container = document.querySelector<HTMLElement>("#giscus-container");
+
+  const getTheme = () =>
+    window.localStorage.getItem("theme") ||
+    (window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light");
+
+  const updateGiscusTheme = () => {
+    const iframe = document.querySelector<HTMLIFrameElement>(
+      "iframe.giscus-frame"
+    );
+    iframe?.contentWindow?.postMessage(
+      { giscus: { setConfig: { theme: getTheme() } } },
+      "https://giscus.app"
+    );
+  };
+
+  const loadComments = () => {
+    if (!button || !container || container.dataset.loaded === "true") return;
+    container.dataset.loaded = "true";
+    button.disabled = true;
+    button.textContent = "Loading comments…";
+    if (status) status.textContent = "Connecting to Giscus…";
+
+    const script = document.createElement("script");
+    script.src = "https://giscus.app/client.js";
+    script.async = true;
+    script.crossOrigin = "anonymous";
+    script.setAttribute("data-repo", "lc4t/lc4t.github.io");
+    script.setAttribute("data-repo-id", "MDEwOlJlcG9zaXRvcnk3NTIwNTYwNQ==");
+    script.setAttribute("data-category", "Announcements");
+    script.setAttribute("data-category-id", "DIC_kwDOBHuL5c4CgBti");
+    script.setAttribute("data-mapping", "title");
+    script.setAttribute("data-strict", "0");
+    script.setAttribute("data-reactions-enabled", "1");
+    script.setAttribute("data-emit-metadata", "0");
+    script.setAttribute("data-input-position", "top");
+    script.setAttribute("data-theme", getTheme());
+    script.setAttribute("data-lang", "zh-CN");
+    script.addEventListener("load", () => {
+      button.remove();
+      status?.remove();
+    });
+    script.addEventListener("error", () => {
+      container.dataset.loaded = "false";
+      button.disabled = false;
+      button.textContent = "Retry loading comments";
+      if (status) status.textContent = "Unable to load comments right now.";
+    });
+    container.append(script);
+  };
+
+  button?.addEventListener("click", loadComments);
+
+  const themeObserver = new MutationObserver(updateGiscusTheme);
+  themeObserver.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ["data-theme"],
+  });
+</script>

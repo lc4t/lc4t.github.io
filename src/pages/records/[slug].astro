@@ -60,7 +60,7 @@ images.sort(
 ---
 
 {
-  post && post.slug.startsWith("record/image/2023_the_sky") ? (
+  post?.data.postSlug === "the_sky_I_see" ? (
     <ImageSky post={post} />
   ) : post ? (
     <PostDetails post={post} />

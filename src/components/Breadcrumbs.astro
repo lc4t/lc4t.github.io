@@ -32,7 +32,7 @@ const breadcrumbList = currentUrlPath.split("/").slice(1);
           </li>
         ) : (
           <li>
-            <a href={`/${breadcrumb}`}>{breadcrumb}</a>
+            <a href={`/${breadcrumb}/`}>{breadcrumb}</a>
             <span aria-hidden="true">&#62;</span>
           </li>
         )

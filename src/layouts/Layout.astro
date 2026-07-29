@@ -29,6 +29,8 @@ const socialImageURL = new URL(
 ).href;
 
 const isLocalhost = Astro.url.hostname === "localhost";
+const googleFontsUrl =
+  "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap";
 ---
 
 <!DOCTYPE html>
@@ -67,13 +69,17 @@ const isLocalhost = Astro.url.hostname === "localhost";
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={socialImageURL} />
 
-    <!-- Google Font -->
+    <!-- External assets -->
+    <link rel="preconnect" href="https://img.sakanano.moe" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap"
+      href={googleFontsUrl}
       rel="stylesheet"
+      media="print"
+      onload="this.onload=null;this.media='all'"
     />
+    <noscript><link href={googleFontsUrl} rel="stylesheet" /></noscript>
 
     {
       // If PUBLIC_GOOGLE_SITE_VERIFICATION is set in the environment variable,
@@ -86,13 +92,6 @@ const isLocalhost = Astro.url.hostname === "localhost";
         />
       )
     }
-
-    <!-- 预加载背景图片 -->
-    <link
-      rel="preload"
-      href="https://img.sakanano.moe/file/sakanano/public/images/vtuber/20241023.jpg"
-      as="image"
-    />
 
     <script is:inline src="/toggle-theme.js"></script>
   </head>

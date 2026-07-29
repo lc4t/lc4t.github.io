@@ -50,13 +50,18 @@ const postedSortedByYear = getSortedPostsByYear(posted);
                     </div>
                     <LinkButton
                       className="hover:text-skin-primary text-skin-base"
-                      href={`/posts/${slugify(post.data)}`}
+                      href={`/posts/${slugify(post.data)}/`}
                     >
                       <p class="posted-title">{post.data.title}</p>
                     </LinkButton>
                     {post.data.badge?.map(badge => (
                       <div class="ml-2">
-                        <img src={badge} />
+                        <img
+                          src={badge}
+                          alt=""
+                          loading="lazy"
+                          decoding="async"
+                        />
                       </div>
                     ))}
                   </div>
@@ -91,7 +96,7 @@ const postedSortedByYear = getSortedPostsByYear(posted);
                   </div>
                   <LinkButton
                     className="hover:text-skin-primary text-skin-base"
-                    href={`/posts/${slugify(post.data)}`}
+                    href={`/posts/${slugify(post.data)}/`}
                   >
                     <p class="archived-title">{post.data.title}</p>
                   </LinkButton>

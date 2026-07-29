@@ -40,7 +40,7 @@ import Footer from "@components/Footer.astro";
         </svg>
       </a> -->
 
-      <p>个人博客，随机掉落一些想法、文章、照片等...(∠・ω< )⌒☆</p>
+      <p>个人博客，随机掉落一些想法、文章、照片等...(∠・ω&lt; )⌒☆</p>
       <!-- <p>如果是你从 lc4t.me 跳转过来的, 可以点上面的Posts查看被归档的文章</p> -->
 
       <br />
@@ -97,7 +97,7 @@ import Footer from "@components/Footer.astro";
             <ul>
               {featuredPosts.map(({ data }) => (
                 <Card
-                  href={`/posts/${slugify(data)}`}
+                  href={`/posts/${slugify(data)}/`}
                   frontmatter={data}
                   secHeading={false}
                 />
@@ -117,7 +117,7 @@ import Footer from "@components/Footer.astro";
             ({ data }, index) =>
               index < 4 && (
                 <Card
-                  href={`/posts/${slugify(data)}`}
+                  href={`/posts/${slugify(data)}/`}
                   frontmatter={data}
                   secHeading={false}
                 />
@@ -126,7 +126,7 @@ import Footer from "@components/Footer.astro";
         }
       </ul>
       <div class="all-posts-btn-wrapper">
-        <LinkButton href="/posts">
+        <LinkButton href="/posts/">
           All Posts
           <svg xmlns="http://www.w3.org/2000/svg"
             ><path

@@ -1,29 +1,26 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
-import react from "@astrojs/react";
 import remarkToc from "remark-toc";
 import remarkCollapse from "remark-collapse";
 import sitemap from "@astrojs/sitemap";
 import { SITE } from "./src/config";
 import UnoCSS from "unocss/astro";
-import solid from "@astrojs/solid-js";
 import mdx from "@astrojs/mdx";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
 
 // https://astro.build/config
 export default defineConfig({
   site: SITE.website,
+  trailingSlash: "always",
   integrations: [
     tailwind({
       config: {
         applyBaseStyles: false,
       },
     }),
-    react(),
     UnoCSS({
       injectReset: true,
     }),
-    solid(),
     sitemap(),
     mdx(),
   ],
@@ -46,10 +43,5 @@ export default defineConfig({
       wrap: true,
     },
     extendDefaultPlugins: true,
-  },
-  vite: {
-    optimizeDeps: {
-      exclude: ["@resvg/resvg-js"],
-    },
   },
 });

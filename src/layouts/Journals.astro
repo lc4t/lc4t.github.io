@@ -53,13 +53,18 @@ const journalSortedByYear = getSortedPostsByYear(journaled);
                     </div>
                     <LinkButton
                       className="hover:text-skin-primary text-skin-base"
-                      href={`/journals/${slugify(journal.data)}`}
+                      href={`/journals/${slugify(journal.data)}/`}
                     >
                       <p class="journaled-title">{journal.data.title}</p>
                     </LinkButton>
                     {journal.data.badge?.map(badge => (
                       <div class="ml-2">
-                        <img src={badge} />
+                        <img
+                          src={badge}
+                          alt=""
+                          loading="lazy"
+                          decoding="async"
+                        />
                       </div>
                     ))}
                   </div>

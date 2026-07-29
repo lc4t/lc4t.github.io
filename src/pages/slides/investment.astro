@@ -1,12 +1,13 @@
 ---
-// src/pages/slides/202503.astro
+const presentationUrl =
+  "https://img.sakanano.moe/file/sakanano/public/slides/202503/index.html";
 ---
 
 <html>
   <head>
-    <meta http-equiv="refresh" content="0;url=/slides/202503/index.html" />
-    <script>
-      window.location.href = "/slides/202503/index.html";
+    <meta http-equiv="refresh" content={`0;url=${presentationUrl}`} />
+    <script define:vars={{ presentationUrl }}>
+      window.location.replace(presentationUrl);
     </script>
     <title>Redirecting...</title>
     <style>
@@ -18,13 +19,17 @@
           Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
       }
       .container {
-        display: none;
+        padding: 2rem;
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <p>Redirecting to presentation...</p>
+      <p>
+        正在跳转到演示文稿；如果没有自动跳转，请<a href={presentationUrl}
+          >点击这里</a
+        >。
+      </p>
     </div>
   </body>
 </html>

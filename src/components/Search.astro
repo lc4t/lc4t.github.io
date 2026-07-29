@@ -1,0 +1,164 @@
+<div id="search-root">
+  <label class="relative block">
+    <span class="absolute inset-y-0 left-0 flex items-center pl-2 opacity-75">
+      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <path
+          d="M19.023 16.977a35.13 35.13 0 0 1-1.367-1.384c-.372-.378-.596-.653-.596-.653l-2.8-1.337A6.962 6.962 0 0 0 16 9c0-3.859-3.14-7-7-7S2 5.141 2 9s3.14 7 7 7c1.763 0 3.37-.66 4.603-1.739l1.337 2.8s.275.224.653.596c.387.363.896.854 1.384 1.367l1.358 1.392.604.646 2.121-2.121-.646-.604c-.379-.372-.885-.866-1.391-1.36zM9 14c-2.757 0-5-2.243-5-5s2.243-5 5-5 5 2.243 5 5-2.243 5-5 5z"
+        ></path>
+      </svg>
+    </span>
+    <input
+      id="search-input"
+      class="block w-full rounded border border-skin-fill border-opacity-40 bg-skin-fill py-3 pl-10 pr-3 placeholder:italic placeholder:text-opacity-75 focus:border-skin-accent focus:outline-none"
+      placeholder="Search for anything..."
+      type="search"
+      name="search"
+      autocomplete="off"
+      autofocus
+    />
+  </label>
+
+  <div id="search-status" class="mt-8 hidden" role="status" aria-live="polite">
+  </div>
+  <ul id="search-results"></ul>
+</div>
+
+<script>
+  // @ts-nocheck -- the bundled client script is plain JavaScript; this project's
+  // eslint-plugin-astro version cannot parse TypeScript inside Astro script tags.
+  const MAX_RESULTS = 30;
+  const SEARCH_DELAY = 120;
+  const root = document.querySelector("#search-root");
+  const input = root?.querySelector("#search-input");
+  const status = root?.querySelector("#search-status");
+  const results = root?.querySelector("#search-results");
+
+  let indexPromise;
+  let searchTimer;
+
+  const loadIndex = () => {
+    indexPromise ??= fetch("/search-index.json").then(response => {
+      if (!response.ok) throw new Error("Unable to load the search index");
+      return response.json();
+    });
+    return indexPromise;
+  };
+
+  const setStatus = (message, visible = true) => {
+    if (!status) return;
+    status.textContent = message;
+    status.classList.toggle("hidden", !visible);
+  };
+
+  const appendHighlightedText = (parent, text, query) => {
+    const matchIndex = text.toLocaleLowerCase().indexOf(query);
+    if (matchIndex === -1) {
+      parent.textContent = text;
+      return;
+    }
+
+    parent.append(document.createTextNode(text.slice(0, matchIndex)));
+    const mark = document.createElement("mark");
+    mark.textContent = text.slice(matchIndex, matchIndex + query.length);
+    parent.append(mark);
+    parent.append(
+      document.createTextNode(text.slice(matchIndex + query.length))
+    );
+  };
+
+  const getExcerpt = (item, query) => {
+    const content = item.content || item.description;
+    const matchIndex = content.toLocaleLowerCase().indexOf(query);
+    if (matchIndex === -1) return item.description || content.slice(0, 150);
+    const start = Math.max(0, matchIndex - 60);
+    const end = Math.min(content.length, matchIndex + query.length + 90);
+    return `${start > 0 ? "…" : ""}${content.slice(start, end)}${
+      end < content.length ? "…" : ""
+    }`;
+  };
+
+  const renderResults = (items, rawQuery) => {
+    if (!results) return;
+    const query = rawQuery.toLocaleLowerCase();
+    const matches = items
+      .filter(item =>
+        [item.title, item.description, item.content].some(value =>
+          value.toLocaleLowerCase().includes(query)
+        )
+      )
+      .slice(0, MAX_RESULTS);
+
+    results.replaceChildren();
+    setStatus(
+      matches.length === MAX_RESULTS
+        ? `Showing the first ${MAX_RESULTS} results for '${rawQuery}'`
+        : `Found ${matches.length} ${
+            matches.length === 1 ? "result" : "results"
+          } for '${rawQuery}'`
+    );
+
+    for (const item of matches) {
+      const listItem = document.createElement("li");
+      listItem.className = "my-6";
+
+      const date = document.createElement("div");
+      date.className = "w-18 text-sm text-gray-500";
+      date.textContent = item.date;
+
+      const link = document.createElement("a");
+      link.href = item.url;
+      link.className =
+        "inline-block text-lg font-medium text-skin-accent decoration-dashed underline-offset-4 focus-visible:no-underline focus-visible:underline-offset-0";
+      const heading = document.createElement("h2");
+      heading.className =
+        "text-lg font-medium decoration-dashed hover:underline";
+      appendHighlightedText(heading, item.title, query);
+      link.append(heading);
+
+      const excerpt = document.createElement("p");
+      excerpt.className = "mt-2 text-sm text-gray-600";
+      appendHighlightedText(excerpt, getExcerpt(item, query), query);
+
+      listItem.append(date, link, excerpt);
+      results.append(listItem);
+    }
+  };
+
+  const runSearch = async () => {
+    if (!input || !results) return;
+    const query = input.value.trim();
+    const url = new URL(window.location.href);
+
+    if (query) url.searchParams.set("q", query);
+    else url.searchParams.delete("q");
+    history.replaceState(null, "", `${url.pathname}${url.search}`);
+
+    if (query.length < 2) {
+      results.replaceChildren();
+      setStatus("", false);
+      return;
+    }
+
+    setStatus("Loading search index…");
+    try {
+      renderResults(await loadIndex(), query);
+    } catch {
+      setStatus("Search is temporarily unavailable. Please try again.");
+    }
+  };
+
+  const scheduleSearch = () => {
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(runSearch, SEARCH_DELAY);
+  };
+
+  if (input) {
+    const initialQuery = new URLSearchParams(window.location.search).get("q");
+    if (initialQuery) {
+      input.value = initialQuery;
+      scheduleSearch();
+    }
+    input.addEventListener("focus", loadIndex, { once: true });
+    input.addEventListener("input", scheduleSearch);
+  }
+</script>

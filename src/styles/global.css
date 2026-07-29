@@ -1,5 +1,11 @@
 :root {
   --bg-image: url("https://img.sakanano.moe/file/sakanano/public/images/vtuber/20241023.jpg");
+  --bg-image: image-set(
+    url("https://img.sakanano.moe/file/sakanano/public/images/vtuber/20241023.avif")
+      type("image/avif") 1x,
+    url("https://img.sakanano.moe/file/sakanano/public/images/vtuber/20241023.jpg")
+      type("image/jpeg") 1x
+  );
 }
 
 body {
@@ -7,9 +13,6 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: fixed;
-  will-change: background-image;
-  transition: background-image 0.5s ease-in-out;
 }
 
 html[data-theme="light"] body {

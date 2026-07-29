@@ -7,4 +7,4 @@ export interface Props {
 const { alt, src } = Astro.props;
 ---
 
-<img alt={alt ? "#" : alt} src={src} />
+<img alt={alt ?? ""} src={src} loading="lazy" decoding="async" />

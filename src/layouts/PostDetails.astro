@@ -3,8 +3,8 @@ import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Tag from "@components/Tag.astro";
-import Datetime from "@components/Datetime";
-import Comments from "@components/Comment";
+import Datetime from "@components/Datetime.astro";
+import Comments from "@components/Comment.astro";
 import type { CollectionEntry } from "astro:content";
 import { slugifyStr } from "@utils/slugify";
 
@@ -49,7 +49,12 @@ const ogUrl = new URL(ogImage ? ogImage : `${title}.png`, Astro.url.origin)
           otherSource.length > 0 &&
           otherSource.map(source => (
             <a href={source.href} target="_blank">
-              <img alt={source.plat} src={source.badge} />
+              <img
+                alt={source.plat}
+                src={source.badge}
+                loading="lazy"
+                decoding="async"
+              />
             </a>
           ))
       }
@@ -62,7 +67,7 @@ const ogUrl = new URL(ogImage ? ogImage : `${title}.png`, Astro.url.origin)
     <ul class="tags-container">
       {tags.map(tag => <Tag name={slugifyStr(tag)} />)}
     </ul>
-    <Comments client:only="react" />
+    <Comments />
   </main>
 
   <Footer />
