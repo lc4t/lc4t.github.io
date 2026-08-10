@@ -1,20 +1,21 @@
 <section id="comments" class="mt-8 w-full" aria-labelledby="comments-title">
   <h2 id="comments-title" class="mb-3 text-xl font-semibold">Comments</h2>
   <button
-    id="load-comments"
-    class="focus-outline rounded border border-skin-accent px-4 py-2 text-skin-accent hover:opacity-75"
+    id="retry-comments"
+    class="focus-outline text-sm text-skin-accent underline decoration-dashed underline-offset-4 hover:opacity-75"
     type="button"
+    hidden
   >
-    Load comments
+    评论加载失败，点击重试
   </button>
-  <p id="comments-status" class="mt-2 text-sm opacity-75">
-    Comments are loaded on demand to keep the article fast.
-  </p>
-  <div id="giscus-container" class="mt-4"></div>
+  <p id="comments-status" class="sr-only" role="status" aria-live="polite"></p>
+  <div id="giscus-container" class="mt-4" aria-busy="false"></div>
 </section>
 
 <script>
-  const button = document.querySelector<HTMLButtonElement>("#load-comments");
+  const section = document.querySelector<HTMLElement>("#comments");
+  const retryButton =
+    document.querySelector<HTMLButtonElement>("#retry-comments");
   const status = document.querySelector<HTMLElement>("#comments-status");
   const container = document.querySelector<HTMLElement>("#giscus-container");
 
@@ -35,11 +36,17 @@
   };
 
   const loadComments = () => {
-    if (!button || !container || container.dataset.loaded === "true") return;
-    container.dataset.loaded = "true";
-    button.disabled = true;
-    button.textContent = "Loading comments…";
-    if (status) status.textContent = "Connecting to Giscus…";
+    if (
+      !container ||
+      container.dataset.state === "loading" ||
+      container.dataset.state === "loaded"
+    )
+      return;
+
+    container.dataset.state = "loading";
+    container.setAttribute("aria-busy", "true");
+    retryButton?.setAttribute("hidden", "");
+    if (status) status.textContent = "正在加载评论…";
 
     const script = document.createElement("script");
     script.src = "https://giscus.app/client.js";
@@ -57,19 +64,47 @@
     script.setAttribute("data-theme", getTheme());
     script.setAttribute("data-lang", "zh-CN");
     script.addEventListener("load", () => {
-      button.remove();
-      status?.remove();
+      container.dataset.state = "loaded";
+      container.setAttribute("aria-busy", "false");
+      if (status) status.textContent = "评论已加载";
     });
     script.addEventListener("error", () => {
-      container.dataset.loaded = "false";
-      button.disabled = false;
-      button.textContent = "Retry loading comments";
-      if (status) status.textContent = "Unable to load comments right now.";
+      script.remove();
+      container.dataset.state = "idle";
+      container.setAttribute("aria-busy", "false");
+      retryButton?.removeAttribute("hidden");
+      if (status) status.textContent = "评论加载失败，可以点击重试";
     });
     container.append(script);
   };
 
-  button?.addEventListener("click", loadComments);
+  retryButton?.addEventListener("click", loadComments);
+
+  if (section && "IntersectionObserver" in window) {
+    const commentsObserver = new IntersectionObserver(
+      entries => {
+        if (entries.some(entry => entry.isIntersecting)) {
+          commentsObserver.disconnect();
+          loadComments();
+        }
+      },
+      { rootMargin: "600px 0px" }
+    );
+    commentsObserver.observe(section);
+  }
+
+  const scheduleIdleLoad = () => {
+    window.setTimeout(() => {
+      if ("requestIdleCallback" in window) {
+        window.requestIdleCallback(loadComments, { timeout: 2000 });
+      } else {
+        loadComments();
+      }
+    }, 1200);
+  };
+
+  if (document.readyState === "complete") scheduleIdleLoad();
+  else window.addEventListener("load", scheduleIdleLoad, { once: true });
 
   const themeObserver = new MutationObserver(updateGiscusTheme);
   themeObserver.observe(document.documentElement, {
