@@ -73,6 +73,15 @@ const ogUrl = new URL(ogImage ? ogImage : `${title}.png`, Astro.url.origin)
   <Footer />
 </Layout>
 
+<script>
+  import mediumZoom from "medium-zoom";
+
+  mediumZoom(".prose img", {
+    background: "rgba(var(--color-fill), 0.94)",
+    margin: 24,
+  });
+</script>
+
 <style>
   main {
     @apply mx-auto w-full max-w-4xl px-4 pb-12;

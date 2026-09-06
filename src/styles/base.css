@@ -108,12 +108,34 @@
     @apply hidden;
   }
 
-  /* Limit image size for mobile screenshots */
+  /* Limit image size for mobile screenshots.
+     max-height keeps tall/portrait screenshots from filling the viewport;
+     browsers preserve the aspect ratio when both max-* are set with auto
+     width/height, so the border hugs the real image (no letterboxing). */
   .prose img {
-    max-width: min(100%, 500px);
+    max-width: min(100%, 460px);
     height: auto;
-    max-height: 80vh;
+    max-height: 55vh;
     object-fit: contain;
+    cursor: zoom-in;
+  }
+
+  /* Consecutive image-only paragraphs (see rehype-cdn-images.mjs): lay the
+     shots side by side so a run of tall portrait screenshots does not stack
+     into a very tall column. */
+  .prose .img-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin: 1.5rem auto;
+  }
+  .prose .img-row img {
+    flex: 1 1 clamp(160px, 32%, 300px);
+    max-width: 300px;
+    max-height: 52vh;
+    margin: 0;
   }
 
   /* ===== scrollbar ===== */

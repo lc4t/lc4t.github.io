@@ -7,6 +7,7 @@ import { SITE } from "./src/config";
 import UnoCSS from "unocss/astro";
 import mdx from "@astrojs/mdx";
 import { rehypeAccessibleEmojis } from "rehype-accessible-emojis";
+import rehypeCdnImages from "./scripts/rehype-cdn-images.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -37,7 +38,7 @@ export default defineConfig({
         },
       ],
     ],
-    rehypePlugins: [rehypeAccessibleEmojis],
+    rehypePlugins: [rehypeAccessibleEmojis, rehypeCdnImages],
     shikiConfig: {
       theme: "one-dark-pro",
       wrap: true,
