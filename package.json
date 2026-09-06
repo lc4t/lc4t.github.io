@@ -10,11 +10,6 @@
     "astro": "astro",
     "format:check": "prettier --plugin-search-dir=. --check .",
     "format": "prettier --plugin-search-dir=. --write .",
-    "assets:plan": "node scripts/b2-upload-assets.mjs",
-    "assets:upload": "node scripts/b2-upload-assets.mjs --upload",
-    "assets:test": "node --test scripts/b2-upload-assets.test.mjs",
-    "slides:plan": "node scripts/b2-upload-assets.mjs --source public/slides/202503 --prefix public/slides/202503",
-    "slides:upload": "node scripts/b2-upload-assets.mjs --upload --source public/slides/202503 --prefix public/slides/202503 --manifest b2-slides-manifest.json",
     "cz": "cz",
     "prepare": "husky install",
     "lint": "eslint ."
