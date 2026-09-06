@@ -1,20 +1,29 @@
 /**
  * Build-time Markdown image treatment for article posts.
  *
- * 1. Group runs of 2+ consecutive image-only paragraphs into a single
- *    `<div class="img-row">`, so a sequence of tall portrait screenshots lays
- *    out side by side instead of stacking into a very tall column (keeps the
- *    page's vertical rhythm even). Works whether the Markdown images are on
- *    adjacent lines or separated by blank lines.
+ * 1. Per-image size hints via the Markdown title string:
+ *      ![说明](url "w=360")        -> max-width: 360px
+ *      ![说明](url "h=420")        -> max-height: 420px  (overrides the 55vh cap)
+ *      ![说明](url "w=360 h=420")  -> both
+ *      ![说明](url "full")         -> max-width: 100%     (bypass the default cap)
+ *    Recognised tokens are stripped from the title; any remaining text stays as
+ *    the tooltip. A `w=` hint also narrows the responsive `sizes` attribute so
+ *    the browser fetches an appropriately small variant.
  *
- * 2. Rewrite <img> tags that point at the img.sakanano.moe CDN into responsive
- *    images served through Cloudflare Image Transformations (/cdn-cgi/image/).
- *    Article images are referenced in Markdown as absolute CDN URLs, so Astro's
- *    asset pipeline and jampack both skip them — they otherwise ship at full
- *    resolution with no WebP/AVIF and no srcset.
- *    Prerequisite: "Image Transformations" enabled on the Cloudflare zone that
- *    serves img.sakanano.moe. `onerror=redirect` makes every generated URL fall
- *    back to the untouched original if a transform fails or the feature is off.
+ * 2. Group a run of exactly TWO consecutive image-only paragraphs into a single
+ *    `<div class="img-row">` so a comparison pair sits side by side. Runs of 3+
+ *    are left as individual (height-capped) images — for a deliberate 3/4-up
+ *    gallery, write the wrapper by hand in Markdown:
+ *      <div class="img-row">
+ *        ![a](url1) ![b](url2) ![c](url3)
+ *      </div>
+ *    (images inside still get the CDN rewrite below).
+ *
+ * 3. Rewrite <img> tags pointing at img.sakanano.moe into responsive images
+ *    served through Cloudflare Image Transformations (/cdn-cgi/image/). Article
+ *    images are absolute CDN URLs in Markdown, so Astro's asset pipeline and
+ *    jampack both skip them. `onerror=redirect` falls back to the untouched
+ *    original if a transform fails or the feature is off.
  */
 
 const CDN_HOST = "img.sakanano.moe";
@@ -22,6 +31,7 @@ const WIDTHS = [480, 960, 1440, 2000];
 const DEFAULT_WIDTH = 1200;
 const QUALITY = 80;
 const SIZES = "(max-width: 768px) 100vw, 768px";
+const ROW_SIZE = 2;
 
 function transform(src, width) {
   const u = new URL(src);
@@ -43,7 +53,7 @@ function isBlankText(node) {
   return node.type === "text" && node.value.trim() === "";
 }
 
-/** A <p> whose only meaningful children are <img> elements. */
+/** Meaningful <img> children of a <p>, or null if it holds anything else. */
 function imagesInParagraph(node) {
   if (node.type !== "element" || node.tagName !== "p") return null;
   const meaningful = node.children.filter(c => !isBlankText(c));
@@ -54,7 +64,8 @@ function imagesInParagraph(node) {
   return allImg ? meaningful : null;
 }
 
-/** Merge runs of >=2 consecutive image-only paragraphs into one div.img-row. */
+/** Merge a run of consecutive image-only paragraphs holding exactly ROW_SIZE
+ *  images into one <div class="img-row">; leave any other run untouched. */
 function groupImageRows(node) {
   if (!node || !Array.isArray(node.children)) return;
 
@@ -63,38 +74,73 @@ function groupImageRows(node) {
   let i = 0;
 
   while (i < children.length) {
-    const startImgs = imagesInParagraph(children[i]);
-    if (startImgs) {
-      const collected = [];
-      let j = i;
-      while (j < children.length) {
-        const imgs = imagesInParagraph(children[j]);
-        if (imgs) {
-          collected.push(...imgs);
-          j++;
-        } else if (isBlankText(children[j])) {
-          j++;
-        } else {
-          break;
-        }
-      }
-      if (collected.length >= 2) {
-        out.push({
-          type: "element",
-          tagName: "div",
-          properties: { className: ["img-row"] },
-          children: collected,
-        });
-        i = j;
-        continue;
+    if (!imagesInParagraph(children[i])) {
+      groupImageRows(children[i]);
+      out.push(children[i]);
+      i++;
+      continue;
+    }
+
+    // Extent of this run of image paragraphs (blank text nodes allowed between).
+    let j = i;
+    const imgs = [];
+    while (j < children.length) {
+      const found = imagesInParagraph(children[j]);
+      if (found) {
+        imgs.push(...found);
+        j++;
+      } else if (isBlankText(children[j])) {
+        j++;
+      } else {
+        break;
       }
     }
-    groupImageRows(children[i]);
-    out.push(children[i]);
-    i++;
+
+    if (imgs.length === ROW_SIZE) {
+      out.push({
+        type: "element",
+        tagName: "div",
+        properties: { className: ["img-row"] },
+        children: imgs,
+      });
+    } else {
+      for (let k = i; k < j; k++) {
+        groupImageRows(children[k]);
+        out.push(children[k]);
+      }
+    }
+    i = j;
   }
 
   node.children = out;
+}
+
+/** Parse "w=360 h=420 full" style hints out of a Markdown title string. */
+function applySizeHint(node) {
+  const title = node.properties && node.properties.title;
+  if (typeof title !== "string" || !title.trim()) return;
+
+  const styles = [];
+  const leftover = [];
+  for (const tok of title.trim().split(/\s+/)) {
+    let m;
+    if ((m = /^w=(\d{1,4})$/.exec(tok))) {
+      styles.push(`max-width:${m[1]}px`);
+      node.properties.sizes = `${m[1]}px`;
+    } else if ((m = /^h=(\d{1,4})$/.exec(tok))) {
+      styles.push(`max-height:${m[1]}px`);
+    } else if (tok === "full") {
+      styles.push("max-width:100%");
+    } else {
+      leftover.push(tok);
+    }
+  }
+  if (styles.length === 0) return;
+
+  const prev = node.properties.style ? `${node.properties.style};` : "";
+  node.properties.style = prev + styles.join(";");
+  if (leftover.length) node.properties.title = leftover.join(" ");
+  else delete node.properties.title;
 }
 
 function walk(node, visit) {
@@ -109,6 +155,7 @@ export default function rehypeCdnImages() {
   return tree => {
     groupImageRows(tree);
     walk(tree, node => {
+      if (node.type === "element" && node.tagName === "img") applySizeHint(node);
       if (!isCdnImg(node)) return;
       const src = node.properties.src;
       node.properties.src = transform(src, DEFAULT_WIDTH);
