@@ -138,6 +138,39 @@
     margin: 0;
   }
 
+  /* Hand-written <div class="img-grid cols-3">: an even N-column grid. */
+  .prose .img-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+    margin: 1.5rem auto;
+    align-items: start;
+  }
+  .prose .img-grid.cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .prose .img-grid.cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .prose .img-grid.tight {
+    gap: 0.25rem;
+  }
+  .prose .img-grid.loose {
+    gap: 1.5rem;
+  }
+  .prose .img-grid img {
+    width: 100%;
+    max-width: none;
+    max-height: 60vh;
+    margin: 0;
+  }
+  @media (max-width: 640px) {
+    .prose .img-grid.cols-3,
+    .prose .img-grid.cols-4 {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
   /* ===== scrollbar ===== */
   html {
     overflow-y: scroll;

@@ -12,12 +12,22 @@
  *
  * 2. Group a run of exactly TWO consecutive image-only paragraphs into a single
  *    `<div class="img-row">` so a comparison pair sits side by side. Runs of 3+
- *    are left as individual (height-capped) images — for a deliberate 3/4-up
- *    gallery, write the wrapper by hand in Markdown:
- *      <div class="img-row">
- *        ![a](url1) ![b](url2) ![c](url3)
+ *    are left as individual (height-capped) images.
+ *
+ *    For a deliberate multi-image layout, write the wrapper by hand in Markdown
+ *    (blank lines around it; images on one line or several):
+ *      <div class="img-row">      flexible row, wraps, keeps each image's ratio
+ *
+ *      ![a](u1) ![b](u2) ![c](u3)
+ *
  *      </div>
- *    (images inside still get the CDN rewrite below).
+ *      <div class="img-grid cols-3">   even N-column grid; also cols-2 / cols-4
+ *
+ *      ![a](u1) ![b](u2) ![c](u3)
+ *
+ *      </div>
+ *    Add `tight` or `loose` for gap. The plugin lifts the images out of the
+ *    paragraph Markdown wraps them in, and they still get the CDN rewrite below.
  *
  * 3. Rewrite <img> tags pointing at img.sakanano.moe into responsive images
  *    served through Cloudflare Image Transformations (/cdn-cgi/image/). Article
@@ -143,6 +153,37 @@ function applySizeHint(node) {
   else delete node.properties.title;
 }
 
+const LAYOUT_CLASSES = ["img-row", "img-grid"];
+
+function classList(node) {
+  const c = node.properties && node.properties.className;
+  return Array.isArray(c) ? c : c ? [c] : [];
+}
+
+/** For a hand-written <div class="img-row|img-grid">, replace its subtree with
+ *  the flat list of <img> descendants so they become direct grid/flex items. */
+function flattenLayoutContainers(node) {
+  if (!node || !Array.isArray(node.children)) return;
+  for (const child of node.children) {
+    if (
+      child.type === "element" &&
+      classList(child).some(c => LAYOUT_CLASSES.includes(c))
+    ) {
+      const imgs = [];
+      const collect = n => {
+        for (const c of n.children || []) {
+          if (c.type === "element" && c.tagName === "img") imgs.push(c);
+          else collect(c);
+        }
+      };
+      collect(child);
+      if (imgs.length) child.children = imgs;
+    } else {
+      flattenLayoutContainers(child);
+    }
+  }
+}
+
 function walk(node, visit) {
   if (!node || !Array.isArray(node.children)) return;
   for (const child of node.children) {
@@ -154,6 +195,7 @@ function walk(node, visit) {
 export default function rehypeCdnImages() {
   return tree => {
     groupImageRows(tree);
+    flattenLayoutContainers(tree);
     walk(tree, node => {
       if (node.type === "element" && node.tagName === "img") applySizeHint(node);
       if (!isCdnImg(node)) return;

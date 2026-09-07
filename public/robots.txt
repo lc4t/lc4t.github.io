@@ -1,5 +1,4 @@
-User-agent: Googlebot
-Disallow: /nogooglebot/
-
 User-agent: *
 Allow: /
+
+Sitemap: https://blog.sakanano.moe/sitemap-index.xml
