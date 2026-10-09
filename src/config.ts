@@ -12,6 +12,15 @@ export const SITE: Site = {
 
 export const LOCALE = ["zh-CN"]; // set to [] to use the environment default
 
+// 读者信箱（QA）投稿设置。
+export const QA = {
+  // 站点公开的投稿收件地址；留空则不生成 mailto 链接。
+  // 这里只能填写站主愿意公开的邮箱，不能填写提问者的联系方式。
+  submitEmail: "",
+  // mailto 主题前缀，方便你在收件箱里筛选。
+  subjectPrefix: "[读者信箱]",
+};
+
 export const LOGO_IMAGE = {
   enable: false,
   svg: true,

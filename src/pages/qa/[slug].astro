@@ -1,0 +1,217 @@
+---
+import { getCollection, type CollectionEntry } from "astro:content";
+import dayjs from "dayjs";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Comments from "@components/Comment.astro";
+import QaCta from "@components/qa/QaCta.astro";
+import QaAsker from "@components/qa/QaAsker.astro";
+import { SITE } from "@config";
+
+export async function getStaticPaths() {
+  const all = (await getCollection("qa", ({ data }) => !data.draft)).sort(
+    (a, b) => a.data.pubDatetime.getTime() - b.data.pubDatetime.getTime()
+  );
+
+  return all.map((entry, index) => ({
+    params: { slug: entry.slug },
+    props: { entry, no: index + 1 },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<"qa">;
+  no: number;
+}
+
+const { entry, no } = Astro.props;
+const { question, askerName, askerUrl, anonymous, pubDatetime, tags, title } =
+  entry.data;
+const { Content } = await entry.render();
+
+// 大标题 / 浏览器标签 / giscus 映射统一用收录时定的标题（不是问题原文）。
+const headline = title;
+
+const description =
+  question.length > 140 ? `${question.slice(0, 139)}…` : question;
+const issue = String(no).padStart(3, "0");
+---
+
+<Layout title={`${headline} | ${SITE.title}`} description={description}>
+  <Header activeNav="qa" />
+
+  <div class="qa-back-wrap">
+    <a class="qa-back" href="/qa/">
+      <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+        ><path
+          d="M13.293 6.293 7.586 12l5.707 5.707 1.414-1.414L10.414 12l4.293-4.293z"
+        ></path>
+      </svg>
+      <span>回信箱</span>
+    </a>
+  </div>
+
+  <main id="main-content" class="qa-letter">
+    <p class="qa-letter__kicker">读者信箱 · 第 {issue} 封</p>
+    <h1 class="qa-letter__headline">{headline}</h1>
+    <p class="qa-letter__byline">
+      提问：<QaAsker
+        askerName={askerName}
+        askerUrl={askerUrl}
+        anonymous={anonymous}
+      />　·　<time datetime={pubDatetime.toISOString()}
+        >{dayjs(pubDatetime).format("YYYY-MM-DD")}</time
+      >
+    </p>
+
+    <section class="qa-letter__panel" aria-label="来信">
+      <p class="qa-letter__label">来信</p>
+      <p class="qa-letter__question">{question}</p>
+    </section>
+
+    <section class="qa-letter__reply" aria-label="回复">
+      <p class="qa-letter__label">回复</p>
+      <article class="prose max-w-none">
+        <Content />
+      </article>
+    </section>
+
+    <footer class="qa-letter__foot">
+      <ul class="qa-letter__tags">
+        {
+          tags.map(tag => (
+            <li>
+              <a href={`/qa/?tag=${encodeURIComponent(tag)}`}>#{tag}</a>
+            </li>
+          ))
+        }
+      </ul>
+      <QaCta variant="compact" subject={`关于「${headline}」`} />
+    </footer>
+
+    <Comments />
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .qa-back-wrap {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 48rem;
+    padding: 1.5rem 1rem 0;
+  }
+  .qa-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.15rem;
+    font-size: 0.85rem;
+    opacity: 0.75;
+  }
+  .qa-back:hover {
+    opacity: 1;
+  }
+  .qa-back svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    fill: rgb(var(--color-text-base));
+  }
+
+  .qa-letter {
+    --qa-hair: rgba(var(--color-text-base), 0.14);
+    margin: 0 auto;
+    width: 100%;
+    max-width: 48rem;
+    padding: 1rem 1rem 3.5rem;
+  }
+
+  .qa-letter__kicker {
+    margin: 1rem 0 0.6rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.6;
+  }
+  .qa-letter__headline {
+    margin: 0 0 0.7rem;
+    font-size: clamp(1.3rem, 5vw, 1.7rem);
+    line-height: 1.4;
+    font-weight: 700;
+    color: rgb(var(--color-accent));
+    text-wrap: balance;
+  }
+  .qa-letter__byline {
+    margin: 0 0 1.6rem;
+    padding-bottom: 1.4rem;
+    border-bottom: 1px solid var(--qa-hair);
+    font-size: 0.76rem;
+    opacity: 0.62;
+  }
+  .qa-letter__byline time {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .qa-letter__label {
+    margin: 0 0 0.5rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.55;
+  }
+
+  .qa-letter__panel {
+    background: rgba(var(--color-card), 0.5);
+    border-left: 3px solid rgb(var(--color-accent));
+    padding: 1rem 1.15rem;
+    margin-bottom: 1.8rem;
+  }
+  .qa-letter__question {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    /* question 是纯文本字段，多段来信靠 YAML 里的空行分隔；
+       用 pre-line 把这些换行还原成段落间距，而不是拼成一整段。 */
+    white-space: pre-line;
+  }
+
+  .qa-letter__reply {
+    margin-bottom: 2.4rem;
+  }
+  /* 复用站点 markdown 管线的 .prose，仅收掉它默认的水平居中与最大宽度 */
+  .qa-letter__reply :global(.prose) {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .qa-letter__foot {
+    padding-top: 1.4rem;
+    border-top: 1px solid var(--qa-hair);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.8rem 1.2rem;
+  }
+  .qa-letter__tags {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 0.9rem;
+    margin: 0;
+    padding: 0;
+    font-size: 0.78rem;
+  }
+  .qa-letter__tags a {
+    color: rgb(var(--color-text-base));
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-underline-offset: 4px;
+    opacity: 0.7;
+  }
+  .qa-letter__tags a:hover {
+    color: rgb(var(--color-accent));
+    opacity: 1;
+  }
+</style>

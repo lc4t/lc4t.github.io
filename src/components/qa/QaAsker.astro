@@ -1,0 +1,45 @@
+---
+// 统一渲染提问者署名：匿名时固定显示「匿名读者」；否则显示昵称，
+// 若还带了 askerUrl（比如问题能归因到对方博客），渲染成外链。
+export interface Props {
+  askerName?: string;
+  askerUrl?: string;
+  anonymous: boolean;
+  className?: string;
+}
+
+const { askerName, askerUrl, anonymous, className = "" } = Astro.props;
+
+const name = anonymous ? "匿名读者" : askerName?.trim() || "匿名读者";
+const url =
+  !anonymous && askerName?.trim() && askerUrl?.trim()
+    ? askerUrl.trim()
+    : undefined;
+---
+
+{
+  url ? (
+    <a
+      class:list={["qa-asker", className]}
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      {name}
+    </a>
+  ) : (
+    <span class:list={["qa-asker", className]}>{name}</span>
+  )
+}
+
+<style>
+  a.qa-asker {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-underline-offset: 3px;
+  }
+  a.qa-asker:hover {
+    color: rgb(var(--color-accent));
+  }
+</style>

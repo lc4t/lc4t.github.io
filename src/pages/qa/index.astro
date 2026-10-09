@@ -1,0 +1,305 @@
+---
+import { getCollection } from "astro:content";
+import dayjs from "dayjs";
+import Layout from "@layouts/Layout.astro";
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import QaCta from "@components/qa/QaCta.astro";
+import QaAsker from "@components/qa/QaAsker.astro";
+import { SITE } from "@config";
+
+const entries = (await getCollection("qa", ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime()
+);
+
+// tag → 条数，按热度排序，作为筛选 chip
+const tagCounts = new Map<string, number>();
+for (const { data } of entries) {
+  for (const tag of data.tags) {
+    tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
+  }
+}
+const tags = [...tagCounts.entries()].sort((a, b) => b[1] - a[1]);
+
+const total = entries.length;
+const updatedAt = entries[0]?.data.pubDatetime;
+---
+
+<Layout
+  title={`读者信箱 | ${SITE.title}`}
+  description="读者来信，我挑能公开的写一封回信。"
+>
+  <Header activeNav="qa" />
+
+  <main id="main-content" class="qa-page">
+    <header class="qa-masthead">
+      <h1>读者信箱</h1>
+      <div class="qa-masthead__issue">
+        <span>READER MAILBOX</span>
+        <span>
+          {total > 0 ? `共 ${total} 封` : "尚无收录"}
+          {updatedAt && ` · 更新于 ${dayjs(updatedAt).format("MM/DD")}`}
+        </span>
+      </div>
+    </header>
+
+    <QaCta variant="full" />
+
+    {
+      tags.length > 0 && (
+        <div class="qa-chips" role="group" aria-label="按标签筛选">
+          <button
+            class="qa-chip on"
+            type="button"
+            data-tag=""
+            aria-pressed="true"
+          >
+            全部
+          </button>
+          {tags.map(([tag, count]) => (
+            <button
+              class="qa-chip"
+              type="button"
+              data-tag={tag}
+              aria-pressed="false"
+            >
+              {tag}
+              <span class="qa-chip__count">{count}</span>
+            </button>
+          ))}
+        </div>
+      )
+    }
+
+    {
+      total > 0 ? (
+        <ul class="qa-list">
+          {entries.map(entry => (
+            <li class="qa-row" data-tags={entry.data.tags.join("|")}>
+              <a class="qa-row__link" href={`/qa/${entry.slug}/`}>
+                <span class="qa-row__rail">
+                  <time datetime={entry.data.pubDatetime.toISOString()}>
+                    {dayjs(entry.data.pubDatetime).format("YYYY-MM-DD")}
+                  </time>
+                  <QaAsker
+                    className="qa-row__who"
+                    askerName={entry.data.askerName}
+                    askerUrl={entry.data.askerUrl}
+                    anonymous={entry.data.anonymous}
+                  />
+                </span>
+                <span class="qa-row__q">
+                  <span class="qa-row__q-text">{entry.data.question}</span>
+                  <span class="qa-row__tags">
+                    {entry.data.tags.join(" · ")}
+                  </span>
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="qa-empty">
+          还没有收录的来信。上面留个言，也许下一封就是你的。
+        </p>
+      )
+    }
+
+    <p class="qa-empty" id="qa-empty" hidden>这个标签下暂时没有来信。</p>
+  </main>
+
+  <Footer />
+</Layout>
+
+<style>
+  .qa-page {
+    --qa-hair: rgba(var(--color-text-base), 0.14);
+    margin: 0 auto;
+    width: 100%;
+    max-width: 48rem;
+    padding: 0 1rem 3.5rem;
+  }
+
+  .qa-masthead {
+    border-bottom: 2px solid rgb(var(--color-text-base));
+    padding: 2.5rem 0 0.7rem;
+  }
+  .qa-masthead h1 {
+    margin: 0;
+    font-size: clamp(1.5rem, 6vw, 1.9rem);
+    font-weight: 700;
+    letter-spacing: 0.04em;
+  }
+  .qa-masthead__issue {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    opacity: 0.6;
+  }
+
+  /* ---- 筛选 chip ---- */
+  .qa-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin: 0 0 2rem;
+  }
+  .qa-chip {
+    font: inherit;
+    font-size: 0.74rem;
+    line-height: 1;
+    padding: 0.35rem 0.7rem;
+    border: 1px solid var(--qa-hair);
+    border-radius: 999px;
+    background: transparent;
+    color: inherit;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.15s, border-color 0.15s, background-color 0.15s;
+  }
+  .qa-chip:hover {
+    opacity: 1;
+    border-color: rgb(var(--color-accent));
+  }
+  .qa-chip.on {
+    background: rgb(var(--color-accent));
+    color: rgb(var(--color-fill));
+    border-color: rgb(var(--color-accent));
+    opacity: 1;
+  }
+  .qa-chip__count {
+    margin-left: 0.35rem;
+    opacity: 0.6;
+  }
+  .qa-chip:focus-visible {
+    outline: 2px dashed rgb(var(--color-accent));
+    outline-offset: 2px;
+  }
+
+  /* ---- 列表 ---- */
+  .qa-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .qa-row {
+    border-top: 1px solid var(--qa-hair);
+  }
+  .qa-row:last-child {
+    border-bottom: 1px solid var(--qa-hair);
+  }
+  .qa-row[hidden] {
+    display: none;
+  }
+  .qa-row__link {
+    display: grid;
+    grid-template-columns: 8.5rem 1fr;
+    gap: 0.4rem 1.25rem;
+    padding: 1.2rem 0.25rem;
+    color: inherit;
+    text-decoration: none;
+  }
+  .qa-row__link:hover .qa-row__q {
+    color: rgb(var(--color-accent));
+  }
+  .qa-row__link:focus-visible {
+    outline: 2px dashed rgb(var(--color-accent));
+    outline-offset: 2px;
+  }
+  .qa-row__rail {
+    font-size: 0.73rem;
+    line-height: 1.55;
+    opacity: 0.62;
+  }
+  .qa-row__rail time {
+    display: block;
+    font-variant-numeric: tabular-nums;
+  }
+  .qa-row__who {
+    color: rgb(var(--color-text-base));
+    opacity: 0.85;
+  }
+  .qa-row__q {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.5;
+    transition: color 0.15s;
+  }
+  /* 列表只给两行预览，长问题点进去看全文，行高一致更好扫读 */
+  .qa-row__q-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .qa-row__tags {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 0.72rem;
+    font-weight: 400;
+    opacity: 0.5;
+  }
+
+  .qa-empty {
+    margin: 1.6rem 0 0;
+    font-size: 0.9rem;
+    font-style: italic;
+    opacity: 0.7;
+  }
+
+  @media (max-width: 480px) {
+    .qa-row__link {
+      grid-template-columns: 1fr;
+      gap: 0.3rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .qa-chip,
+    .qa-row__q {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const chips = Array.from(
+    document.querySelectorAll<HTMLButtonElement>(".qa-chip")
+  );
+  const rows = Array.from(document.querySelectorAll<HTMLElement>(".qa-row"));
+  const emptyHint = document.getElementById("qa-empty");
+
+  const knownTags = new Set(
+    chips.map(c => c.dataset.tag || "").filter(Boolean)
+  );
+
+  const apply = (tag: string) => {
+    for (const chip of chips) {
+      const on = (chip.dataset.tag || "") === tag;
+      chip.classList.toggle("on", on);
+      chip.setAttribute("aria-pressed", String(on));
+    }
+    for (const row of rows) {
+      const list = (row.dataset.tags || "").split("|").filter(Boolean);
+      row.hidden = tag !== "" && !list.includes(tag);
+    }
+    if (emptyHint) {
+      emptyHint.hidden = tag === "" || rows.some(row => !row.hidden);
+    }
+
+    const url = new URL(window.location.href);
+    if (tag) url.searchParams.set("tag", tag);
+    else url.searchParams.delete("tag");
+    window.history.replaceState(null, "", url);
+  };
+
+  for (const chip of chips) {
+    chip.addEventListener("click", () => apply(chip.dataset.tag || ""));
+  }
+
+  const initial = new URL(window.location.href).searchParams.get("tag") || "";
+  apply(knownTags.has(initial) ? initial : "");
+</script>

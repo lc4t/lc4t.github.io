@@ -1,0 +1,92 @@
+---
+import qaMailtoHref from "@utils/qaMailto";
+
+export interface Props {
+  variant?: "full" | "compact";
+  subject?: string;
+  className?: string;
+}
+
+const { variant = "full", subject = "读者来信", className = "" } = Astro.props;
+const href = qaMailtoHref(subject);
+---
+
+{
+  variant === "compact" ? (
+    <p class:list={["qa-cta qa-cta--compact", className]}>
+      {href ? (
+        <a href={href}>我也要提问 →</a>
+      ) : (
+        <span class="qa-cta__todo">
+          投稿邮箱待配置（src/config.ts → QA.submitEmail）
+        </span>
+      )}
+    </p>
+  ) : (
+    <aside
+      class:list={["qa-cta qa-cta--full", className]}
+      aria-label="投稿说明"
+    >
+      <p class="qa-cta__title">想问点什么？</p>
+      <p class="qa-cta__body">
+        留下联系方式我才能回信 —— 邮箱只用来回复你，
+        <strong>不会出现在网站上</strong>。 公开时是否署名、用什么昵称，你来定。
+      </p>
+      {href ? (
+        <a class="qa-cta__link" href={href}>
+          写信给我 →
+        </a>
+      ) : (
+        <p class="qa-cta__todo">
+          投稿邮箱待配置：把 <code>src/config.ts</code> 里的{" "}
+          <code>QA.submitEmail</code> 换成真实邮箱。
+        </p>
+      )}
+    </aside>
+  )
+}
+
+<style>
+  .qa-cta a {
+    color: rgb(var(--color-accent));
+    text-decoration: underline;
+    text-decoration-style: dashed;
+    text-underline-offset: 4px;
+  }
+  .qa-cta a:hover {
+    opacity: 0.75;
+  }
+
+  .qa-cta--full {
+    border: 1px solid var(--qa-hair);
+    border-left: 3px solid rgb(var(--color-accent));
+    padding: 1rem 1.15rem;
+    margin: 1.6rem 0 2.4rem;
+    background: rgba(var(--color-card), 0.35);
+  }
+  .qa-cta__title {
+    margin: 0 0 0.35rem;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .qa-cta__body {
+    margin: 0 0 0.7rem;
+    font-size: 0.9rem;
+    opacity: 0.85;
+  }
+  .qa-cta__link {
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+  .qa-cta--compact {
+    margin: 0;
+    font-size: 0.8rem;
+  }
+  .qa-cta__todo {
+    font-size: 0.8rem;
+    opacity: 0.6;
+  }
+  .qa-cta__todo code {
+    font-size: 0.85em;
+  }
+</style>
