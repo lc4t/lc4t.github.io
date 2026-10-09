@@ -2,6 +2,7 @@
 title: 琴谱
 pubDatetime: 2023-06-23 00:00:00 +08:00
 description: 准备学一些钢琴曲，提前记录一些瞄上的谱子
+draft: true
 postSlug: piano_list
 tags:
   - list

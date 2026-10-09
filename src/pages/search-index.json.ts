@@ -1,19 +1,17 @@
 import { getCollection } from "astro:content";
 import slugify from "@utils/slugify";
 
-type SearchItemType = "journal" | "article" | "archive" | "record";
+type SearchItemType = "journal" | "article" | "archive";
 
 const TYPE_TO_PATH: Record<SearchItemType, string> = {
   journal: "journals",
   article: "posts",
   archive: "posts",
-  record: "records",
 };
 
 const getType = (id: string): SearchItemType => {
   if (id.startsWith("journal/")) return "journal";
   if (id.startsWith("archive/")) return "archive";
-  if (id.startsWith("record/")) return "record";
   return "article";
 };
 
@@ -36,7 +34,10 @@ const formatDate = (date: Date) =>
   }).format(date);
 
 export async function get() {
-  const posts = await getCollection("blog", ({ data }) => !data.draft);
+  const posts = await getCollection(
+    "blog",
+    ({ data, id }) => !data.draft && !id.startsWith("record/")
+  );
   const items = posts
     .sort((a, b) => b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime())
     .map(post => {

@@ -20,6 +20,9 @@
 
 ## QA 开发
 
+QA 替代 Records 的主导航位置；Records 列表与详情路由已下线，旧内容保留在
+`src/content/blog/record/` 中并设为草稿，不进入搜索与标签列表。
+
 QA 使用独立的 `qa` content collection。`src/content/qa/placeholder.md`
 是无真实信息的草稿模板，默认不公开；复制为新文件后填写短标题、脱敏问题和
 回复正文，移除 `draft: true` 即可发布到 `/qa/<文件名>/`。标题由编辑拟定，

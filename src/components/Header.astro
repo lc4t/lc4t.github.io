@@ -4,7 +4,7 @@ import Hr from "./Hr.astro";
 import LinkButton from "./LinkButton.astro";
 
 export interface Props {
-  activeNav?: "posts" | "tags" | "journals" | "records" | "qa" | "search";
+  activeNav?: "posts" | "tags" | "journals" | "qa" | "search";
 }
 
 const { activeNav } = Astro.props;
@@ -14,8 +14,15 @@ const { activeNav } = Astro.props;
   <a id="skip-to-content" href="#main-content">Skip to content</a>
   <div class="nav-container">
     <div class="top-nav-wrap">
-      <a href="/" class="logo">
-        {SITE.title}
+      <a href="/" class="logo" aria-label="sakanano 首页">
+        <img
+          src="/images/brand/sakanano.webp"
+          alt="sakanano"
+          width="960"
+          height="320"
+          fetchpriority="high"
+          decoding="async"
+        />
       </a>
       <nav id="nav-menu">
         <button
@@ -55,11 +62,6 @@ const { activeNav } = Astro.props;
               class={activeNav === "journals" ? "active" : ""}
             >
               Journals
-            </a>
-          </li>
-          <li>
-            <a href="/records/" class={activeNav === "records" ? "active" : ""}>
-              Records
             </a>
           </li>
           <li>
@@ -131,7 +133,22 @@ const { activeNav } = Astro.props;
     @apply relative flex w-full items-start justify-between p-4 sm:items-center sm:py-8;
   }
   .logo {
-    @apply absolute py-1 text-xl font-semibold sm:absolute sm:text-2xl;
+    @apply absolute;
+    width: 176px;
+    line-height: 0;
+  }
+  .logo img {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  :global(html[data-theme="dark"]) .logo img {
+    filter: brightness(1.2);
+  }
+  @media (min-width: 640px) {
+    .logo {
+      width: 208px;
+    }
   }
   .hamburger-menu {
     @apply self-end p-2 sm:hidden;

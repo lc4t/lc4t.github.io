@@ -84,7 +84,6 @@ const updatedAt = entries[0]?.data.pubDatetime;
                   <QaAsker
                     className="qa-row__who"
                     askerName={entry.data.askerName}
-                    askerUrl={entry.data.askerUrl}
                     anonymous={entry.data.anonymous}
                   />
                 </span>
@@ -99,9 +98,7 @@ const updatedAt = entries[0]?.data.pubDatetime;
           ))}
         </ul>
       ) : (
-        <p class="qa-empty">
-          还没有收录的来信。上面留个言，也许下一封就是你的。
-        </p>
+        <p class="qa-empty">第一封来信正在准备中，之后会在这里更新。</p>
       )
     }
 
@@ -266,40 +263,7 @@ const updatedAt = entries[0]?.data.pubDatetime;
 </style>
 
 <script>
-  const chips = Array.from(
-    document.querySelectorAll<HTMLButtonElement>(".qa-chip")
-  );
-  const rows = Array.from(document.querySelectorAll<HTMLElement>(".qa-row"));
-  const emptyHint = document.getElementById("qa-empty");
+  import { initQaFilter } from "@utils/qaFilter";
 
-  const knownTags = new Set(
-    chips.map(c => c.dataset.tag || "").filter(Boolean)
-  );
-
-  const apply = (tag: string) => {
-    for (const chip of chips) {
-      const on = (chip.dataset.tag || "") === tag;
-      chip.classList.toggle("on", on);
-      chip.setAttribute("aria-pressed", String(on));
-    }
-    for (const row of rows) {
-      const list = (row.dataset.tags || "").split("|").filter(Boolean);
-      row.hidden = tag !== "" && !list.includes(tag);
-    }
-    if (emptyHint) {
-      emptyHint.hidden = tag === "" || rows.some(row => !row.hidden);
-    }
-
-    const url = new URL(window.location.href);
-    if (tag) url.searchParams.set("tag", tag);
-    else url.searchParams.delete("tag");
-    window.history.replaceState(null, "", url);
-  };
-
-  for (const chip of chips) {
-    chip.addEventListener("click", () => apply(chip.dataset.tag || ""));
-  }
-
-  const initial = new URL(window.location.href).searchParams.get("tag") || "";
-  apply(knownTags.has(initial) ? initial : "");
+  initQaFilter();
 </script>

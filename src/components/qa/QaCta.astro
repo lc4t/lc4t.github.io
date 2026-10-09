@@ -17,9 +17,7 @@ const href = qaMailtoHref(subject);
       {href ? (
         <a href={href}>我也要提问 →</a>
       ) : (
-        <span class="qa-cta__todo">
-          投稿邮箱待配置（src/config.ts → QA.submitEmail）
-        </span>
+        <span class="qa-cta__todo">投稿入口准备中。</span>
       )}
     </p>
   ) : (
@@ -28,19 +26,23 @@ const href = qaMailtoHref(subject);
       aria-label="投稿说明"
     >
       <p class="qa-cta__title">想问点什么？</p>
-      <p class="qa-cta__body">
-        留下联系方式我才能回信 —— 邮箱只用来回复你，
-        <strong>不会出现在网站上</strong>。 公开时是否署名、用什么昵称，你来定。
-      </p>
+      {href ? (
+        <p class="qa-cta__body">
+          留下联系方式我才能回信 —— 邮箱只用来回复你，
+          <strong>不会出现在网站上</strong>。
+          公开时是否署名、用什么昵称，你来定。
+        </p>
+      ) : (
+        <p class="qa-cta__body">
+          这里会收录读者来信，以及我对具体问题的思考与回复。
+        </p>
+      )}
       {href ? (
         <a class="qa-cta__link" href={href}>
           写信给我 →
         </a>
       ) : (
-        <p class="qa-cta__todo">
-          投稿邮箱待配置：把 <code>src/config.ts</code> 里的{" "}
-          <code>QA.submitEmail</code> 换成真实邮箱。
-        </p>
+        <p class="qa-cta__todo">投稿入口准备中。</p>
       )}
     </aside>
   )
