@@ -1,17 +1,19 @@
 ---
-import { getCollection, type CollectionEntry } from "astro:content";
-import dayjs from "dayjs";
+import { type CollectionEntry } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import Header from "@components/Header.astro";
 import Footer from "@components/Footer.astro";
 import Comments from "@components/Comment.astro";
 import QaCta from "@components/qa/QaCta.astro";
 import QaAsker from "@components/qa/QaAsker.astro";
+import QaQuestion from "@components/qa/QaQuestion.astro";
+import getQaEntries from "@utils/getQaEntries";
+import formatQaLetterDate from "@utils/formatQaLetterDate";
 import { SITE } from "@config";
 
 export async function getStaticPaths() {
-  const all = (await getCollection("qa", ({ data }) => !data.draft)).sort(
-    (a, b) => a.data.pubDatetime.getTime() - b.data.pubDatetime.getTime()
+  const all = (await getQaEntries()).sort(
+    (a, b) => a.data.letterDatetime.getTime() - b.data.letterDatetime.getTime()
   );
 
   return all.map((entry, index) => ({
@@ -26,19 +28,24 @@ interface Props {
 }
 
 const { entry, no } = Astro.props;
-const { question, askerName, askerUrl, anonymous, pubDatetime, tags, title } =
-  entry.data;
+const {
+  question,
+  askerName,
+  askerUrl,
+  anonymous,
+  letterDatetime,
+  tags,
+  title,
+} = entry.data;
 const { Content } = await entry.render();
 
-// 大标题 / 浏览器标签 / giscus 映射统一用收录时定的标题（不是问题原文）。
+// 详情页与浏览器标签使用邮件原题，列表的概括标题和简介不进入详情页。
 const headline = title;
 
-const description =
-  question.length > 140 ? `${question.slice(0, 139)}…` : question;
 const issue = String(no).padStart(3, "0");
 ---
 
-<Layout title={`${headline} | ${SITE.title}`} description={description}>
+<Layout title={`${headline} | ${SITE.title}`} description={headline}>
   <Header activeNav="qa" />
 
   <div class="qa-back-wrap">
@@ -60,17 +67,22 @@ const issue = String(no).padStart(3, "0");
         askerName={askerName}
         askerUrl={askerUrl}
         anonymous={anonymous}
-      /> · <time datetime={pubDatetime.toISOString()}
-        >{dayjs(pubDatetime).format("YYYY-MM-DD")}</time
+      /> · 来信于 <time datetime={letterDatetime.toISOString()}
+        >{formatQaLetterDate(letterDatetime)}</time
       >
     </p>
 
-    <section class="qa-letter__panel" aria-label="来信">
+    <nav class="qa-letter__sections" aria-label="信件段落">
+      <a href="#letter-question">来信 ↓</a>
+      <a href="#letter-reply">回复 ↓</a>
+    </nav>
+
+    <section id="letter-question" class="qa-letter__panel" aria-label="来信">
       <p class="qa-letter__label">来信</p>
-      <p class="qa-letter__question">{question}</p>
+      <QaQuestion question={question} />
     </section>
 
-    <section class="qa-letter__reply" aria-label="回复">
+    <section id="letter-reply" class="qa-letter__reply" aria-label="回复">
       <p class="qa-letter__label">回复</p>
       <article class="prose max-w-none">
         <Content />
@@ -90,7 +102,7 @@ const issue = String(no).padStart(3, "0");
       <QaCta variant="compact" subject={`关于「${headline}」`} />
     </footer>
 
-    <Comments />
+    {!entry.data.draft && <Comments />}
   </main>
 
   <Footer />
@@ -143,7 +155,7 @@ const issue = String(no).padStart(3, "0");
     text-wrap: balance;
   }
   .qa-letter__byline {
-    margin: 0 0 1.6rem;
+    margin: 0;
     padding-bottom: 1.4rem;
     border-bottom: 1px solid var(--qa-hair);
     font-size: 0.76rem;
@@ -151,6 +163,23 @@ const issue = String(no).padStart(3, "0");
   }
   .qa-letter__byline time {
     font-variant-numeric: tabular-nums;
+  }
+
+  .qa-letter__sections {
+    display: flex;
+    gap: 1.25rem;
+    margin: 1rem 0 1.5rem;
+    font-size: 0.78rem;
+  }
+  .qa-letter__sections a {
+    color: rgb(var(--color-accent));
+    text-underline-offset: 4px;
+  }
+
+  .qa-letter__panel,
+  .qa-letter__reply {
+    scroll-margin-top: 1.5rem;
+    width: 100%;
   }
 
   .qa-letter__label {
@@ -165,17 +194,8 @@ const issue = String(no).padStart(3, "0");
     background: rgba(var(--color-card), 0.5);
     border-left: 3px solid rgb(var(--color-accent));
     padding: 1rem 1.15rem;
-    margin-bottom: 1.8rem;
+    margin-bottom: 2.5rem;
   }
-  .qa-letter__question {
-    margin: 0;
-    font-size: 0.95rem;
-    line-height: 1.75;
-    /* question 是纯文本字段，多段来信靠 YAML 里的空行分隔；
-       用 pre-line 把这些换行还原成段落间距，而不是拼成一整段。 */
-    white-space: pre-line;
-  }
-
   .qa-letter__reply {
     margin-bottom: 2.4rem;
   }
@@ -183,6 +203,19 @@ const issue = String(no).padStart(3, "0");
   .qa-letter__reply :global(.prose) {
     margin-left: 0;
     margin-right: 0;
+    font-size: 0.95rem;
+    line-height: 1.95;
+    overflow-wrap: anywhere;
+  }
+  .qa-letter__reply :global(.prose h2) {
+    margin-top: 2rem;
+    font-size: 1.08rem;
+    line-height: 1.6;
+    font-style: normal;
+  }
+  .qa-letter__reply :global(.prose p) {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
 
   .qa-letter__foot {

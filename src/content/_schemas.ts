@@ -38,10 +38,14 @@ export const qaSchema = z
     anonymous: z.boolean().default(false),
     // 收录（发布）时间。
     pubDatetime: z.date(),
+    // 原始来信时间，用于列表、详情展示和来信排序。
+    letterDatetime: z.date(),
     tags: z.array(z.string()).default(["others"]),
-    // 收录标题，由我来定（不是问题原文）：详情页大标题、列表大标题、浏览器标签、
-    // giscus 映射都用它。上限 40 字，逼自己写得克制。
-    title: z.string().max(40),
+    // 脱敏后的原始邮件主题，用于详情页标题、浏览器标签和 giscus 映射。
+    title: z.string(),
+    // 单独撰写的列表标题与简介，详情页保留邮件原题和原文。
+    listTitle: z.string().max(40),
+    listDescription: z.string(),
     draft: z.boolean().optional(),
   })
   .strict();

@@ -1,7 +1,5 @@
 import rss, { RSSOptions } from "@astrojs/rss";
 import { getCollection } from "astro:content";
-import getSortedPosts from "@utils/getSortedPosts";
-import slugify from "@utils/slugify";
 import { SITE } from "@config";
 import sanitizeHtml from "sanitize-html";
 import MarkdownIt from "markdown-it";
@@ -14,31 +12,27 @@ const folderToLinkPrefix = {
   // 例如: 'notes': 'notes',
 };
 
+const sanitizeContent = (html: string) =>
+  sanitizeHtml(html, {
+    allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
+  });
+
+const escapeText = (text: string) =>
+  text.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
 export async function get() {
-  const allPosts = await getCollection(
-    "blog",
-    a =>
-      (a.slug.startsWith("article/") || a.slug.startsWith("journal/")) &&
-      !a.data.draft
-  );
-  const sortedPosts = allPosts
-    .sort(
-      (a, b) =>
-        new Date(b.data.pubDatetime).getTime() -
-        new Date(a.data.pubDatetime).getTime()
-    )
-    .slice(0, 50);
+  const [allPosts, letters] = await Promise.all([
+    getCollection(
+      "blog",
+      a =>
+        (a.slug.startsWith("article/") || a.slug.startsWith("journal/")) &&
+        !a.data.draft
+    ),
+    getCollection("qa", ({ data }) => !data.draft),
+  ]);
 
-  console.log(
-    `获取到的文章数量: ${allPosts.length}, 处理后的文章数量: ${sortedPosts.length}`
-  );
-
-  const rssOptions: RSSOptions = {
-    title: SITE.title,
-    description: SITE.desc,
-    site: SITE.website,
-    trailingSlash: false,
-    items: sortedPosts.map(post => {
+  const items = [
+    ...allPosts.map(post => {
       // 使用 post.slug 来确定文件夹
       const slugParts = post.slug.split("/");
       const folder = slugParts[0];
@@ -46,19 +40,42 @@ export async function get() {
       const slug = slugParts.slice(1).join("/");
       const link = `/${linkPrefix}/${slug}/`;
 
-      console.log(`生成链接: ${link} (原始 slug: ${post.slug})`);
-
       return {
         link,
         title: post.data.title,
         description: post.data.description,
         pubDate: new Date(post.data.pubDatetime),
-        content: sanitizeHtml(parser.render(post.body), {
-          allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
-        }),
-        // content: sanitizeHtml(post.compiledContent()),
+        content: sanitizeContent(parser.render(post.body)),
       };
     }),
+    ...letters.map(entry => {
+      const question = entry.data.question
+        .split(/\n\s*\n/)
+        .map(
+          paragraph => `<p>${escapeText(paragraph).replace(/\n/g, "<br>")}</p>`
+        )
+        .join("");
+
+      return {
+        link: `/qa/${entry.slug}/`,
+        title: entry.data.listTitle,
+        description: entry.data.listDescription,
+        pubDate: entry.data.pubDatetime,
+        content: sanitizeContent(
+          `<h2>来信</h2>${question}<h2>回复</h2>${parser.render(entry.body)}`
+        ),
+      };
+    }),
+  ]
+    .sort((a, b) => b.pubDate.getTime() - a.pubDate.getTime())
+    .slice(0, 50);
+
+  const rssOptions: RSSOptions = {
+    title: SITE.title,
+    description: SITE.desc,
+    site: SITE.website,
+    trailingSlash: false,
+    items,
     customData: `
     <follow_challenge>
         <feedId>56969302790438912</feedId>

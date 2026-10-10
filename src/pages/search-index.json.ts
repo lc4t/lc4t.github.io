@@ -34,22 +34,44 @@ const formatDate = (date: Date) =>
   }).format(date);
 
 export async function get() {
-  const posts = await getCollection(
-    "blog",
-    ({ data, id }) => !data.draft && !id.startsWith("record/")
-  );
-  const items = posts
-    .sort((a, b) => b.data.pubDatetime.getTime() - a.data.pubDatetime.getTime())
-    .map(post => {
+  const [posts, letters] = await Promise.all([
+    getCollection(
+      "blog",
+      ({ data, id }) => !data.draft && !id.startsWith("record/")
+    ),
+    getCollection("qa", ({ data }) => !data.draft),
+  ]);
+
+  const entries = [
+    ...posts.map(post => {
       const type = getType(post.id);
       return {
-        title: post.data.title,
-        description: post.data.description,
-        date: formatDate(post.data.pubDatetime),
-        url: `/${TYPE_TO_PATH[type]}/${slugify(post.data)}/`,
-        content: toSearchableText(post.body),
+        pubDatetime: post.data.pubDatetime,
+        item: {
+          title: post.data.title,
+          description: post.data.description,
+          date: formatDate(post.data.pubDatetime),
+          url: `/${TYPE_TO_PATH[type]}/${slugify(post.data)}/`,
+          content: toSearchableText(post.body),
+        },
       };
-    });
+    }),
+    ...letters.map(entry => ({
+      pubDatetime: entry.data.pubDatetime,
+      item: {
+        title: entry.data.listTitle,
+        description: entry.data.listDescription,
+        date: formatDate(entry.data.letterDatetime),
+        url: `/qa/${entry.slug}/`,
+        content: toSearchableText(
+          `${entry.data.title}\n${entry.data.question}\n${entry.body}`
+        ),
+      },
+    })),
+  ];
+  const items = entries
+    .sort((a, b) => b.pubDatetime.getTime() - a.pubDatetime.getTime())
+    .map(({ item }) => item);
 
   return {
     body: JSON.stringify(items),

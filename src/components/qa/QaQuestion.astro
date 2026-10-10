@@ -1,0 +1,68 @@
+---
+interface Props {
+  question: string;
+}
+
+const { question } = Astro.props;
+const lines = question.split(/\r?\n/);
+const blocks: { text: string; number?: string }[] = [];
+
+for (let index = 0; index < lines.length; index += 1) {
+  const line = lines[index];
+  if (!line.trim()) continue;
+
+  // 邮件纯文本中的编号可能单独占一行，保留原字句，恢复标题层次。
+  if (/^\s*\d+\.\s*$/.test(line) && lines[index + 1]?.trim()) {
+    blocks.push({ number: line, text: lines[index + 1] });
+    index += 1;
+  } else {
+    blocks.push({ text: line });
+  }
+}
+---
+
+<div class="qa-question">
+  {
+    blocks.map(block =>
+      block.number ? (
+        <h2 class="qa-question__heading">
+          <span class="qa-question__number">{block.number}</span>
+          <span>{block.text}</span>
+        </h2>
+      ) : (
+        <p>{block.text}</p>
+      )
+    )
+  }
+</div>
+
+<style>
+  .qa-question {
+    font-size: 0.95rem;
+    line-height: 1.95;
+    overflow-wrap: anywhere;
+  }
+  .qa-question p {
+    margin: 0.8rem 0;
+  }
+  .qa-question > :first-child {
+    margin-top: 0;
+  }
+  .qa-question > :last-child {
+    margin-bottom: 0;
+  }
+  .qa-question__heading {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    margin: 1.4rem 0 0.8rem;
+    font-size: inherit;
+    font-weight: 600;
+    line-height: 1.8;
+  }
+  .qa-question__number {
+    flex: 0 0 auto;
+    font-variant-numeric: tabular-nums;
+    color: rgb(var(--color-accent));
+  }
+</style>
